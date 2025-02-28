@@ -111,7 +111,7 @@ Table of Contents
    Attester, it is possible that a single Verifier may not have all the
    capabilities or the information required to conduct the complete
    appraisal of the Composite Attester.  In this case, multiple
-   Verifiers need to coordinate to conclude the appraisal and produce
+   Verifiers need to collaborate to conclude the appraisal and produce
    the Attestation Results.
 
    This document describes various topological patterns of multiple
