@@ -159,7 +159,7 @@ Table of Contents
 
    A Composite Attester has multiple Component Attesters.  Each Attester
    requires a different set of Verifiers.  Hence multiple Verifiers
-   coordinate together to appraise a Composite Attester.
+   collaborate to appraise a Composite Attester.
 
 3.1.  Hierarchical Pattern
 
