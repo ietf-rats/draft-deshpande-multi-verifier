@@ -111,8 +111,8 @@ Table of Contents
    Attester, it is possible that a single Verifier may not have all the
    capabilities or the information required to conduct the complete
    appraisal of the Composite Attester.  In this case, multiple
-   Verifiers need to work in tandem to conclude the appraisal and
-   produce the Attestation Results.
+   Verifiers need to collaborate to conclude the appraisal and produce
+   the Attestation Results.
 
    This document describes various topological patterns of multiple
    Verifiers that work in a coordinated manner to conduct appraisal of a
@@ -157,9 +157,9 @@ Table of Contents
 
 3.  Multi Verifier topological patterns
 
-   A composite Attester as per RATS definition has multiple layers.
-   Each layer requires a different set of Verifiers.  Hence multi
-   Verifiers work in tandem to appraise a composite Attester.
+   A Composite Attester has multiple Component Attesters.  Each Attester
+   requires a different set of Verifiers.  Hence multiple Verifiers
+   collaborate to appraise a Composite Attester.
 
 3.1.  Hierarchical Pattern
 
