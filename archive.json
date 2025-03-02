@@ -1,0 +1,749 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2025-03-02T01:35:51.997043+00:00",
+  "repo": "ietf-rats/draft-deshpande-multi-verifier",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 5,
+      "id": "I_kwDON24c9s6ruXiR",
+      "title": "Composite Attester definition",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/5",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Composite Device (CD) and Layered Attester (LA) are basic composition patterns.\n\nIf we are introducing a new term, Composite Attester (CA), it may be worth giving it more expressive power than just a handy shorthand for CD _or_ LA.\n\nI suppose we could say that a CA is either a CD, an LA, or any composition involving one or more CDs and/or LAs, and thus have a more useful term in our vocabulary.\n\nAs an example of its use, take a CCA system with a separately attested GPU, exposing a [`ratsd`](https://github.com/veraison/ratsd) endpoint as the lead attester.\n\nThe resulting CA would be a CD made of one LA (the CCA platform and realm) plus a \"singleton\" attester (the GPU).\n\nEven fancier compositions can be imagined in systems spanning multiple physical nodes.",
+      "createdAt": "2025-02-26T10:26:28Z",
+      "updatedAt": "2025-02-28T12:43:15Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The definition of CA should also be added to the \"Conventions and Definitions\" section.",
+          "createdAt": "2025-02-26T10:36:09Z",
+          "updatedAt": "2025-02-26T10:36:09Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Agree that Composite Attester is a new term, so added it in Glossary and used it through out the document!",
+          "createdAt": "2025-02-27T15:40:42Z",
+          "updatedAt": "2025-02-27T15:40:42Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Commit is linked to the Issue so we can check, whether the commit addresses the concern!",
+          "createdAt": "2025-02-28T12:43:14Z",
+          "updatedAt": "2025-02-28T12:43:14Z"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "I_kwDON24c9s6rubJI",
+      "title": "Is \"sub\" the right term?",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/6",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "It says:\n\n> _\"[..] sub-Attester to address the sub-entity\"_\n\n\nWhile I get where this is coming from (i.e., RFC9334's \"Composite Device\"), we want to be able to cover more than just CDs.  Besides, there is not necessarily a hierarchical relationship in the composition which is suggested by \"sub\".\n\nI propose using the term \"component Attester\" instead.",
+      "createdAt": "2025-02-26T10:31:03Z",
+      "updatedAt": "2025-02-28T12:40:25Z",
+      "closedAt": "2025-02-28T12:40:24Z",
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thank you @thomas-fossati : I have now replaced sub-Attester with Component Attester throughout the document and also added a glossary section making a clear definition for the same!",
+          "createdAt": "2025-02-27T15:39:55Z",
+          "updatedAt": "2025-02-27T15:39:55Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We can close this as there is a clear PR to reference the issue fixed!",
+          "createdAt": "2025-02-28T12:33:44Z",
+          "updatedAt": "2025-02-28T12:33:44Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Not sure you can call it a \"clear PR\", but I am OK to close this.",
+          "createdAt": "2025-02-28T12:40:24Z",
+          "updatedAt": "2025-02-28T12:40:24Z"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "I_kwDON24c9s6rueES",
+      "title": "wrong use of \"in tandem\"",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/7",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "It says:\n\n> Verifiers need to work in tandem\n\nbut \"in tandem\" means \"_two_ working together\".\n\nSince we are not putting any limitations on the number of Verifiers that are supposed to cooperate, the term is used incorrectly.\n\nI suggest\n\n> Verifiers need to cooperate\n\nor \n\n> Verifiers need to work together\n\n",
+      "createdAt": "2025-02-26T10:35:00Z",
+      "updatedAt": "2025-02-28T12:43:48Z",
+      "closedAt": "2025-02-28T12:43:48Z",
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I asked my lovely tool the meaning of word :\n\nWhat is in tandem means: Here is the reply:\n\nThe phrase \"in tandem\" means **_two or more things_** happening together, simultaneously, or in coordination. \n\n\n",
+          "createdAt": "2025-02-27T15:43:32Z",
+          "updatedAt": "2025-02-27T15:43:32Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Unsure who or what the \"lovely tool\" is you are referring to :-)\n\nAnyway, my English vocabulary talks specifically about \"two elements working together\".\n\nSo, there is at least some potential confusion which can be avoided by using a more simple term, like \"together\".\n",
+          "createdAt": "2025-02-27T16:11:55Z",
+          "updatedAt": "2025-02-27T16:11:55Z"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "I_kwDON24c9s6ruk5o",
+      "title": "problematic 1st para of \"Multi Verifier topological patterns\"",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/8",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The following sentence has a number of issues:\n\n> _\"A composite Attester as per RATS definition has multiple layers. Each layer requires a different set of Verifiers. Hence multi Verifiers work in tandem to appraise a composite Attester.\"_\n\n1. There is no \"RATS definition\" of \"composite Attester\"\n2. Layers exist in layered attester, not in composite devices\n3. A single verifier could handle multiple layers by itself\n4. The conclusion _\"Hence...\"_ is predicated on a set of incomplete/wrong/partially true assumptions.\n5. Use of \"tandem\" is incorrect in this context (see also #7)",
+      "createdAt": "2025-02-26T10:44:14Z",
+      "updatedAt": "2025-02-26T10:44:14Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 9,
+      "id": "I_kwDON24c9s6rutZV",
+      "title": "processing of single-signature composite evidence: example of requirement?",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/9",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "It says:\n\n> In certain topologies, it is possible that only the Composite Evidence is Signed to provide the overall integrity, while the individual sub-Attester Evidence (example Evidence 1) is not protected. In such cases, the Lead Verifer upon processing of Composite Evidence produce an Attestation Result first, stash the sub-Attester Evidence (example Evidence 1) as unprocessed Evidence, sign the AR and send it to its Verifier (example Verifier 1).\n\nIt is not clear if the described processing is just an example or if it is expected that verifiers will behave like that.",
+      "createdAt": "2025-02-26T10:55:22Z",
+      "updatedAt": "2025-02-27T17:55:22Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "There are cases, where Evidences (from different RoT) are individually NOT signed but protected by outer signature.\n\nWe need to cater this case also, so just referred to that here.\n\nChanged the Model to wrap individual Evidences in a Signed CMW, instead of in an AR, as it was un-necessary!",
+          "createdAt": "2025-02-27T17:55:02Z",
+          "updatedAt": "2025-02-27T17:55:02Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Addressed in the latest draft!",
+          "createdAt": "2025-02-27T17:55:20Z",
+          "updatedAt": "2025-02-27T17:55:20Z"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "I_kwDON24c9s6ruwUa",
+      "title": "Pics overflowing",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/10",
+      "state": "CLOSED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The pics should not exceed 72 columns.",
+      "createdAt": "2025-02-26T10:59:21Z",
+      "updatedAt": "2025-02-28T09:30:32Z",
+      "closedAt": "2025-02-28T09:30:32Z",
+      "comments": []
+    },
+    {
+      "number": 11,
+      "id": "I_kwDON24c9s6ru8S_",
+      "title": "Comments on the \"Trust Relationships\" section contents",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/11",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The content of the section is pretty confusing.\n\nThe title suggests I could find the description of the trust relationship among the involved actors (attester, front-end verifier and  back-end verifiers), but it contains a mix of security considerations and AR assembly.\n\nThe section should clearly state who needs to trusts who, and to do what, very clearly, maybe even schematically.\n\nCrypto signatures generation and validation, as well as AR assembly and processing are just implementation details.",
+      "createdAt": "2025-02-26T11:15:37Z",
+      "updatedAt": "2025-02-27T17:53:12Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Addressed valid comments made by Thomas ",
+          "createdAt": "2025-02-27T17:53:11Z",
+          "updatedAt": "2025-02-27T17:53:11Z"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "id": "I_kwDON24c9s6rw_12",
+      "title": "Cascaded pattern description",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/12",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "I am unsure about the description of the interaction between verifiers in the cascaded pattern.\n\nOne fundamental high level principle that is not discussed is how the chain is constructed.\nAnother discussion to be had is around exchanged conceptual messages.  RATS require a verifier to consume evidence and produce attestation results.  The \"CE & partial AR\" combo doesn't fit well in that model.\n\nA few clarifications:\n\n1. Why is it necessary to assume that each verifier knows the entire composite attester topology?\n2. Why Is it necessary to assume that the first verifier decodes CE?  (If fact, what does it mean to \"decode CE\"? Is it _complete_ decoding?)\n3. Is it necessary to assume that any verifier can be an equivalent entry point in the verification chain?\n4. How is the subsequent verifier identified?\n5. Is it possible for two or more verifiers in the chain to have overlapping reference values?  If so, is each doing their separate appraisal?\n\n\nNote: CAR may be a term of art already: Ned has used it [in a few places](https://github.com/CCC-Attestation/meetings/blob/main/materials/NedSmith_CAR.pdf) to mean Concise Attestation Result.  I suggest picking a different one to avoid confusion.",
+      "createdAt": "2025-02-26T14:10:07Z",
+      "updatedAt": "2025-02-27T18:09:31Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I am unsure about the description of the interaction between verifiers in the cascaded pattern.\n> \n> One fundamental high level principle that is not discussed is how the chain is constructed. Another discussion to be had is around exchanged conceptual messages. RATS require a verifier to consume evidence and produce attestation results. The \"CE & partial AR\" combo doesn't fit well in that model.\n> \n> A few clarifications:\n> \n> 1. Why is it necessary to assume that each verifier knows the entire composite attester topology?\n>> The reason been, each of the Individual Verifier receives the Composite Evidence(CE). If in absence of this knowledge, will not be possible to decode the CE.\n> 2. Why Is it necessary to assume that the first verifier decodes CE?  (If fact, what does it mean to \"decode CE\"? Is it _complete_ decoding?)\n> > Yes, it means complete decoding to understand,  which relevant part is the one it needs to handle.\n\n> 3. Is it necessary to assume that any verifier can be an equivalent entry point in the verification chain?\n> > Yes, it is required, otherwise, if not described this way, then we fall into a trap of a Lead Verifier, which is not we want to propose.\n\n> 4. How is the subsequent verifier identified?\n> > We need to identify the discovery part, I will riase a github issue to address this..\n\n> 5. Is it possible for two or more verifiers in the chain to have overlapping reference values?  If so, is each doing their separate appraisal? \n> > If they have an Overlapping Reference Values, then both should have it. Still each needs to perform its Own Appraisal.\n\n> 6. > > Note: CAR may be a term of art already: Ned has used it [in a few places](https://github.com/CCC-Attestation/meetings/blob/main/materials/NedSmith_CAR.pdf) to mean Concise Attestation Result. I suggest picking a different one to avoid confusion.\nI agree CAR is already used, suggest me a better word, immediately comes to my mind is TAR --> Total Attestation Results\nOR\n\nJAR --> Joint Attestation Results",
+          "createdAt": "2025-02-27T16:49:44Z",
+          "updatedAt": "2025-02-27T16:50:32Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I settled on Aggregated Attestation Results ==> AAR, which is the closest as to what we are doing for collecting the Individual Attestation Results! Modified the draft to reflect this! ",
+          "createdAt": "2025-02-27T17:02:51Z",
+          "updatedAt": "2025-02-27T17:02:51Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "To your point: \n`One fundamental high level principle that is not discussed is how the chain is constructed.\nAnother discussion to be had is around exchanged conceptual messages. RATS require a Verifier to consume evidence and produce attestation results. The \"CE & partial AR\" combo doesn't fit well in that model.`\n\nMy 2 cents:\nI think, RATS is amply clear that RATS Entities can process Conceptual Messages through Conceptual Message Wrapper.\n\nSo the Model assumes that Each Verifier Processes Evidence in a RATS CMW which has a \"Partial AR\" Attached to it.\n\nIt consumes Evidence, then Augments Partial AR and passes the new CMW to the Next Verifier.\n\nThe principal Handled message is Evidence ONLY. It just receives Additional MetaData (alongside Evidence) in a CMW, which is propagated down the chain. I think the model is fair enough and does not break RATS principles to the best of our understanding!",
+          "createdAt": "2025-02-27T17:16:08Z",
+          "updatedAt": "2025-02-27T17:17:36Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "\n> My 2 cents: I think, RATS is amply clear that RATS Entities can process Conceptual Messages through Conceptual Message Wrapper.\n\nNo, there is no way CMW can be assumed as a universal RATS wrapper.\n\nIf we are assuming a CMW structure, then we must state that explicitly, although I think it's too restrictive.  In fact, EAT/EAR can provide pretty much the same functionality as CMW in this context.  CoEV/CAR too.",
+          "createdAt": "2025-02-27T17:51:51Z",
+          "updatedAt": "2025-02-27T17:51:51Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "[ restoring quoting direction \ud83d\ude04 ]\n\n> > 1. Why is it necessary to assume that each verifier knows the entire composite attester topology?\n> \n> The reason been, each of the Individual Verifier receives the Composite Evidence(CE). If in absence of this knowledge, will not be possible to decode the CE.\n\nIt doesn't look like a necessity to me.\n\nYou can imagine a CMW (or equivalent wrapper) where each evidence entry in the logical collection has a label that maps unambiguously to a specific \"attestation scheme\" (to use a Veraison term.)\n\nWhat each node in the Verifiers' chain needs to understand is which label to \"de-reference\" to obtain the \"component Evidence\" that it knows how to process.  Once that is done it can replace that label with an equivalent label in the \"AR bucket\" and attach the corresponding AR.\n\nSuch a verifier can be totally blind to all other labels it doesn't know about, i.e., it can completely ignore the global topology and only do its local work.\n\n",
+          "createdAt": "2025-02-27T18:00:04Z",
+          "updatedAt": "2025-02-27T18:00:04Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> [ restoring quoting direction \ud83d\ude04 ]\n> \n> > > 1. Why is it necessary to assume that each verifier knows the entire composite attester topology?\n> > \n> > \n> > The reason been, each of the Individual Verifier receives the Composite Evidence(CE). If in absence of this knowledge, will not be possible to decode the CE.\n> \n> It doesn't look like a necessity to me.\n> \n> You can imagine a CMW (or equivalent wrapper) where each evidence entry in the logical collection has a label that maps unambiguously to a specific \"attestation scheme\" (to use a Veraison term.)\n> \n> What each node in the Verifiers' chain needs to understand is which label to \"de-reference\" to obtain the \"component Evidence\" that it knows how to process. Once that is done it can replace that label with an equivalent label in the \"AR bucket\" and attach the corresponding AR.\n> \n> Such a verifier can be totally blind to all other labels it doesn't know about, i.e., it can completely ignore the global topology and only do its local work.\n\nTrue that is also a simple collection a possibility, however, can we assume that simplicity to begin with, where the pattern is so simple? I can add a alternative statement that can address your point but largely the entire blob (of Composite Evidence) still flows (whether in a CMW Blob) or whatever.! So the flow is NOT changed, I guess, the decoding aspects does change!\n",
+          "createdAt": "2025-02-27T18:09:30Z",
+          "updatedAt": "2025-02-27T18:09:30Z"
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "id": "I_kwDON24c9s6sFnux",
+      "title": "An \"Evidence+AR bundle\" conceptual message",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/16",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "@junzhanghw suggested modelling each verifier in the cascaded verification pattern as the composition of different roles.\n\n```\n i-th stage             i+1-th stage\n.----------.            .----------.\n|          |            |          |\n| Verifier +--|AAR_i|-->|    RP    |\n|          |            |          |\n+----------+            +----------+\n|          |            |          |\n| Attester +--|CE_i|--->| Verifier |\n|          |            |          |\n'----------'            '----------'\n```\n\nIf we want to split the Evidence+AR bundle into separate RFC9334 conceptual messages while also respecting RFC9334 roles, adjacent cascaded verifiers end up with different assemblies, which is not great.\n\nWe could model each cascaded verifier as a three-faced Janus as follows:\n\n```\n.----------.\n|          |\n|    RP    |\n|          |\n+----------+            .----------.\n|          |            |          |\n| Verifier +--[AAR_i]-->|    RP    +\n|          |            |    |     |\n+----------+            +-[AAR_i]--+              \n|          |            |    |     |              .----------.\n|          |            |    v     |              |          |\n| Attester +--[CE_i]--->| Verifier +--[AAR_i+1]-->|   RP     |\n|          |            |    |     |              |          | \n'----------'            +-[CE_i+1]-+              +--[....]--+\n                        |    |     |              |          |\n                        |    v     |              |          |\n                        | Attester +--[CE_i+1]--->| Verifier |\n                        |          |              |          |\n                        '----------'              '--[....]--'\n                                                  |          |\n                                                  | Attester |\n                                                  |          |\n                                                  '----------'\n```\n\nbut this requires new internal interfaces between roles which need to be specified:\n\n1. RP forwards $$AAR_i$$ to the co-located Verifier\n2. Verifier manipulates $$CE_i$$ to obtain $$CE_{i+1}$$ which is then forwarded to the co-located Attester.\n\nThe RFC9334 aftertaste of this is not good either...\n\nAn alternative is to define a new RATS CM, the \"Evidence+AR bundle\", that is exchanged between adjacent Verifiers.\n\nThe Evidence+AR bundle is the composition of two CMs: $$AAR_i$$ and $$CE_i$$.\n\nAt each stage, the Evidence+AR bundle evolves as follows:\n\n| stage | $$AAR_i$$ | $$CE_i$$ | \n|---|---|---|\n| 1 | $$\\emptyset$$ | $$E_1, \\ldots, E_n$$ |\n| 2 | $$AR_1$$ | $$E_2, \\ldots, E_n$$ |\n| 3 | $$AR_1, AR_2$$ | $$E_3, \\ldots, E_n$$ |\n| i-th | $$AR_1, \\ldots, AR_{i-1}$$ | $$E_i, \\ldots, E_n$$ |\n| n | $$AR_1, \\ldots, AR_n$$ | $$\\emptyset$$ |\n\nWhen one Evidence is appraised it's removed from the $$CE$$ set and a corresponding Attestation Result is added to the $$AAR$$ set. \n\nComposite Evidence and composite Attestation Results are just special cases of this new CM, for $$i=1$$ and $$i=n$$, respectively.",
+      "createdAt": "2025-02-28T13:27:20Z",
+      "updatedAt": "2025-02-28T16:12:22Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@thomas-fossati, my understanding of the flow is as follows:\n\n\n```\n i-th stage             i+1-th stage\n.----------.            .----------.\n|          |            |          |\n| Verifier |            | Attester --|EV_(i+1)|--->\n|          |            |          |\n+----------+            +----------+\n|          |            |          |\n| Attester +--|EV_i|--->| Verifier |\n|          |            |          |\n'----------'            '----------'\n'----------'            '----------'\n\nwhere |EV_i| is the augmented evidence that include both original evidence and the [AAR_i]\n",
+          "createdAt": "2025-02-28T14:51:42Z",
+          "updatedAt": "2025-02-28T14:51:42Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> [@thomas-fossati](https://github.com/thomas-fossati), my understanding of the flow is as follows:\n> \n> [snip]\n> \n> where |EV_i| is the augmented evidence that include both original evidence and the [AAR_i]\n\nThis \"augmented evidence\" is a new conceptual message, right?  (We should try to avoid confusion with AR4SI's \"AR-augmented evidence,\" which is a very different thing.)\n\nDo you think it'd materialise in contexts other than cascaded verification?",
+          "createdAt": "2025-02-28T15:07:04Z",
+          "updatedAt": "2025-02-28T15:07:42Z"
+        },
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@thomas-fossati ,\n\nI think in our case, the \"augmented evidence\" is an extension of the  AR-augmented Evidence in ar4si. I copy some words from ar4si and modify it for the augmented evidence.\nWhen Verifiers trust each other, there is no need to the PoF between Verifiers. What do you think?\n\n\n   Augmented Evidence:  a bundle of Evidence which includes at least\n      the following:\n\n      1.  Verifier signed Attestation Results.  These Attestation\n          Results must include Identity (sub) Evidence for the (sub-)Attester, a\n          Trustworthiness Vector describing a Verifier's most recent\n          appraisal of an (sub-)Attester, and some Verifier Proof-of-Freshness\n          (PoF).\n\n       2.  Full or partial information from the original evidence. ",
+          "createdAt": "2025-02-28T15:19:56Z",
+          "updatedAt": "2025-02-28T15:20:15Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> [@thomas-fossati](https://github.com/thomas-fossati) ,\n> \n> I think in our case, the \"augmented evidence\" is an extension of the AR-augmented Evidence in ar4si. I copy some words from ar4si and modify it for the augmented evidence. When Verifiers trust each other, there is no need to the PoF between Verifiers. What do you think?\n\nI don't think this would fly.  The key feature of AR-augmented Evidence is that the Evidence and AR blocs in it are statements about the same \"component Attester\", whereas in our case the two blocs are _complementary_ statements about the same \"composite Attester\".",
+          "createdAt": "2025-02-28T15:24:07Z",
+          "updatedAt": "2025-02-28T15:24:20Z"
+        },
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@thomas-fossati ,\n\nIn our case, the \"Evidence+AR bundle\" concept has extended the concept of the list of evidence.\n\nIn the original form (of evidence list/evidence of composite device), it is like [ $EV_1$, $EV_2$, ..., $EV_n$, sig($EV_1$, $EV_2$, ..., $EV_n$), PoF]\n\nin the cascade model (or more general ones), it is like\n[ $AR_1$, $AR_2$, ..., $EV_k$, ..., $EV_n$, (optional?) sig($AR_1$, $AR_2$, ..., $EV_n$), (optional?) PoF].\n\nthe mapping from $EV_i$ to $AR_i$ can be regarded as kind of translation such that the raw data in $EV_i$ can be recognized by the latter entity that needs to proceed it. \n\nI like your RP/Verifier/Attester 3-body graph. Maybe we can introduce one more body to pre-process the \"Evidence+AR bundle\", so that RP, Verifier, Attester can still remain their original functions as specified by RFC9334?\n ",
+          "createdAt": "2025-02-28T16:02:17Z",
+          "updatedAt": "2025-02-28T16:12:22Z"
+        }
+      ]
+    }
+  ],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDON24c9s6LH1bR",
+      "title": "Add Initial Draft of Verification Toplogies",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/1",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-13T15:19:54Z",
+      "updatedAt": "2025-02-13T15:20:03Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "06975f36af95768c9691439dd22d69215df0f2af",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "initial-work",
+      "headRefOid": "f4502b78cfa1a70b3c0da408db3ef9ccdc18a838",
+      "closedAt": "2025-02-13T15:20:02Z",
+      "mergedAt": "2025-02-13T15:20:02Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "03deb0a865dfd0a0e49ee84aa85517cfc4f33e37"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDON24c9s6LcN0C",
+      "title": "Add Initial Draft of Verification Topology",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/2",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-17T10:56:31Z",
+      "updatedAt": "2025-02-17T10:59:07Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "03deb0a865dfd0a0e49ee84aa85517cfc4f33e37",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "initial-work",
+      "headRefOid": "942fceb3b66a5803651c68661de4d7e799d1d078",
+      "closedAt": "2025-02-17T10:59:07Z",
+      "mergedAt": "2025-02-17T10:59:07Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "087148eeb35ea5cd0d86e00f9930791c217baa2e"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDON24c9s6LdKAV",
+      "title": "Initial work",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/3",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-17T12:49:59Z",
+      "updatedAt": "2025-02-17T12:51:31Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "087148eeb35ea5cd0d86e00f9930791c217baa2e",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "initial-work",
+      "headRefOid": "ba56ad85b1d2ef08f3b64ddf31b48e9bc56db7b3",
+      "closedAt": "2025-02-17T12:51:31Z",
+      "mergedAt": "2025-02-17T12:51:31Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "bc26166c5d10effa30356e29dbd752d13ae3202f"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDON24c9s6LnfiP",
+      "title": "Update draft-deshpande-rats-multi-verifier.md",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/4",
+      "state": "MERGED",
+      "author": "junzhanghw",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "correct some typos\r\nmention that the attester contacts verifier directly or indirectly add the session of the freshness",
+      "createdAt": "2025-02-18T15:28:29Z",
+      "updatedAt": "2025-02-18T16:14:11Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "edee20891cef3257f1bd3b83f601fc3931601845",
+      "headRepository": "junzhanghw/draft-deshpande-multi-verifier",
+      "headRefName": "patch-1",
+      "headRefOid": "6e555329fc4618abf93f0a553a03b6cfe7f88dd8",
+      "closedAt": "2025-02-18T15:42:54Z",
+      "mergedAt": "2025-02-18T15:42:54Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "47a64b11600412ba9b1dc794e75916cba204ae05"
+      },
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "we will discuss this more this Friday, I have some ideas!",
+          "createdAt": "2025-02-18T16:12:15Z",
+          "updatedAt": "2025-02-18T16:12:15Z"
+        },
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks. I have left some new remarks in miro. We can discuss later to see whether add related text into the draft or not.\r\n\r\nFrom: Yogesh Deshpande ***@***.***>\r\nSent: 2025\u5e742\u670818\u65e5 17:13\r\nTo: ietf-rats/draft-deshpande-multi-verifier ***@***.***>\r\nCc: junzhang ***@***.***>; Author ***@***.***>\r\nSubject: Re: [ietf-rats/draft-deshpande-multi-verifier] Update draft-deshpande-rats-multi-verifier.md (PR #4)\r\n\r\n\r\nwe will discuss this more this Friday, I have some ideas!\r\n\r\n\u2014\r\nReply to this email directly, view it on GitHub<https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/4#issuecomment-2666181232>, or unsubscribe<https://github.com/notifications/unsubscribe-auth/BDPVEJJZZYGCYDAIUSI6WBT2QNLXPAVCNFSM6AAAAABXL5YQS2VHI2DSMVQWIX3LMV43OSLTON2WKQ3PNVWWK3TUHMZDMNRWGE4DCMRTGI>.\r\nYou are receiving this because you authored the thread.Message ID: ***@***.******@***.***>>\r\n[yogeshbdeshpande]yogeshbdeshpande left a comment (ietf-rats/draft-deshpande-multi-verifier#4)<https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/4#issuecomment-2666181232>\r\n\r\nwe will discuss this more this Friday, I have some ideas!\r\n\r\n\u2014\r\nReply to this email directly, view it on GitHub<https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/4#issuecomment-2666181232>, or unsubscribe<https://github.com/notifications/unsubscribe-auth/BDPVEJJZZYGCYDAIUSI6WBT2QNLXPAVCNFSM6AAAAABXL5YQS2VHI2DSMVQWIX3LMV43OSLTON2WKQ3PNVWWK3TUHMZDMNRWGE4DCMRTGI>.\r\nYou are receiving this because you authored the thread.Message ID: ***@***.******@***.***>>\r\n",
+          "createdAt": "2025-02-18T16:14:10Z",
+          "updatedAt": "2025-02-18T16:14:10Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s6cZ5nU",
+          "commit": {
+            "abbreviatedOid": "6b77515"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-18T15:40:31Z",
+          "updatedAt": "2025-02-18T15:40:32Z",
+          "comments": [
+            {
+              "originalPosition": 39,
+              "body": "```suggestion\r\n\r\nThe Verifier needs to ensure that the claims included in the Evidence reflect the latest state of the Attester. As per RATS Architecture, the recommended freshness is ascertained using either Synchronised Clocks, Epoch IDs, or nonce, embedded in the Evidence.\r\n\r\nIn the case of Hierarchical Pattern, the Verification of Freshness should be checked by the Lead Verifier. \r\n \r\nIn the Cascaded Pattern, the freshness is always checked by the first Verifier in communication with either the Attester (Passport Model) or Relying Party (Background Check Model)\r\n\r\n```",
+              "createdAt": "2025-02-18T15:40:31Z",
+              "updatedAt": "2025-02-18T15:40:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6cZ6iF",
+          "commit": {
+            "abbreviatedOid": "2e6cb18"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-18T15:41:30Z",
+          "updatedAt": "2025-02-18T15:41:31Z",
+          "comments": [
+            {
+              "originalPosition": 37,
+              "body": "```suggestion\r\nThe Verifier needs to ensure that the claims included in the Evidence reflect the latest state of the Attester. As per RATS Architecture, the recommended freshness is ascertained using either Synchronised Clocks, Epoch IDs, or nonce, embedded in the Evidence.\r\nIn the case of Hierarchical Pattern, the Verification of Freshness should be checked by the Lead Verifier. \r\n \r\nIn the Cascaded Pattern, the freshness is always checked by the first Verifier in communication with either the Attester (Passport Model) or Relying Party (Background Check Model).\r\n```",
+              "createdAt": "2025-02-18T15:41:31Z",
+              "updatedAt": "2025-02-18T15:41:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6cZ7mA",
+          "commit": {
+            "abbreviatedOid": "6e55532"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM!",
+          "createdAt": "2025-02-18T15:42:38Z",
+          "updatedAt": "2025-02-18T15:42:38Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s6caC9j",
+          "commit": {
+            "abbreviatedOid": "6e55532"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "ok for the modification in the freshness section.",
+          "createdAt": "2025-02-18T15:48:53Z",
+          "updatedAt": "2025-02-18T15:48:53Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "id": "PR_kwDON24c9s6MzMkW",
+      "title": "Update draft-deshpande-rats-multi-verifier.md",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/13",
+      "state": "MERGED",
+      "author": "junzhanghw",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "update henk into author list",
+      "createdAt": "2025-02-27T13:35:14Z",
+      "updatedAt": "2025-02-27T15:48:26Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "47a64b11600412ba9b1dc794e75916cba204ae05",
+      "headRepository": "junzhanghw/draft-deshpande-multi-verifier",
+      "headRefName": "patch-4",
+      "headRefOid": "71470e625d1543529c2b9dff243e9cd93f25c519",
+      "closedAt": "2025-02-27T15:48:26Z",
+      "mergedAt": "2025-02-27T15:48:26Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "130e8a42ed976fcc3356ab9204721fe89d83f5c3"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s6d0mLz",
+          "commit": {
+            "abbreviatedOid": "71470e6"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-27T13:38:49Z",
+          "updatedAt": "2025-02-27T13:38:49Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "id": "PR_kwDON24c9s6M6YPR",
+      "title": "fix pics",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/14",
+      "state": "MERGED",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Partially fix #10 ",
+      "createdAt": "2025-02-28T09:26:05Z",
+      "updatedAt": "2025-02-28T09:30:31Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "0d3abc8d663a23ae590aaa66369ce4f2d61c75f0",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "pics",
+      "headRefOid": "6ff6883792d0fff8a25b5902d2f0d975572759db",
+      "closedAt": "2025-02-28T09:30:31Z",
+      "mergedAt": "2025-02-28T09:30:31Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "ba5ff639407f66dde664504720cca5d892ea2133"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s6d9x41",
+          "commit": {
+            "abbreviatedOid": "6ff6883"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2025-02-28T09:30:24Z",
+          "updatedAt": "2025-02-28T09:30:24Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "id": "PR_kwDON24c9s6M61yI",
+      "title": "Fix wrong use of term tandem",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/15",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #7",
+      "createdAt": "2025-02-28T10:27:54Z",
+      "updatedAt": "2025-02-28T12:43:51Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "ba5ff639407f66dde664504720cca5d892ea2133",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "tandem-correction",
+      "headRefOid": "318b23e426623b4e43df9c4590c82b5cd7480321",
+      "closedAt": "2025-02-28T12:43:47Z",
+      "mergedAt": "2025-02-28T12:43:47Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "b813f9482f3056336c88922ce26dfacddfffeb6a"
+      },
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Have changed it now, at both places, we can proceed if you are ok?",
+          "createdAt": "2025-02-28T12:32:35Z",
+          "updatedAt": "2025-02-28T12:32:35Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s6d_Pvb",
+          "commit": {
+            "abbreviatedOid": "e00ffed"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-28T12:24:39Z",
+          "updatedAt": "2025-02-28T12:24:39Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "\"coordinate together\" sounds a bit weird.\r\n\r\nI suggest \"collaborate\" or \"work together\".\r\n\r\n```suggestion\r\nA Composite Attester has multiple Component Attesters. Each Attester requires a different set of Verifiers. Hence multiple Verifiers collaborate to appraise a Composite Attester.\r\n```",
+              "createdAt": "2025-02-28T12:24:39Z",
+              "updatedAt": "2025-02-28T12:24:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6d_Syl",
+          "commit": {
+            "abbreviatedOid": "e00ffed"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-28T12:30:14Z",
+          "updatedAt": "2025-02-28T12:30:14Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "ok, changed it. Thanks",
+              "createdAt": "2025-02-28T12:30:14Z",
+              "updatedAt": "2025-02-28T12:30:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6d_T5I",
+          "commit": {
+            "abbreviatedOid": "c516f5e"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-28T12:31:51Z",
+          "updatedAt": "2025-02-28T12:31:51Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\nA Verifier needs Reference Values and Endorsements from the supply chain actors (for example OEM/ODM) to conduct the appraisal of an Attester. Given the range of Component Attesters in a Composite Attester, it is possible that a single Verifier may not have all the capabilities or the information required to conduct the complete appraisal of the Composite Attester. In this case, multiple Verifiers need to collaborate to conclude the appraisal and produce the Attestation Results.\r\n```",
+              "createdAt": "2025-02-28T12:31:51Z",
+              "updatedAt": "2025-02-28T12:31:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6d_XNx",
+          "commit": {
+            "abbreviatedOid": "318b23e"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-28T12:38:53Z",
+          "updatedAt": "2025-02-28T12:38:53Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
+}
