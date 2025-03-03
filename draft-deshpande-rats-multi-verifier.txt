@@ -5,10 +5,10 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 1 September 2025            Huawei Technologies France S.A.S.U.
+Expires: 4 September 2025            Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                        28 February 2025
+                                                            3 March 2025
 
 
                     Remote Attestation MultiVerifier
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 September 2025.
+   This Internet-Draft will expire on 4 September 2025.
 
 Copyright Notice
 
@@ -76,12 +76,13 @@ Table of Contents
        3.2.3.  Relying Party and Verifiers
      3.3.  Hybrid Pattern
    4.  Freshness
-   5.  IANA Considerations
-     5.1.  CBOR Tag Registrations
-   6.  Acknowledgements
-   7.  References
-     7.1.  Normative References
-     7.2.  Informative References
+   5.  Security Considerations
+   6.  IANA Considerations
+     6.1.  CBOR Tag Registrations
+   7.  Acknowledgements
+   8.  References
+     8.1.  Normative References
+     8.2.  Informative References
    Contributors
    Authors' Addresses
 
@@ -343,23 +344,25 @@ Table of Contents
 
    In the Cascaded Pattern, the freshness is always checked by the first
    Verifier in communication with either the Attester (Passport Model)
-   or Relying Party (Background Check Model). # Security Considerations
+   or Relying Party (Background Check Model).
+
+5.  Security Considerations
 
 
    // TODO
 
-5.  IANA Considerations
+6.  IANA Considerations
 
-5.1.  CBOR Tag Registrations
+6.1.  CBOR Tag Registrations
 
-6.  Acknowledgements
+7.  Acknowledgements
 
 
    // TODO
 
-7.  References
+8.  References
 
-7.1.  Normative References
+8.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -370,7 +373,7 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-7.2.  Informative References
+8.2.  Informative References
 
    [RFC9334]  Birkholz, H., Thaler, D., Richardson, M., Smith, N., and
               W. Pan, "Remote ATtestation procedureS (RATS)
