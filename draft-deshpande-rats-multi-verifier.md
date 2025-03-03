@@ -33,6 +33,10 @@ author:
   org: Huawei Technologies France S.A.S.U.
   email:  junzhang1@huawei.com
 
+- name: Houda Labiod
+  org: Huawei Technologies France S.A.S.U.
+  email: houda.labiod@huawei.com
+
 -
   name: Henk Birkholtz
   org: Fraunhofer SIT
@@ -42,6 +46,10 @@ contributor:
  -  name: Thomas Fossati
     organization: Linaro
     email: Thomas.Fossati@linaro.org
+
+ -  name: Thanassis Giannetsos
+    organization: UBITECH Ltd.
+    email: agiannetsos@ubitech.eu
 
 
 
