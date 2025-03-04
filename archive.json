@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-02T01:35:51.997043+00:00",
+  "timestamp": "2025-03-04T01:25:19.476902+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -62,7 +62,7 @@
       "labels": [],
       "body": "Composite Device (CD) and Layered Attester (LA) are basic composition patterns.\n\nIf we are introducing a new term, Composite Attester (CA), it may be worth giving it more expressive power than just a handy shorthand for CD _or_ LA.\n\nI suppose we could say that a CA is either a CD, an LA, or any composition involving one or more CDs and/or LAs, and thus have a more useful term in our vocabulary.\n\nAs an example of its use, take a CCA system with a separately attested GPU, exposing a [`ratsd`](https://github.com/veraison/ratsd) endpoint as the lead attester.\n\nThe resulting CA would be a CD made of one LA (the CCA platform and realm) plus a \"singleton\" attester (the GPU).\n\nEven fancier compositions can be imagined in systems spanning multiple physical nodes.",
       "createdAt": "2025-02-26T10:26:28Z",
-      "updatedAt": "2025-02-28T12:43:15Z",
+      "updatedAt": "2025-03-03T12:43:46Z",
       "closedAt": null,
       "comments": [
         {
@@ -85,6 +85,13 @@
           "body": "Commit is linked to the Issue so we can check, whether the commit addresses the concern!",
           "createdAt": "2025-02-28T12:43:14Z",
           "updatedAt": "2025-02-28T12:43:14Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/commit/57a298cb6af3646d9962fd67ffa16cce88b3e2c2\n\nThis is the above commit which precisely addresses this issue. Hence this issue should be closed now!",
+          "createdAt": "2025-03-03T12:43:44Z",
+          "updatedAt": "2025-03-03T12:43:44Z"
         }
       ]
     },
@@ -741,6 +748,117 @@
           "body": "",
           "createdAt": "2025-02-28T12:38:53Z",
           "updatedAt": "2025-02-28T12:38:53Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "id": "PR_kwDON24c9s6NKCAt",
+      "title": "Update draft-deshpande-rats-multi-verifier.md",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/17",
+      "state": "OPEN",
+      "author": "junzhanghw",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "update the author list and contributor list",
+      "createdAt": "2025-03-03T13:55:34Z",
+      "updatedAt": "2025-03-03T16:16:35Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "5d679366984dde3f99017b6acb0f293c78633e43",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "junzhanghw-patch-1",
+      "headRefOid": "0ac8f55ccd3c4425f19ed158574a60d0d09ba2f5",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Duplicate!",
+          "createdAt": "2025-03-03T15:48:22Z",
+          "updatedAt": "2025-03-03T15:48:22Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Duplicate!\r\n\r\nsure?",
+          "createdAt": "2025-03-03T15:51:11Z",
+          "updatedAt": "2025-03-03T15:51:11Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hmm, mistake, mistake !\r\n\r\nIt seems that there was a duplicate one, which clashed, while closing!",
+          "createdAt": "2025-03-03T15:54:55Z",
+          "updatedAt": "2025-03-03T15:54:55Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Re-opened it now! My sincere Apologies!",
+          "createdAt": "2025-03-03T15:55:17Z",
+          "updatedAt": "2025-03-03T15:55:17Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s6eOhqi",
+          "commit": {
+            "abbreviatedOid": "0ac8f55"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-03T16:16:35Z",
+          "updatedAt": "2025-03-03T16:16:35Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "id": "PR_kwDON24c9s6NK4LL",
+      "title": "Insert new lines to make Security Considerations a new section",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/18",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-03-03T15:29:17Z",
+      "updatedAt": "2025-03-03T15:30:57Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "b813f9482f3056336c88922ce26dfacddfffeb6a",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "fix-indents",
+      "headRefOid": "b189bcff28f42861657da74e021a97f5b7de4422",
+      "closedAt": "2025-03-03T15:30:57Z",
+      "mergedAt": "2025-03-03T15:30:57Z",
+      "mergedBy": "junzhanghw",
+      "mergeCommit": {
+        "oid": "5d679366984dde3f99017b6acb0f293c78633e43"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s6eOC4O",
+          "commit": {
+            "abbreviatedOid": "b189bcf"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-03T15:30:42Z",
+          "updatedAt": "2025-03-03T15:30:42Z",
           "comments": []
         }
       ]
