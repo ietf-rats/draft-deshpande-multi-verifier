@@ -5,10 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 4 September 2025            Huawei Technologies France S.A.S.U.
+Expires: 15 September 2025                                     H. Labiod
+                                     Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                            3 March 2025
+                                                           14 March 2025
 
 
                     Remote Attestation MultiVerifier
@@ -44,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 September 2025.
+   This Internet-Draft will expire on 15 September 2025.
 
 Copyright Notice
 
@@ -387,6 +388,11 @@ Contributors
    Email: Thomas.Fossati@linaro.org
 
 
+   Thanassis Giannetsos
+   UBITECH Ltd.
+   Email: agiannetsos@ubitech.eu
+
+
 Authors' Addresses
 
    Yogesh Deshpande
@@ -397,6 +403,11 @@ Authors' Addresses
    Jun Zhang
    Huawei Technologies France S.A.S.U.
    Email: junzhang1@huawei.com
+
+
+   Houda Labiod
+   Huawei Technologies France S.A.S.U.
+   Email: houda.labiod@huawei.com
 
 
    Henk Birkholtz
