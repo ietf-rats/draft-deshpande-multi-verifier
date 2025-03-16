@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-13T01:26:39.947313+00:00",
+  "timestamp": "2025-03-16T01:39:11.153000+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -757,24 +757,26 @@
       "id": "PR_kwDON24c9s6NKCAt",
       "title": "Update draft-deshpande-rats-multi-verifier.md",
       "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/17",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "junzhanghw",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "update the author list and contributor list",
       "createdAt": "2025-03-03T13:55:34Z",
-      "updatedAt": "2025-03-03T16:16:35Z",
+      "updatedAt": "2025-03-14T11:13:28Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "5d679366984dde3f99017b6acb0f293c78633e43",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "junzhanghw-patch-1",
       "headRefOid": "0ac8f55ccd3c4425f19ed158574a60d0d09ba2f5",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-03-14T11:13:23Z",
+      "mergedAt": "2025-03-14T11:13:23Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "7118853cc4244bb93dfb33eb72ca98b397b5de85"
+      },
       "comments": [
         {
           "author": "yogeshbdeshpande",
