@@ -5,10 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 4 September 2025            Huawei Technologies France S.A.S.U.
+Expires: 20 November 2025                                      H. Labiod
+                                     Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                            3 March 2025
+                                                             19 May 2025
 
 
                     Remote Attestation MultiVerifier
@@ -44,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 September 2025.
+   This Internet-Draft will expire on 20 November 2025.
 
 Copyright Notice
 
@@ -63,32 +64,33 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
-   2.  Conventions and Definitions
-     2.1.  Glossary
-   3.  Multi Verifier topological patterns
-     3.1.  Hierarchical Pattern
-       3.1.1.  Lead Verifier
-       3.1.2.  Verifier for Component Attester
-       3.1.3.  Trust Relationships
-     3.2.  Cascaded Pattern {: #sec-verifier-cascade }
-       3.2.1.  Trust Relationships
-       3.2.2.  Verifiers
-       3.2.3.  Relying Party and Verifiers
-     3.3.  Hybrid Pattern
-   4.  Freshness
-   5.  Security Considerations
-   6.  IANA Considerations
-     6.1.  CBOR Tag Registrations
-   7.  Acknowledgements
-   8.  References
-     8.1.  Normative References
-     8.2.  Informative References
+   2.  Need for Multiple Verifiers
+   3.  Conventions and Definitions
+     3.1.  Glossary
+   4.  Multi Verifier topological patterns
+     4.1.  Hierarchical Pattern
+       4.1.1.  Lead Verifier
+       4.1.2.  Verifier for Component Attester
+       4.1.3.  Trust Relationships
+     4.2.  Cascaded Pattern {: #sec-verifier-cascade }
+       4.2.1.  Trust Relationships
+       4.2.2.  Verifiers
+       4.2.3.  Relying Party and Verifiers
+     4.3.  Hybrid Pattern
+   5.  Freshness
+   6.  Security Considerations
+   7.  IANA Considerations
+     7.1.  CBOR Tag Registrations
+   8.  Acknowledgements
+   9.  References
+     9.1.  Normative References
+     9.2.  Informative References
    Contributors
    Authors' Addresses
 
 1.  Introduction
 
-   A Verifier plays a Central Role in any Remote Attestation System.  A
+   A Verifier plays a central role in any Remote Attestation System.  A
    Verifier appraises the Attester and produces Attestation Results,
    which is essentially a verdict of attestation.  The results are
    consumed by the Relying Party to conclude the trustworthiness of the
@@ -96,22 +98,20 @@ Table of Contents
    such as admitting to network or releasing confidential resources to
    it.  Attesters can come in wide varieties of shape and form.  For
    example Attesters can be endpoints (edge or IoT devices) or complex
-   machines in the cloud.  Composite Attester Section 2.1, generate
+   machines in the cloud.  Composite Attester Section 3.1, generate
    Evidence that consists of multiple parts.  For example, in data
    center servers, it is not uncommon for separate attesting
    environments (AE) to serve a subsection of the entire machine.  One
    AE might measure and attest to what was booted on the main CPU, while
    another AE might measure and attest to what was booted machine's GPU.
    Throughout this document we use the term Component Attester
-   Section 2.1 to address the sub-entity or an individual layer which
+   Section 3.1 to address the sub-entity or an individual layer which
    produces its own Evidence in a Composite Attester system.
 
-   A Verifier needs Reference Values and Endorsements from the supply
-   chain actors (for example OEM/ODM) to conduct the appraisal of an
-   Attester.  Given the range of Component Attesters in a Composite
-   Attester, it is possible that a single Verifier may not have all the
-   capabilities or the information required to conduct the complete
-   appraisal of the Composite Attester.  In this case, multiple
+   In a Composite AttesterSection 3.1 system it may not be possible that
+   a single Verifier may possess all the capabilities or the information
+   required to conduct the complete appraisal of the Attester.  Please
+   refer to Section 2, for motivation of this document.  Multiple
    Verifiers need to collaborate to conclude the appraisal and produce
    the Attestation Results.
 
@@ -119,7 +119,42 @@ Table of Contents
    Verifiers that work in a coordinated manner to conduct appraisal of a
    Composite Attester to produce an Attestation Results.
 
-2.  Conventions and Definitions
+2.  Need for Multiple Verifiers
+
+   In order to conduct the role of attestation verification, a Verifier
+   needs: 1.  Reference Values from trusted supply chain of the Attester
+   2.  Endorsements from trusted supply chain of the Attester 3.
+   Appraisal policy for Evidence, which is under the control of Verifier
+   owner
+
+   The above inputs are linked to the shape and form of the Attester,
+   i.e the type of claims and the policies of Verification.  For
+   composite Attesters, there is a heterogeneity of Evidence formats,
+   each with a specific purpose, for example a CPU and a GPU.  The
+   composite Attester composition can change based on market dynamics
+   and availability over time (e.g., a set of racks in a data center
+   gets thousands of new FPGAs).  It is highly unlikely that there is
+   always one appropriate Verifier that satisfies all the requirements
+   that a complex and changing composite Attesters impose.  It may not
+   be economically viable to build and maintain such degree of
+   complexity, in a single Verifier, hence there is a need for a Multi
+   Verifier System.
+
+   In addition to above, there are several other factors that can lead
+   to multi Verifier system, few are listed below: 1.  A part of a
+   single component Verification policy may be internal to a Verifier
+   Owner and it may not choose to reveal it to a monolithic Verifier. 2.
+   An Endorser may not wish to reveal its Reference Values or their
+   lifecycle to a monolithic Verifier, hence may choose to keep its
+   verification seperate. 2.  There may not be a single actor in the
+   ecosystem, that can stand up and take ownership of Verifying every
+   component Attester due to lack of knowledge, complexity, regulations
+   or associated cost. 3.  Verifier services provided by component
+   manufactures as well as Verifiers provided by the integrators, as
+   well as Verifiers under local authority (close to the Attester) are
+   the mix today and rarely it is just one of them.
+
+3.  Conventions and Definitions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
@@ -134,7 +169,7 @@ Table of Contents
    Section 3.2 of [RFC9334] and Composite Device Section 3.3 of
    [RFC9334]
 
-2.1.  Glossary
+3.1.  Glossary
 
    This document uses the following terms:
 
@@ -156,13 +191,13 @@ Table of Contents
       (AAR) refers to a collection of Attestation Results produced upon
       completion of appraisal of a Composite Attester.
 
-3.  Multi Verifier topological patterns
+4.  Multi Verifier topological patterns
 
    A Composite Attester has multiple Component Attesters.  Each Attester
    requires a different set of Verifiers.  Hence multiple Verifiers
    collaborate to appraise a Composite Attester.
 
-3.1.  Hierarchical Pattern
+4.1.  Hierarchical Pattern
 
    Figure below shows the block diagram of a Hierarchical Pattern.
 
@@ -201,7 +236,7 @@ Table of Contents
    The following sub-sections describe the various roles that exist in
    this pattern.
 
-3.1.1.  Lead Verifier
+4.1.1.  Lead Verifier
 
    In this topological pattern, there is an Entity known as Lead
    Verifier.
@@ -243,13 +278,13 @@ Table of Contents
    Evidence 1) in a signed Conceptual Message Wrapper (CMW), and send it
    to each Verifier (example Verifier 1).
 
-3.1.2.  Verifier for Component Attester
+4.1.2.  Verifier for Component Attester
 
    The role of a Component Attester Verifier is to receive Component
    Attester Evidence from the lead Verifier and produce Attestation
    Results to the Lead Verifier.
 
-3.1.3.  Trust Relationships
+4.1.3.  Trust Relationships
 
    In this topology the Lead Verifier is fully trusted by Component
    Attester Verifiers (example Verifier 1).
@@ -258,7 +293,7 @@ Table of Contents
    Lead Verifier.  Lead Verifier is provisioned with the Trust Anchors
    for Verifier 1..N.
 
-3.2.  Cascaded Pattern {: #sec-verifier-cascade }
+4.2.  Cascaded Pattern {: #sec-verifier-cascade }
 
    Figure below shows the block diagram of a Cascaded Pattern.
 
@@ -309,9 +344,9 @@ Table of Contents
    Attestation Results to the Verifier from which it receives Combined
    Evidence.
 
-3.2.1.  Trust Relationships
+4.2.1.  Trust Relationships
 
-3.2.2.  Verifiers
+4.2.2.  Verifiers
 
    In the cascaded pattern, the communicating Verifiers fully trust each
    other.  Each Verifier has the trust anchor for the Verifier it is
@@ -320,20 +355,20 @@ Table of Contents
    Attestation Results received by a Verifier or a Aggregated
    Attestation Results (AAR) which it receives in the return path.
 
-3.2.3.  Relying Party and Verifiers
+4.2.3.  Relying Party and Verifiers
 
    In the cascaded pattern, the RP may communicate with any Verifier and
    thus receive its Attestation Results.  Hence RP fully trusts all the
    Verifiers.
 
-3.3.  Hybrid Pattern
+4.3.  Hybrid Pattern
 
    In a particular deployment, there is a possibility that the two
    models presented above can be combined to produce a hybrid pattern.
    For example Verifier 2 in the Cascaded Pattern becomes the Lead
    Verifier for the remaining Verifers from 3, to N.
 
-4.  Freshness
+5.  Freshness
 
    The Verifier needs to ensure that the claims included in the Evidence
    reflect the latest state of the Attester.  As per RATS Architecture,
@@ -346,23 +381,23 @@ Table of Contents
    Verifier in communication with either the Attester (Passport Model)
    or Relying Party (Background Check Model).
 
-5.  Security Considerations
+6.  Security Considerations
 
 
    // TODO
 
-6.  IANA Considerations
+7.  IANA Considerations
 
-6.1.  CBOR Tag Registrations
+7.1.  CBOR Tag Registrations
 
-7.  Acknowledgements
+8.  Acknowledgements
 
 
    // TODO
 
-8.  References
+9.  References
 
-8.1.  Normative References
+9.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -373,7 +408,7 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-8.2.  Informative References
+9.2.  Informative References
 
    [RFC9334]  Birkholz, H., Thaler, D., Richardson, M., Smith, N., and
               W. Pan, "Remote ATtestation procedureS (RATS)
@@ -387,6 +422,11 @@ Contributors
    Email: Thomas.Fossati@linaro.org
 
 
+   Thanassis Giannetsos
+   UBITECH Ltd.
+   Email: agiannetsos@ubitech.eu
+
+
 Authors' Addresses
 
    Yogesh Deshpande
@@ -397,6 +437,11 @@ Authors' Addresses
    Jun Zhang
    Huawei Technologies France S.A.S.U.
    Email: junzhang1@huawei.com
+
+
+   Houda Labiod
+   Huawei Technologies France S.A.S.U.
+   Email: houda.labiod@huawei.com
 
 
    Henk Birkholtz

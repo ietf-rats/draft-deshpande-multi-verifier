@@ -7,21 +7,22 @@
 <title>Remote Attestation MultiVerifier</title>
 <meta content="Yogesh Deshpande" name="author">
 <meta content="Jun Zhang" name="author">
+<meta content="Houda Labiod" name="author">
 <meta content="Henk Birkholtz" name="author">
 <meta content="
        IETF RATS Architecture, defines the key role of a Verifier.  In a complex system, this role needs to be performed by multiple Verfiers coordinating together to assess the full trustworthiness of an Attester. This document focuses on various topological patterns for a multiple Verifier system. 
     " name="description">
-<meta content="xml2rfc 3.27.0" name="generator">
+<meta content="xml2rfc 3.28.1" name="generator">
 <meta content="draft-deshpande-rats-multi-verifier-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.27.0
-    Python 3.12.9
+  xml2rfc 3.28.1
+    Python 3.12.10
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
-    Jinja2 3.1.5
+    Jinja2 3.1.6
     lxml 5.3.0
-    platformdirs 4.3.6
+    platformdirs 4.3.8
     pycountry 24.6.1
     PyYAML 6.0.2
     requests 2.32.3
@@ -1045,11 +1046,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">RATS MultiVerifier</td>
-<td class="right">February 2025</td>
+<td class="right">May 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Deshpande, et al.</td>
-<td class="center">Expires 1 September 2025</td>
+<td class="center">Expires 20 November 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1062,12 +1063,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-deshpande-rats-multi-verifier-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-02-28" class="published">28 February 2025</time>
+<time datetime="2025-05-19" class="published">19 May 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-09-01">1 September 2025</time></dd>
+<dd class="expires"><time datetime="2025-11-20">20 November 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1076,6 +1077,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </div>
 <div class="author">
       <div class="author-name">J. Zhang</div>
+<div class="org">Huawei Technologies France S.A.S.U.</div>
+</div>
+<div class="author">
+      <div class="author-name">H. Labiod</div>
 <div class="org">Huawei Technologies France S.A.S.U.</div>
 </div>
 <div class="author">
@@ -1117,7 +1122,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 1 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 20 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1150,79 +1155,85 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
-                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-glossary" class="internal xref">Glossary</a></p>
-</li>
-            </ul>
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-need-for-multiple-verifiers" class="internal xref">Need for Multiple Verifiers</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-multi-verifier-topological-" class="internal xref">Multi Verifier topological patterns</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-hierarchical-pattern" class="internal xref">Hierarchical Pattern</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.1">
-                    <p id="section-toc.1-1.3.2.1.2.1.1"><a href="#section-3.1.1" class="auto internal xref">3.1.1</a>.  <a href="#name-lead-verifier" class="internal xref">Lead Verifier</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.2">
-                    <p id="section-toc.1-1.3.2.1.2.2.1"><a href="#section-3.1.2" class="auto internal xref">3.1.2</a>.  <a href="#name-verifier-for-component-atte" class="internal xref">Verifier for Component Attester</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.3">
-                    <p id="section-toc.1-1.3.2.1.2.3.1"><a href="#section-3.1.3" class="auto internal xref">3.1.3</a>.  <a href="#name-trust-relationships" class="internal xref">Trust Relationships</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-cascaded-pattern-sec-verifi" class="internal xref">Cascaded Pattern {: #sec-verifier-cascade }</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.1">
-                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-trust-relationships-2" class="internal xref">Trust Relationships</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.2">
-                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-verifiers" class="internal xref">Verifiers</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.3">
-                    <p id="section-toc.1-1.3.2.2.2.3.1"><a href="#section-3.2.3" class="auto internal xref">3.2.3</a>.  <a href="#name-relying-party-and-verifiers" class="internal xref">Relying Party and Verifiers</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-hybrid-pattern" class="internal xref">Hybrid Pattern</a></p>
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-glossary" class="internal xref">Glossary</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-freshness" class="internal xref">Freshness</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-multi-verifier-topological-" class="internal xref">Multi Verifier topological patterns</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
-                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-cbor-tag-registrations" class="internal xref">CBOR Tag Registrations</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-hierarchical-pattern" class="internal xref">Hierarchical Pattern</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.1">
+                    <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="auto internal xref">4.1.1</a>.  <a href="#name-lead-verifier" class="internal xref">Lead Verifier</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.2">
+                    <p id="section-toc.1-1.4.2.1.2.2.1"><a href="#section-4.1.2" class="auto internal xref">4.1.2</a>.  <a href="#name-verifier-for-component-atte" class="internal xref">Verifier for Component Attester</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.3">
+                    <p id="section-toc.1-1.4.2.1.2.3.1"><a href="#section-4.1.3" class="auto internal xref">4.1.3</a>.  <a href="#name-trust-relationships" class="internal xref">Trust Relationships</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-cascaded-pattern-sec-verifi" class="internal xref">Cascaded Pattern {: #sec-verifier-cascade }</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.1">
+                    <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="auto internal xref">4.2.1</a>.  <a href="#name-trust-relationships-2" class="internal xref">Trust Relationships</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.2">
+                    <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="auto internal xref">4.2.2</a>.  <a href="#name-verifiers" class="internal xref">Verifiers</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.3">
+                    <p id="section-toc.1-1.4.2.2.2.3.1"><a href="#section-4.2.3" class="auto internal xref">4.2.3</a>.  <a href="#name-relying-party-and-verifiers" class="internal xref">Relying Party and Verifiers</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
+                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-hybrid-pattern" class="internal xref">Hybrid Pattern</a></p>
 </li>
             </ul>
 </li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-freshness" class="internal xref">Freshness</a></p>
+</li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-references" class="internal xref">References</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
-                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-cbor-tag-registrations" class="internal xref">CBOR Tag Registrations</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-contributors" class="internal xref">Contributors</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
+                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="auto internal xref">9.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
+                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="auto internal xref">9.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-contributors" class="internal xref">Contributors</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1233,54 +1244,74 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">A Verifier plays a Central Role in any Remote Attestation System. A Verifier appraises the Attester and produces Attestation Results, which is essentially a verdict of attestation. The results are consumed by the Relying Party to conclude the trustworthiness of the Attester, prior to making any critical decisions about the Attester, such as admitting to network or releasing confidential resources to it.
-Attesters can come in wide varieties of shape and form. For example Attesters can be endpoints (edge or IoT devices) or complex machines in the cloud. Composite Attester <a href="#sec-glossary" class="auto internal xref">Section 2.1</a>, generate Evidence that consists of multiple parts. For example, in data center servers, it is not uncommon for separate attesting environments (AE) to serve a subsection of the entire machine. One AE might measure and attest to what was booted on the main CPU, while another AE might measure and attest to what was booted machine's GPU. Throughout this document we use the term Component Attester <a href="#sec-glossary" class="auto internal xref">Section 2.1</a> to address the sub-entity or an individual layer which produces its own Evidence in a Composite Attester system.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">A Verifier needs Reference Values and Endorsements from the supply chain actors (for example OEM/ODM) to conduct the appraisal of an Attester. Given the range of Component Attesters in a Composite Attester, it is possible that a single Verifier may not have all the capabilities or the information required to conduct the complete appraisal of the Composite Attester. In this case, multiple Verifiers need to work in tandem to conclude the appraisal and produce the Attestation Results.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-1">A Verifier plays a central role in any Remote Attestation System. A Verifier appraises the Attester and produces Attestation Results, which is essentially a verdict of attestation. The results are consumed by the Relying Party to conclude the trustworthiness of the Attester, prior to making any critical decisions about the Attester, such as admitting to network or releasing confidential resources to it.
+Attesters can come in wide varieties of shape and form. For example Attesters can be endpoints (edge or IoT devices) or complex machines in the cloud. Composite Attester <a href="#sec-glossary" class="auto internal xref">Section 3.1</a>, generate Evidence that consists of multiple parts. For example, in data center servers, it is not uncommon for separate attesting environments (AE) to serve a subsection of the entire machine. One AE might measure and attest to what was booted on the main CPU, while another AE might measure and attest to what was booted machine's GPU. Throughout this document we use the term Component Attester <a href="#sec-glossary" class="auto internal xref">Section 3.1</a> to address the sub-entity or an individual layer which produces its own Evidence in a Composite Attester system.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">In a Composite Attester<a href="#sec-glossary" class="auto internal xref">Section 3.1</a> system it may not be possible that a single Verifier may possess all the capabilities or the information required to conduct the complete appraisal of the Attester. Please refer to <a href="#sec-need-multiverifier" class="auto internal xref">Section 2</a>, for motivation of this document. Multiple Verifiers need to collaborate to conclude the appraisal and produce the Attestation Results.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">This document describes various topological patterns of multiple Verifiers that work in a coordinated manner to conduct appraisal of a Composite Attester to produce an Attestation Results.<a href="#section-1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="conventions-and-definitions">
+<div id="sec-need-multiverifier">
 <section id="section-2">
-      <h2 id="name-conventions-and-definitions">
-<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
+      <h2 id="name-need-for-multiple-verifiers">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-need-for-multiple-verifiers" class="section-name selfRef">Need for Multiple Verifiers</a>
       </h2>
-<p id="section-2-1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+<p id="section-2-1">In order to conduct the role of attestation verification, a Verifier needs:
+1. Reference Values from trusted supply chain of the Attester
+2. Endorsements from trusted supply chain of the Attester
+3. Appraisal policy for Evidence, which is under the control of Verifier owner<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-2">The above inputs are linked to the shape and form of the Attester, i.e the type of claims and the policies of Verification.
+For composite Attesters, there is a heterogeneity of Evidence formats, each with a specific purpose, for example a CPU and a GPU.
+The composite Attester composition can change based on market dynamics and availability over time (e.g., a set of racks in a
+data center gets thousands of new FPGAs). It is highly unlikely that there is always one appropriate Verifier that satisfies all the requirements that a complex and changing composite Attesters impose. It may not be economically viable to build and maintain such degree of complexity, in a single Verifier, hence there is a need for a Multi Verifier System.<a href="#section-2-2" class="pilcrow">¶</a></p>
+<p id="section-2-3">In addition to above, there are several other factors that can lead to multi Verifier system, few are listed below:
+1. A part of a single component Verification policy may be internal to a Verifier Owner and it may not choose to reveal it to a monolithic Verifier.
+2. An Endorser may not wish to reveal its Reference Values or their lifecycle to a monolithic Verifier, hence may choose to keep its verification seperate.
+2. There may not be a single actor in the ecosystem, that can stand up and take ownership of Verifying every component Attester due to lack of knowledge, complexity, regulations or associated cost.
+3. Verifier services provided by component manufactures as well as Verifiers provided by the integrators, as well as Verifiers under local authority (close to the Attester) are the mix today and rarely it is just one of them.<a href="#section-2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="conventions-and-definitions">
+<section id="section-3">
+      <h2 id="name-conventions-and-definitions">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
+      </h2>
+<p id="section-3-1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
 NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
 "MAY", and "OPTIONAL" in this document are to be interpreted as
 described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
-appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
-<p id="section-2-2">This document uses terms and concepts defined by the RATS architecture. For a complete glossary, see <span><a href="https://rfc-editor.org/rfc/rfc9334#section-4" class="relref">Section 4</a> of [<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>.<a href="#section-2-2" class="pilcrow">¶</a></p>
-<p id="section-2-3">Specifically this document heavily uses the terms Layered Attester <span><a href="https://rfc-editor.org/rfc/rfc9334#section-3.2" class="relref">Section 3.2</a> of [<a href="#RFC9334" class="cite xref">RFC9334</a>]</span> and Composite Device <span><a href="https://rfc-editor.org/rfc/rfc9334#section-3.3" class="relref">Section 3.3</a> of [<a href="#RFC9334" class="cite xref">RFC9334</a>]</span><a href="#section-2-3" class="pilcrow">¶</a></p>
+appear in all capitals, as shown here.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">This document uses terms and concepts defined by the RATS architecture. For a complete glossary, see <span><a href="https://rfc-editor.org/rfc/rfc9334#section-4" class="relref">Section 4</a> of [<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>.<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-3">Specifically this document heavily uses the terms Layered Attester <span><a href="https://rfc-editor.org/rfc/rfc9334#section-3.2" class="relref">Section 3.2</a> of [<a href="#RFC9334" class="cite xref">RFC9334</a>]</span> and Composite Device <span><a href="https://rfc-editor.org/rfc/rfc9334#section-3.3" class="relref">Section 3.3</a> of [<a href="#RFC9334" class="cite xref">RFC9334</a>]</span><a href="#section-3-3" class="pilcrow">¶</a></p>
 <div id="sec-glossary">
-<section id="section-2.1">
+<section id="section-3.1">
         <h3 id="name-glossary">
-<a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-glossary" class="section-name selfRef">Glossary</a>
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-glossary" class="section-name selfRef">Glossary</a>
         </h3>
-<p id="section-2.1-1">This document uses the following terms:<a href="#section-2.1-1" class="pilcrow">¶</a></p>
-<span class="break"></span><dl class="dlParallel" id="section-2.1-2">
-          <dt id="section-2.1-2.1">Composite Attester:</dt>
-          <dd style="margin-left: 1.5em" id="section-2.1-2.2">
-            <p id="section-2.1-2.2.1">A Composite Attester is either a Composite Device or a Layered Attester or any composition involving a combination of one or more Composite Devices or Layered Attesters.<a href="#section-2.1-2.2.1" class="pilcrow">¶</a></p>
+<p id="section-3.1-1">This document uses the following terms:<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-3.1-2">
+          <dt id="section-3.1-2.1">Composite Attester:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-2.2">
+            <p id="section-3.1-2.2.1">A Composite Attester is either a Composite Device or a Layered Attester or any composition involving a combination of one or more Composite Devices or Layered Attesters.<a href="#section-3.1-2.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-2.1-2.3">Component Attester:</dt>
-          <dd style="margin-left: 1.5em" id="section-2.1-2.4">
-            <p id="section-2.1-2.4.1">A Component Attester is a single Attester of a Composite Attester. For this document, a Component Attester is an entity which produces a single Evidence which can be appraised by a Verifier.<a href="#section-2.1-2.4.1" class="pilcrow">¶</a></p>
+<dt id="section-3.1-2.3">Component Attester:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-2.4">
+            <p id="section-3.1-2.4.1">A Component Attester is a single Attester of a Composite Attester. For this document, a Component Attester is an entity which produces a single Evidence which can be appraised by a Verifier.<a href="#section-3.1-2.4.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-2.1-2.5">Composite Evidence:</dt>
-          <dd style="margin-left: 1.5em" id="section-2.1-2.6">
-            <p id="section-2.1-2.6.1">Evidence produced by a Composite Attester.<a href="#section-2.1-2.6.1" class="pilcrow">¶</a></p>
+<dt id="section-3.1-2.5">Composite Evidence:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-2.6">
+            <p id="section-3.1-2.6.1">Evidence produced by a Composite Attester.<a href="#section-3.1-2.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-2.1-2.7">Lead Verifier:</dt>
-          <dd style="margin-left: 1.5em" id="section-2.1-2.8">
-            <p id="section-2.1-2.8.1">A Verifier which acts as a Main Verifier to receive Composite Evidence from a Composite Attester.<a href="#section-2.1-2.8.1" class="pilcrow">¶</a></p>
+<dt id="section-3.1-2.7">Lead Verifier:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-2.8">
+            <p id="section-3.1-2.8.1">A Verifier which acts as a Main Verifier to receive Composite Evidence from a Composite Attester.<a href="#section-3.1-2.8.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-2.1-2.9">Aggregated Attestation Results:</dt>
-          <dd style="margin-left: 1.5em" id="section-2.1-2.10">
-            <p id="section-2.1-2.10.1">An Aggregated Attestation Results (AAR) refers to a collection of Attestation Results produced upon completion of appraisal of a Composite Attester.<a href="#section-2.1-2.10.1" class="pilcrow">¶</a></p>
+<dt id="section-3.1-2.9">Aggregated Attestation Results:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-2.10">
+            <p id="section-3.1-2.10.1">An Aggregated Attestation Results (AAR) refers to a collection of Attestation Results produced upon completion of appraisal of a Composite Attester.<a href="#section-3.1-2.10.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
@@ -1289,19 +1320,19 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 </section>
 </div>
 <div id="sec-multi-verifier">
-<section id="section-3">
+<section id="section-4">
       <h2 id="name-multi-verifier-topological-">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-multi-verifier-topological-" class="section-name selfRef">Multi Verifier topological patterns</a>
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-multi-verifier-topological-" class="section-name selfRef">Multi Verifier topological patterns</a>
       </h2>
-<p id="section-3-1">A composite Attester as per RATS definition has multiple layers. Each layer requires a different set of Verifiers. Hence multi Verifiers work in tandem to appraise a composite Attester.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">A Composite Attester has multiple Component Attesters. Each Attester requires a different set of Verifiers. Hence multiple Verifiers collaborate to appraise a Composite Attester.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <div id="sec-lead-verifier">
-<section id="section-3.1">
+<section id="section-4.1">
         <h3 id="name-hierarchical-pattern">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-hierarchical-pattern" class="section-name selfRef">Hierarchical Pattern</a>
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-hierarchical-pattern" class="section-name selfRef">Hierarchical Pattern</a>
         </h3>
-<p id="section-3.1-1">Figure below shows the block diagram of a Hierarchical Pattern.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
-<div id="section-3.1-2">
-          <div class="alignLeft art-svg artwork" id="section-3.1-2.1">
+<p id="section-4.1-1">Figure below shows the block diagram of a Hierarchical Pattern.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<div id="section-4.1-2">
+          <div class="alignLeft art-svg artwork" id="section-4.1-2.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="528" width="584" viewBox="0 0 584 528" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
               <path d="M 8,176 L 8,256" fill="none" stroke="black"></path>
               <path d="M 104,176 L 104,256" fill="none" stroke="black"></path>
@@ -1371,63 +1402,63 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
                 <text x="388" y="468">AR</text>
                 <text x="408" y="468">N</text>
               </g>
-            </svg><a href="#section-3.1-2.1" class="pilcrow">¶</a>
+            </svg><a href="#section-4.1-2.1" class="pilcrow">¶</a>
 </div>
 </div>
-<p id="section-3.1-3">The following sub-sections describe the various roles that exist in this pattern.<a href="#section-3.1-3" class="pilcrow">¶</a></p>
+<p id="section-4.1-3">The following sub-sections describe the various roles that exist in this pattern.<a href="#section-4.1-3" class="pilcrow">¶</a></p>
 <div id="lead-verifier">
-<section id="section-3.1.1">
+<section id="section-4.1.1">
           <h4 id="name-lead-verifier">
-<a href="#section-3.1.1" class="section-number selfRef">3.1.1. </a><a href="#name-lead-verifier" class="section-name selfRef">Lead Verifier</a>
+<a href="#section-4.1.1" class="section-number selfRef">4.1.1. </a><a href="#name-lead-verifier" class="section-name selfRef">Lead Verifier</a>
           </h4>
-<p id="section-3.1.1-1">In this topological pattern, there is an Entity known as Lead Verifier.<a href="#section-3.1.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.1.1-2">Lead Verifier is the central entity in communication with the Attester (directly in passport model or indirectly via the Relying Party in background-check model).
-It receives Attestation Evidence from a Composite Attester. If the Composite Attestation Evidence is signed, then it validates the integrity of the Evidence by validating the signature. If signature verification fails, the Verification is terminated. Otherwise it performs the following steps.<a href="#section-3.1.1-2" class="pilcrow">¶</a></p>
+<p id="section-4.1.1-1">In this topological pattern, there is an Entity known as Lead Verifier.<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.1-2">Lead Verifier is the central entity in communication with the Attester (directly in passport model or indirectly via the Relying Party in background-check model).
+It receives Attestation Evidence from a Composite Attester. If the Composite Attestation Evidence is signed, then it validates the integrity of the Evidence by validating the signature. If signature verification fails, the Verification is terminated. Otherwise it performs the following steps.<a href="#section-4.1.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.1.1-3.1">
-              <p id="section-3.1.1-3.1.1">Lead Verifier has the knowledge about the overall structure of the Composite Evidence. It decodes the Composite Evidence to extract the Component Attester Evidence. This may lead to "N" Evidence, one for each Component Attester.<a href="#section-3.1.1-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-4.1.1-3.1">
+              <p id="section-4.1.1-3.1.1">Lead Verifier has the knowledge about the overall structure of the Composite Evidence. It decodes the Composite Evidence to extract the Component Attester Evidence. This may lead to "N" Evidence, one for each Component Attester.<a href="#section-4.1.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-3.1.1-3.2">
-              <p id="section-3.1.1-3.2.1">Lead Verifier delegates each Component Attester Evidence to their own Verifier and receives Component Attester Attestation Results after successful Appraisal of Evidence.<a href="#section-3.1.1-3.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-4.1.1-3.2">
+              <p id="section-4.1.1-3.2.1">Lead Verifier delegates each Component Attester Evidence to their own Verifier and receives Component Attester Attestation Results after successful Appraisal of Evidence.<a href="#section-4.1.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-3.1.1-3.3">
-              <p id="section-3.1.1-3.3.1">Once the Lead Verifier receives Attestation Results from all the Verifiers, it combines the results from each Verifier to construct a Aggregated Attestation Results (AAR). The Lead verifier may apply its own policies and also add extra claims as part of its appraisal.<a href="#section-3.1.1-3.3.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-4.1.1-3.3">
+              <p id="section-4.1.1-3.3.1">Once the Lead Verifier receives Attestation Results from all the Verifiers, it combines the results from each Verifier to construct a Aggregated Attestation Results (AAR). The Lead verifier may apply its own policies and also add extra claims as part of its appraisal.<a href="#section-4.1.1-3.3.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-3.1.1-3.4">
-              <p id="section-3.1.1-3.4.1">Lead Verifier conveys the AAR to the Attester (in Passport model) or to the Relying Party (in background check model).<a href="#section-3.1.1-3.4.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-4.1.1-3.4">
+              <p id="section-4.1.1-3.4.1">Lead Verifier conveys the AAR to the Attester (in Passport model) or to the Relying Party (in background check model).<a href="#section-4.1.1-3.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-3.1.1-4">The overall verdict may be dependent on the Appraisal Policy of the Lead Verifier.<a href="#section-3.1.1-4" class="pilcrow">¶</a></p>
-<p id="section-3.1.1-5">In certain topologies, it is possible that only the Composite Evidence is signed to provide the overall integrity, while the individual Component Attester Evidence (example Evidence 1) is not protected. In such cases, the Lead Verifer upon processing of Composite Evidence may wrap the Component Attester Evidence (example Evidence 1) in a signed Conceptual Message Wrapper (CMW), and send it to each Verifier (example Verifier 1).<a href="#section-3.1.1-5" class="pilcrow">¶</a></p>
+<p id="section-4.1.1-4">The overall verdict may be dependent on the Appraisal Policy of the Lead Verifier.<a href="#section-4.1.1-4" class="pilcrow">¶</a></p>
+<p id="section-4.1.1-5">In certain topologies, it is possible that only the Composite Evidence is signed to provide the overall integrity, while the individual Component Attester Evidence (example Evidence 1) is not protected. In such cases, the Lead Verifer upon processing of Composite Evidence may wrap the Component Attester Evidence (example Evidence 1) in a signed Conceptual Message Wrapper (CMW), and send it to each Verifier (example Verifier 1).<a href="#section-4.1.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="verifier-for-component-attester">
-<section id="section-3.1.2">
+<section id="section-4.1.2">
           <h4 id="name-verifier-for-component-atte">
-<a href="#section-3.1.2" class="section-number selfRef">3.1.2. </a><a href="#name-verifier-for-component-atte" class="section-name selfRef">Verifier for Component Attester</a>
+<a href="#section-4.1.2" class="section-number selfRef">4.1.2. </a><a href="#name-verifier-for-component-atte" class="section-name selfRef">Verifier for Component Attester</a>
           </h4>
-<p id="section-3.1.2-1">The role of a Component Attester Verifier is to receive Component Attester Evidence from the lead Verifier and produce Attestation Results to the Lead Verifier.<a href="#section-3.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.2-1">The role of a Component Attester Verifier is to receive Component Attester Evidence from the lead Verifier and produce Attestation Results to the Lead Verifier.<a href="#section-4.1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="trust-relationships">
-<section id="section-3.1.3">
+<section id="section-4.1.3">
           <h4 id="name-trust-relationships">
-<a href="#section-3.1.3" class="section-number selfRef">3.1.3. </a><a href="#name-trust-relationships" class="section-name selfRef">Trust Relationships</a>
+<a href="#section-4.1.3" class="section-number selfRef">4.1.3. </a><a href="#name-trust-relationships" class="section-name selfRef">Trust Relationships</a>
           </h4>
-<p id="section-3.1.3-1">In this topology the Lead Verifier is fully trusted by Component Attester Verifiers (example Verifier 1).<a href="#section-3.1.3-1" class="pilcrow">¶</a></p>
-<p id="section-3.1.3-2">Also, each of the Component Attester Verifier is fully trusted by the Lead Verifier. Lead Verifier is provisioned with the Trust Anchors for Verifier 1..N.<a href="#section-3.1.3-2" class="pilcrow">¶</a></p>
+<p id="section-4.1.3-1">In this topology the Lead Verifier is fully trusted by Component Attester Verifiers (example Verifier 1).<a href="#section-4.1.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.3-2">Also, each of the Component Attester Verifier is fully trusted by the Lead Verifier. Lead Verifier is provisioned with the Trust Anchors for Verifier 1..N.<a href="#section-4.1.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="cascaded-pattern-sec-verifier-cascade-">
-<section id="section-3.2">
+<section id="section-4.2">
         <h3 id="name-cascaded-pattern-sec-verifi">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-cascaded-pattern-sec-verifi" class="section-name selfRef">Cascaded Pattern {: #sec-verifier-cascade }</a>
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-cascaded-pattern-sec-verifi" class="section-name selfRef">Cascaded Pattern {: #sec-verifier-cascade }</a>
         </h3>
-<p id="section-3.2-1">Figure below shows the block diagram of a Cascaded Pattern.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
-<div id="section-3.2-2">
-          <div class="alignLeft art-svg artwork" id="section-3.2-2.1">
+<p id="section-4.2-1">Figure below shows the block diagram of a Cascaded Pattern.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<div id="section-4.2-2">
+          <div class="alignLeft art-svg artwork" id="section-4.2-2.1">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="208" width="752" viewBox="0 0 752 208" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
               <path d="M 8,48 L 8,160" fill="none" stroke="black"></path>
               <path d="M 80,48 L 80,160" fill="none" stroke="black"></path>
@@ -1483,92 +1514,98 @@ It receives Attestation Evidence from a Composite Attester. If the Composite Att
                 <text x="576" y="164">(AAR)</text>
                 <text x="136" y="180">(AAR)</text>
               </g>
-            </svg><a href="#section-3.2-2.1" class="pilcrow">¶</a>
+            </svg><a href="#section-4.2-2.1" class="pilcrow">¶</a>
 </div>
 </div>
-<p id="section-3.2-3">In this topological pattern, the Attestation Verification happens in sequence. Verifiers are cascaded to perform the Attestation Appraisal. Each Verifier in the chain possess the knowledge of the entire Composite Attester topology.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
-<p id="section-3.2-4">Attester may send the Composite Evidence(CE) to any of the Verifier (directly in the passport model, or indirectly via the Relying Party in the background-check model). The Verifier which processes the Composite Evidence, Verifies the signature on the Evidence, if present. It decodes the Composite Evidence performs Appraisal of the Component Attester whose Reference Values and Endorsements are in its database. Once the appraisal is complete, it forwards the Composite Evidence and partial Attestation Results to the subsequent Verifier.<a href="#section-3.2-4" class="pilcrow">¶</a></p>
-<p id="section-3.2-5">The process is repeated, until the entire appraisal is complete. The last Verifier, i.e. Verifier-N, completes its Appraisal of the Component Attester Evidence and returns the complete Attestation Results to the N-1 Verifier, which passed Evidence to it. The N-1 Verifier then simply passes the Aggregated Attestation Results(AAR) from where it received its Combined Evidence. Alternatively, it may also modify the AAR based on the inspection of received AAR. For example, it may add its own Verifier Added Claims (policy claims) and produce a new AAR. The process is repeated, until the Verifier, which recieved the initial Evidence is reached. At this point in time the Aggregated Attestation Results are signed and the Aggregated Attestation Results are sent to the Attester (in Passport Model) or Relying Party (in background check model).<a href="#section-3.2-5" class="pilcrow">¶</a></p>
-<p id="section-3.2-6">As shown in the picture, the partial results and Combined Evidence is transmitted to a chain of Verifier, till the Appraisal is complete.
-The Verifier combines the incoming partial results, combines the results from it own Evidence Appraisal and passes the Aggregated Attestation Results to the Verifier from which it receives Combined Evidence.<a href="#section-3.2-6" class="pilcrow">¶</a></p>
+<p id="section-4.2-3">In this topological pattern, the Attestation Verification happens in sequence. Verifiers are cascaded to perform the Attestation Appraisal. Each Verifier in the chain possess the knowledge of the entire Composite Attester topology.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
+<p id="section-4.2-4">Attester may send the Composite Evidence(CE) to any of the Verifier (directly in the passport model, or indirectly via the Relying Party in the background-check model). The Verifier which processes the Composite Evidence, Verifies the signature on the Evidence, if present. It decodes the Composite Evidence performs Appraisal of the Component Attester whose Reference Values and Endorsements are in its database. Once the appraisal is complete, it forwards the Composite Evidence and partial Attestation Results to the subsequent Verifier.<a href="#section-4.2-4" class="pilcrow">¶</a></p>
+<p id="section-4.2-5">The process is repeated, until the entire appraisal is complete. The last Verifier, i.e. Verifier-N, completes its Appraisal of the Component Attester Evidence and returns the complete Attestation Results to the N-1 Verifier, which passed Evidence to it. The N-1 Verifier then simply passes the Aggregated Attestation Results(AAR) from where it received its Combined Evidence. Alternatively, it may also modify the AAR based on the inspection of received AAR. For example, it may add its own Verifier Added Claims (policy claims) and produce a new AAR. The process is repeated, until the Verifier, which recieved the initial Evidence is reached. At this point in time the Aggregated Attestation Results are signed and the Aggregated Attestation Results are sent to the Attester (in Passport Model) or Relying Party (in background check model).<a href="#section-4.2-5" class="pilcrow">¶</a></p>
+<p id="section-4.2-6">As shown in the picture, the partial results and Combined Evidence is transmitted to a chain of Verifier, till the Appraisal is complete.
+The Verifier combines the incoming partial results, combines the results from it own Evidence Appraisal and passes the Aggregated Attestation Results to the Verifier from which it receives Combined Evidence.<a href="#section-4.2-6" class="pilcrow">¶</a></p>
 <div id="trust-relationships-1">
-<section id="section-3.2.1">
+<section id="section-4.2.1">
           <h4 id="name-trust-relationships-2">
-<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-trust-relationships-2" class="section-name selfRef">Trust Relationships</a>
+<a href="#section-4.2.1" class="section-number selfRef">4.2.1. </a><a href="#name-trust-relationships-2" class="section-name selfRef">Trust Relationships</a>
         </h4>
 </section>
 </div>
 <div id="verifiers">
-<section id="section-3.2.2">
+<section id="section-4.2.2">
           <h4 id="name-verifiers">
-<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-verifiers" class="section-name selfRef">Verifiers</a>
+<a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-verifiers" class="section-name selfRef">Verifiers</a>
           </h4>
-<p id="section-3.2.2-1">In the cascaded pattern, the communicating Verifiers fully trust each other. Each Verifier has the trust anchor for the Verifier it is communicating to (i.e. either sending information or receiving information). This prevents man in the middle attack for the partial Attestation Results received by a Verifier or a Aggregated Attestation Results (AAR) which it receives in the return path.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.2-1">In the cascaded pattern, the communicating Verifiers fully trust each other. Each Verifier has the trust anchor for the Verifier it is communicating to (i.e. either sending information or receiving information). This prevents man in the middle attack for the partial Attestation Results received by a Verifier or a Aggregated Attestation Results (AAR) which it receives in the return path.<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="relying-party-and-verifiers">
-<section id="section-3.2.3">
+<section id="section-4.2.3">
           <h4 id="name-relying-party-and-verifiers">
-<a href="#section-3.2.3" class="section-number selfRef">3.2.3. </a><a href="#name-relying-party-and-verifiers" class="section-name selfRef">Relying Party and Verifiers</a>
+<a href="#section-4.2.3" class="section-number selfRef">4.2.3. </a><a href="#name-relying-party-and-verifiers" class="section-name selfRef">Relying Party and Verifiers</a>
           </h4>
-<p id="section-3.2.3-1">In the cascaded pattern, the RP may communicate with any Verifier and thus receive its Attestation Results. Hence RP fully trusts all the Verifiers.<a href="#section-3.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.3-1">In the cascaded pattern, the RP may communicate with any Verifier and thus receive its Attestation Results. Hence RP fully trusts all the Verifiers.<a href="#section-4.2.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="hybrid-pattern">
-<section id="section-3.3">
+<section id="section-4.3">
         <h3 id="name-hybrid-pattern">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-hybrid-pattern" class="section-name selfRef">Hybrid Pattern</a>
+<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-hybrid-pattern" class="section-name selfRef">Hybrid Pattern</a>
         </h3>
-<p id="section-3.3-1">In a particular deployment, there is a possibility that the two models presented above can be combined to produce a hybrid pattern. For example Verifier 2 in the Cascaded Pattern becomes the Lead Verifier for the remaining Verifers from 3, to N.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.3-1">In a particular deployment, there is a possibility that the two models presented above can be combined to produce a hybrid pattern. For example Verifier 2 in the Cascaded Pattern becomes the Lead Verifier for the remaining Verifers from 3, to N.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="freshness">
-<section id="section-4">
+<section id="section-5">
       <h2 id="name-freshness">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-freshness" class="section-name selfRef">Freshness</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-freshness" class="section-name selfRef">Freshness</a>
       </h2>
-<p id="section-4-1">The Verifier needs to ensure that the claims included in the Evidence reflect the latest state of the Attester. As per RATS Architecture, the recommended freshness is ascertained using either Synchronised Clocks, Epoch IDs, or nonce, embedded in the Evidence.
-In the case of Hierarchical Pattern, the Verification of Freshness should be checked by the Lead Verifier.<a href="#section-4-1" class="pilcrow">¶</a></p>
-<p id="section-4-2">In the Cascaded Pattern, the freshness is always checked by the first Verifier in communication with either the Attester (Passport Model) or Relying Party (Background Check Model).
-# Security Considerations<a href="#section-4-2" class="pilcrow">¶</a></p>
-<p id="section-4-3"><span class="cref">TODO</span><a href="#section-4-3" class="pilcrow">¶</a></p>
+<p id="section-5-1">The Verifier needs to ensure that the claims included in the Evidence reflect the latest state of the Attester. As per RATS Architecture, the recommended freshness is ascertained using either Synchronised Clocks, Epoch IDs, or nonce, embedded in the Evidence.
+In the case of Hierarchical Pattern, the Verification of Freshness should be checked by the Lead Verifier.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">In the Cascaded Pattern, the freshness is always checked by the first Verifier in communication with either the Attester (Passport Model) or Relying Party (Background Check Model).<a href="#section-5-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="security-considerations">
+<section id="section-6">
+      <h2 id="name-security-considerations">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      </h2>
+<p id="section-6-1"><span class="cref">TODO</span><a href="#section-6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
-<section id="section-5">
+<section id="section-7">
       <h2 id="name-iana-considerations">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
 <div id="cbor-tag-registrations">
-<section id="section-5.1">
+<section id="section-7.1">
         <h3 id="name-cbor-tag-registrations">
-<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-cbor-tag-registrations" class="section-name selfRef">CBOR Tag Registrations</a>
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-cbor-tag-registrations" class="section-name selfRef">CBOR Tag Registrations</a>
       </h3>
 </section>
 </div>
 </section>
 </div>
 <div id="acknowledgements">
-<section id="section-6">
+<section id="section-8">
       <h2 id="name-acknowledgements">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
       </h2>
-<p id="section-6-1"><span class="cref">TODO</span><a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-8-1"><span class="cref">TODO</span><a href="#section-8-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-combined-references">
-<section id="section-7">
+<section id="section-9">
       <h2 id="name-references">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
 <div id="sec-normative-references">
-<section id="section-7.1">
+<section id="section-9.1">
         <h3 id="name-normative-references">
-<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
@@ -1583,9 +1620,9 @@ In the case of Hierarchical Pattern, the Verification of Freshness should be che
 </section>
 </div>
 <div id="sec-informative-references">
-<section id="section-7.2">
+<section id="section-9.2">
         <h3 id="name-informative-references">
-<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC9334">[RFC9334]</dt>
@@ -1610,6 +1647,14 @@ In the case of Hierarchical Pattern, the Verification of Freshness should be che
 <a href="mailto:Thomas.Fossati@linaro.org" class="email">Thomas.Fossati@linaro.org</a>
 </div>
 </address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Thanassis Giannetsos</span></div>
+<div dir="auto" class="left"><span class="org">UBITECH Ltd.</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:agiannetsos@ubitech.eu" class="email">agiannetsos@ubitech.eu</a>
+</div>
+</address>
 </section>
 </div>
 <div id="authors-addresses">
@@ -1631,6 +1676,14 @@ In the case of Hierarchical Pattern, the Verification of Freshness should be che
 <div class="email">
 <span>Email:</span>
 <a href="mailto:junzhang1@huawei.com" class="email">junzhang1@huawei.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Houda Labiod</span></div>
+<div dir="auto" class="left"><span class="org">Huawei Technologies France S.A.S.U.</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:houda.labiod@huawei.com" class="email">houda.labiod@huawei.com</a>
 </div>
 </address>
 <address class="vcard">
