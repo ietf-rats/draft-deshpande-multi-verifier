@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-08T01:42:15.952012+00:00",
+  "timestamp": "2025-05-20T01:43:53.728482+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -928,6 +928,34 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 23,
+      "id": "PR_kwDON24c9s6Wv9GA",
+      "title": "First draft documenting motivation",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/23",
+      "state": "OPEN",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "yogeshbdeshpande"
+      ],
+      "labels": [],
+      "body": "Fixes #20",
+      "createdAt": "2025-05-19T15:49:55Z",
+      "updatedAt": "2025-05-19T15:53:08Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "7118853cc4244bb93dfb33eb72ca98b397b5de85",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "motivation",
+      "headRefOid": "f1d0fb612a796bad749167b9dca1a2bf47f87821",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
