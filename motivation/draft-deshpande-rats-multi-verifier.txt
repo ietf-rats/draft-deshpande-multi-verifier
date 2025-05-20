@@ -5,11 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 20 November 2025                                      H. Labiod
+Expires: 21 November 2025                                      H. Labiod
                                      Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                             19 May 2025
+                                                             20 May 2025
 
 
                     Remote Attestation MultiVerifier
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 November 2025.
+   This Internet-Draft will expire on 21 November 2025.
 
 Copyright Notice
 
@@ -146,10 +146,10 @@ Table of Contents
    Owner and it may not choose to reveal it to a monolithic Verifier. 2.
    An Endorser may not wish to reveal its Reference Values or their
    lifecycle to a monolithic Verifier, hence may choose to keep its
-   verification seperate. 2.  There may not be a single actor in the
+   verification seperate. 3.  There may not be a single actor in the
    ecosystem, that can stand up and take ownership of Verifying every
    component Attester due to lack of knowledge, complexity, regulations
-   or associated cost. 3.  Verifier services provided by component
+   or associated cost. 4.  Verifier services provided by component
    manufactures as well as Verifiers provided by the integrators, as
    well as Verifiers under local authority (close to the Attester) are
    the mix today and rarely it is just one of them.
