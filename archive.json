@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-20T01:43:53.728482+00:00",
+  "timestamp": "2025-05-22T01:42:33.171825+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -943,19 +943,112 @@
       "labels": [],
       "body": "Fixes #20",
       "createdAt": "2025-05-19T15:49:55Z",
-      "updatedAt": "2025-05-19T15:53:08Z",
+      "updatedAt": "2025-05-20T08:15:49Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "7118853cc4244bb93dfb33eb72ca98b397b5de85",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "motivation",
-      "headRefOid": "f1d0fb612a796bad749167b9dca1a2bf47f87821",
+      "headRefOid": "665c8259a0b528e8811056843715cc35553adcc6",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s6p_aXD",
+          "commit": {
+            "abbreviatedOid": "f1d0fb6"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "I have left three comments in line 82, 91 and 92.",
+          "createdAt": "2025-05-19T20:53:24Z",
+          "updatedAt": "2025-05-20T07:39:27Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "should be 3 in line 91",
+              "createdAt": "2025-05-19T20:53:24Z",
+              "updatedAt": "2025-05-20T07:39:27Z"
+            },
+            {
+              "originalPosition": 30,
+              "body": "should be 4 in line 92",
+              "createdAt": "2025-05-19T20:53:51Z",
+              "updatedAt": "2025-05-20T07:39:27Z"
+            },
+            {
+              "originalPosition": 20,
+              "body": "4. Certificates for Attesting Environments.",
+              "createdAt": "2025-05-20T07:38:24Z",
+              "updatedAt": "2025-05-20T07:39:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6qD7aH",
+          "commit": {
+            "abbreviatedOid": "f1d0fb6"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-20T08:14:31Z",
+          "updatedAt": "2025-05-20T08:14:31Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "```suggestion\r\n3. There may not be a single actor in the ecosystem, that can stand up and take ownership of Verifying every component Attester due to lack of knowledge, complexity, regulations or associated cost.\r\n```",
+              "createdAt": "2025-05-20T08:14:31Z",
+              "updatedAt": "2025-05-20T08:14:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6qD7iF",
+          "commit": {
+            "abbreviatedOid": "f1d0fb6"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-20T08:14:42Z",
+          "updatedAt": "2025-05-20T08:14:42Z",
+          "comments": [
+            {
+              "originalPosition": 30,
+              "body": "```suggestion\r\n4. Verifier services provided by component manufactures as well as Verifiers provided by the integrators, as well as Verifiers under local authority (close to the Attester) are the mix today and rarely it is just one of them.\r\n```",
+              "createdAt": "2025-05-20T08:14:42Z",
+              "updatedAt": "2025-05-20T08:14:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6qD8dO",
+          "commit": {
+            "abbreviatedOid": "665c825"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-20T08:15:48Z",
+          "updatedAt": "2025-05-20T08:15:49Z",
+          "comments": [
+            {
+              "originalPosition": 20,
+              "body": "Certificates for Attesting Environments come under Endorsements in RATS Architecture so they are covered!",
+              "createdAt": "2025-05-20T08:15:48Z",
+              "updatedAt": "2025-05-20T08:15:49Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
