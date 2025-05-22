@@ -5,11 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 21 November 2025                                      H. Labiod
+Expires: 23 November 2025                                      H. Labiod
                                      Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                             20 May 2025
+                                                             22 May 2025
 
 
                     Remote Attestation MultiVerifier
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 November 2025.
+   This Internet-Draft will expire on 23 November 2025.
 
 Copyright Notice
 
@@ -92,15 +92,15 @@ Table of Contents
 
    A Verifier plays a central role in any Remote Attestation System.  A
    Verifier appraises the Attester and produces Attestation Results,
-   which is essentially a verdict of attestation.  The results are
+   which are essentially a verdict of attestation.  The results are
    consumed by the Relying Party to conclude the trustworthiness of the
-   Attester, prior to making any critical decisions about the Attester,
-   such as admitting to network or releasing confidential resources to
-   it.  Attesters can come in wide varieties of shape and form.  For
-   example Attesters can be endpoints (edge or IoT devices) or complex
-   machines in the cloud.  Composite Attester Section 3.1, generate
-   Evidence that consists of multiple parts.  For example, in data
-   center servers, it is not uncommon for separate attesting
+   Attester, before making any critical decisions about the Attester,
+   such as admitting it to the network or releasing confidential
+   resources to it.  Attesters can come in wide varieties of shape and
+   form.  For example Attesters can be endpoints (edge or IoT devices)
+   or complex machines in the cloud.  Composite Attester Section 3.1,
+   generate Evidence that consists of multiple parts.  For example, in
+   data center servers, it is not uncommon for separate attesting
    environments (AE) to serve a subsection of the entire machine.  One
    AE might measure and attest to what was booted on the main CPU, while
    another AE might measure and attest to what was booted machine's GPU.
@@ -108,12 +108,12 @@ Table of Contents
    Section 3.1 to address the sub-entity or an individual layer which
    produces its own Evidence in a Composite Attester system.
 
-   In a Composite AttesterSection 3.1 system it may not be possible that
-   a single Verifier may possess all the capabilities or the information
-   required to conduct the complete appraisal of the Attester.  Please
-   refer to Section 2, for motivation of this document.  Multiple
-   Verifiers need to collaborate to conclude the appraisal and produce
-   the Attestation Results.
+   In a Composite Attester system, it may not be possible for a single
+   Verifier to possess all the capabilities or information required to
+   conduct a complete appraisal of the Attester.  Please refer to
+   Section 2 for motivation of this document.  Multiple Verifiers need
+   to collaborate to reach a conclusion on the appraisal and produce the
+   Attestation Results.
 
    This document describes various topological patterns of multiple
    Verifiers that work in a coordinated manner to conduct appraisal of a
@@ -121,24 +121,28 @@ Table of Contents
 
 2.  Need for Multiple Verifiers
 
-   In order to conduct the role of attestation verification, a Verifier
-   needs: 1.  Reference Values from trusted supply chain of the Attester
-   2.  Endorsements from trusted supply chain of the Attester 3.
-   Appraisal policy for Evidence, which is under the control of Verifier
-   owner
+   To conduct the task of Evidence appraisal, a Verifier requires: 1.
+   Reference Values from trusted supply chain actors producing,
+   aggregating, or administering Attesters (Reference Value Providers)
+   2.  Endorsements from trusted supply chain actors producing,
+   certifying, or compliance checking Attesters (Endorsers) 3.
+   Appraisal Policy for Evidence, which is under the control of the
+   Verifier Owner
 
-   The above inputs are linked to the shape and form of the Attester,
-   i.e the type of claims and the policies of Verification.  For
-   composite Attesters, there is a heterogeneity of Evidence formats,
-   each with a specific purpose, for example a CPU and a GPU.  The
-   composite Attester composition can change based on market dynamics
-   and availability over time (e.g., a set of racks in a data center
-   gets thousands of new FPGAs).  It is highly unlikely that there is
-   always one appropriate Verifier that satisfies all the requirements
-   that a complex and changing composite Attesters impose.  It may not
-   be economically viable to build and maintain such degree of
-   complexity, in a single Verifier, hence there is a need for a Multi
-   Verifier System.
+   The Verifier inputs listed above are linked to the shape and form of
+   the Attesters, i.e., the type of claims and the policies of appraisal
+   of Evidence.  Typically, Composite Attesters come with a varying
+   degree of heterogeneity of Evidence formats, depending on the type of
+   Attesting Environments that come with each Component Attester, for
+   example, CPU variants or GPU/FPGA variants.  An Attester's
+   composition can change over time based on market dynamics and
+   availability (e.g., a set of racks in a data center gets thousands of
+   new FPGAs).  It is highly unlikely that there is always one
+   appropriate Verifier that satisfies all the requirements that a
+   complex and changing composite Attesters impose.  It may not be
+   economically viable to build and maintain such degree of complexity,
+   in a single Verifier, hence there is a need for a Multi Verifier
+   System.
 
    In addition to above, there are several other factors that can lead
    to multi Verifier system, few are listed below: 1.  A part of a
