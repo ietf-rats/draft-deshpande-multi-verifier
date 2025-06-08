@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-25T01:50:27.466952+00:00",
+  "timestamp": "2025-06-08T01:52:46.730928+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -55,15 +55,15 @@
       "id": "I_kwDON24c9s6ruXiR",
       "title": "Composite Attester definition",
       "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "thomas-fossati",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Composite Device (CD) and Layered Attester (LA) are basic composition patterns.\n\nIf we are introducing a new term, Composite Attester (CA), it may be worth giving it more expressive power than just a handy shorthand for CD _or_ LA.\n\nI suppose we could say that a CA is either a CD, an LA, or any composition involving one or more CDs and/or LAs, and thus have a more useful term in our vocabulary.\n\nAs an example of its use, take a CCA system with a separately attested GPU, exposing a [`ratsd`](https://github.com/veraison/ratsd) endpoint as the lead attester.\n\nThe resulting CA would be a CD made of one LA (the CCA platform and realm) plus a \"singleton\" attester (the GPU).\n\nEven fancier compositions can be imagined in systems spanning multiple physical nodes.",
       "createdAt": "2025-02-26T10:26:28Z",
-      "updatedAt": "2025-03-03T12:43:46Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-05T08:31:06Z",
+      "closedAt": "2025-06-05T08:31:06Z",
       "comments": [
         {
           "author": "thomas-fossati",
@@ -92,6 +92,13 @@
           "body": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/commit/57a298cb6af3646d9962fd67ffa16cce88b3e2c2\n\nThis is the above commit which precisely addresses this issue. Hence this issue should be closed now!",
           "createdAt": "2025-03-03T12:43:44Z",
           "updatedAt": "2025-03-03T12:43:44Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@thomas-fossati Shall we close this now, as we now have the definition?",
+          "createdAt": "2025-06-05T08:24:43Z",
+          "updatedAt": "2025-06-05T08:24:43Z"
         }
       ]
     },
@@ -943,13 +950,13 @@
       "labels": [],
       "body": "Fixes #20",
       "createdAt": "2025-05-19T15:49:55Z",
-      "updatedAt": "2025-05-22T09:45:21Z",
+      "updatedAt": "2025-06-05T10:25:32Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "7118853cc4244bb93dfb33eb72ca98b397b5de85",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "motivation",
-      "headRefOid": "a59bc0eccacb7f42287258499c6cc6ac910b0355",
+      "headRefOid": "626b642a74c5e59b25739d378bd92998e165b182",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -1223,6 +1230,45 @@
               "body": "No I think, market dynamics is more suited that goes to the root why it changes, instead `deployment updates` which sort of reflects the action..",
               "createdAt": "2025-05-22T09:44:49Z",
               "updatedAt": "2025-05-22T09:44:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6s0LKJ",
+          "commit": {
+            "abbreviatedOid": "a59bc0e"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-05T08:31:20Z",
+          "updatedAt": "2025-06-05T08:31:20Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s6s0SaS",
+          "commit": {
+            "abbreviatedOid": "a59bc0e"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-05T08:41:03Z",
+          "updatedAt": "2025-06-05T08:47:20Z",
+          "comments": [
+            {
+              "originalPosition": 30,
+              "body": "Lines 88-92 *may* be ok in terms of content (although I am not entirely sure about 2), but they need some more work on the exposition to improve clarity.\r\n\r\nBesides, I don\u2019t understand why they are grouped separately.  They seem like core arguments to me, i.e., not hierarchically inferior to the \u201cmarket dynamics\u201d argument above.\r\n\r\nIn general, I believe it\u2019d be better to restructure the section in a cleaner fashion, e.g., with a bullet list where each separate point is clearly and concisely articulated.",
+              "createdAt": "2025-06-05T08:41:03Z",
+              "updatedAt": "2025-06-05T08:47:20Z"
+            },
+            {
+              "originalPosition": 24,
+              "body": "it looks like  we don\u2019t do NSNL here.  What\u2019s the reason?",
+              "createdAt": "2025-06-05T08:42:31Z",
+              "updatedAt": "2025-06-05T08:47:20Z"
             }
           ]
         }
