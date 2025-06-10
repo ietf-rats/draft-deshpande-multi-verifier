@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-08T01:52:46.730928+00:00",
+  "timestamp": "2025-06-10T01:46:37.842047+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -1269,6 +1269,85 @@
               "body": "it looks like  we don\u2019t do NSNL here.  What\u2019s the reason?",
               "createdAt": "2025-06-05T08:42:31Z",
               "updatedAt": "2025-06-05T08:47:20Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "id": "PR_kwDON24c9s6Zk2p9",
+      "title": "Add Security and Privacy Considerations section",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/24",
+      "state": "OPEN",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-08T11:06:01Z",
+      "updatedAt": "2025-06-08T20:32:00Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "7118853cc4244bb93dfb33eb72ca98b397b5de85",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "multi-verifier-security",
+      "headRefOid": "15801fa4d4fe5df0a8f0bf4107b747063801623a",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s6tXiQd",
+          "commit": {
+            "abbreviatedOid": "15801fa"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-08T20:20:41Z",
+          "updatedAt": "2025-06-08T20:20:42Z",
+          "comments": [
+            {
+              "originalPosition": 24,
+              "body": "Notice that, in line 241 we have already mentioned the secure channel between verifiers, so the confidentiality is already guaranteed. Also, we need to have a mechanism to ensure the Lead Verifier does not become the point to leak the information, while the confidential environment (TEE) provides one solution. ",
+              "createdAt": "2025-06-08T20:20:41Z",
+              "updatedAt": "2025-06-08T20:20:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6tXiiD",
+          "commit": {
+            "abbreviatedOid": "15801fa"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-08T20:24:07Z",
+          "updatedAt": "2025-06-08T20:32:00Z",
+          "comments": [
+            {
+              "originalPosition": 49,
+              "body": "The topology between Verifiers in the cascade model is fixed. Hence for each Verifier, it only maintains the trust roots for its neighboring Verifiers in the chain.",
+              "createdAt": "2025-06-08T20:24:07Z",
+              "updatedAt": "2025-06-08T20:32:00Z"
+            },
+            {
+              "originalPosition": 47,
+              "body": "what is Sender in this context? One Verifier in the chain, or the Attester/RP?",
+              "createdAt": "2025-06-08T20:26:14Z",
+              "updatedAt": "2025-06-08T20:32:00Z"
+            },
+            {
+              "originalPosition": 47,
+              "body": "Each sub evidence collected at the Lead Attester needs to be encrypted by the key (symmetric, or public key in the asymmetric case)  only knows by the corresponding sub Verifier, to ensure the confidentiality of the sub Evidence. ",
+              "createdAt": "2025-06-08T20:31:25Z",
+              "updatedAt": "2025-06-08T20:32:00Z"
             }
           ]
         }
