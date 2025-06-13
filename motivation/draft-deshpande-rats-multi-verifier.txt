@@ -137,9 +137,9 @@ Table of Contents
    appraisal for a Composite Attester, the following challenges remain:
 
    1.  An Attester's composition can change over time based on market
-       dynamics and availability (e.g., a set of racks in a data center
-       gets thousands of new FPGAs).  It is highly unlikely that there
-       is always one appropriate Verifier that satisfies all the
+       requirements and availability (e.g., a set of racks in a data
+       center gets thousands of new FPGAs).  It is highly unlikely that
+       there is always one appropriate Verifier that satisfies all the
        requirements that a complex and changing Composite Attesters
        imposes.  It may not be economically viable to build and maintain
        such a degree of complexity in a single Verifier.
