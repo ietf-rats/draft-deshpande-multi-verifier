@@ -5,11 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 10 December 2025                                      H. Labiod
+Expires: 15 December 2025                                      H. Labiod
                                      Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                             8 June 2025
+                                                            13 June 2025
 
 
                     Remote Attestation MultiVerifier
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 December 2025.
+   This Internet-Draft will expire on 15 December 2025.
 
 Copyright Notice
 
@@ -78,8 +78,9 @@ Table of Contents
      3.3.  Hybrid Pattern
    4.  Freshness
    5.  Security and Privacy Considerations
-     5.1.  Hierarchical Pattern
-     5.2.  Cascaded Pattern
+     5.1.  Conceptual Message Protection
+       5.1.1.  Hierarchical Pattern
+       5.1.2.  Cascaded Pattern
    6.  IANA Considerations
      6.1.  CBOR Tag Registrations
    7.  Acknowledgements
@@ -351,24 +352,36 @@ Table of Contents
 
 5.  Security and Privacy Considerations
 
-5.1.  Hierarchical Pattern
+   The Verifier is effectively part of the Attesters' and Relying
+   Parties' trusted computing base (TCB).  Any mistake in the appraisal
+   procedure conducted by the Verifier could have security implications.
+   For Security and Privacy considerations while conducting appraisal
+   procedure the Verifiers described in this document MUST follow the
+   guidance detailed in Security and Privacy considerations of a RATS
+   Verifier as detailed in Section 11 of [I-D.draft-ietf-rats-corim].
+
+5.1.  Conceptual Message Protection
+
+5.1.1.  Hierarchical Pattern
 
    In this topology the Lead Verifier communicates with the Attester/RP
    and with other Verifiers.
 
-   The Security and Privacy consideration between the Lead Verifier and
-   the Attester/RP follows the guidance provided in RATS Architecture
-   Section 11 and Section 12 of [RFC9334].
+   The Security and Privacy consideration for the messages between the
+   Lead Verifier and the Attester/RP follows the guidance provided in
+   RATS Architecture Section 11 and Section 12 of [RFC9334].
 
    The Lead Verifier conveys Component Attester Evidence to each of the
    sub-Verifiers and receives partial Attestation Results from them.
-   The communication among the Verifiers should use cryptographically
-   protected, mutually authenticated secure channels.
+   The communication among the Verifiers should use secure channels,
+   such as TLS.  This ensures confidentiality, integrity and
+   authenticity of the message exchanged between the Verifiers.
 
-   The Lead Verifier can maintain a Trust Anchor Store that contains the
-   list of Public Keys for each Verifier, to which it communicates.  The
-   Trust Anchors can be utilized to achieve the desired security as
-   explained below.
+   Where required, in addition to transport layer security, the Lead
+   Verifier can maintain a Trust Anchor Store that contains the list of
+   Public Keys for each Verifier, to which it communicates.  The Trust
+   Anchors can be utilized to achieve the desired security as explained
+   below.
 
    Evidence might contain sensitive or confidential information, there
    might be a need for confidentiality protection of the individual
@@ -395,7 +408,7 @@ Table of Contents
    themselves, the underlying conveyance protocol should provide these
    protections
 
-5.2.  Cascaded Pattern
+5.1.2.  Cascaded Pattern
 
    In this pattern, the Composite Evidence is received by each Verifier
    in the chain.  As a result, the Security and Privacy consideration of
@@ -449,6 +462,13 @@ Table of Contents
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
 8.2.  Informative References
+
+   [I-D.draft-ietf-rats-corim]
+              Birkholz, H., Fossati, T., Deshpande, Y., Smith, N., and
+              W. Pan, "Concise Reference Integrity Manifest", Work in
+              Progress, Internet-Draft, draft-ietf-rats-corim-07, 3
+              March 2025, <https://datatracker.ietf.org/doc/html/draft-
+              ietf-rats-corim-07>.
 
    [RFC9334]  Birkholz, H., Thaler, D., Richardson, M., Smith, N., and
               W. Pan, "Remote ATtestation procedureS (RATS)

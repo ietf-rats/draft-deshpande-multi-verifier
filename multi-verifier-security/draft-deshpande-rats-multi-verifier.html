@@ -1050,7 +1050,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Deshpande, et al.</td>
-<td class="center">Expires 10 December 2025</td>
+<td class="center">Expires 15 December 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1063,12 +1063,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-deshpande-rats-multi-verifier-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-06-08" class="published">8 June 2025</time>
+<time datetime="2025-06-13" class="published">13 June 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-12-10">10 December 2025</time></dd>
+<dd class="expires"><time datetime="2025-12-15">15 December 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1122,7 +1122,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 10 December 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 15 December 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1205,10 +1205,15 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-security-and-privacy-consid" class="internal xref">Security and Privacy Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
-                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-hierarchical-pattern-2" class="internal xref">Hierarchical Pattern</a></p>
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-conceptual-message-protecti" class="internal xref">Conceptual Message Protection</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1.2.1">
+                    <p id="section-toc.1-1.5.2.1.2.1.1"><a href="#section-5.1.1" class="auto internal xref">5.1.1</a>.  <a href="#name-hierarchical-pattern-2" class="internal xref">Hierarchical Pattern</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
-                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-cascaded-pattern" class="internal xref">Cascaded Pattern</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1.2.2">
+                    <p id="section-toc.1-1.5.2.1.2.2.1"><a href="#section-5.1.2" class="auto internal xref">5.1.2</a>.  <a href="#name-cascaded-pattern" class="internal xref">Cascaded Pattern</a></p>
+</li>
+                </ul>
 </li>
             </ul>
 </li>
@@ -1557,55 +1562,61 @@ In the case of Hierarchical Pattern, the Verification of Freshness should be che
       <h2 id="name-security-and-privacy-consid">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-and-privacy-consid" class="section-name selfRef">Security and Privacy Considerations</a>
       </h2>
-<div id="hierarchical-pattern">
+<p id="section-5-1">The Verifier is effectively part of the Attesters' and Relying Parties' trusted computing base (TCB). Any mistake in the appraisal procedure conducted by the Verifier could have security implications. For Security and Privacy considerations while conducting appraisal procedure the Verifiers described in this document MUST follow the guidance detailed in Security and Privacy considerations of a RATS Verifier as detailed in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-corim-07#section-11" class="relref">Section 11</a> of [<a href="#I-D.draft-ietf-rats-corim" class="cite xref">I-D.draft-ietf-rats-corim</a>]</span>.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<div id="conceptual-message-protection">
 <section id="section-5.1">
-        <h3 id="name-hierarchical-pattern-2">
-<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-hierarchical-pattern-2" class="section-name selfRef">Hierarchical Pattern</a>
+        <h3 id="name-conceptual-message-protecti">
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-conceptual-message-protecti" class="section-name selfRef">Conceptual Message Protection</a>
         </h3>
-<p id="section-5.1-1">In this topology the Lead Verifier communicates with the Attester/RP and with other Verifiers.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
-<p id="section-5.1-2">The Security and Privacy consideration between the Lead Verifier and the Attester/RP follows the guidance provided in
-RATS Architecture Section <a href="https://rfc-editor.org/rfc/rfc9334#section-11" class="relref">11</a> and Section <a href="https://rfc-editor.org/rfc/rfc9334#section-12" class="relref">12</a> of <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>.<a href="#section-5.1-2" class="pilcrow">¶</a></p>
-<p id="section-5.1-3">The Lead Verifier conveys Component Attester Evidence to each of the sub-Verifiers and receives partial
+<div id="hierarchical-pattern">
+<section id="section-5.1.1">
+          <h4 id="name-hierarchical-pattern-2">
+<a href="#section-5.1.1" class="section-number selfRef">5.1.1. </a><a href="#name-hierarchical-pattern-2" class="section-name selfRef">Hierarchical Pattern</a>
+          </h4>
+<p id="section-5.1.1-1">In this topology the Lead Verifier communicates with the Attester/RP and with other Verifiers.<a href="#section-5.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-2">The Security and Privacy consideration for the messages between the Lead Verifier and the Attester/RP follows the guidance provided in RATS Architecture Section <a href="https://rfc-editor.org/rfc/rfc9334#section-11" class="relref">11</a> and Section <a href="https://rfc-editor.org/rfc/rfc9334#section-12" class="relref">12</a> of <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>.<a href="#section-5.1.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-3">The Lead Verifier conveys Component Attester Evidence to each of the sub-Verifiers and receives partial
 Attestation Results from them.
-The communication among the Verifiers should use cryptographically protected, mutually authenticated secure channels.<a href="#section-5.1-3" class="pilcrow">¶</a></p>
-<p id="section-5.1-4">The Lead Verifier can maintain a Trust Anchor Store that contains the list of Public Keys for each Verifier,
-to which it communicates.
-The Trust Anchors can be utilized to achieve the desired security as explained below.<a href="#section-5.1-4" class="pilcrow">¶</a></p>
-<p id="section-5.1-5">Evidence might contain sensitive or confidential information, there might be a need for
+The communication among the Verifiers should use secure channels, such as TLS. This ensures confidentiality, integrity and authenticity of the message exchanged between the Verifiers.<a href="#section-5.1.1-3" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-4">Where required, in addition to transport layer security, the Lead Verifier can maintain a Trust Anchor Store that contains the list of Public Keys for each Verifier, to which it communicates.
+The Trust Anchors can be utilized to achieve the desired security as explained below.<a href="#section-5.1.1-4" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-5">Evidence might contain sensitive or confidential information, there might be a need for
 confidentiality protection of the individual Evidence conveyed to each Verifier.
 One option is that the Lead Verifier may choose to Encrypt the individual Evidence for
-Confidentiality protection, using the public Key for the Verifier it communicates.<a href="#section-5.1-5" class="pilcrow">¶</a></p>
-<p id="section-5.1-6">The Composite Attester Evidence may contain Component Attester Evidence, each having signature
+Confidentiality protection, using the public Key for the Verifier it communicates.<a href="#section-5.1.1-5" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-6">The Composite Attester Evidence may contain Component Attester Evidence, each having signature
 from the Attesting Environments that generated it. This ascertains the authenticity and integrity protection
-of individual Evidence Messages exchanged between the Verifier.<a href="#section-5.1-6" class="pilcrow">¶</a></p>
-<p id="section-5.1-7">The Lead Verifier receives partial Attestation Results from individual Verifier.
+of individual Evidence Messages exchanged between the Verifier.<a href="#section-5.1.1-6" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-7">The Lead Verifier receives partial Attestation Results from individual Verifier.
 Attestation Results carrying sensitive or confidential information are expected to be integrity protected
 (i.e., either via signing or a secure channel). Individual Verifier signs the Partial Attestation Results
-and the Lead Verifier Verifies the signature to authenticate the origin and integrity of the message.<a href="#section-5.1-7" class="pilcrow">¶</a></p>
-<p id="section-5.1-8">If there isn't confidentiality protection of conceptual messages themselves,
-the underlying conveyance protocol should provide these protections<a href="#section-5.1-8" class="pilcrow">¶</a></p>
+and the Lead Verifier Verifies the signature to authenticate the origin and integrity of the message.<a href="#section-5.1.1-7" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-8">If there isn't confidentiality protection of conceptual messages themselves,
+the underlying conveyance protocol should provide these protections<a href="#section-5.1.1-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="cascaded-pattern">
-<section id="section-5.2">
-        <h3 id="name-cascaded-pattern">
-<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-cascaded-pattern" class="section-name selfRef">Cascaded Pattern</a>
-        </h3>
-<p id="section-5.2-1">In this pattern, the Composite Evidence is received by each Verifier in the chain. As a result,
-the Security and Privacy consideration of Evidence between the Attester/RP and each of the Verifier follows the guidance provided in RATS Architecture Section <a href="https://rfc-editor.org/rfc/rfc9334#section-11" class="relref">11</a> and Section <a href="https://rfc-editor.org/rfc/rfc9334#section-12" class="relref">12</a> of <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.2-2">Partial and Aggregated Attestation Results are exchanged among the Verifiers.
+<section id="section-5.1.2">
+          <h4 id="name-cascaded-pattern">
+<a href="#section-5.1.2" class="section-number selfRef">5.1.2. </a><a href="#name-cascaded-pattern" class="section-name selfRef">Cascaded Pattern</a>
+          </h4>
+<p id="section-5.1.2-1">In this pattern, the Composite Evidence is received by each Verifier in the chain. As a result,
+the Security and Privacy consideration of Evidence between the Attester/RP and each of the Verifier follows the guidance provided in RATS Architecture Section <a href="https://rfc-editor.org/rfc/rfc9334#section-11" class="relref">11</a> and Section <a href="https://rfc-editor.org/rfc/rfc9334#section-12" class="relref">12</a> of <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>.<a href="#section-5.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.1.2-2">Partial and Aggregated Attestation Results are exchanged among the Verifiers.
 It is TBD how the Security and Privacy of these messages can be ascertained.
 Few possible options are listed below.
-1. All the Verifiers in the Eco-System share a common Trust Anchor Store. The Sender Ensures the Confidentiality and Integrity of the Partial/Aggregated AAR. The receiver Verifies the Confidentiality of these messages using the Private Keys in its database. It Verifies the authenticity and integrity of these messages using the Trust Anchor Store Public Keys.<a href="#section-5.2-2" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-5.2-3">
-<li id="section-5.2-3.1">
-            <p id="section-5.2-3.1.1">The Verfier always communicates with a known Verifier in the chain. Hence it only maintains the trust roots for its communicating Verifier.<a href="#section-5.2-3.1.1" class="pilcrow">¶</a></p>
+1. All the Verifiers in the Eco-System share a common Trust Anchor Store. The Sender Ensures the Confidentiality and Integrity of the Partial/Aggregated AAR. The receiver Verifies the Confidentiality of these messages using the Private Keys in its database. It Verifies the authenticity and integrity of these messages using the Trust Anchor Store Public Keys.<a href="#section-5.1.2-2" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-5.1.2-3">
+<li id="section-5.1.2-3.1">
+              <p id="section-5.1.2-3.1.1">The Verfier always communicates with a known Verifier in the chain. Hence it only maintains the trust roots for its communicating Verifier.<a href="#section-5.1.2-3.1.1" class="pilcrow">¶</a></p>
 </li>
-        </ol>
-<p id="section-5.2-4">If there isn't confidentiality protection of conceptual messages themselves,
-the underlying conveyance protocol should provide these protections<a href="#section-5.2-4" class="pilcrow">¶</a></p>
-<p id="section-5.2-5">It will be discussed further in the RATS Working Group.<a href="#section-5.2-5" class="pilcrow">¶</a></p>
-<p id="section-5.2-6"><span class="cref">TODO</span><a href="#section-5.2-6" class="pilcrow">¶</a></p>
+          </ol>
+<p id="section-5.1.2-4">If there isn't confidentiality protection of conceptual messages themselves,
+the underlying conveyance protocol should provide these protections<a href="#section-5.1.2-4" class="pilcrow">¶</a></p>
+<p id="section-5.1.2-5">It will be discussed further in the RATS Working Group.<a href="#section-5.1.2-5" class="pilcrow">¶</a></p>
+<p id="section-5.1.2-6"><span class="cref">TODO</span><a href="#section-5.1.2-6" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 </section>
@@ -1660,6 +1671,10 @@ the underlying conveyance protocol should provide these protections<a href="#sec
 <a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="I-D.draft-ietf-rats-corim">[I-D.draft-ietf-rats-corim]</dt>
+        <dd>
+<span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Fossati, T.</span>, <span class="refAuthor">Deshpande, Y.</span>, <span class="refAuthor">Smith, N.</span>, and <span class="refAuthor">W. Pan</span>, <span class="refTitle">"Concise Reference Integrity Manifest"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-rats-corim-07</span>, <time datetime="2025-03-03" class="refDate">3 March 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-corim-07">https://datatracker.ietf.org/doc/html/draft-ietf-rats-corim-07</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC9334">[RFC9334]</dt>
       <dd>
 <span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Thaler, D.</span>, <span class="refAuthor">Richardson, M.</span>, <span class="refAuthor">Smith, N.</span>, and <span class="refAuthor">W. Pan</span>, <span class="refTitle">"Remote ATtestation procedureS (RATS) Architecture"</span>, <span class="seriesInfo">RFC 9334</span>, <span class="seriesInfo">DOI 10.17487/RFC9334</span>, <time datetime="2023-01" class="refDate">January 2023</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9334">https://www.rfc-editor.org/rfc/rfc9334</a>&gt;</span>. </dd>
