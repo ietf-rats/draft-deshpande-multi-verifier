@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-10T01:46:37.842047+00:00",
+  "timestamp": "2025-06-15T01:55:01.377242+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -390,15 +390,15 @@
       "id": "I_kwDON24c9s61mYFV",
       "title": "[RATS] Multi Verifier: Need to clearly document the Motivation behind this draft",
       "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/20",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "The draft in its current state is unable to clearly document, what  problem the draft is aiming to solve or alternatively what is the motivation.\n\nIn the next revision this needs to be addressed..\n\n\n\n",
       "createdAt": "2025-05-07T17:47:24Z",
-      "updatedAt": "2025-05-07T17:47:24Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-13T09:50:25Z",
+      "closedAt": "2025-06-13T09:50:25Z",
       "comments": []
     },
     {
@@ -941,7 +941,7 @@
       "id": "PR_kwDON24c9s6Wv9GA",
       "title": "First draft documenting motivation",
       "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/23",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -950,17 +950,19 @@
       "labels": [],
       "body": "Fixes #20",
       "createdAt": "2025-05-19T15:49:55Z",
-      "updatedAt": "2025-06-05T10:25:32Z",
+      "updatedAt": "2025-06-13T09:50:29Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "7118853cc4244bb93dfb33eb72ca98b397b5de85",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "motivation",
-      "headRefOid": "626b642a74c5e59b25739d378bd92998e165b182",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "48fd2738c113189cc022cd1f300478875908ed1e",
+      "closedAt": "2025-06-13T09:50:25Z",
+      "mergedAt": "2025-06-13T09:50:25Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "e0cc76cd59fd23246b5816677ffe7f389f512050"
+      },
       "comments": [],
       "reviews": [
         {
@@ -1271,6 +1273,91 @@
               "updatedAt": "2025-06-05T08:47:20Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6uC-ZB",
+          "commit": {
+            "abbreviatedOid": "626b642"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "looks good",
+          "createdAt": "2025-06-12T08:12:30Z",
+          "updatedAt": "2025-06-12T08:12:30Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s6uC_w2",
+          "commit": {
+            "abbreviatedOid": "626b642"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "looks good",
+          "createdAt": "2025-06-12T08:14:00Z",
+          "updatedAt": "2025-06-12T08:14:00Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s6uSQ30",
+          "commit": {
+            "abbreviatedOid": "626b642"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-13T09:25:48Z",
+          "updatedAt": "2025-06-13T09:45:42Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "```suggestion\r\nThe Verifier inputs listed above are linked to the shape of the Attesters.\r\nTypically, Composite Attesters come with a varying degree of heterogeneity of Evidence formats, depending on the type of Attesting Environments that come with each Component Attester, for example, CPU variants or GPU/FPGA variants. When conducting Evidence appraisal for a Composite Attester, the following challenges remain:\r\n\r\n```",
+              "createdAt": "2025-06-13T09:25:48Z",
+              "updatedAt": "2025-06-13T09:45:42Z"
+            },
+            {
+              "originalPosition": 31,
+              "body": "```suggestion\r\n1. An Attester's composition can change over time based on market dynamics and availability (e.g., a set of racks in a data center gets thousands of new FPGAs).\r\nIt is highly unlikely that there is always one appropriate Verifier that satisfies all the requirements that a complex and changing Composite Attesters imposes.\r\nIt may not be economically viable to build and maintain such a degree of complexity in a single Verifier.\r\n2. A Verifier Owner may have an Appraisal Policy for Evidence of a Component Attester that is internal to them and which they may choose not to reveal to a \u201cmonolithic\" Verifier.\r\n3. A Reference Values Provider may not wish to reveal its Reference Values or their lifecycle to a monolithic Verifier.\r\n4. There may not be a single actor in the ecosystem that can stand up and take ownership of verifying every Component Attester due to a lack of knowledge, complexity, regulations or associated cost.\r\n5. The mix today is a combination of Verifier services provided by component manufacturers, Verifiers provided by integrators, and Verifiers under local authority (i.e., close to the attester). Rarely is it just one of these.\r\n```",
+              "createdAt": "2025-06-13T09:34:15Z",
+              "updatedAt": "2025-06-13T09:45:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6uSpaI",
+          "commit": {
+            "abbreviatedOid": "fcbd2c5"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-13T09:49:42Z",
+          "updatedAt": "2025-06-13T09:49:42Z",
+          "comments": [
+            {
+              "originalPosition": 24,
+              "body": "```suggestion\r\n1. An Attester's composition can change over time based on market requirements and availability (e.g., a set of racks in a data center gets thousands of new FPGAs).\r\n```",
+              "createdAt": "2025-06-13T09:49:42Z",
+              "updatedAt": "2025-06-13T09:49:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6uSpuA",
+          "commit": {
+            "abbreviatedOid": "48fd273"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-13T09:50:03Z",
+          "updatedAt": "2025-06-13T09:50:03Z",
+          "comments": []
         }
       ]
     },
@@ -1286,13 +1373,13 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-06-08T11:06:01Z",
-      "updatedAt": "2025-06-08T20:32:00Z",
+      "updatedAt": "2025-06-13T09:26:35Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "7118853cc4244bb93dfb33eb72ca98b397b5de85",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "multi-verifier-security",
-      "headRefOid": "15801fa4d4fe5df0a8f0bf4107b747063801623a",
+      "headRefOid": "911ea56aeb577122df535df03b445e137c9f33f8",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -1348,6 +1435,26 @@
               "body": "Each sub evidence collected at the Lead Attester needs to be encrypted by the key (symmetric, or public key in the asymmetric case)  only knows by the corresponding sub Verifier, to ensure the confidentiality of the sub Evidence. ",
               "createdAt": "2025-06-08T20:31:25Z",
               "updatedAt": "2025-06-08T20:32:00Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6uSRgv",
+          "commit": {
+            "abbreviatedOid": "911ea56"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-13T09:26:34Z",
+          "updatedAt": "2025-06-13T09:26:35Z",
+          "comments": [
+            {
+              "originalPosition": 24,
+              "body": "Now added security of the Verifier Implementation aspect.\r\n\r\nAlso clarified that additional aspect of application layer security on top of transport layer security!",
+              "createdAt": "2025-06-13T09:26:34Z",
+              "updatedAt": "2025-06-13T09:26:35Z"
             }
           ]
         }
