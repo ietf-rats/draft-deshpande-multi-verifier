@@ -5,11 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 15 December 2025                                      H. Labiod
+Expires: 21 December 2025                                      H. Labiod
                                      Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                            13 June 2025
+                                                            19 June 2025
 
 
                     Remote Attestation MultiVerifier
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 December 2025.
+   This Internet-Draft will expire on 21 December 2025.
 
 Copyright Notice
 
