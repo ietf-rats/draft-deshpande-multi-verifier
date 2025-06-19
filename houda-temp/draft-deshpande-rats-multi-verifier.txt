@@ -158,10 +158,10 @@ Table of Contents
    5.  The mix today is a combination of Verifier services provided by
        component manufacturers, Verifiers provided by integrators, and
        Verifiers under local authority (i.e., close to the attester).
-       Rarely is it just one of these.
+       Rarely is it just one of these.  MORE MORE
 
-   // HOUDA CHANGES HERE, NOT ENOUGHT NEED TO DO MORE # Conventions and
-   Definitions
+   // HOUDA CHANGES HERE, NOT ENOUGHT NEED TO DO MORE CHANGE 1 #
+   Conventions and Definitions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
