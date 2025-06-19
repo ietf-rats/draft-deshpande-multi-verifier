@@ -160,7 +160,8 @@ Table of Contents
        Verifiers under local authority (i.e., close to the attester).
        Rarely is it just one of these.
 
-   // HOUDA CHANGES HERE # Conventions and Definitions
+   // HOUDA CHANGES HERE, NOT ENOUGHT NEED TO DO MORE # Conventions and
+   Definitions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
