@@ -90,8 +90,10 @@ It may not be economically viable to build and maintain such a degree of complex
 3. A Reference Values Provider may not wish to reveal its Reference Values or their lifecycle to a monolithic Verifier.
 4. There may not be a single actor in the ecosystem that can stand up and take ownership of verifying every Component Attester due to a lack of knowledge, complexity, regulations or associated cost.
 5. The mix today is a combination of Verifier services provided by component manufacturers, Verifiers provided by integrators, and Verifiers under local authority (i.e., close to the attester). Rarely is it just one of these.
+MORE MORE
 
 // HOUDA CHANGES HERE, NOT ENOUGHT NEED TO DO MORE
+CHANGE 1
 # Conventions and Definitions
 
 {::boilerplate bcp14}
