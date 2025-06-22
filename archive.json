@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-15T01:55:01.377242+00:00",
+  "timestamp": "2025-06-22T01:54:04.098210+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -1373,13 +1373,13 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-06-08T11:06:01Z",
-      "updatedAt": "2025-06-13T09:26:35Z",
+      "updatedAt": "2025-06-19T12:14:07Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
-      "baseRefOid": "7118853cc4244bb93dfb33eb72ca98b397b5de85",
+      "baseRefOid": "e0cc76cd59fd23246b5816677ffe7f389f512050",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "multi-verifier-security",
-      "headRefOid": "911ea56aeb577122df535df03b445e137c9f33f8",
+      "headRefOid": "340d06c4dc4acc160073989b49b2b865e77425d4",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -1455,6 +1455,133 @@
               "body": "Now added security of the Verifier Implementation aspect.\r\n\r\nAlso clarified that additional aspect of application layer security on top of transport layer security!",
               "createdAt": "2025-06-13T09:26:34Z",
               "updatedAt": "2025-06-13T09:26:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6vZtTQ",
+          "commit": {
+            "abbreviatedOid": "bbc6682"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-19T12:11:44Z",
+          "updatedAt": "2025-06-19T12:11:44Z",
+          "comments": [
+            {
+              "originalPosition": 49,
+              "body": "Yes, but there is no fixed pattern of the communicating Verifiers, so we cannot assume a sequence apriori!",
+              "createdAt": "2025-06-19T12:11:44Z",
+              "updatedAt": "2025-06-19T12:11:44Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "id": "PR_kwDON24c9s6bNe90",
+      "title": "Adding Houda changes",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/25",
+      "state": "CLOSED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-19T08:12:44Z",
+      "updatedAt": "2025-06-19T08:16:31Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "e0cc76cd59fd23246b5816677ffe7f389f512050",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "houda-temp",
+      "headRefOid": "491723290d28d29d1b57f6df04632d1db62e0828",
+      "closedAt": "2025-06-19T08:16:25Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s6vW_rM",
+          "commit": {
+            "abbreviatedOid": "a559114"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-19T08:13:20Z",
+          "updatedAt": "2025-06-19T08:13:21Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "No this is not sufficient",
+              "createdAt": "2025-06-19T08:13:21Z",
+              "updatedAt": "2025-06-19T08:13:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6vW_6_",
+          "commit": {
+            "abbreviatedOid": "a559114"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-19T08:13:43Z",
+          "updatedAt": "2025-06-19T08:13:44Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\n// HOUDA CHANGES HERE, NOT ENOUGHT NEED TO DO MORE\r\n```",
+              "createdAt": "2025-06-19T08:13:43Z",
+              "updatedAt": "2025-06-19T08:13:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6vXAfh",
+          "commit": {
+            "abbreviatedOid": "ab2d9f9"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-19T08:14:34Z",
+          "updatedAt": "2025-06-19T08:14:34Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\n// HOUDA CHANGES HERE, NOT ENOUGHT NEED TO DO MORE\r\nCHANGE 1\r\n```",
+              "createdAt": "2025-06-19T08:14:34Z",
+              "updatedAt": "2025-06-19T08:14:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6vXAse",
+          "commit": {
+            "abbreviatedOid": "ab2d9f9"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-19T08:14:52Z",
+          "updatedAt": "2025-06-19T08:14:52Z",
+          "comments": [
+            {
+              "originalPosition": 2,
+              "body": "```suggestion\r\n5. The mix today is a combination of Verifier services provided by component manufacturers, Verifiers provided by integrators, and Verifiers under local authority (i.e., close to the attester). Rarely is it just one of these.\r\nMORE MORE\r\n```",
+              "createdAt": "2025-06-19T08:14:52Z",
+              "updatedAt": "2025-06-19T08:14:52Z"
             }
           ]
         }
