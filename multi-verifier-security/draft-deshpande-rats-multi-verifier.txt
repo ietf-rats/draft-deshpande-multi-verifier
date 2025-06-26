@@ -5,11 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 21 December 2025                                      H. Labiod
+Expires: 28 December 2025                                      H. Labiod
                                      Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                            19 June 2025
+                                                            26 June 2025
 
 
                     Remote Attestation MultiVerifier
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 December 2025.
+   This Internet-Draft will expire on 28 December 2025.
 
 Copyright Notice
 
@@ -431,11 +431,10 @@ Table of Contents
    Confidentiality protection, using the public Key for the Verifier it
    communicates.
 
-   The Composite Attester Evidence may contain Component Attester
-   Evidence, each having signature from the Attesting Environments that
-   generated it.  This ascertains the authenticity and integrity
-   protection of individual Evidence Messages exchanged between the
-   Verifier.
+   The Composite Attester Evidence contains Component Attester Evidence,
+   each having signature from the Attesting Environments that generated
+   it.  This ascertains the authenticity and integrity protection of
+   individual Evidence Messages exchanged between the Verifier.
 
    The Lead Verifier receives partial Attestation Results from
    individual Verifier.  Attestation Results carrying sensitive or
