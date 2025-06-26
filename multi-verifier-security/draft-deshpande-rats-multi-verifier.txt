@@ -414,39 +414,33 @@ Table of Contents
 
    The Lead Verifier conveys Component Attester Evidence to each of the
    sub-Verifiers and receives partial Attestation Results from them.
-   The communication among the Verifiers should use secure channels,
-   such as TLS.  This ensures confidentiality, integrity and
-   authenticity of the message exchanged between the Verifiers.
 
-   Where required, in addition to transport layer security, the Lead
-   Verifier can maintain a Trust Anchor Store that contains the list of
-   Public Keys for each Verifier, to which it communicates.  The Trust
-   Anchors can be utilized to achieve the desired security as explained
-   below.
+   1.  The communication among the Verifiers should use secure channels,
+       such as TLS.  This ensures confidentiality, integrity and
+       authenticity of the message exchanged between the Verifiers.
 
-   Evidence might contain sensitive or confidential information, there
-   might be a need for confidentiality protection of the individual
-   Evidence conveyed to each Verifier.  One option is that the Lead
-   Verifier may choose to Encrypt the individual Evidence for
-   Confidentiality protection, using the public Key for the Verifier it
-   communicates.
+   2.  For integrity protection at the application layer, each partial
+       Attestation Result Message is signed by a key known to the Lead
+       Verfier.
 
-   The Composite Attester Evidence contains Component Attester Evidence,
-   each having signature from the Attesting Environments that generated
-   it.  This ascertains the authenticity and integrity protection of
-   individual Evidence Messages exchanged between the Verifier.
+   3.  The Composite Attester Evidence contains Component Attester
+       Evidence, each having signature from the Attesting Environments
+       that generated it.  This ascertains the authenticity and
+       integrity protection of individual Evidence exchanged between the
+       Verifier.  However there may be cases (for example UCCS), where
+       the individual Evidence is not signed.  In such scenarios, the
+       Lead Verifier may add its own signature using a private key whose
+       public key is known to the sub Verifiers.
 
-   The Lead Verifier receives partial Attestation Results from
-   individual Verifier.  Attestation Results carrying sensitive or
-   confidential information are expected to be integrity protected
-   (i.e., either via signing or a secure channel).  Individual Verifier
-   signs the Partial Attestation Results and the Lead Verifier Verifies
-   the signature to authenticate the origin and integrity of the
-   message.
+   4.  Evidence might contain sensitive or confidential information,
+       there might be a need for confidentiality protection of the
+       individual Evidence from Lead Verifier to sub Verifiers.  The
+       Lead Verifier may choose to Encrypt the individual Evidence using
+       the public Key for the Verifier it communicates.
 
    If there isn't confidentiality protection of conceptual messages
    themselves, the underlying conveyance protocol should provide these
-   protections
+   protections.
 
 6.1.2.  Cascaded Pattern
 
