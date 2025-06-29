@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-22T01:54:04.098210+00:00",
+  "timestamp": "2025-06-29T01:56:21.739631+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -1373,18 +1373,33 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-06-08T11:06:01Z",
-      "updatedAt": "2025-06-19T12:14:07Z",
+      "updatedAt": "2025-06-26T13:44:25Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "e0cc76cd59fd23246b5816677ffe7f389f512050",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "multi-verifier-security",
-      "headRefOid": "340d06c4dc4acc160073989b49b2b865e77425d4",
+      "headRefOid": "d2beedcd4b823fc379e929e9ad2486d905c1de03",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thank you @thomas-fossati for reviewing this important bit of section in the Multi-Verifier Draft.\r\n\r\nI have taken your minor edits and comments, about UCCS type use case, which seems to be very relevant and important addition.\r\n\r\nApart from that, I have taken your feedback and made the Message Protection more crisp and tight.\r\n\r\nHowever, I do feel, we should present all options (including Application layer encryption) as detailed in Security aspects of RFC 9334 as well..\r\n\r\nPlease feel free to discuss further, if there are any major objections, but thank you again for the review!",
+          "createdAt": "2025-06-26T13:36:17Z",
+          "updatedAt": "2025-06-26T13:36:17Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Please feel free to discuss further, if there are any major objections\r\n\r\nI believe I stated my point clearly, no need to get bogged down in endless discussion about minor aspects :-)\r\n\r\n> but thank you again for the review!\r\n\r\nSure, no problems, apologies for the dealy.",
+          "createdAt": "2025-06-26T13:44:25Z",
+          "updatedAt": "2025-06-26T13:44:25Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDON24c9s6tXiQd",
@@ -1475,6 +1490,204 @@
               "body": "Yes, but there is no fixed pattern of the communicating Verifiers, so we cannot assume a sequence apriori!",
               "createdAt": "2025-06-19T12:11:44Z",
               "updatedAt": "2025-06-19T12:11:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6whS93",
+          "commit": {
+            "abbreviatedOid": "340d06c"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-26T10:04:08Z",
+          "updatedAt": "2025-06-26T10:28:25Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "It seems that this whole paragraph could be replaced by the customary:\r\n\r\n> \"The security and privacy considerations in {{Section 11 of -corim}} apply in full.\"",
+              "createdAt": "2025-06-26T10:04:08Z",
+              "updatedAt": "2025-06-26T10:28:25Z"
+            },
+            {
+              "originalPosition": 40,
+              "body": "There might be cases where a lead attester receives unsigned evidence from a sub-attester over a secure channel on the SOC, e.g., as a UCCS.",
+              "createdAt": "2025-06-26T10:13:52Z",
+              "updatedAt": "2025-06-26T10:28:25Z"
+            },
+            {
+              "originalPosition": 38,
+              "body": "s/may contain/contains/",
+              "createdAt": "2025-06-26T10:14:46Z",
+              "updatedAt": "2025-06-26T10:28:25Z"
+            },
+            {
+              "originalPosition": 20,
+              "body": "After having re-read it, ISTM that the gist can be captured in the following simple recommendations:\r\n1. The conceptual messages are exchanged over an authenticated and encrypted channel\r\n2. Each \u201cpartial\" Attestation Result messages are signed by a key known by the Lead to belong to the expected Verifier.\r\n\r\nGiven the two above, I fail to see how adding object-level encryption would be an improvement.",
+              "createdAt": "2025-06-26T10:27:38Z",
+              "updatedAt": "2025-06-26T10:28:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6wi_Ud",
+          "commit": {
+            "abbreviatedOid": "340d06c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-26T12:40:19Z",
+          "updatedAt": "2025-06-26T12:40:19Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "The introductory text sets some context about the appraisal procedure before referring it to the meat of Security Considerations in the CoRIM which is been referred. Hence I prefer to retain the introductory line and take the reader to the Implementation aspect CoRIM section reference! ",
+              "createdAt": "2025-06-26T12:40:19Z",
+              "updatedAt": "2025-06-26T12:40:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6wjBd6",
+          "commit": {
+            "abbreviatedOid": "340d06c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-26T12:42:49Z",
+          "updatedAt": "2025-06-26T12:42:49Z",
+          "comments": [
+            {
+              "originalPosition": 38,
+              "body": "```suggestion\r\nThe Composite Attester Evidence contains Component Attester Evidence, each having signature\r\n```",
+              "createdAt": "2025-06-26T12:42:49Z",
+              "updatedAt": "2025-06-26T12:42:49Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6wjOBG",
+          "commit": {
+            "abbreviatedOid": "0747008"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-26T12:57:44Z",
+          "updatedAt": "2025-06-26T12:57:44Z",
+          "comments": [
+            {
+              "originalPosition": 20,
+              "body": "To your comment: `Given the two above, I fail to see how adding object-level encryption would be an improvement.`\r\n\r\nIf an application want to terminate the Confidentiality at the Application Layer, it may choose to do object level encryption.\r\n\r\nWe are providing all options here so an implementation may/may not want to it this way, but statements are important. This is  aligned with the statements in RATS Architecture (RFC 9334)",
+              "createdAt": "2025-06-26T12:57:44Z",
+              "updatedAt": "2025-06-26T12:57:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6wjTxc",
+          "commit": {
+            "abbreviatedOid": "340d06c"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-26T13:04:27Z",
+          "updatedAt": "2025-06-26T13:04:27Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "Since the intro text seems a quasi-verbatim copy from CoRIM\u2019s security and privacy cons, it seemed superfluous.  YMMV.",
+              "createdAt": "2025-06-26T13:04:27Z",
+              "updatedAt": "2025-06-26T13:04:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6wjWUc",
+          "commit": {
+            "abbreviatedOid": "340d06c"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-26T13:07:22Z",
+          "updatedAt": "2025-06-26T13:07:22Z",
+          "comments": [
+            {
+              "originalPosition": 20,
+              "body": "Options must have a purpose.  What is the purpose of encrypting the conceptual messages if the transport between adjacent Verifiers is already required to be secured? ",
+              "createdAt": "2025-06-26T13:07:22Z",
+              "updatedAt": "2025-06-26T13:07:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6wjZ6n",
+          "commit": {
+            "abbreviatedOid": "340d06c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-26T13:11:35Z",
+          "updatedAt": "2025-06-26T13:11:35Z",
+          "comments": [
+            {
+              "originalPosition": 20,
+              "body": "> Options must have a purpose. What is the purpose of encrypting the conceptual messages if the transport between adjacent Verifiers is already required to be secured?\r\n\r\nThe purpose is that, if some protocol cannot implement transport layer security they can implement it at the Application Layer, so everything is recommended here, for Consideration.",
+              "createdAt": "2025-06-26T13:11:35Z",
+              "updatedAt": "2025-06-26T13:11:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6wjjUR",
+          "commit": {
+            "abbreviatedOid": "340d06c"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-26T13:22:22Z",
+          "updatedAt": "2025-06-26T13:22:22Z",
+          "comments": [
+            {
+              "originalPosition": 20,
+              "body": "> [\u2026] if some protocol cannot implement transport layer security\r\n\r\nIt\u2019s 2025, TLS (or similar secure transport) must be the bare minimum.",
+              "createdAt": "2025-06-26T13:22:22Z",
+              "updatedAt": "2025-06-26T13:22:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s6wjoNu",
+          "commit": {
+            "abbreviatedOid": "340d06c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-26T13:27:45Z",
+          "updatedAt": "2025-06-26T13:27:45Z",
+          "comments": [
+            {
+              "originalPosition": 40,
+              "body": "Good Point, I added a section to address this use case!",
+              "createdAt": "2025-06-26T13:27:45Z",
+              "updatedAt": "2025-06-26T13:27:45Z"
             }
           ]
         }
