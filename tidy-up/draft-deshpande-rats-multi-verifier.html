@@ -1665,16 +1665,18 @@ the underlying conveyance protocol should provide these protections.<a href="#se
 the Security and Privacy consideration of Evidence between the Attester/RP and each of the Verifier follows the guidance provided in RATS Architecture Section <a href="https://rfc-editor.org/rfc/rfc9334#section-11" class="relref">11</a> and Section <a href="https://rfc-editor.org/rfc/rfc9334#section-12" class="relref">12</a> of <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>.<a href="#section-6.1.2-1" class="pilcrow">¶</a></p>
 <p id="section-6.1.2-2">Partial and Aggregated Attestation Results are exchanged among the Verifiers.
 It is TBD how the Security and Privacy of these messages can be ascertained.
-Few possible options are listed below.
-1. All the Verifiers in the Eco-System share a common Trust Anchor Store. The Sender Ensures the Confidentiality and Integrity of the Partial/Aggregated AAR. The receiver Verifies the Confidentiality of these messages using the Private Keys in its database. It Verifies the authenticity and integrity of these messages using the Trust Anchor Store Public Keys.<a href="#section-6.1.2-2" class="pilcrow">¶</a></p>
+Few possible options are listed below.<a href="#section-6.1.2-2" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-6.1.2-3">
 <li id="section-6.1.2-3.1">
-              <p id="section-6.1.2-3.1.1">The Verfier always communicates with a known Verifier in the chain. Hence it only maintains the trust roots for its communicating Verifier.<a href="#section-6.1.2-3.1.1" class="pilcrow">¶</a></p>
+              <p id="section-6.1.2-3.1.1">All the Verifiers in the Eco-System share a common Trust Anchor Store. The Sender Ensures the Confidentiality and Integrity of the Partial/Aggregated AAR. The receiver Verifies the Confidentiality of these messages using the Private Keys in its database. It Verifies the authenticity and integrity of these messages using the Trust Anchor Store Public Keys.<a href="#section-6.1.2-3.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li id="section-6.1.2-3.2">
+              <p id="section-6.1.2-3.2.1">The Verfier always communicates with a known Verifier in the chain. Hence it only maintains the trust roots for its communicating Verifier.<a href="#section-6.1.2-3.2.1" class="pilcrow">¶</a></p>
 </li>
           </ol>
 <p id="section-6.1.2-4">If there isn't confidentiality protection of conceptual messages themselves,
 the underlying conveyance protocol should provide these protections<a href="#section-6.1.2-4" class="pilcrow">¶</a></p>
-<p id="section-6.1.2-5">It will be discussed further in the RATS Working Group.<a href="#section-6.1.2-5" class="pilcrow">¶</a></p>
+<p id="section-6.1.2-5">These and new options will be discussed further in the RATS Working Group.<a href="#section-6.1.2-5" class="pilcrow">¶</a></p>
 <p id="section-6.1.2-6"><span class="cref">TODO</span><a href="#section-6.1.2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
