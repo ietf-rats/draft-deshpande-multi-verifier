@@ -5,11 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 15 December 2025                                      H. Labiod
+Expires: 4 January 2026                                        H. Labiod
                                      Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                            13 June 2025
+                                                             3 July 2025
 
 
                     Remote Attestation MultiVerifier
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 December 2025.
+   This Internet-Draft will expire on 4 January 2026.
 
 Copyright Notice
 
@@ -78,7 +78,10 @@ Table of Contents
        4.2.3.  Relying Party and Verifiers
      4.3.  Hybrid Pattern
    5.  Freshness
-   6.  Security Considerations
+   6.  Security and Privacy Considerations
+     6.1.  Conceptual Message Protection
+       6.1.1.  Hierarchical Pattern
+       6.1.2.  Cascaded Pattern
    7.  IANA Considerations
      7.1.  CBOR Tag Registrations
    8.  Acknowledgements
@@ -388,7 +391,84 @@ Table of Contents
    Verifier in communication with either the Attester (Passport Model)
    or Relying Party (Background Check Model).
 
-6.  Security Considerations
+6.  Security and Privacy Considerations
+
+   The Verifier is effectively part of the Attesters' and Relying
+   Parties' trusted computing base (TCB).  Any mistake in the appraisal
+   procedure conducted by the Verifier could have security implications.
+   For Security and Privacy considerations while conducting appraisal
+   procedure the Verifiers described in this document MUST follow the
+   guidance detailed in Security and Privacy considerations of a RATS
+   Verifier as detailed in Section 11 of [I-D.draft-ietf-rats-corim].
+
+6.1.  Conceptual Message Protection
+
+6.1.1.  Hierarchical Pattern
+
+   In this topology the Lead Verifier communicates with the Attester/RP
+   and with other Verifiers.
+
+   The Security and Privacy consideration for the messages between the
+   Lead Verifier and the Attester/RP follows the guidance provided in
+   RATS Architecture Section 11 and Section 12 of [RFC9334].
+
+   The Lead Verifier conveys Component Attester Evidence to each of the
+   sub-Verifiers and receives partial Attestation Results from them.
+
+   1.  The communication among the Verifiers should use secure channels,
+       such as TLS.  This ensures confidentiality, integrity and
+       authenticity of the message exchanged between the Verifiers.
+
+   2.  For integrity protection at the application layer, each partial
+       Attestation Result Message is signed by a key known to the Lead
+       Verfier.
+
+   3.  The Composite Attester Evidence contains Component Attester
+       Evidence, each having signature from the Attesting Environments
+       that generated it.  This ascertains the authenticity and
+       integrity protection of individual Evidence exchanged between the
+       Verifier.  However there may be cases (for example UCCS), where
+       the individual Evidence is not signed.  In such scenarios, the
+       Lead Verifier may add its own signature using a private key whose
+       public key is known to the sub Verifiers.
+
+   4.  Evidence might contain sensitive or confidential information,
+       there might be a need for confidentiality protection of the
+       individual Evidence from Lead Verifier to sub Verifiers.  The
+       Lead Verifier may choose to Encrypt the individual Evidence using
+       the public Key of the Verifier it communicates.
+
+   If there isn't confidentiality protection of conceptual messages
+   themselves, the underlying conveyance protocol should provide these
+   protections.
+
+6.1.2.  Cascaded Pattern
+
+   In this pattern, the Composite Evidence is received by each Verifier
+   in the chain.  As a result, the Security and Privacy consideration of
+   Evidence between the Attester/RP and each of the Verifier follows the
+   guidance provided in RATS Architecture Section 11 and Section 12 of
+   [RFC9334].
+
+   Partial and Aggregated Attestation Results are exchanged among the
+   Verifiers.  It is TBD how the Security and Privacy of these messages
+   can be ascertained.  Few possible options are listed below. 1.  All
+   the Verifiers in the Eco-System share a common Trust Anchor Store.
+   The Sender Ensures the Confidentiality and Integrity of the Partial/
+   Aggregated AAR.  The receiver Verifies the Confidentiality of these
+   messages using the Private Keys in its database.  It Verifies the
+   authenticity and integrity of these messages using the Trust Anchor
+   Store Public Keys.
+
+   1.  The Verfier always communicates with a known Verifier in the
+       chain.  Hence it only maintains the trust roots for its
+       communicating Verifier.
+
+   If there isn't confidentiality protection of conceptual messages
+   themselves, the underlying conveyance protocol should provide these
+   protections
+
+   It will be discussed further in the RATS Working Group.
 
 
    // TODO
@@ -416,6 +496,13 @@ Table of Contents
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
 9.2.  Informative References
+
+   [I-D.draft-ietf-rats-corim]
+              Birkholz, H., Fossati, T., Deshpande, Y., Smith, N., and
+              W. Pan, "Concise Reference Integrity Manifest", Work in
+              Progress, Internet-Draft, draft-ietf-rats-corim-07, 3
+              March 2025, <https://datatracker.ietf.org/doc/html/draft-
+              ietf-rats-corim-07>.
 
    [RFC9334]  Birkholz, H., Thaler, D., Richardson, M., Smith, N., and
               W. Pan, "Remote ATtestation procedureS (RATS)
