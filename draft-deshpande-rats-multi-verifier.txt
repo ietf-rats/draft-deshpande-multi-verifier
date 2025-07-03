@@ -12,7 +12,7 @@ Expires: 4 January 2026                                        H. Labiod
                                                              3 July 2025
 
 
-                    Remote Attestation MultiVerifier
+               Remote Attestation with Multiple Verifiers
                draft-deshpande-rats-multi-verifier-latest
 
 Abstract
