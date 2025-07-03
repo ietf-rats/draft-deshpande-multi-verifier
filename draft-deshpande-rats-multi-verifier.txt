@@ -83,7 +83,6 @@ Table of Contents
        6.1.1.  Hierarchical Pattern
        6.1.2.  Cascaded Pattern
    7.  IANA Considerations
-     7.1.  CBOR Tag Registrations
    8.  Acknowledgements
    9.  References
      9.1.  Normative References
@@ -124,13 +123,17 @@ Table of Contents
 
 2.  Need for Multiple Verifiers
 
-   To conduct the task of Evidence appraisal, a Verifier requires: 1.
-   Reference Values from trusted supply chain actors producing,
-   aggregating, or administering Attesters (Reference Value Providers)
+   To conduct the task of Evidence appraisal, a Verifier requires:
+
+   1.  Reference Values from trusted supply chain actors producing,
+       aggregating, or administering Attesters (Reference Value
+       Providers)
+
    2.  Endorsements from trusted supply chain actors producing,
-   certifying, or compliance checking Attesters (Endorsers) 3.
-   Appraisal Policy for Evidence, which is under the control of the
-   Verifier Owner
+       certifying, or compliance checking Attesters (Endorsers)
+
+   3.  Appraisal Policy for Evidence, which is under the control of the
+       Verifier Owner
 
    The Verifier inputs listed above are linked to the shape of the
    Attesters.  Typically, Composite Attesters come with a varying degree
@@ -243,6 +246,8 @@ Table of Contents
                                   |          |             +-----------+
                                   +----------+
 
+                    Figure 1: Hierarchical Pattern
+
    The following sub-sections describe the various roles that exist in
    this pattern.
 
@@ -318,6 +323,8 @@ Table of Contents
 +--------+ Attestation Results |           |  (AAR)   |           |  (AAR)      |           |
               (AAR)            |           |          |           |             |           |
                                +-----------+          +-----------+             +-----------+
+
+                      Figure 2: Cascaded Pattern
 
    In this topological pattern, the Attestation Verification happens in
    sequence.  Verifiers are cascaded to perform the Attestation
@@ -452,15 +459,16 @@ Table of Contents
 
    Partial and Aggregated Attestation Results are exchanged among the
    Verifiers.  It is TBD how the Security and Privacy of these messages
-   can be ascertained.  Few possible options are listed below. 1.  All
-   the Verifiers in the Eco-System share a common Trust Anchor Store.
-   The Sender Ensures the Confidentiality and Integrity of the Partial/
-   Aggregated AAR.  The receiver Verifies the Confidentiality of these
-   messages using the Private Keys in its database.  It Verifies the
-   authenticity and integrity of these messages using the Trust Anchor
-   Store Public Keys.
+   can be ascertained.  Few possible options are listed below.
 
-   1.  The Verfier always communicates with a known Verifier in the
+   1.  All the Verifiers in the Eco-System share a common Trust Anchor
+       Store.  The Sender Ensures the Confidentiality and Integrity of
+       the Partial/Aggregated AAR.  The receiver Verifies the
+       Confidentiality of these messages using the Private Keys in its
+       database.  It Verifies the authenticity and integrity of these
+       messages using the Trust Anchor Store Public Keys.
+
+   2.  The Verfier always communicates with a known Verifier in the
        chain.  Hence it only maintains the trust roots for its
        communicating Verifier.
 
@@ -468,14 +476,10 @@ Table of Contents
    themselves, the underlying conveyance protocol should provide these
    protections
 
-   It will be discussed further in the RATS Working Group.
-
-
-   // TODO
+   These and new options will be discussed further in the RATS Working
+   Group.
 
 7.  IANA Considerations
-
-7.1.  CBOR Tag Registrations
 
 8.  Acknowledgements
 
