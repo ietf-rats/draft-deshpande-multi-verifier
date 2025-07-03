@@ -83,7 +83,6 @@ Table of Contents
        6.1.1.  Hierarchical Pattern
        6.1.2.  Cascaded Pattern
    7.  IANA Considerations
-     7.1.  CBOR Tag Registrations
    8.  Acknowledgements
    9.  References
      9.1.  Normative References
@@ -480,12 +479,7 @@ Table of Contents
    These and new options will be discussed further in the RATS Working
    Group.
 
-
-   // TODO
-
 7.  IANA Considerations
-
-7.1.  CBOR Tag Registrations
 
 8.  Acknowledgements
 
