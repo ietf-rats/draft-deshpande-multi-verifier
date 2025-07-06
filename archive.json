@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-29T01:56:21.739631+00:00",
+  "timestamp": "2025-07-06T01:54:44.948374+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -381,9 +381,17 @@
       "labels": [],
       "body": "Please change the name of the draft to a more meaningful one. As someone who has attended the older presentation with the similar title [3] in Dublin, I found it very confusing to see why the story has suddenly changed from load-balancing/single point of failure to functionality-based verifiers.\n\nAnyway, I am not convinced of the use cases presented in multi-verifiers presentation [0] at interim meeting. Some comments/questions below\n\n**Comment on slide 6: containers:**\n\nThe split of verifiers is just an implementation decision. See Sec. III.D.2) in the paper [1]. This is exactly the same as your use case with s/Realm Verifier/Workload Verifier. In my understanding, security should remain whether you have split or separate verifiers. Please give me a very strong motivation on why this needs architectural changes.\n\n**Questions on slide 7: Confidential training use case:**\nI read through the mentioned reference [2] and again this is just an implementation decision. I am not convinced that this needs an architectural change either. Intel sees both Evidences in your case and I don't see any privacy benefit. What is the real benefit of this implementation compared to Intel Trust Authority just fetching the Reference Values and Endorsements from NVIDIA?\nAlso, I have some general questions to understand your real motivation behind presenting this use case:\n\n- Who is the Relying Party here: model owner or data owner?\n- Is AI model and AI application the same?\n- There are so many arrows going here and there. Could you very briefly tell the sequence of those?\n- Could you give me a concrete example of a policy that only NVIDIA can apply and that Intel Trust Authority cannot apply?\n \nThe slide mentions \"Source: Confidential mesh computing (MarbleRun)\" but the hyperlink is broken. Could you share the link and explain how that is relevant?\n\n\n**Editorial comments on draft:**\n\n- Draft is using the terms \"Composite Attester\" and  \"Component Attesters\" before they are defined. \n- I don't see any of the use cases mentioned in the draft. Please add clear explanation of use cases in the draft for the readers to understand the motivation of this work.\n\n\n[0] https://datatracker.ietf.org/meeting/interim-2025-rats-01/materials/slides-interim-2025-rats-01-sessa-ietf-rats-interim-multiverifier-00.pdf\n[1] https://ieeexplore.ieee.org/document/10373038\n[2] https://community.intel.com/t5/Blogs/Products-and-Solutions/Security/Seamless-Attestation-of-Intel-TDX-and-NVIDIA-H100-TEEs-with/post/1525587\n\n[3] https://datatracker.ietf.org/meeting/121/materials/slides-121-rats-handling-multiple-verifiers-in-rats-architecture-01.pdf\n",
       "createdAt": "2025-05-04T17:34:08Z",
-      "updatedAt": "2025-05-04T17:34:08Z",
+      "updatedAt": "2025-07-03T12:46:58Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Motivation section is now added in the Draft, to describe clearly, why this work is important\n\nSecurity Considerations are added as well!",
+          "createdAt": "2025-07-03T12:46:58Z",
+          "updatedAt": "2025-07-03T12:46:58Z"
+        }
+      ]
     },
     {
       "number": 20,
@@ -413,25 +421,72 @@
       "labels": [],
       "body": "Introduce real world use cases, that could assist readers to connect with the problem..",
       "createdAt": "2025-05-07T17:54:22Z",
-      "updatedAt": "2025-05-07T17:54:22Z",
+      "updatedAt": "2025-07-04T12:45:07Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "in current stage, i think the examples listed in the motivation part is sufficient. we can discuss them with others in the side meeting.",
+          "createdAt": "2025-07-04T12:45:07Z",
+          "updatedAt": "2025-07-04T12:45:07Z"
+        }
+      ]
     },
     {
       "number": 22,
       "id": "I_kwDON24c9s61mha_",
       "title": "[RATS MultiVerifier]: Consider renaming the work, as it is colliding with previous work on this topic.",
       "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/22",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "We will discuss this aspect in the design team meeting, and then proceed accordingly!",
       "createdAt": "2025-05-07T18:02:34Z",
-      "updatedAt": "2025-05-07T18:02:34Z",
+      "updatedAt": "2025-07-03T14:06:32Z",
+      "closedAt": "2025-07-03T14:06:32Z",
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Resolved with a new name!",
+          "createdAt": "2025-07-03T14:06:32Z",
+          "updatedAt": "2025-07-03T14:06:32Z"
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "id": "I_kwDON24c9s6-udXd",
+      "title": "Proof of impossibility for single (integrated) Verifier",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/28",
+      "state": "OPEN",
+      "author": "muhammad-usama-sardar",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Quoting from [ML discussion](https://mailarchive.ietf.org/arch/msg/rats/anHLCJKenTz9bUfmaZf8hsy4hqg/) following interim:\n\n> For Complex Attesters as defined below:\n> \n>   1.  Either a Layered Attester (RATS)\n>   2.  Composite Device (RATS)\n>   3.  Or a combination of both!\n> \n> It is **NOT possible** for a single Verifier to completely appraise such Evidence, hence the need for multiple Verifiers to work in a coordinated manner.\n\nSee the counterexample I presented [here](https://mailarchive.ietf.org/arch/msg/rats/Ik1tESUaEq792ypyPtSvOn1LHSI/). I would like to see the proof of impossibility. ",
+      "createdAt": "2025-07-03T15:48:03Z",
+      "updatedAt": "2025-07-04T14:33:58Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "In this latest version, we have removed the argument to say that is not possible for a single verifier to do the appraisal. You can check the section 2 to see the update of the motivation. ",
+          "createdAt": "2025-07-04T12:43:42Z",
+          "updatedAt": "2025-07-04T12:43:42Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "NONE",
+          "body": "Thank you Jun. I will wait for the new version to be published just to double-check and then close the issue. ",
+          "createdAt": "2025-07-04T14:33:57Z",
+          "updatedAt": "2025-07-04T14:33:57Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -1366,24 +1421,26 @@
       "id": "PR_kwDON24c9s6Zk2p9",
       "title": "Add Security and Privacy Considerations section",
       "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/24",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-06-08T11:06:01Z",
-      "updatedAt": "2025-06-26T13:44:25Z",
+      "updatedAt": "2025-07-03T08:50:23Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "e0cc76cd59fd23246b5816677ffe7f389f512050",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "multi-verifier-security",
       "headRefOid": "d2beedcd4b823fc379e929e9ad2486d905c1de03",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-07-03T08:50:20Z",
+      "mergedAt": "2025-07-03T08:50:20Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "35b0f2750780dd280e28f4c203438ec129f2f741"
+      },
       "comments": [
         {
           "author": "yogeshbdeshpande",
@@ -1799,6 +1856,62 @@
           ]
         }
       ]
+    },
+    {
+      "number": 26,
+      "id": "PR_kwDON24c9s6dPVR1",
+      "title": "Rename the Title of the Draft",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/26",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-07-03T10:07:17Z",
+      "updatedAt": "2025-07-03T10:07:54Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "35b0f2750780dd280e28f4c203438ec129f2f741",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "rename",
+      "headRefOid": "2767da4eef8a6954139cf2bfd64a5d7abc9cfa46",
+      "closedAt": "2025-07-03T10:07:48Z",
+      "mergedAt": "2025-07-03T10:07:48Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "b8665700960b0dc262062c2475b154d6064f75c8"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 27,
+      "id": "PR_kwDON24c9s6dRbqP",
+      "title": "Tidy up",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/27",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-07-03T13:37:53Z",
+      "updatedAt": "2025-07-03T14:10:27Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "1a142e200bf541a4b4e770dff71314be4cace300",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "tidy-up",
+      "headRefOid": "b32eba0d7e75f3226ca0a2a20140e15d01ff410f",
+      "closedAt": "2025-07-03T14:10:23Z",
+      "mergedAt": "2025-07-03T14:10:23Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "2e78cc8c027ca2437b9b87183f30c9721336c760"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
