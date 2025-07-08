@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-06T01:54:44.948374+00:00",
+  "timestamp": "2025-07-08T01:47:43.427541+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -469,7 +469,7 @@
       "labels": [],
       "body": "Quoting from [ML discussion](https://mailarchive.ietf.org/arch/msg/rats/anHLCJKenTz9bUfmaZf8hsy4hqg/) following interim:\n\n> For Complex Attesters as defined below:\n> \n>   1.  Either a Layered Attester (RATS)\n>   2.  Composite Device (RATS)\n>   3.  Or a combination of both!\n> \n> It is **NOT possible** for a single Verifier to completely appraise such Evidence, hence the need for multiple Verifiers to work in a coordinated manner.\n\nSee the counterexample I presented [here](https://mailarchive.ietf.org/arch/msg/rats/Ik1tESUaEq792ypyPtSvOn1LHSI/). I would like to see the proof of impossibility. ",
       "createdAt": "2025-07-03T15:48:03Z",
-      "updatedAt": "2025-07-04T14:33:58Z",
+      "updatedAt": "2025-07-07T12:38:05Z",
       "closedAt": null,
       "comments": [
         {
@@ -485,6 +485,13 @@
           "body": "Thank you Jun. I will wait for the new version to be published just to double-check and then close the issue. ",
           "createdAt": "2025-07-04T14:33:57Z",
           "updatedAt": "2025-07-04T14:33:57Z"
+        },
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "the version 02 now is available in https://datatracker.ietf.org/doc/draft-deshpande-rats-multi-verifier/ @muhammad-usama-sardar ",
+          "createdAt": "2025-07-07T12:38:04Z",
+          "updatedAt": "2025-07-07T12:38:04Z"
         }
       ]
     }
