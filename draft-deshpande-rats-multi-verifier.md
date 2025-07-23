@@ -98,7 +98,7 @@ It may not be economically viable to build and maintain such a degree of complex
 
 # Scope of the Document
 When Multiple Verifiers are required for Appraisal, then it is important to standardize the topology of the Verifiers and also
-information or messages exchanged between each of the Verifiers in the eco-system.
+information or messages exchanged between each of the Verifier in the eco-system.
 
 This enables inter-operatibility among different Verifiers owned by different Verifier Owners.
 This document focuses on topological patterns and standards based information exchange and message flows
