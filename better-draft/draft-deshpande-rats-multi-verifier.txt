@@ -178,8 +178,8 @@ Table of Contents
 
    When Multiple Verifiers are required for Appraisal, then it is
    important to standardize the topology of the Verifiers and also
-   information or messages exchanged between each of the Verifiers in
-   the eco-system.
+   information or messages exchanged between each of the Verifier in the
+   eco-system.
 
    This enables inter-operatibility among different Verifiers owned by
    different Verifier Owners.  This document focuses on topological
