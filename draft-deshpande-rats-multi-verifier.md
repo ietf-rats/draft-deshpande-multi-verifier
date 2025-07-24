@@ -101,6 +101,7 @@ When Multiple Verifiers are required for Appraisal, then it is important to stan
 information or messages exchanged between each of the Verifier in the eco-system.
 
 This enables inter-operatibility among different Verifiers owned by different Verifier Owners.
+Otherwise absence of standardisation can lead to fragmentation of the eco-system.
 This document focuses on topological patterns and standards based information exchange and message flows
 among Verifiers.
 
