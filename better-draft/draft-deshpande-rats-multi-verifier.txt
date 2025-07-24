@@ -5,11 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 24 January 2026                                       H. Labiod
+Expires: 25 January 2026                                       H. Labiod
                                      Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                            23 July 2025
+                                                            24 July 2025
 
 
                Remote Attestation with Multiple Verifiers
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 January 2026.
+   This Internet-Draft will expire on 25 January 2026.
 
 Copyright Notice
 
@@ -182,9 +182,10 @@ Table of Contents
    eco-system.
 
    This enables inter-operatibility among different Verifiers owned by
-   different Verifier Owners.  This document focuses on topological
-   patterns and standards based information exchange and message flows
-   among Verifiers.
+   different Verifier Owners.  Otherwise absence of standardisation can
+   lead to fragmentation of the eco-system.  This document focuses on
+   topological patterns and standards based information exchange and
+   message flows among Verifiers.
 
 4.  Conventions and Definitions
 
