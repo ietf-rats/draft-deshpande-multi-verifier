@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-24T01:53:12.567160+00:00",
+  "timestamp": "2025-07-27T02:02:12.337133+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -381,7 +381,7 @@
       "labels": [],
       "body": "Please change the name of the draft to a more meaningful one. As someone who has attended the older presentation with the similar title [3] in Dublin, I found it very confusing to see why the story has suddenly changed from load-balancing/single point of failure to functionality-based verifiers.\n\nAnyway, I am not convinced of the use cases presented in multi-verifiers presentation [0] at interim meeting. Some comments/questions below\n\n**Comment on slide 6: containers:**\n\nThe split of verifiers is just an implementation decision. See Sec. III.D.2) in the paper [1]. This is exactly the same as your use case with s/Realm Verifier/Workload Verifier. In my understanding, security should remain whether you have split or separate verifiers. Please give me a very strong motivation on why this needs architectural changes.\n\n**Questions on slide 7: Confidential training use case:**\nI read through the mentioned reference [2] and again this is just an implementation decision. I am not convinced that this needs an architectural change either. Intel sees both Evidences in your case and I don't see any privacy benefit. What is the real benefit of this implementation compared to Intel Trust Authority just fetching the Reference Values and Endorsements from NVIDIA?\nAlso, I have some general questions to understand your real motivation behind presenting this use case:\n\n- Who is the Relying Party here: model owner or data owner?\n- Is AI model and AI application the same?\n- There are so many arrows going here and there. Could you very briefly tell the sequence of those?\n- Could you give me a concrete example of a policy that only NVIDIA can apply and that Intel Trust Authority cannot apply?\n \nThe slide mentions \"Source: Confidential mesh computing (MarbleRun)\" but the hyperlink is broken. Could you share the link and explain how that is relevant?\n\n\n**Editorial comments on draft:**\n\n- Draft is using the terms \"Composite Attester\" and  \"Component Attesters\" before they are defined. \n- I don't see any of the use cases mentioned in the draft. Please add clear explanation of use cases in the draft for the readers to understand the motivation of this work.\n\n\n[0] https://datatracker.ietf.org/meeting/interim-2025-rats-01/materials/slides-interim-2025-rats-01-sessa-ietf-rats-interim-multiverifier-00.pdf\n[1] https://ieeexplore.ieee.org/document/10373038\n[2] https://community.intel.com/t5/Blogs/Products-and-Solutions/Security/Seamless-Attestation-of-Intel-TDX-and-NVIDIA-H100-TEEs-with/post/1525587\n\n[3] https://datatracker.ietf.org/meeting/121/materials/slides-121-rats-handling-multiple-verifiers-in-rats-architecture-01.pdf\n",
       "createdAt": "2025-05-04T17:34:08Z",
-      "updatedAt": "2025-07-22T20:45:49Z",
+      "updatedAt": "2025-07-24T10:15:00Z",
       "closedAt": null,
       "comments": [
         {
@@ -397,6 +397,13 @@
           "body": "As clearly stated in the Motivation, which touches some of the real world scene setting, a Composite Device, is made up of Multiple Components which have different Root of Trust,\n\nSuch Root of Trust comes from different Vendors from a different technology, like a CPU and a GPU.\n\nThe Attestation Verification of GPU will be controlled by a GPU Owner, while a CPU Owner will provide the details of a CPU Verification.\n\nAs they are different Root of Trust hence their Verifiers will be different.\n\nWhen they are different, then the question remain:\n\n1. How the Verifiers communicate with each other. Is there a standard way for them to exchange the messages ?\n2. What is the security around the information exchange ?\n3. What is the topology of the lay out ? Is there a need for a Lead Verifier that is mirroring the Lead Attester.\n\n\nAll these aspects are covered in the Motivation of the Draft, so the issue which Usama has raised is covered adequately,\n\n",
           "createdAt": "2025-07-22T20:45:49Z",
           "updatedAt": "2025-07-22T20:45:49Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Standardisation of Message Exchange and Information Flow between multiple Verifiers is essential because:\n\nThis enables inter-operatibility among different Verifiers owned by different Verifier Owners.\n\nIt reduces fragmentation of the eco-system.\n",
+          "createdAt": "2025-07-24T10:15:00Z",
+          "updatedAt": "2025-07-24T10:15:00Z"
         }
       ]
     },
@@ -1946,13 +1953,13 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-07-23T22:12:41Z",
-      "updatedAt": "2025-07-23T22:15:27Z",
+      "updatedAt": "2025-07-24T10:16:15Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "2e78cc8c027ca2437b9b87183f30c9721336c760",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "better-draft",
-      "headRefOid": "03af1495436c1705bbcd1992c21f200ad6d0264c",
+      "headRefOid": "e539be9aa2cff8725406c2d59cb8ee8ad321efd3",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -1976,6 +1983,26 @@
               "body": "```suggestion\r\ninformation or messages exchanged between each of the Verifier in the eco-system.\r\n```",
               "createdAt": "2025-07-23T22:14:53Z",
               "updatedAt": "2025-07-23T22:14:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s612v9H",
+          "commit": {
+            "abbreviatedOid": "03af149"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-24T10:15:57Z",
+          "updatedAt": "2025-07-24T10:15:57Z",
+          "comments": [
+            {
+              "originalPosition": 38,
+              "body": "```suggestion\r\nThis enables inter-operatibility among different Verifiers owned by different Verifier Owners.\r\nOtherwise absence of standardisation can lead to fragmentation of the eco-system.\r\n```",
+              "createdAt": "2025-07-24T10:15:57Z",
+              "updatedAt": "2025-07-24T10:15:57Z"
             }
           ]
         }
