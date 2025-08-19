@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-08-17T01:53:35.101993+00:00",
+  "timestamp": "2025-08-19T01:42:12.822355+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -381,7 +381,7 @@
       "labels": [],
       "body": "Please change the name of the draft to a more meaningful one. As someone who has attended the older presentation with the similar title [3] in Dublin, I found it very confusing to see why the story has suddenly changed from load-balancing/single point of failure to functionality-based verifiers.\n\nAnyway, I am not convinced of the use cases presented in multi-verifiers presentation [0] at interim meeting. Some comments/questions below\n\n**Comment on slide 6: containers:**\n\nThe split of verifiers is just an implementation decision. See Sec. III.D.2) in the paper [1]. This is exactly the same as your use case with s/Realm Verifier/Workload Verifier. In my understanding, security should remain whether you have split or separate verifiers. Please give me a very strong motivation on why this needs architectural changes.\n\n**Questions on slide 7: Confidential training use case:**\nI read through the mentioned reference [2] and again this is just an implementation decision. I am not convinced that this needs an architectural change either. Intel sees both Evidences in your case and I don't see any privacy benefit. What is the real benefit of this implementation compared to Intel Trust Authority just fetching the Reference Values and Endorsements from NVIDIA?\nAlso, I have some general questions to understand your real motivation behind presenting this use case:\n\n- Who is the Relying Party here: model owner or data owner?\n- Is AI model and AI application the same?\n- There are so many arrows going here and there. Could you very briefly tell the sequence of those?\n- Could you give me a concrete example of a policy that only NVIDIA can apply and that Intel Trust Authority cannot apply?\n \nThe slide mentions \"Source: Confidential mesh computing (MarbleRun)\" but the hyperlink is broken. Could you share the link and explain how that is relevant?\n\n\n**Editorial comments on draft:**\n\n- Draft is using the terms \"Composite Attester\" and  \"Component Attesters\" before they are defined. \n- I don't see any of the use cases mentioned in the draft. Please add clear explanation of use cases in the draft for the readers to understand the motivation of this work.\n\n\n[0] https://datatracker.ietf.org/meeting/interim-2025-rats-01/materials/slides-interim-2025-rats-01-sessa-ietf-rats-interim-multiverifier-00.pdf\n[1] https://ieeexplore.ieee.org/document/10373038\n[2] https://community.intel.com/t5/Blogs/Products-and-Solutions/Security/Seamless-Attestation-of-Intel-TDX-and-NVIDIA-H100-TEEs-with/post/1525587\n\n[3] https://datatracker.ietf.org/meeting/121/materials/slides-121-rats-handling-multiple-verifiers-in-rats-architecture-01.pdf\n",
       "createdAt": "2025-05-04T17:34:08Z",
-      "updatedAt": "2025-08-15T14:53:21Z",
+      "updatedAt": "2025-08-18T21:20:56Z",
       "closedAt": null,
       "comments": [
         {
@@ -418,6 +418,13 @@
           "body": "Today need for Multiple Verifiers is NOT just an Implementation decision but is a fundamental need as different Root of Trusts means different elements to Verify means different component Verifiers.\n\nWe are not talking about Implementations here, but need to standardise Interfaces when a Composite Attester (A Composite Device or a Layered Attester) needs a Attestation Verification.\n\nEven the practical example given in the Interim, precisely states the same.\n\nSee \nhttps://community.intel.com/t5/Blogs/Products-and-Solutions/Security/Seamless-Attestation-of-Intel-TDX-and-NVIDIA-H100-TEEs-with/post/1525587\n\nHere in the explanation Blue bits needs one Verifier Box and the Green bit need another Verifier.\n\nThey may be co-located (in a single box) or split across geographical boundaries is an Implementation decision.\n\nNobody is arguing on that. What we want to standardize is the Interface, Message Exchange and communication when Different Root of Trusts are Verified by different Verifiers!!\n\nAlso, while we do not want to state that it is Impossible to implement everything using Single Verifier, but a most practical Architecture is the one with multiple Verifiers communicating with one another to Verify Composite Attesters.\n\nWhen Verifiers are more than ONE, then it ought to be standardize the\n1. Topological Patterns\n2. Message Exchange\n3. Security and Privacy Concerns\nThis is what we are aiming to do here!!\n\n",
           "createdAt": "2025-08-15T14:46:13Z",
           "updatedAt": "2025-08-15T14:53:21Z"
+        },
+        {
+          "author": "muhammad-usama-sardar",
+          "authorAssociation": "NONE",
+          "body": "Yogesh, sorry but none of that addresses this point [here](https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/19#issuecomment-3136961143): \n\n> I don't find any concrete answers to my questions in \"Comment on slide 6: containers\" as well as \"Questions on slide 7: Confidential training use case\" on your presentation in Interim. Also, no relevance with MarbleRun has yet been established, which was presented in Interim meeting.\n>\n> My main concern is that multiple verifiers will increase security and privacy risks.\n\nI need concrete answers to my questions to proceed this discussion. ",
+          "createdAt": "2025-08-18T21:20:55Z",
+          "updatedAt": "2025-08-18T21:20:55Z"
         }
       ]
     },
