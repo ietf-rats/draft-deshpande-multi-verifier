@@ -10,22 +10,22 @@
 <meta content="Houda Labiod" name="author">
 <meta content="Henk Birkholtz" name="author">
 <meta content="
-       IETF RATS Architecture, defines the key role of a Verifier.  In a system, with multiple components, this role needs to be performed by multiple Verfiers coordinating together to assess the full trustworthiness of an Attester. This document focuses on various topological patterns for a multiple Verifier system. 
+       IETF RATS Architecture, defines the key role of a Verifier.  In a complex system, this role needs to be performed by multiple Verfiers coordinating together to assess the full trustworthiness of an Attester. This document focuses on various topological patterns for a multiple Verifier system. 
     " name="description">
-<meta content="xml2rfc 3.30.0" name="generator">
+<meta content="xml2rfc 3.30.2" name="generator">
 <meta content="draft-deshpande-rats-multi-verifier-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.30.0
+  xml2rfc 3.30.2
     Python 3.12.11
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.6
     lxml 5.3.1
-    platformdirs 4.3.8
+    platformdirs 4.4.0
     pycountry 24.6.1
     PyYAML 6.0.2
-    requests 2.32.4
+    requests 2.32.5
     setuptools 80.9.0
     wcwidth 0.2.13
 -->
@@ -1046,11 +1046,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">RATS Many-Verifiers</td>
-<td class="right">July 2025</td>
+<td class="right">September 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Deshpande, et al.</td>
-<td class="center">Expires 25 January 2026</td>
+<td class="center">Expires 23 March 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1063,12 +1063,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-deshpande-rats-multi-verifier-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-07-24" class="published">24 July 2025</time>
+<time datetime="2025-09-19" class="published">19 September 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-01-25">25 January 2026</time></dd>
+<dd class="expires"><time datetime="2026-03-23">23 March 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1093,7 +1093,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Remote Attestation with Multiple Verifiers</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">IETF RATS Architecture, defines the key role of a Verifier.  In a system, with multiple components, this role needs to be performed by multiple Verfiers coordinating together to assess the full trustworthiness of an Attester. This document focuses on various topological patterns for a multiple Verifier system.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">IETF RATS Architecture, defines the key role of a Verifier.  In a complex system, this role needs to be performed by multiple Verfiers coordinating together to assess the full trustworthiness of an Attester. This document focuses on various topological patterns for a multiple Verifier system.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-discussion-venues">
@@ -1122,7 +1122,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 25 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 23 March 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1158,7 +1158,15 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-need-for-multiple-verifiers" class="internal xref">Need for Multiple Verifiers</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-scope-of-the-document" class="internal xref">Scope of the Document</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-reference-use-cases" class="internal xref">Reference Use Cases</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-verification-of-devices-con" class="internal xref">Verification of Devices containing heterogenous components</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-verification-of-workloads-o" class="internal xref">Verification of Workloads operating in Confidential Computing environment</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
@@ -1255,10 +1263,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">A Verifier plays a central role in any Remote Attestation System. A Verifier appraises the Attester and produces Attestation Results, which are essentially a verdict of attestation. The results are consumed by the Relying Party to conclude the trustworthiness of the Attester, before making any critical decisions about the Attester, such as admitting it to the network or releasing confidential resources to it.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">Attesters can come in wide varieties of shape and form. For example Attesters can be endpoints (edge or IoT devices) or complex machines in the cloud. Composite Attester <a href="#sec-glossary" class="auto internal xref">Section 4.1</a>, can be comprised of multiple components, with each component generate its own Evidence. For example, in data center servers, it is not uncommon for separate attesting environments (AE) to serve a subsection of the entire machine. One AE might measure and attest to what was booted on the main CPU, while another AE might measure and attest to what was booted machine's GPU. Throughout this document we use the term Component Attester <a href="#sec-glossary" class="auto internal xref">Section 4.1</a> to address the sub-entity or an individual layer which produces its own Evidence in a Composite Attester system.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">When Evidence is generated from a Composite Attester, a single Verifier may not possess all the required information or may not have all the capabilities required to conduct a complete appraisal of the Composite Attester. Thus we need a Multiple Verifier System. In such a system, Multiple Verifiers need to collaborate to reach a conclusion on the appraisal and produce the Attestation Results. Please refer to <a href="#sec-need-multiverifier" class="auto internal xref">Section 2</a> for the motivation of the need for a Multi Verifier system.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">This document describes various topological patterns of multiple Verifiers that work in a coordinated manner to conduct appraisal of a Composite Attester to produce an Attestation Results.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-1">A Verifier plays a central role in any Remote Attestation System. A Verifier appraises the Attester and produces Attestation Results, which are essentially a verdict of attestation. The results are consumed by the Relying Party to conclude the trustworthiness of the Attester, before making any critical decisions about the Attester, such as admitting it to the network or releasing confidential resources to it.
+Attesters can come in wide varieties of shape and form. For example Attesters can be endpoints (edge or IoT devices) or complex machines in the cloud. Composite Attester <a href="#sec-glossary" class="auto internal xref">Section 4.1</a>, generate Evidence that consists of multiple parts. For example, in data center servers, it is not uncommon for separate attesting environments (AE) to serve a subsection of the entire machine. One AE might measure and attest to what was booted on the main CPU, while another AE might measure and attest to what was booted machine's GPU. Throughout this document we use the term Component Attester <a href="#sec-glossary" class="auto internal xref">Section 4.1</a> to address the sub-entity or an individual layer which produces its own Evidence in a Composite Attester system.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">In a Composite Attester system, it may not be possible for a single Verifier to possess all the capabilities or information required to conduct a complete appraisal of the Attester. Please refer to <a href="#sec-need-multiverifier" class="auto internal xref">Section 2</a> for motivation of this document. Multiple Verifiers need to collaborate to reach a conclusion on the appraisal and produce the Attestation Results.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">This document describes various topological patterns of multiple Verifiers that work in a coordinated manner to conduct appraisal of a Composite Attester to produce an Attestation Results.<a href="#section-1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-need-multiverifier">
@@ -1279,7 +1287,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </li>
       </ol>
 <p id="section-2-3">The Verifier inputs listed above are linked to the shape of the Attesters.
-Typically, Composite Attesters comprise of multiple components, supplied from different Vendors, having a heterogeneity of Evidence formats.  The Evidence depends on the type of Attesting Environments that come with each Component Attester, for example, CPU variants or GPU/FPGA variants. When conducting Evidence appraisal for a Composite Attester, the following challenges remain:<a href="#section-2-3" class="pilcrow">¶</a></p>
+Typically, Composite Attesters come with a varying degree of heterogeneity of Evidence formats, depending on the type of Attesting Environments that come with each Component Attester, for example, CPU variants or GPU/FPGA variants. When conducting Evidence appraisal for a Composite Attester, the following challenges remain:<a href="#section-2-3" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-2-4">
 <li id="section-2-4.1">
           <p id="section-2-4.1.1">An Attester's composition can change over time based on market requirements and availability (e.g., a set of racks in a data center gets thousands of new FPGAs).
@@ -1301,17 +1309,48 @@ It may not be economically viable to build and maintain such a degree of complex
       </ol>
 </section>
 </div>
-<div id="scope-of-the-document">
+<div id="reference-use-cases">
 <section id="section-3">
-      <h2 id="name-scope-of-the-document">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-scope-of-the-document" class="section-name selfRef">Scope of the Document</a>
+      <h2 id="name-reference-use-cases">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-reference-use-cases" class="section-name selfRef">Reference Use Cases</a>
       </h2>
-<p id="section-3-1">When Multiple Verifiers are required for Appraisal, then it is important to standardize the topology of the Verifiers and also
-information or messages exchanged between each of the Verifier in the eco-system.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">This enables inter-operatibility among different Verifiers owned by different Verifier Owners.
-Otherwise absence of standardisation can lead to fragmentation of the eco-system.
-This document focuses on topological patterns and standards based information exchange and message flows
-among Verifiers.<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-1">This section covers a number of generic use cases that demonstrates Multi Verifier applicability, independent of specific solutions.
+The purpose is to provide motivation for various aspects of the architecture presented in this document.
+Many other use cases exist; this document does not contain a complete list.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<div id="verification-of-devices-containing-heterogenous-components">
+<section id="section-3.1">
+        <h3 id="name-verification-of-devices-con">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-verification-of-devices-con" class="section-name selfRef">Verification of Devices containing heterogenous components</a>
+        </h3>
+<p id="section-3.1-1">A typical modern Device contains not only a traditional Central Processing Unit (CPU), but also heterogeneous acceleration components (GPU, NPU, TPU, etc) from different suppliers, to acheive a specific purpose.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-2">For example, either to speed up the processing or to assist in Inferencing. The trustworthiness assessment of the Device requires trust in all these individual components.
+However, the Verifier for each type of component may be deployed by each vendor separately, and these vendors may prefer to keep the Attestation Verification inputs or the Verification algorithm seperate and isolated from other Verifiers in the eco-system, due to business concerns.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
+<p id="section-3.1-3">When such Verifier operate, it needs to interact with other Verifiers and hence need to understand the topology and information exchange, for example to receive partial Evidence, specific to the relevant component or convey partial Attestation Results for the component.<a href="#section-3.1-3" class="pilcrow">¶</a></p>
+<p id="section-3.1-4">Attester: A modern Device having mulitple components<a href="#section-3.1-4" class="pilcrow">¶</a></p>
+<p id="section-3.1-5">Relying Party: An entity which is making trust based decisions for such an Attester<a href="#section-3.1-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="verification-of-workloads-operating-in-confidential-computing-environment">
+<section id="section-3.2">
+        <h3 id="name-verification-of-workloads-o">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-verification-of-workloads-o" class="section-name selfRef">Verification of Workloads operating in Confidential Computing environment</a>
+        </h3>
+<p id="section-3.2-1">Confidential Computing is becoming increasingly important as organizations move more workloads into untrusted or shared environments. In such a system the application or workload (could be an AI model, database process, financial service, etc.) is prepared to run inside a TEE-enabled VM or an enclave. When the workload starts, the TEE generates a cryptographic attestation report proving:<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-3.2-2">
+<li id="section-3.2-2.1">
+            <p id="section-3.2-2.1.1">The workload is running on a genuine platform with a set of platform claims reported in a attestation report.<a href="#section-3.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-3.2-2.2">
+            <p id="section-3.2-2.2.1">The workload is running correct application with a known set of claims pertaining to the workload.<a href="#section-3.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        </ol>
+<p id="section-3.2-3">The platform is often built by an independent TEE Vendor, while the Workloads are deployed by Workload owners that come from different parts of supply chain.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.2-4">The Verification of Attestation of such a system requires independent but mutually coordinating verification of
+platform claims  appraised by a Platform Verifier and Workload Claims appraised by a Workload Verifier.<a href="#section-3.2-4" class="pilcrow">¶</a></p>
+<p id="section-3.2-5">Attester: A layered Attester containing a platform and a workload running in a CC environment<a href="#section-3.2-5" class="pilcrow">¶</a></p>
+<p id="section-3.2-6">Relying Party: An entity which is making trust based decisions, such as a key release to a workload<a href="#section-3.2-6" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="conventions-and-definitions">
