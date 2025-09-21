@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-09-04T01:25:16.928486+00:00",
+  "timestamp": "2025-09-21T01:42:16.394079+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -2075,6 +2075,80 @@
               "body": "```suggestion\r\nThis enables inter-operatibility among different Verifiers owned by different Verifier Owners.\r\nOtherwise absence of standardisation can lead to fragmentation of the eco-system.\r\n```",
               "createdAt": "2025-07-24T10:15:57Z",
               "updatedAt": "2025-07-24T10:15:57Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 31,
+      "id": "PR_kwDON24c9s6pfMpA",
+      "title": "Add few Reference use cases",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/31",
+      "state": "OPEN",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-09-19T11:31:44Z",
+      "updatedAt": "2025-09-19T17:33:52Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "2e78cc8c027ca2437b9b87183f30c9721336c760",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "reference-use-cases",
+      "headRefOid": "8d1687d97222569794c0e161d2141484703b4920",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The two use cases look fine for me.",
+          "createdAt": "2025-09-19T12:39:56Z",
+          "updatedAt": "2025-09-19T12:39:56Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7BZfSa",
+          "commit": {
+            "abbreviatedOid": "8d1687d"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "the two use cases look fine for me",
+          "createdAt": "2025-09-19T12:40:34Z",
+          "updatedAt": "2025-09-19T12:40:34Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7BfBni",
+          "commit": {
+            "abbreviatedOid": "8d1687d"
+          },
+          "author": "steven-bellock",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-19T17:31:45Z",
+          "updatedAt": "2025-09-19T17:33:52Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\nThis section covers generic use cases that demonstrate Multi Verifier applicability, independent of specific solutions.\r\n```",
+              "createdAt": "2025-09-19T17:31:46Z",
+              "updatedAt": "2025-09-19T17:33:52Z"
+            },
+            {
+              "originalPosition": 15,
+              "body": "```suggestion\r\nWhen such a Verifier operates, it needs to interact with other Verifiers and hence needs to understand the topology and information exchange, for example to receive partial Evidence, specific to the relevant component or convey partial Attestation Results for the component.\r\n```",
+              "createdAt": "2025-09-19T17:33:18Z",
+              "updatedAt": "2025-09-19T17:33:52Z"
             }
           ]
         }
