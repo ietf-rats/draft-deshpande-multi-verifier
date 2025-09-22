@@ -59,19 +59,22 @@ informative:
 
 --- abstract
 
-IETF RATS Architecture, defines the key role of a Verifier.  In a complex system, this role needs to be performed by multiple Verfiers coordinating together to assess the full trustworthiness of an Attester. This document focuses on various topological patterns for a multiple Verifier system.
+IETF RATS Architecture, defines the key role of a Verifier.  In a system, with multiple components from different suppliers, this role needs to be performed by multiple Verfiers coordinating together to assess the full trustworthiness of an Attester. This document focuses on various topological patterns for a multiple Verifier system.
+
 
 --- middle
 
 # Introduction
 
 A Verifier plays a central role in any Remote Attestation System. A Verifier appraises the Attester and produces Attestation Results, which are essentially a verdict of attestation. The results are consumed by the Relying Party to conclude the trustworthiness of the Attester, before making any critical decisions about the Attester, such as admitting it to the network or releasing confidential resources to it.
-Attesters can come in wide varieties of shape and form. For example Attesters can be endpoints (edge or IoT devices) or complex machines in the cloud. Composite Attester {{sec-glossary}}, generate Evidence that consists of multiple parts. For example, in data center servers, it is not uncommon for separate attesting environments (AE) to serve a subsection of the entire machine. One AE might measure and attest to what was booted on the main CPU, while another AE might measure and attest to what was booted machine's GPU. Throughout this document we use the term Component Attester {{sec-glossary}} to address the sub-entity or an individual layer which produces its own Evidence in a Composite Attester system.
 
-In a Composite Attester system, it may not be possible for a single Verifier to possess all the capabilities or information required to conduct a complete appraisal of the Attester. Please refer to {{sec-need-multiverifier}} for motivation of this document. Multiple Verifiers need to collaborate to reach a conclusion on the appraisal and produce the Attestation Results.
+Attesters can come in wide varieties of shape and form. For example Attesters can be endpoints (edge or IoT devices) or complex machines in the cloud. Composite Attester {{sec-glossary}}, can be comprised of multiple components, with each component generate its own Evidence. For example, in data center servers, it is not uncommon for separate attesting environments (AE) to serve a subsection of the entire machine. One AE might measure and attest to what was booted on the main CPU, while another AE might measure and attest to what was booted machine's GPU. Throughout this document we use the term Component Attester {{sec-glossary}} to address the sub-entity or an individual layer which produces its own Evidence in a Composite Attester system.
+
+When Evidence is generated from a Composite Attester, a single Verifier may not possess all the required information or may not have all the capabilities required to conduct a complete appraisal of the Composite Attester. Thus we need a Multiple Verifier System. In such a system, Multiple Verifiers need to collaborate to reach a conclusion on the appraisal and produce the Attestation Results. Please refer to {{sec-need-multiverifier}} for the motivation of the need for a Multi Verifier system.
 
 
-This document describes various topological patterns of multiple Verifiers that work in a coordinated manner to conduct appraisal of a Composite Attester to produce an Attestation Results.
+This document provides an architectural overview of various topological patterns of interaction
+among multiple Verifiers that work in a coordinated manner to conduct appraisal of a Composite Attester and to produce Attestation Result.
 
 # Need for Multiple Verifiers
 {: #sec-need-multiverifier }
