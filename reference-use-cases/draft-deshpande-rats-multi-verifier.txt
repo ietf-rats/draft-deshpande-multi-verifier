@@ -5,11 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 23 March 2026                                         H. Labiod
+Expires: 26 March 2026                                         H. Labiod
                                      Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                       19 September 2025
+                                                       22 September 2025
 
 
                Remote Attestation with Multiple Verifiers
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 March 2026.
+   This Internet-Draft will expire on 26 March 2026.
 
 Copyright Notice
 
@@ -173,11 +173,11 @@ Table of Contents
 
 3.  Reference Use Cases
 
-   This section covers a number of generic use cases that demonstrates
-   Multi Verifier applicability, independent of specific solutions.  The
-   purpose is to provide motivation for various aspects of the
-   architecture presented in this document.  Many other use cases exist;
-   this document does not contain a complete list.
+   This section covers generic use cases that demonstrate Multi Verifier
+   applicability, independent of specific solutions.  The purpose is to
+   provide motivation for various aspects of the architecture presented
+   in this document.  Many other use cases exist; this document does not
+   contain a complete list.
 
 3.1.  Verification of Devices containing heterogenous components
 
@@ -194,10 +194,11 @@ Table of Contents
    or the Verification algorithm seperate and isolated from other
    Verifiers in the eco-system, due to business concerns.
 
-   When such Verifier operate, it needs to interact with other Verifiers
-   and hence need to understand the topology and information exchange,
-   for example to receive partial Evidence, specific to the relevant
-   component or convey partial Attestation Results for the component.
+   When such a Verifier operates, it needs to interact with other
+   Verifiers and hence needs to understand the topology and information
+   exchange, for example to receive partial Evidence, specific to the
+   relevant component or convey partial Attestation Results for the
+   component.
 
    Attester: A modern Device having mulitple components
 
