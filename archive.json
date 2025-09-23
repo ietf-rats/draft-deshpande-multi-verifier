@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-09-21T01:42:16.394079+00:00",
+  "timestamp": "2025-09-23T01:26:40.419068+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -2018,25 +2018,33 @@
       "id": "PR_kwDON24c9s6gWRel",
       "title": "Add better text on Purpose of the Document",
       "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/29",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-07-23T22:12:41Z",
-      "updatedAt": "2025-07-24T10:16:15Z",
+      "updatedAt": "2025-09-22T17:12:50Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "2e78cc8c027ca2437b9b87183f30c9721336c760",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "better-draft",
       "headRefOid": "e539be9aa2cff8725406c2d59cb8ee8ad321efd3",
-      "closedAt": null,
+      "closedAt": "2025-09-22T17:12:50Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "As per the meeting held on 19th September, the scope needs only about topological patterns, so closing this PR.\r\n\r\nSome part of the valid work is now captured under PR #32 ",
+          "createdAt": "2025-09-22T17:12:48Z",
+          "updatedAt": "2025-09-22T17:12:48Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDON24c9s61wA1a",
@@ -2092,13 +2100,13 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-09-19T11:31:44Z",
-      "updatedAt": "2025-09-19T17:33:52Z",
+      "updatedAt": "2025-09-22T11:07:41Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "2e78cc8c027ca2437b9b87183f30c9721336c760",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "reference-use-cases",
-      "headRefOid": "8d1687d97222569794c0e161d2141484703b4920",
+      "headRefOid": "ea7f8ae1c4f96e107ba906625fe11d0cf490c429",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -2149,6 +2157,53 @@
               "body": "```suggestion\r\nWhen such a Verifier operates, it needs to interact with other Verifiers and hence needs to understand the topology and information exchange, for example to receive partial Evidence, specific to the relevant component or convey partial Attestation Results for the component.\r\n```",
               "createdAt": "2025-09-19T17:33:18Z",
               "updatedAt": "2025-09-19T17:33:52Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 32,
+      "id": "PR_kwDON24c9s6p5RQy",
+      "title": "Clarify scope only to Architecture",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/32",
+      "state": "OPEN",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-09-22T17:09:50Z",
+      "updatedAt": "2025-09-22T17:13:24Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "2e78cc8c027ca2437b9b87183f30c9721336c760",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "scope-clarification",
+      "headRefOid": "ace40ca87e1be38ccfd981b68fc2893c2f974dac",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7B9hoS",
+          "commit": {
+            "abbreviatedOid": "d085c07"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-22T17:10:20Z",
+          "updatedAt": "2025-09-22T17:10:20Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\nIETF RATS Architecture, defines the key role of a Verifier.  In a system, with multiple components from different suppliers, this role needs to be performed by multiple Verifiers coordinating together to assess the full trustworthiness of an Attester. This document focuses on various topological patterns for a multiple Verifier system.\r\n```",
+              "createdAt": "2025-09-22T17:10:20Z",
+              "updatedAt": "2025-09-22T17:10:20Z"
             }
           ]
         }
