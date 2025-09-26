@@ -5,11 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 26 March 2026                                         H. Labiod
+Expires: 30 March 2026                                         H. Labiod
                                      Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                       22 September 2025
+                                                       26 September 2025
 
 
                Remote Attestation with Multiple Verifiers
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 March 2026.
+   This Internet-Draft will expire on 30 March 2026.
 
 Copyright Notice
 
@@ -191,19 +191,20 @@ Table of Contents
    trust in all these individual components.  However, the Verifier for
    each type of component may be deployed by each vendor separately, and
    these vendors may prefer to keep the Attestation Verification inputs
-   or the Verification algorithm seperate and isolated from other
-   Verifiers in the eco-system, due to business concerns.
+   or the Verification algorithm separate and isolated from other
+   Verifiers in the eco-system, due to business concerns, such as
+   complexity or cost.
 
-   When such a Verifier operates, it needs to interact with other
-   Verifiers and hence needs to understand the topology and information
-   exchange, for example to receive partial Evidence, specific to the
-   relevant component or convey partial Attestation Results for the
-   component.
+   When these Verifiers operate in concert, they need to interact with
+   each other and hence needs to understand the topology and need to
+   inter work using standardised protocols, for example to receive
+   partial Evidence, specific to the relevant component or convey
+   partial Attestation Results for the component.
 
-   Attester: A modern Device having mulitple components
+   Attester: A Device having multiple components
 
-   Relying Party: An entity which is making trust based decisions for
-   such an Attester
+   Relying Party: An entity which is making trust decisions for such an
+   Attester
 
 3.2.  Verification of Workloads operating in Confidential Computing
       environment
