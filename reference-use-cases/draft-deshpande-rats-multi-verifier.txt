@@ -205,24 +205,25 @@ Table of Contents
 3.2.  Verification of Workloads operating in Confidential Computing
       environment
 
-   Confidential Computing is becoming increasingly important as
-   organisations move more workloads into untrusted or shared
-   environments.  In such a system the application or workload (could be
-   an AI model, database process, financial service, etc.) is executed
-   inside a TEE-protected VM.  When the workload starts, the TEE
-   generates a cryptographic attestation report providing:
+   As organisations move more workloads into untrusted or shared
+   environments, Confidential Computing is becoming increasingly
+   important.  In such a system, an application or workload (which could
+   be an AI model, database process or financial service, for example)
+   is executed inside a TEE-protected virtual machine (VM).  When the
+   workload starts, the TEE can generate a cryptographic attestation
+   report providing:
 
    1.  The workload is running on a platform with a known state.
 
-   2.  The workload is running correct application(s).
+   2.  The workload is running the correct application.
 
-   The platform is often built by an independent TEE Vendor, while the
-   Workloads are deployed by Workload owners that come from different
-   parts of supply chain.
+   The platform is often built by an independent TEE vendor, while the
+   workloads are deployed by workload owners from different parts of the
+   supply chain.
 
-   The Verification of Attestation of such a system requires independent
-   but mutually coordinating verification of platform claims appraised
-   by a Platform Verifier and Workload Claims appraised by a Workload
+   Verification of Attestation for such a system requires independent,
+   yet mutually coordinated, verification of: Platform claims appraised
+   by a Platform Verifier and Workload claims appraised by a Workload
    Verifier.
 
    Attester: A layered Attester containing a platform and a workload
