@@ -181,10 +181,9 @@ Table of Contents
 
 3.1.  Verification of Devices containing heterogenous components
 
-   A typical modern Device contains not only a traditional Central
-   Processing Unit (CPU), but also heterogeneous acceleration components
-   (GPU, NPU, TPU, etc) from different suppliers, to acheive a specific
-   purpose.
+   A typical Device contains not only a traditional Central Processing
+   Unit (CPU), but also heterogeneous acceleration components (GPU, NPU,
+   TPU, etc) from different suppliers, to acheive a specific purpose.
 
    For example, either to speed up the processing or to assist in AI
    Inference.  The trustworthiness assessment of the Device requires
