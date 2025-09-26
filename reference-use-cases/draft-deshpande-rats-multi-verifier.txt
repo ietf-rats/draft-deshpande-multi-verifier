@@ -186,8 +186,8 @@ Table of Contents
    (GPU, NPU, TPU, etc) from different suppliers, to acheive a specific
    purpose.
 
-   For example, either to speed up the processing or to assist in
-   Inferencing.  The trustworthiness assessment of the Device requires
+   For example, either to speed up the processing or to assist in AI
+   Inference.  The trustworthiness assessment of the Device requires
    trust in all these individual components.  However, the Verifier for
    each type of component may be deployed by each vendor separately, and
    these vendors may prefer to keep the Attestation Verification inputs
