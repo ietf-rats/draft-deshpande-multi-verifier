@@ -173,32 +173,29 @@ Table of Contents
 
 3.  Reference Use Cases
 
-   This section covers generic use cases that demonstrate Multi Verifier
-   applicability, independent of specific solutions.  The purpose is to
-   provide motivation for various aspects of the architecture presented
-   in this document.  Many other use cases exist; this document does not
-   contain a complete list.
+   This section covers generic use cases that demonstrate the
+   applicability of Multi Verifier, regardless of specific solutions.
+   Its purpose is to motivate various aspects of the architecture
+   presented in this document.  There are many other use cases; this
+   document does not contain a complete list.
 
 3.1.  Verification of Devices containing heterogenous components
 
-   A typical Device contains not only a traditional Central Processing
-   Unit (CPU), but also heterogeneous acceleration components (GPU, NPU,
-   TPU, etc) from different suppliers, to acheive a specific purpose.
+   A device may contain a central processing unit (CPU), as well as
+   heterogeneous acceleration components (such as GPUs, NPUs and TPUs)
+   from different suppliers.
 
-   For example, either to speed up the processing or to assist in AI
-   Inference.  The trustworthiness assessment of the Device requires
-   trust in all these individual components.  However, the Verifier for
-   each type of component may be deployed by each vendor separately, and
-   these vendors may prefer to keep the Attestation Verification inputs
-   or the Verification algorithm separate and isolated from other
-   Verifiers in the eco-system, due to business concerns, such as
-   complexity or cost.
+   These components can be used to speed up processing or assist with AI
+   inference.  Trustworthiness assessment of the device requires trust
+   in all of these components.  However, due to business concerns such
+   as scalability, complexity and cost of infrastructure, the Verifier
+   for each type of component may be deployed separately by each vendor.
 
-   When these Verifiers operate in concert, they need to interact with
-   each other and hence needs to understand the topology and need to
-   inter work using standardised protocols, for example to receive
-   partial Evidence, specific to the relevant component or convey
-   partial Attestation Results for the component.
+   When these Verifiers operate together, they must interact with each
+   other, understand the topology and interoperate using standardised
+   protocols.  For instance, they may need to exchange partial Evidence
+   relating to the relevant component or partial Attestation Results for
+   it.
 
    Attester: A Device having multiple components
 
@@ -217,7 +214,7 @@ Table of Contents
 
    1.  The workload is running on a platform with a known state.
 
-   2.  The workload is running correct application.
+   2.  The workload is running correct application(s).
 
    The platform is often built by an independent TEE Vendor, while the
    Workloads are deployed by Workload owners that come from different
