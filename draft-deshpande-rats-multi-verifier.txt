@@ -5,11 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 4 January 2026                                        H. Labiod
+Expires: 30 March 2026                                         H. Labiod
                                      Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                             3 July 2025
+                                                       26 September 2025
 
 
                Remote Attestation with Multiple Verifiers
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 January 2026.
+   This Internet-Draft will expire on 30 March 2026.
 
 Copyright Notice
 
@@ -65,28 +65,32 @@ Table of Contents
 
    1.  Introduction
    2.  Need for Multiple Verifiers
-   3.  Conventions and Definitions
-     3.1.  Glossary
-   4.  Multi Verifier topological patterns
-     4.1.  Hierarchical Pattern
-       4.1.1.  Lead Verifier
-       4.1.2.  Verifier for Component Attester
-       4.1.3.  Trust Relationships
-     4.2.  Cascaded Pattern {: #sec-verifier-cascade }
-       4.2.1.  Trust Relationships
-       4.2.2.  Verifiers
-       4.2.3.  Relying Party and Verifiers
-     4.3.  Hybrid Pattern
-   5.  Freshness
-   6.  Security and Privacy Considerations
-     6.1.  Conceptual Message Protection
-       6.1.1.  Hierarchical Pattern
-       6.1.2.  Cascaded Pattern
-   7.  IANA Considerations
-   8.  Acknowledgements
-   9.  References
-     9.1.  Normative References
-     9.2.  Informative References
+   3.  Reference Use Cases
+     3.1.  Verification of Devices containing heterogenous components
+     3.2.  Verification of Workloads operating in Confidential
+           Computing environment
+   4.  Conventions and Definitions
+     4.1.  Glossary
+   5.  Multi Verifier topological patterns
+     5.1.  Hierarchical Pattern
+       5.1.1.  Lead Verifier
+       5.1.2.  Verifier for Component Attester
+       5.1.3.  Trust Relationships
+     5.2.  Cascaded Pattern {: #sec-verifier-cascade }
+       5.2.1.  Trust Relationships
+       5.2.2.  Verifiers
+       5.2.3.  Relying Party and Verifiers
+     5.3.  Hybrid Pattern
+   6.  Freshness
+   7.  Security and Privacy Considerations
+     7.1.  Conceptual Message Protection
+       7.1.1.  Hierarchical Pattern
+       7.1.2.  Cascaded Pattern
+   8.  IANA Considerations
+   9.  Acknowledgements
+   10. References
+     10.1.  Normative References
+     10.2.  Informative References
    Contributors
    Authors' Addresses
 
@@ -100,14 +104,14 @@ Table of Contents
    such as admitting it to the network or releasing confidential
    resources to it.  Attesters can come in wide varieties of shape and
    form.  For example Attesters can be endpoints (edge or IoT devices)
-   or complex machines in the cloud.  Composite Attester Section 3.1,
+   or complex machines in the cloud.  Composite Attester Section 4.1,
    generate Evidence that consists of multiple parts.  For example, in
    data center servers, it is not uncommon for separate attesting
    environments (AE) to serve a subsection of the entire machine.  One
    AE might measure and attest to what was booted on the main CPU, while
    another AE might measure and attest to what was booted machine's GPU.
    Throughout this document we use the term Component Attester
-   Section 3.1 to address the sub-entity or an individual layer which
+   Section 4.1 to address the sub-entity or an individual layer which
    produces its own Evidence in a Composite Attester system.
 
    In a Composite Attester system, it may not be possible for a single
@@ -167,7 +171,68 @@ Table of Contents
        Verifiers under local authority (i.e., close to the attester).
        Rarely is it just one of these.
 
-3.  Conventions and Definitions
+3.  Reference Use Cases
+
+   This section covers generic use cases that demonstrate the
+   applicability of Multi Verifier, regardless of specific solutions.
+   Its purpose is to motivate various aspects of the architecture
+   presented in this document.  There are many other use cases; this
+   document does not contain a complete list.
+
+3.1.  Verification of Devices containing heterogenous components
+
+   A device may contain a central processing unit (CPU), as well as
+   heterogeneous acceleration components (such as GPUs, NPUs and TPUs)
+   from different suppliers.
+
+   These components can be used to speed up processing or assist with AI
+   inference.  Trustworthiness assessment of the device requires trust
+   in all of these components.  However, due to business concerns such
+   as scalability, complexity and cost of infrastructure, the Verifier
+   for each type of component may be deployed separately by each vendor.
+
+   When these Verifiers operate together, they must interact with each
+   other, understand the topology and interoperate using standardised
+   protocols.  For instance, they may need to exchange partial Evidence
+   relating to the relevant component or partial Attestation Results for
+   it.
+
+   Attester: A Device having multiple components
+
+   Relying Party: An entity which is making trust decisions for such an
+   Attester
+
+3.2.  Verification of Workloads operating in Confidential Computing
+      environment
+
+   As organisations move more workloads into untrusted or shared
+   environments, Confidential Computing is becoming increasingly
+   important.  In such a system, an application or workload (which could
+   be an AI model, database process or financial service, for example)
+   is executed inside a TEE-protected virtual machine (VM).  When the
+   workload starts, the TEE can generate a cryptographic attestation
+   report providing:
+
+   1.  The workload is running on a platform with a known state.
+
+   2.  The workload is running the correct application.
+
+   The platform is often built by an independent TEE vendor, while the
+   workloads are deployed by workload owners from different parts of the
+   supply chain.
+
+   Verification of Attestation for such a system requires independent,
+   yet mutually coordinated, verification of: Platform claims appraised
+   by a Platform Verifier and Workload claims appraised by a Workload
+   Verifier.
+
+   Attester: A layered Attester containing a platform and a workload
+   running in a CC environment
+
+   Relying Party: An entity which is making trust decisions, such as a
+   key release to a workload
+
+4.  Conventions and Definitions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
@@ -182,7 +247,7 @@ Table of Contents
    Section 3.2 of [RFC9334] and Composite Device Section 3.3 of
    [RFC9334]
 
-3.1.  Glossary
+4.1.  Glossary
 
    This document uses the following terms:
 
@@ -204,13 +269,13 @@ Table of Contents
       (AAR) refers to a collection of Attestation Results produced upon
       completion of appraisal of a Composite Attester.
 
-4.  Multi Verifier topological patterns
+5.  Multi Verifier topological patterns
 
    A Composite Attester has multiple Component Attesters.  Each Attester
    requires a different set of Verifiers.  Hence multiple Verifiers
    collaborate to appraise a Composite Attester.
 
-4.1.  Hierarchical Pattern
+5.1.  Hierarchical Pattern
 
    Figure below shows the block diagram of a Hierarchical Pattern.
 
@@ -251,7 +316,7 @@ Table of Contents
    The following sub-sections describe the various roles that exist in
    this pattern.
 
-4.1.1.  Lead Verifier
+5.1.1.  Lead Verifier
 
    In this topological pattern, there is an Entity known as Lead
    Verifier.
@@ -293,13 +358,13 @@ Table of Contents
    Evidence 1) in a signed Conceptual Message Wrapper (CMW), and send it
    to each Verifier (example Verifier 1).
 
-4.1.2.  Verifier for Component Attester
+5.1.2.  Verifier for Component Attester
 
    The role of a Component Attester Verifier is to receive Component
    Attester Evidence from the lead Verifier and produce Attestation
    Results to the Lead Verifier.
 
-4.1.3.  Trust Relationships
+5.1.3.  Trust Relationships
 
    In this topology the Lead Verifier is fully trusted by Component
    Attester Verifiers (example Verifier 1).
@@ -308,7 +373,7 @@ Table of Contents
    Lead Verifier.  Lead Verifier is provisioned with the Trust Anchors
    for Verifier 1..N.
 
-4.2.  Cascaded Pattern {: #sec-verifier-cascade }
+5.2.  Cascaded Pattern {: #sec-verifier-cascade }
 
    Figure below shows the block diagram of a Cascaded Pattern.
 
@@ -361,9 +426,9 @@ Table of Contents
    Attestation Results to the Verifier from which it receives Combined
    Evidence.
 
-4.2.1.  Trust Relationships
+5.2.1.  Trust Relationships
 
-4.2.2.  Verifiers
+5.2.2.  Verifiers
 
    In the cascaded pattern, the communicating Verifiers fully trust each
    other.  Each Verifier has the trust anchor for the Verifier it is
@@ -372,20 +437,20 @@ Table of Contents
    Attestation Results received by a Verifier or a Aggregated
    Attestation Results (AAR) which it receives in the return path.
 
-4.2.3.  Relying Party and Verifiers
+5.2.3.  Relying Party and Verifiers
 
    In the cascaded pattern, the RP may communicate with any Verifier and
    thus receive its Attestation Results.  Hence RP fully trusts all the
    Verifiers.
 
-4.3.  Hybrid Pattern
+5.3.  Hybrid Pattern
 
    In a particular deployment, there is a possibility that the two
    models presented above can be combined to produce a hybrid pattern.
    For example Verifier 2 in the Cascaded Pattern becomes the Lead
    Verifier for the remaining Verifers from 3, to N.
 
-5.  Freshness
+6.  Freshness
 
    The Verifier needs to ensure that the claims included in the Evidence
    reflect the latest state of the Attester.  As per RATS Architecture,
@@ -398,7 +463,7 @@ Table of Contents
    Verifier in communication with either the Attester (Passport Model)
    or Relying Party (Background Check Model).
 
-6.  Security and Privacy Considerations
+7.  Security and Privacy Considerations
 
    The Verifier is effectively part of the Attesters' and Relying
    Parties' trusted computing base (TCB).  Any mistake in the appraisal
@@ -408,9 +473,9 @@ Table of Contents
    guidance detailed in Security and Privacy considerations of a RATS
    Verifier as detailed in Section 11 of [I-D.draft-ietf-rats-corim].
 
-6.1.  Conceptual Message Protection
+7.1.  Conceptual Message Protection
 
-6.1.1.  Hierarchical Pattern
+7.1.1.  Hierarchical Pattern
 
    In this topology the Lead Verifier communicates with the Attester/RP
    and with other Verifiers.
@@ -449,7 +514,7 @@ Table of Contents
    themselves, the underlying conveyance protocol should provide these
    protections.
 
-6.1.2.  Cascaded Pattern
+7.1.2.  Cascaded Pattern
 
    In this pattern, the Composite Evidence is received by each Verifier
    in the chain.  As a result, the Security and Privacy consideration of
@@ -479,16 +544,16 @@ Table of Contents
    These and new options will be discussed further in the RATS Working
    Group.
 
-7.  IANA Considerations
+8.  IANA Considerations
 
-8.  Acknowledgements
+9.  Acknowledgements
 
 
    // TODO
 
-9.  References
+10.  References
 
-9.1.  Normative References
+10.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -499,14 +564,14 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-9.2.  Informative References
+10.2.  Informative References
 
    [I-D.draft-ietf-rats-corim]
               Birkholz, H., Fossati, T., Deshpande, Y., Smith, N., and
               W. Pan, "Concise Reference Integrity Manifest", Work in
-              Progress, Internet-Draft, draft-ietf-rats-corim-07, 3
-              March 2025, <https://datatracker.ietf.org/doc/html/draft-
-              ietf-rats-corim-07>.
+              Progress, Internet-Draft, draft-ietf-rats-corim-08, 7 July
+              2025, <https://datatracker.ietf.org/doc/html/draft-ietf-
+              rats-corim-08>.
 
    [RFC9334]  Birkholz, H., Thaler, D., Richardson, M., Smith, N., and
               W. Pan, "Remote ATtestation procedureS (RATS)
