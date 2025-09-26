@@ -228,8 +228,8 @@ Table of Contents
    Attester: A layered Attester containing a platform and a workload
    running in a CC environment
 
-   Relying Party: An entity which is making trust based decisions, such
-   as a key release to a workload
+   Relying Party: An entity which is making trust decisions, such as a
+   key release to a workload
 
 4.  Conventions and Definitions
 
