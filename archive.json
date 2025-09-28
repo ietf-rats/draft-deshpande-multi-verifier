@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-09-23T01:26:40.419068+00:00",
+  "timestamp": "2025-09-28T01:43:13.336648+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -183,9 +183,17 @@
       "labels": [],
       "body": "The following sentence has a number of issues:\n\n> _\"A composite Attester as per RATS definition has multiple layers. Each layer requires a different set of Verifiers. Hence multi Verifiers work in tandem to appraise a composite Attester.\"_\n\n1. There is no \"RATS definition\" of \"composite Attester\"\n2. Layers exist in layered attester, not in composite devices\n3. A single verifier could handle multiple layers by itself\n4. The conclusion _\"Hence...\"_ is predicated on a set of incomplete/wrong/partially true assumptions.\n5. Use of \"tandem\" is incorrect in this context (see also #7)",
       "createdAt": "2025-02-26T10:44:14Z",
-      "updatedAt": "2025-02-26T10:44:14Z",
+      "updatedAt": "2025-09-26T12:29:37Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Addressed all the issues, @thomas-fossati please check, if we can close this..?",
+          "createdAt": "2025-09-26T12:29:37Z",
+          "updatedAt": "2025-09-26T12:29:37Z"
+        }
+      ]
     },
     {
       "number": 9,
@@ -381,7 +389,7 @@
       "labels": [],
       "body": "Please change the name of the draft to a more meaningful one. As someone who has attended the older presentation with the similar title [3] in Dublin, I found it very confusing to see why the story has suddenly changed from load-balancing/single point of failure to functionality-based verifiers.\n\nAnyway, I am not convinced of the use cases presented in multi-verifiers presentation [0] at interim meeting. Some comments/questions below\n\n**Comment on slide 6: containers:**\n\nThe split of verifiers is just an implementation decision. See Sec. III.D.2) in the paper [1]. This is exactly the same as your use case with s/Realm Verifier/Workload Verifier. In my understanding, security should remain whether you have split or separate verifiers. Please give me a very strong motivation on why this needs architectural changes.\n\n**Questions on slide 7: Confidential training use case:**\nI read through the mentioned reference [2] and again this is just an implementation decision. I am not convinced that this needs an architectural change either. Intel sees both Evidences in your case and I don't see any privacy benefit. What is the real benefit of this implementation compared to Intel Trust Authority just fetching the Reference Values and Endorsements from NVIDIA?\nAlso, I have some general questions to understand your real motivation behind presenting this use case:\n\n- Who is the Relying Party here: model owner or data owner?\n- Is AI model and AI application the same?\n- There are so many arrows going here and there. Could you very briefly tell the sequence of those?\n- Could you give me a concrete example of a policy that only NVIDIA can apply and that Intel Trust Authority cannot apply?\n \nThe slide mentions \"Source: Confidential mesh computing (MarbleRun)\" but the hyperlink is broken. Could you share the link and explain how that is relevant?\n\n\n**Editorial comments on draft:**\n\n- Draft is using the terms \"Composite Attester\" and  \"Component Attesters\" before they are defined. \n- I don't see any of the use cases mentioned in the draft. Please add clear explanation of use cases in the draft for the readers to understand the motivation of this work.\n\n\n[0] https://datatracker.ietf.org/meeting/interim-2025-rats-01/materials/slides-interim-2025-rats-01-sessa-ietf-rats-interim-multiverifier-00.pdf\n[1] https://ieeexplore.ieee.org/document/10373038\n[2] https://community.intel.com/t5/Blogs/Products-and-Solutions/Security/Seamless-Attestation-of-Intel-TDX-and-NVIDIA-H100-TEEs-with/post/1525587\n\n[3] https://datatracker.ietf.org/meeting/121/materials/slides-121-rats-handling-multiple-verifiers-in-rats-architecture-01.pdf\n",
       "createdAt": "2025-05-04T17:34:08Z",
-      "updatedAt": "2025-09-03T09:49:01Z",
+      "updatedAt": "2025-09-26T12:28:55Z",
       "closedAt": null,
       "comments": [
         {
@@ -460,6 +468,13 @@
           "body": "> > As a reminder, no answer has yet been provided for this part:\n> > > Comment on slide 6: containers:\n> > \n> > \n> > > > Questions on slide 7: Confidential training use case: I read through the mentioned reference [2] and again this is just an implementation decision. I am not convinced that this needs an architectural change either. Intel sees both Evidences in your case and I don't see any privacy benefit. What is the real benefit of this implementation compared to Intel Trust Authority just fetching the Reference Values and Endorsements from NVIDIA?\n> > > \n> > > \n> > > \n> > > * YD: The real benefit lies in delegation of responsibility and standardising the interfaces to such delegation. To explain in simple terms, imagine, as per your definition Usama, Intel TDX ends up building a Verifier for logic for NVDIA GPU. Tomorrow, one more player comes to the market in place of NVDIA, then what is the story, Intel ends up integrating the same inside its own Verifier ?\n> > \n> > \n> > Nothing changes in the story for the \"new player\". The verifier will just have to fetch the Reference Values and Endorsements from the new player. That's it.\n> > > > [@muhammad-usama-sardar](https://github.com/muhammad-usama-sardar): This solution will NOT simply scale.. Verification is NOT simply fetching reference values, A Verifier has to build a logic of Comparison of Reference Values with the the Claims from Evidence AND Apply the Policy.\n> \n> Claims for each RoT are different and so is the Reference Values and so is the Policy..\n> \n> It is simply not a practical solution to build a Monolithic Verifier that satisfies every Root of Trust Verification. Not sure why you do not understand this ??\n> \n> > > Example, for certain Military, Defence and Medical use cases, one may not wish to reveal policy/reference values for Verification.\n> > \n> > \n> > I don't really understand this. I think you are mixing different things here. Reference Values for what? Policy for what? Could you explain more concretely how having multiple verifiers is better for - let's say - military use case?\n> \n> Here is more help for you:\n> \n> For example: Let us say, Vendor-X is building a specialised military hardware call it `Component-M` with its Own Root of Trust. Vendor-X have Reference Values for its Verification and Vendor-X has its own policy of Verification for each Hardware Class, to another Hardware Class of `Component-M` Vendor X does not wish to reveal to outside world in Open how it Verifies One Class - A of HW versus how it Verifies Class-B Hardware of `Component-M` What policies its applies when it does Attestation Verification of `Component-M`\n> \n> I am just giving an example, when this Composite Evidence is received by a Lead Verifier, it does not know, how to perform attestation Verification of the `Component-M`. It delegates the responsibility of its Verification to Vendor -X built Verification Service for `Component-M`\n> \n> > I think such use cases should make use of on-premises verifier using Intel DCAP and NVIDIA nvtrust.\n> > Correct, but On Prem Verifier for Intel will do Verification of Intel and NVDIA will do its own Verification.\n> > They need to talk to each other for a Combined Evidence Verification!\n> > > > Is AI model and AI application the same?\n> > > \n> > > \n> > > AI Application is a general term, which implies ML Model Code using the Data to produce Inference output\n> > \n> > \n> > I don't understand this. The use case is \"confidential training.\" What has \"inference\" got to do here?\n> > YD: Sorry I meant Confidential Training. So it is the Training Output NOT Inference Output..\n> \n> > > > There are so many arrows going here and there. Could you very briefly tell the sequence of those?\n> > > \n> > > \n> > > I think, I explained the sequence to you, in our 1:1 Conversation.\n> > \n> > \n> > Maybe. It's been a few months. In any case, please summarize in 2-3 sentences for transparency for WG.\n> > > > Could you give me a concrete example of a policy that only NVIDIA can apply and that Intel Trust Authority cannot apply?\n> > > \n> > > \n> > > If you see the picture for the distributed model, NRAS has its own policy box and Intel Trust Authority has its own policy box.\n> > \n> > \n> > so what? This was completely irrelevant to my question.\n> > WHY, I explained how policies may differ, in my original answer seqeunce.\n> > > One Concrete example could be that for Certain NVDIA GPUs which are of specific Hardware Revision, specific claim may be skipped for Verification, like when HW revision is V2.0.0, skip the FW Revision, but for HW Revision V3.0.0 expect additional verification to be applied.\n> > \n> > \n> > I don't see any reason why Intel (or anyone developing a verifier) would not be able to apply this.\n> > NVIDIA May not want to reveal everything about its policies to Intel.\n> > > > The slide mentions \"Source: Confidential mesh computing (MarbleRun)\" but the hyperlink is broken. Could you share the link and explain how that is relevant?\n> > > \n> > > \n> > > We are working on explaining this use case as well, possibly in the next interim\n> > \n> > \n> > Ok, thanks.\n\nAs a Reminder, All questions are explained properly.\n\nAnyone with little understanding of Remote Attestation can understand the explanation!!!",
           "createdAt": "2025-09-03T09:49:01Z",
           "updatedAt": "2025-09-03T09:49:01Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "PR #31 Adds the Reference Use cases to the repository!",
+          "createdAt": "2025-09-26T12:28:55Z",
+          "updatedAt": "2025-09-26T12:28:55Z"
         }
       ]
     },
@@ -484,15 +499,15 @@
       "id": "I_kwDON24c9s61mcTI",
       "title": "[RATS MultiVerifier] Introduce real world use cases that connects with the problem statement",
       "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/21",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Introduce real world use cases, that could assist readers to connect with the problem..",
       "createdAt": "2025-05-07T17:54:22Z",
-      "updatedAt": "2025-07-04T12:45:07Z",
-      "closedAt": null,
+      "updatedAt": "2025-09-26T12:28:10Z",
+      "closedAt": "2025-09-26T12:28:10Z",
       "comments": [
         {
           "author": "junzhanghw",
@@ -500,6 +515,13 @@
           "body": "in current stage, i think the examples listed in the motivation part is sufficient. we can discuss them with others in the side meeting.",
           "createdAt": "2025-07-04T12:45:07Z",
           "updatedAt": "2025-07-04T12:45:07Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "PR #31 closes this gap!",
+          "createdAt": "2025-09-26T12:28:10Z",
+          "updatedAt": "2025-09-26T12:28:10Z"
         }
       ]
     },
@@ -584,9 +606,17 @@
       "labels": [],
       "body": "\n\nThe draft flows well and I support this topic. Here is a couple of comments:\n\nGeneral comments:\nA use case section would be helpful to motivate the work. Also, a well-defined and founded trust model is needed.\n\nIndependently of the pattern, to compute an Aggregated Result, you need all the verifiers to send their partial AR / AR. What do you do if a verifier does not answer?  \n\n\n\n[Fig 1 :] \n\n-\tHow to select the right verifier for component evidence ? \n\n-\tVerifiers do they have knowledge of the existence of other verifiers? \n\n-\tThe Lead verifier to whom does he belong? \n\n\n[Page 7]:\n\n\u201cIf the Composite Attestation Evidence is\nsigned, then it validates the integrity of the Evidence by validating\n   the signature. \u201d\n\nGA>> if there is composite evidence, I assume that \n-\tthere is a \u201ccomposite signature\u201d. Concretely, something like aggregate signatures. To verify this kind of signatures, the lead verifier needs to have access to the public key of all the components (who participated to the composite evidence and so to the signature).   \nIs that something acceptable in your trust model? \n\n\n\u201cLead Verifier has the knowledge about the overall structure of the\n      Composite Evidence\n\u201d\nGA>> but in the introduction, you motivated the document by the fact that in complex and changing environment it is hard to have just one verifier?  For me this assumes that the Lead verifier may not have an overall structure of the composite Attester.\n\n\u201cIt decodes the Composite Evidence to extract\n      the Component Attester Evidence\n\u201d\nGA>> extracting means that composite evidence and evidence X are different. This excludes solutions where the Lead verifier forwards the composite evidence with some auxiliary data to enable the verifier X to do the check of evidence X. I would say It decodes the composite evidence to derive the component Attester Evidence\u201d\n\n\u201c4.1.3.  Trust Relationships\nIn this topology the Lead Verifier is fully trusted by Component\n   Attester Verifiers (example Verifier 1).\n\u201d\nGA>> This assumes that the Lead verifier and the component verifier belongs to the same entity. Is that true? Otherwise, it is a very strong assumption that you may need to revise. Actually, it will strongly depend on the use case. You also should specify what does imply \u201cfully trusted\u201d / \u201ctrusted\u201d. \n\n\u201cLead Verifier is provisioned with the Trust Anchors\n   for Verifier 1..N. \u00bb\n\nGA>> what do you mean by \u201cprovisioned\u201d? normally a trust Anchor is not a sharable data. It should be private and kept secure within its owner.\n\n[Page 8]\n\n\u201cVerifiers are cascaded to perform the Attestation\n   Appraisal.\n\u201d\n\nGA>> Who decides the order in the chain? Is the order important? \n\n\u201cEach Verifier in the chain possess the knowledge of the\n   entire Composite Attester topology.\n\u201d\nGA>> why?  A verifier needs only to know how to derive / extract / retrieve its associated evidence. \n\n\u201cThe Verifier which processes the\n   Composite Evidence, Verifies the signature on the Evidence, if\n   present.\n\u201d\nGA>> again, this implies some assumptions, e.g., the credentials to verify the signature. Also, this verifier needs to inform the following verifiers that he properly checked the signature? Or this verification is going to be repeated by all the verifiers? \n\n\u201cIt decodes the Composite Evidence performs Appraisal of the\n   Component Attester whose Reference Values and Endorsements are in its\n  database.\n\u201d\nGA>> Here also, this assumes that the verifier knows how to retrieve its associated evidence.  This could be done either by using an external entity (e.g., verifier owner) and / or by introducing some data, in the CE, specific to each verifier/ component. \n\n[Page 9]\n\n\u201cAs shown in the picture, the partial results and Combined Evidence is\n   transmitted to a chain of Verifier, till the Appraisal is complete.\n   The Verifier combines the incoming partial results, combines the\n   results from it own Evidence Appraisal and passes the Aggregated\n   Attestation Results to the Verifier from which it receives Combined\n   Evidence.\n\u201d\nGA>> this scenario assumes that the aggregation of the results is done at the first flow \u201cfrom attester to Verifier N\u201d.  This may imply an important delay. Instead, you can think about transmitting the CE across all the chain and the aggregation of the results occurs when a verifier receives a partial AR. This will enable verifiers to compute their corresponding AR almost at the same time\u2026 BUT this option does not work if the partial AR of verifier N depends on partial AR of verifier N-1. \n\n\n\u201c   In the cascaded pattern, the communicating Verifiers fully trust each\n   other.\n\u201d\nGA>> you don\u2019t need this. Why? \n\n\u201cEach Verifier has the trust anchor for the Verifier it is\n   communicating to (i.e. either sending information or receiving\n   information)\n\u201d\nGA>> can you explain what do you mean by has the trust anchor?\n\n\u201cHence RP fully trusts all the\n   Verifiers.\n\u201d\nGA>> when you say X trusts Y. Can you explain what does this imply? It could be useful to have concrete examples.\n\n\u201c4.3.  Hybrid Pattern\u201d \n\nGA>> for every Pattern, it would be useful to have a concrete example / use case. \n \n Page 10\n\n\u201c5.  Freshness\n\u201d\nGA>> this will work if you consider the current trust model (all trusts all) but if you will revise it. I think the freshness should be checked by every verifier in all patterns. \n\n\u201c   The Verifier is effectively part of the Attesters' and Relying\n   Parties' trusted computing base (TCB).\n\u201d\nGA>> why? \n\nPage 11\n\n\u201c  there might be a need for confidentiality protection of the\n       individual Evidence from Lead Verifier to sub Verifiers.\n\u201d\nGA>> I would even say that confidentiality should be from Attester to sub-verifier. \n\n\u201c\n   2.  The Verfier always communicates with a known Verifier in the\n       chain.  Hence it only maintains the trust roots for its\n       communicating Verifier.\n\u201d\nGA>> it does not work because you previously said that the Attester choose a random verifier to start the verification. This implies that the first verifier may not be the same all the time. This also implies that the chain may change which implies that the neighbors also may change.  This will bring us to the first option: all verifiers know each other, or you can also define a set of neighbors that know each other. \n",
       "createdAt": "2025-08-06T15:22:51Z",
-      "updatedAt": "2025-08-06T15:22:51Z",
+      "updatedAt": "2025-09-26T07:26:42Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Here are some answers from my perspective that shared in IETF RATS WG mailing list in August:\n\nQ1:  Independently of the pattern, to compute an Aggregated Result, you need all the verifiers to send their partial AR / AR. What do you do if a verifier does not answer?  \nA1: This is very similar to the case of information aggregation in sensor networks. One way to address this situation is to add the redundancy in (sub) Verifiers to reduce the chance that certain Verifier does not answer. Basically, it is also same as the single Verifier case. If one Verifier does not answer, the relying party cannot judge whether one attester is trustworthy or not (so it might query another Verifier). The detail design for this part will be our future consideration.\n\nQ2:  [Fig 1 :] \n\n-\tHow to select the right verifier for component evidence ? \n\n-\tVerifiers do they have knowledge of the existence of other verifiers? \n\n-\tThe Lead verifier to whom does he belong? \n\nA2: One way is to config the Lead Verifier, so that it knows which sub-Verifier to contact when it knows the format/head of the sub-Evidences. In the hierarchical model, there is no need for (sub)Verifiers know each other, because they do not interact with each other. The Lead Verifier itself does not necessary need to implement the appraisal logic, so it can act similar to proxy (like skyscanner, google flight) to contact the real Verifiers (like airfrance, Finnair). So it can be a third-party, or certain service that can prove itself really do its job as requested. \n\n\n\nQ3: [Page 7]:\n\n\u201cIf the Composite Attestation Evidence is\nsigned, then it validates the integrity of the Evidence by validating\n   the signature. \u201d\n\nGA>> if there is composite evidence, I assume that \n-\tthere is a \u201ccomposite signature\u201d. Concretely, something like aggregate signatures. To verify this kind of signatures, the lead verifier needs to have access to the public key of all the components (who participated to the composite evidence and so to the signature).   \nIs that something acceptable in your trust model? \n\nA3:  At the moment, we consider the case that each sub-Evidence has its own signature, and the overall Evidence has one signature also. Then in such a case, the lead Verifier only needs to have the public key of the lead Attester. The case for the aggregate signature will be our future consideration. \n\n\nQ4: \u201cLead Verifier has the knowledge about the overall structure of the\n      Composite Evidence\n\u201d\nGA>> but in the introduction, you motivated the document by the fact that in complex and changing environment it is hard to have just one verifier?  For me this assumes that the Lead verifier may not have an overall structure of the composite Attester.\n\n\nA4:  In this case, the lead Verifier does not have the knowledge (golden measurement) to do the appraisal by itself, but it has the knowledge to dispatch the appraisal jobs to the right sub-Verifiers.  \n\n\nQ5: \u201cIt decodes the Composite Evidence to extract\n      the Component Attester Evidence\n\u201d\nGA>> extracting means that composite evidence and evidence X are different. This excludes solutions where the Lead verifier forwards the composite evidence with some auxiliary data to enable the verifier X to do the check of evidence X. I would say It decodes the composite evidence to derive the component Attester Evidence\u201d\n\nA5: The solutions that you have suggested are also interesting, which deserves more discussion. \n\n\nQ6: \u201c4.1.3.  Trust Relationships\nIn this topology the Lead Verifier is fully trusted by Component\n   Attester Verifiers (example Verifier 1).\n\u201d\nGA>> This assumes that the Lead verifier and the component verifier belongs to the same entity. Is that true? Otherwise, it is a very strong assumption that you may need to revise. Actually, it will strongly depend on the use case. You also should specify what does imply \u201cfully trusted\u201d / \u201ctrusted\u201d. \n\nA6: The lead Verifier does not necessary belong to the same entity with the component Verifier, but one role that can be trusted both by the Attester and the component Verifiers.    Currently we have listed certain options and I agree certain more specification will make it more clear. \n\n\nQ7: \u201cLead Verifier is provisioned with the Trust Anchors\n   for Verifier 1..N. \u00bb\n\nGA>> what do you mean by \u201cprovisioned\u201d? normally a trust Anchor is not a sharable data. It should be private and kept secure within its owner.\n\nA7:  Here we mean the Lead Verifier can check the Attestation Result from sub Verifier by check the signature from them, as the Lead Verifier has the public keys of all of them. \n\nQ8: [Page 8]\n\n\u201cVerifiers are cascaded to perform the Attestation\n   Appraisal.\n\u201d\n\nGA>> Who decides the order in the chain? Is the order important? \n\nA8: Whether the order is important depends on the cases. This is the part will be further explored. \n\nQ9: \u201cEach Verifier in the chain possess the knowledge of the\n   entire Composite Attester topology.\n\u201d\nGA>> why?  A verifier needs only to know how to derive / extract / retrieve its associated evidence. \n\n\nA9: The topology can be considered as part of the information inside the Evidence. \n\n\nQ10: \u201cThe Verifier which processes the\n   Composite Evidence, Verifies the signature on the Evidence, if\n   present.\n\u201d\nGA>> again, this implies some assumptions, e.g., the credentials to verify the signature. Also, this verifier needs to inform the following verifiers that he properly checked the signature? Or this verification is going to be repeated by all the verifiers? \n\n\n\u201cIt decodes the Composite Evidence performs Appraisal of the\n   Component Attester whose Reference Values and Endorsements are in its\n  database.\n\u201d\nGA>> Here also, this assumes that the verifier knows how to retrieve its associated evidence.  This could be done either by using an external entity (e.g., verifier owner) and / or by introducing some data, in the CE, specific to each verifier/ component. \n\n\n\nA10: This is the interesting part that the partial AR and the original Evidence becomes an \u201cEvidence\u201c for the next Verifier. I think this might be further discussed in the design team meeting in the remote attestation for complex scenarios. \n\n\nQ11: [Page 9]\n\n\u201cAs shown in the picture, the partial results and Combined Evidence is\n   transmitted to a chain of Verifier, till the Appraisal is complete.\n   The Verifier combines the incoming partial results, combines the\n   results from it own Evidence Appraisal and passes the Aggregated\n   Attestation Results to the Verifier from which it receives Combined\n   Evidence.\n\u201d\nGA>> this scenario assumes that the aggregation of the results is done at the first flow \u201cfrom attester to Verifier N\u201d.  This may imply an important delay. Instead, you can think about transmitting the CE across all the chain and the aggregation of the results occurs when a verifier receives a partial AR. This will enable verifiers to compute their corresponding AR almost at the same time\u2026 BUT this option does not work if the partial AR of verifier N depends on partial AR of verifier N-1. \n\nA11: Yes. The efficiency is also a part can be further discussed.\n\n\nQ12: \u201c   In the cascaded pattern, the communicating Verifiers fully trust each\n   other.\n\u201d\nGA>> you don\u2019t need this. Why? \n\nA12:  In current draft, we list certain options for the cascade pattern, other options are also possible and under investigation. \n\nQ13: \u201cEach Verifier has the trust anchor for the Verifier it is\n   communicating to (i.e. either sending information or receiving\n   information)\n\u201d\nGA>> can you explain what do you mean by has the trust anchor?\n\nA13: This part can be referred to YD\u2019s answer.\n\n\nQ14: \u201cHence RP fully trusts all the\n   Verifiers.\n\u201d\nGA>> when you say X trusts Y. Can you explain what does this imply? It could be useful to have concrete examples.\n\n\nA14: The methods mentioned in section 7 of RFC9334 are possible solutions.\n\n\nQ15: \u201c4.3.  Hybrid Pattern\u201d \n\nGA>> for every Pattern, it would be useful to have a concrete example / use case. \n\nA15:  That is a good suggestion and we are also welcome vendors that have such needs to contribute. \n\nQ16:  Page 10\n\n\u201c5.  Freshness\n\u201d\nGA>> this will work if you consider the current trust model (all trusts all) but if you will revise it. I think the freshness should be checked by every verifier in all patterns. \n\nA16: Yes. The design of freshness mechanism will also be an interesting part to explore in the multiple Verifier framework. \n\n\nQ17: \u201c   The Verifier is effectively part of the Attesters' and Relying\n   Parties' trusted computing base (TCB).\n\u201d\nGA>> why? \n\nA17: That means,  in order to make the whole procedure of attestation work, there should be certain trust relationship between attester, relying party and Verifiers.\n\nQ18: Page 11\n\n\u201c  there might be a need for confidentiality protection of the\n       individual Evidence from Lead Verifier to sub Verifiers.\n\u201d\nGA>> I would even say that confidentiality should be from Attester to sub-verifier. \n\nA18: This depends on whether the Attester has the requirement for confidentiality. If it does not have such a requirement, then the confidentiality protection from Lead Verifier to sub Verifiers might not be necessary.\n\nQ16: \u201c\n   2.  The Verfier always communicates with a known Verifier in the\n       chain.  Hence it only maintains the trust roots for its\n       communicating Verifier.\n\u201d\nGA>> it does not work because you previously said that the Attester choose a random verifier to start the verification. This implies that the first verifier may not be the same all the time. This also implies that the chain may change which implies that the neighbors also may change.  This will bring us to the first option: all verifiers know each other, or you can also define a set of neighbors that know each other. \n\nA16: This leads to a more general problem: discovery of Verifiers, Format of Composite Evidence, Format of Aggregated Attestation Results, Appraisal of Verifiers to the composite Evidence, supply chain for composite device, which is the topic that remote attestation in the complex scenarios might address. For the current version, I agree with Yogesh that we will revisit the text and to make it more clear. \n",
+          "createdAt": "2025-09-26T07:26:42Z",
+          "updatedAt": "2025-09-26T07:26:42Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -2093,24 +2123,26 @@
       "id": "PR_kwDON24c9s6pfMpA",
       "title": "Add few Reference use cases",
       "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/31",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-09-19T11:31:44Z",
-      "updatedAt": "2025-09-22T11:07:41Z",
+      "updatedAt": "2025-09-26T09:28:23Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "2e78cc8c027ca2437b9b87183f30c9721336c760",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "reference-use-cases",
-      "headRefOid": "ea7f8ae1c4f96e107ba906625fe11d0cf490c429",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "54b6e742f17e0cb32eee9d03ed96e3bcecf71dc3",
+      "closedAt": "2025-09-26T09:28:23Z",
+      "mergedAt": "2025-09-26T09:28:23Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "576278727c18dd5175ea6fef478ad1f865cf10f7"
+      },
       "comments": [
         {
           "author": "junzhanghw",
@@ -2140,7 +2172,7 @@
             "abbreviatedOid": "8d1687d"
           },
           "author": "steven-bellock",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-09-19T17:31:45Z",
@@ -2159,6 +2191,298 @@
               "updatedAt": "2025-09-19T17:33:52Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7C9hR3",
+          "commit": {
+            "abbreviatedOid": "ea7f8ae"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-26T08:41:34Z",
+          "updatedAt": "2025-09-26T08:41:34Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "```suggestion\r\nHowever, the Verifier for each type of component may be deployed by each vendor separately, and these vendors may prefer to keep the Attestation Verification inputs or the Verification algorithm separate and isolated from other Verifiers in the eco-system, due to business concerns, such as complexity or cost.\r\n```",
+              "createdAt": "2025-09-26T08:41:34Z",
+              "updatedAt": "2025-09-26T08:41:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7C9qA2",
+          "commit": {
+            "abbreviatedOid": "ea7f8ae"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-26T08:48:41Z",
+          "updatedAt": "2025-09-26T08:48:41Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "```suggestion\r\nWhen these Verifiers operate in concert, they need to interact with each other and hence needs to understand the topology and need to inter work using standardised protocols, for example to receive partial Evidence, specific to the relevant component or convey partial Attestation Results for the component.\r\n```",
+              "createdAt": "2025-09-26T08:48:41Z",
+              "updatedAt": "2025-09-26T08:49:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7C9r4R",
+          "commit": {
+            "abbreviatedOid": "ea7f8ae"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-26T08:50:18Z",
+          "updatedAt": "2025-09-26T08:50:19Z",
+          "comments": [
+            {
+              "originalPosition": 17,
+              "body": "```suggestion\r\nAttester: A Device having multiple components\r\n```",
+              "createdAt": "2025-09-26T08:50:18Z",
+              "updatedAt": "2025-09-26T08:50:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7C9sr8",
+          "commit": {
+            "abbreviatedOid": "ea7f8ae"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-26T08:51:01Z",
+          "updatedAt": "2025-09-26T08:51:01Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "```suggestion\r\nRelying Party: An entity which is making trust decisions for such an Attester\r\n```",
+              "createdAt": "2025-09-26T08:51:01Z",
+              "updatedAt": "2025-09-26T08:51:02Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7C9wxk",
+          "commit": {
+            "abbreviatedOid": "0cf3e57"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-26T08:54:12Z",
+          "updatedAt": "2025-09-26T08:54:12Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "```suggestion\r\nConfidential Computing is becoming increasingly important as organisations move more workloads into untrusted or shared environments. In such a system the application or workload (could be an AI model, database process, financial service, etc.) is executed inside a TEE-protected VM. When the workload starts, the TEE generates a cryptographic attestation report providing:\r\n```",
+              "createdAt": "2025-09-26T08:54:12Z",
+              "updatedAt": "2025-09-26T08:54:12Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7C90rZ",
+          "commit": {
+            "abbreviatedOid": "0cf3e57"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-26T08:57:29Z",
+          "updatedAt": "2025-09-26T08:57:29Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "```suggestion\r\n1. The workload is running on a platform with a known state.\r\n2. The workload is running correct application.",
+              "createdAt": "2025-09-26T08:57:29Z",
+              "updatedAt": "2025-09-26T08:57:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7C9_6V",
+          "commit": {
+            "abbreviatedOid": "4e7dc96"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-26T09:05:18Z",
+          "updatedAt": "2025-09-26T09:05:18Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "```suggestion\r\nFor example, either to speed up the processing or to assist in AI Inference. The trustworthiness assessment of the Device requires trust in all these individual components.\r\n```",
+              "createdAt": "2025-09-26T09:05:18Z",
+              "updatedAt": "2025-09-26T09:05:18Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7C-CwQ",
+          "commit": {
+            "abbreviatedOid": "8460571"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-26T09:07:07Z",
+          "updatedAt": "2025-09-26T09:07:07Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "```suggestion\r\nA typical Device contains not only a traditional Central Processing Unit (CPU), but also heterogeneous acceleration components (GPU, NPU, TPU, etc) from different suppliers, to acheive a specific purpose.\r\n```",
+              "createdAt": "2025-09-26T09:07:07Z",
+              "updatedAt": "2025-09-26T09:07:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7C-ABG",
+          "commit": {
+            "abbreviatedOid": "096f567"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-09-26T09:05:22Z",
+          "updatedAt": "2025-09-26T09:10:22Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "2. The workload is running correct application(s).",
+              "createdAt": "2025-09-26T09:05:22Z",
+              "updatedAt": "2025-09-26T09:10:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7C-J72",
+          "commit": {
+            "abbreviatedOid": "096f567"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-09-26T09:12:00Z",
+          "updatedAt": "2025-09-26T09:12:00Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7C-BuK",
+          "commit": {
+            "abbreviatedOid": "096f567"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-26T09:06:33Z",
+          "updatedAt": "2025-09-26T09:15:34Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\r\nThis section covers generic use cases that demonstrate the applicability of Multi Verifier, regardless of specific solutions.\r\nIts purpose is to motivate various aspects of the architecture presented in this document.\r\nThere are many other use cases; this document does not contain a complete list.\r\n```",
+              "createdAt": "2025-09-26T09:06:33Z",
+              "updatedAt": "2025-09-26T09:15:34Z"
+            },
+            {
+              "originalPosition": 15,
+              "body": "```suggestion\r\nA device may contain a central processing unit (CPU), as well as heterogeneous acceleration components (such as GPUs, NPUs and TPUs) from different suppliers.\r\n\r\nThese components can be used to speed up processing or assist with AI inference.\r\nTrustworthiness assessment of the device requires trust in all of these components.\r\nHowever, due to business concerns such as scalability, complexity and cost of infrastructure, the Verifier for each type of component may be deployed separately by each vendor.\r\n\r\nWhen these Verifiers operate together, they must interact with each other, understand the topology and interoperate using standardised protocols.\r\nFor instance, they may need to exchange partial Evidence relating to the relevant component or partial Attestation Results for it.\r\n```",
+              "createdAt": "2025-09-26T09:15:20Z",
+              "updatedAt": "2025-09-26T09:17:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7C-Vn-",
+          "commit": {
+            "abbreviatedOid": "096f567"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-26T09:20:21Z",
+          "updatedAt": "2025-09-26T09:20:22Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "```suggestion\r\n2. The workload is running correct application(s).\r\n```",
+              "createdAt": "2025-09-26T09:20:22Z",
+              "updatedAt": "2025-09-26T09:20:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7C-YPc",
+          "commit": {
+            "abbreviatedOid": "096f567"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-26T09:22:16Z",
+          "updatedAt": "2025-09-26T09:22:17Z",
+          "comments": [
+            {
+              "originalPosition": 35,
+              "body": "```suggestion\r\nRelying Party: An entity which is making trust decisions, such as a key release to a workload\r\n```",
+              "createdAt": "2025-09-26T09:22:16Z",
+              "updatedAt": "2025-09-26T09:22:17Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7C-b_8",
+          "commit": {
+            "abbreviatedOid": "5ef2c3c"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-26T09:24:52Z",
+          "updatedAt": "2025-09-26T09:25:28Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "```suggestion\r\nAs organisations move more workloads into untrusted or shared environments, Confidential Computing is becoming increasingly important.\r\nIn such a system, an application or workload (which could be an AI model, database process or financial service, for example) is executed inside a TEE-protected virtual machine (VM).\r\nWhen the workload starts, the TEE can generate a cryptographic attestation report providing:\r\n\r\n1. The workload is running on a platform with a known state.\r\n2. The workload is running the correct application.\r\n\r\nThe platform is often built by an independent TEE vendor, while the workloads are deployed by workload owners from different parts of the supply chain.\r\n\r\nVerification of Attestation for such a system requires independent, yet mutually coordinated, verification of: Platform claims appraised by a Platform Verifier and Workload claims appraised by a Workload Verifier.\r\n```",
+              "createdAt": "2025-09-26T09:24:52Z",
+              "updatedAt": "2025-09-26T09:25:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7C-g6z",
+          "commit": {
+            "abbreviatedOid": "54b6e74"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-09-26T09:28:15Z",
+          "updatedAt": "2025-09-26T09:28:15Z",
+          "comments": []
         }
       ]
     },
