@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-09-28T01:43:13.336648+00:00",
+  "timestamp": "2025-09-30T01:27:08.610534+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -617,6 +617,22 @@
           "updatedAt": "2025-09-26T07:26:42Z"
         }
       ]
+    },
+    {
+      "number": 33,
+      "id": "I_kwDON24c9s7OnvgB",
+      "title": "GOSSIP-like multi-verifier architecture",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/33",
+      "state": "OPEN",
+      "author": "nedmsmith",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The current draft anticipates patterns for hierarchical and cascaded topologies, but doesn't consider GOSSIP-like topologies where there can be redundant verifiers for improved availability.\n\nGOSSIP protocols could also create hybrids of the above 3 topologies.",
+      "createdAt": "2025-09-29T20:33:25Z",
+      "updatedAt": "2025-09-29T20:33:25Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
