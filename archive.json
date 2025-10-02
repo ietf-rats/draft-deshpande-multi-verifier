@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-09-30T01:27:08.610534+00:00",
+  "timestamp": "2025-10-02T01:25:49.493884+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -630,9 +630,31 @@
       "labels": [],
       "body": "The current draft anticipates patterns for hierarchical and cascaded topologies, but doesn't consider GOSSIP-like topologies where there can be redundant verifiers for improved availability.\n\nGOSSIP protocols could also create hybrids of the above 3 topologies.",
       "createdAt": "2025-09-29T20:33:25Z",
-      "updatedAt": "2025-09-29T20:33:25Z",
+      "updatedAt": "2025-09-30T18:34:21Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The topologies, described in the document, are more describing the nature of RoT's capability for Verification, rather than focusing on redundancy aspect, which is more of deployment options based on individual needs of a particular eco-system.\n\nThese two are orthogonal (in at least my view). \n\nOne aspect worth consideration is Verifier discoverability, from capabilities.",
+          "createdAt": "2025-09-30T09:06:04Z",
+          "updatedAt": "2025-09-30T09:06:04Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think Ned is proposing a different topological configuration from the ones currently presented.\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b  \n\nNed, if I understand correctly, you are imagining a multicast domain in which some sort of peer-to-peer gossip protocol could be used to disseminate evidence and aggregate attestation results among the nodes participating in this gossip layer?\n\nI wonder if another type of topology might be one that uses pub-sub on a logically shared bus.",
+          "createdAt": "2025-09-30T16:03:09Z",
+          "updatedAt": "2025-09-30T16:03:22Z"
+        },
+        {
+          "author": "nedmsmith",
+          "authorAssociation": "NONE",
+          "body": "GOSSIP can be applied to shared bus as well as Internet. The particular GOSSIP protocol isn't that important IMHO. The main differences are: a) Attester / RP can decide which Verifier(s) to use. b) Verifiers can decide which other verifiers to use. (b) overlaps with existing patterns, so you could say GOSSIP pattern is a hybrid, but it also has (a). ",
+          "createdAt": "2025-09-30T18:34:21Z",
+          "updatedAt": "2025-09-30T18:34:21Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -2548,6 +2570,121 @@
           ]
         }
       ]
+    },
+    {
+      "number": 34,
+      "id": "PR_kwDON24c9s6rQ_kD",
+      "title": "Update draft-deshpande-rats-multi-verifier.md",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/34",
+      "state": "OPEN",
+      "author": "GhadaArf",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "minor change to test the tool",
+      "createdAt": "2025-09-30T08:07:20Z",
+      "updatedAt": "2025-09-30T09:00:00Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "test",
+      "baseRefOid": "576278727c18dd5175ea6fef478ad1f865cf10f7",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "test-1",
+      "headRefOid": "fb021a6f4100c1e279e9228e8fe8d186aacfc6e5",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Welcome @GhadaArf to the Editors panel!",
+          "createdAt": "2025-09-30T09:00:00Z",
+          "updatedAt": "2025-09-30T09:00:00Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7Dsobr",
+          "commit": {
+            "abbreviatedOid": "fb021a6"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-30T08:33:02Z",
+          "updatedAt": "2025-09-30T08:33:02Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\nA Verifier plays a central role in any Remote Attestation System. A Verifier appraises the Evidence about the Attester and produces Attestation Results, which is essentially a verdict of attestation. The results are consumed by the Relying Party to conclude the trustworthiness of the Attester, before making any critical decisions about the Attester, such as admitting it to the network or releasing confidential resources to it.\r\n```",
+              "createdAt": "2025-09-30T08:33:02Z",
+              "updatedAt": "2025-09-30T08:33:02Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 35,
+      "id": "PR_kwDON24c9s6rSG_g",
+      "title": "Update draft-deshpande-rats-multi-verifier.md -- Abstract",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/35",
+      "state": "CLOSED",
+      "author": "GhadaArf",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "We need to specify the scope of the draft (architecture and conceptual messages) and what is out of the scope (e.g., used protocols between the verifiers).",
+      "createdAt": "2025-09-30T09:26:41Z",
+      "updatedAt": "2025-09-30T09:41:31Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "576278727c18dd5175ea6fef478ad1f865cf10f7",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "GhadaArf-Abstract",
+      "headRefOid": "db7727b7119de2f052459ed6b4a681defcadeed1",
+      "closedAt": "2025-09-30T09:41:31Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 36,
+      "id": "PR_kwDON24c9s6rSepF",
+      "title": "Abstract Update ",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/36",
+      "state": "OPEN",
+      "author": "GhadaArf",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "We need to specify the scope of the draft (architecture and conceptual messages) and what is out of the scope (e.g., used protocols between the verifiers).",
+      "createdAt": "2025-09-30T09:47:09Z",
+      "updatedAt": "2025-09-30T10:02:52Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "576278727c18dd5175ea6fef478ad1f865cf10f7",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "Abstract",
+      "headRefOid": "db7727b7119de2f052459ed6b4a681defcadeed1",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thank you for proposing a change, please feel free to check\r\nissue https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/30\r\n\r\nand look for further changes, then we can discuss this in our meeting on Froday 03rd October!",
+          "createdAt": "2025-09-30T10:02:52Z",
+          "updatedAt": "2025-09-30T10:02:52Z"
+        }
+      ],
+      "reviews": []
     }
   ]
 }
