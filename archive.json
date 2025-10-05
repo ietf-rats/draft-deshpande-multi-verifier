@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-02T01:25:49.493884+00:00",
+  "timestamp": "2025-10-05T01:42:22.322642+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -630,7 +630,7 @@
       "labels": [],
       "body": "The current draft anticipates patterns for hierarchical and cascaded topologies, but doesn't consider GOSSIP-like topologies where there can be redundant verifiers for improved availability.\n\nGOSSIP protocols could also create hybrids of the above 3 topologies.",
       "createdAt": "2025-09-29T20:33:25Z",
-      "updatedAt": "2025-09-30T18:34:21Z",
+      "updatedAt": "2025-10-03T09:05:12Z",
       "closedAt": null,
       "comments": [
         {
@@ -653,6 +653,13 @@
           "body": "GOSSIP can be applied to shared bus as well as Internet. The particular GOSSIP protocol isn't that important IMHO. The main differences are: a) Attester / RP can decide which Verifier(s) to use. b) Verifiers can decide which other verifiers to use. (b) overlaps with existing patterns, so you could say GOSSIP pattern is a hybrid, but it also has (a). ",
           "createdAt": "2025-09-30T18:34:21Z",
           "updatedAt": "2025-09-30T18:34:21Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@nedmsmith Is there any use case where this Mesh Topology can be considered for Verification ?",
+          "createdAt": "2025-10-03T08:29:00Z",
+          "updatedAt": "2025-10-03T09:05:12Z"
         }
       ]
     }
