@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-05T01:42:22.322642+00:00",
+  "timestamp": "2025-10-07T01:26:47.853137+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -2691,6 +2691,32 @@
           "updatedAt": "2025-09-30T10:02:52Z"
         }
       ],
+      "reviews": []
+    },
+    {
+      "number": 37,
+      "id": "PR_kwDON24c9s6sPJLU",
+      "title": "update the security and privacy consideration",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/37",
+      "state": "OPEN",
+      "author": "junzhanghw",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-06T10:37:59Z",
+      "updatedAt": "2025-10-06T10:38:00Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "576278727c18dd5175ea6fef478ad1f865cf10f7",
+      "headRepository": "junzhanghw/draft-deshpande-multi-verifier",
+      "headRefName": "junzhanghw-patch-security-privacy-consideration",
+      "headRefOid": "34cfb4c99592651127e027f0644062bda951b43f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
       "reviews": []
     }
   ]
