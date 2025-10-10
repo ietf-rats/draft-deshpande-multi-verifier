@@ -5,11 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 12 April 2026                                         H. Labiod
+Expires: 13 April 2026                                         H. Labiod
                                      Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                          9 October 2025
+                                                         10 October 2025
 
 
                Remote Attestation with Multiple Verifiers
@@ -21,9 +21,10 @@ Abstract
    complex system, this role needs to be performed by multiple Verfiers
    coordinating together to assess the full trustworthiness of an
    Attester.  This document focuses on various topological patterns for
-   a multiple Verifier system.  It only provides architectural aspects
-   introduced by Multi Verifier concept that is neutral towards specific
-   wire formats, encoding, transport mechanisms, or processing details.
+   a multiple Verifier system.  It only covers the architectural aspects
+   introduced by the Multi Verifier concept, which is neutral with
+   regard to specific wire formats, encoding, transport mechanisms, or
+   processing details.
 
 Discussion Venues
 
@@ -47,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 April 2026.
+   This Internet-Draft will expire on 13 April 2026.
 
 Copyright Notice
 
