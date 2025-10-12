@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-07T01:26:47.853137+00:00",
+  "timestamp": "2025-10-12T01:38:40.107345+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -2536,25 +2536,33 @@
       "id": "PR_kwDON24c9s6p5RQy",
       "title": "Clarify scope only to Architecture",
       "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/32",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-09-22T17:09:50Z",
-      "updatedAt": "2025-09-22T17:13:24Z",
+      "updatedAt": "2025-10-09T16:59:15Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "2e78cc8c027ca2437b9b87183f30c9721336c760",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "scope-clarification",
       "headRefOid": "ace40ca87e1be38ccfd981b68fc2893c2f974dac",
-      "closedAt": null,
+      "closedAt": "2025-10-09T16:59:15Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This PR is no longer relevant. See PR #39 ",
+          "createdAt": "2025-10-09T16:59:15Z",
+          "updatedAt": "2025-10-09T16:59:15Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDON24c9s7B9hoS",
@@ -2705,7 +2713,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-10-06T10:37:59Z",
-      "updatedAt": "2025-10-06T10:38:00Z",
+      "updatedAt": "2025-10-09T15:43:37Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "576278727c18dd5175ea6fef478ad1f865cf10f7",
@@ -2717,7 +2725,537 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7FyvV0",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T11:04:40Z",
+          "updatedAt": "2025-10-09T11:04:41Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "```suggestion\r\nThe Verifier is effectively part of the Attesters' and Relying Parties' trusted computing base (TCB).  When multiple Verifiers coordinate to conduct appraisal, it leads to larger TCB and hence more attack surface. Any mistake in the appraisal procedure conducted by one or more Verifiers could have severe security implications, leading to unauthorized access or data breaches. This section details the security threats and mitigation strategies specific to the multi-verifier topologies described in this document. In addition to the considerations herein, Verifiers MUST follow the guidance detailed in the Security and Privacy considerations of a RATS Verifier as detailed in {{Section 11 of -corim}} and the RATS Architecture {{Section 11 and Section 12 of -rats-arch}}.\r\n```",
+              "createdAt": "2025-10-09T11:04:40Z",
+              "updatedAt": "2025-10-09T11:05:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7FywsR",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T11:06:30Z",
+          "updatedAt": "2025-10-09T11:06:30Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "```suggestion\r\n1. Eavesdrop on any communication channel between Verifiers.\r\n```",
+              "createdAt": "2025-10-09T11:06:30Z",
+              "updatedAt": "2025-10-09T11:06:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7Fyw_t",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T11:06:53Z",
+          "updatedAt": "2025-10-09T11:06:53Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "```suggestion\r\n4. Perform Man-in-the-Middle (MitM) attacks between any two communicating entities.\r\n```",
+              "createdAt": "2025-10-09T11:06:53Z",
+              "updatedAt": "2025-10-09T11:07:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7Fyzda",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T11:09:46Z",
+          "updatedAt": "2025-10-09T11:09:46Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "Change SV => Sub Verifier to Component Verifier : CV",
+              "createdAt": "2025-10-09T11:09:46Z",
+              "updatedAt": "2025-10-09T11:09:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7FzBxU",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "some comments to look at!\r\n\r\nStill in the middle of the review!",
+          "createdAt": "2025-10-09T11:23:32Z",
+          "updatedAt": "2025-10-09T11:23:32Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7F0XRA",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T12:55:09Z",
+          "updatedAt": "2025-10-09T12:55:09Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "ok. All corresponding parts should be modified.",
+              "createdAt": "2025-10-09T12:55:09Z",
+              "updatedAt": "2025-10-09T12:55:09Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7F2dGc",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T14:53:53Z",
+          "updatedAt": "2025-10-09T14:54:00Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7F2dQV",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T14:54:06Z",
+          "updatedAt": "2025-10-09T14:54:10Z",
+          "comments": [
+            {
+              "originalPosition": 69,
+              "body": "Confidentiality of Evidence - should be part of Privacy Section",
+              "createdAt": "2025-10-09T14:54:06Z",
+              "updatedAt": "2025-10-09T14:54:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7F2eU5",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T14:55:39Z",
+          "updatedAt": "2025-10-09T14:55:39Z",
+          "comments": [
+            {
+              "originalPosition": 83,
+              "body": "```suggestion\r\nThe cascaded pattern distributes trust but requires each Verifier in the chain to be trusted to correctly handle and forward  Attestation messages. The chain's security is only as strong as its weakest link.\r\n```",
+              "createdAt": "2025-10-09T14:55:39Z",
+              "updatedAt": "2025-10-09T14:55:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7F2gB5",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T14:57:24Z",
+          "updatedAt": "2025-10-09T14:57:24Z",
+          "comments": [
+            {
+              "originalPosition": 101,
+              "body": "The last line of Encryption should be all part of Privacy",
+              "createdAt": "2025-10-09T14:57:24Z",
+              "updatedAt": "2025-10-09T14:57:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7F2ik2",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T15:00:19Z",
+          "updatedAt": "2025-10-09T15:00:22Z",
+          "comments": [
+            {
+              "originalPosition": 110,
+              "body": "```suggestion\r\nAs the hybrid pattern is the composition of  hierarchical pattern and cascade pattern, all the threats and mitigations that are applicable for these two patterns are also applicable for the general hybrid pattern.\r\n```",
+              "createdAt": "2025-10-09T15:00:19Z",
+              "updatedAt": "2025-10-09T15:00:23Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7F2l4-",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T15:05:28Z",
+          "updatedAt": "2025-10-09T15:05:30Z",
+          "comments": [
+            {
+              "originalPosition": 123,
+              "body": "```suggestion\r\nThe appraisal of a Composite Attester requires exchange of attestation related messages, for example, partial Evidence and partial Attestation Results, among multiple Verifiers. This can potentially leak sensitive information about the Attester's configuration , identities and the nature of composition.\r\n```",
+              "createdAt": "2025-10-09T15:05:28Z",
+              "updatedAt": "2025-10-09T15:05:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7F2mex",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T15:06:22Z",
+          "updatedAt": "2025-10-09T15:06:22Z",
+          "comments": [
+            {
+              "originalPosition": 127,
+              "body": "Move all the confidentiality aspect into Privacy considerations.",
+              "createdAt": "2025-10-09T15:06:22Z",
+              "updatedAt": "2025-10-09T15:06:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7F2nMM",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T15:07:30Z",
+          "updatedAt": "2025-10-09T15:07:30Z",
+          "comments": [
+            {
+              "originalPosition": 128,
+              "body": "```suggestion\r\n- Policy Handling: Verifiers should be careful not to leak their internal appraisal policies (e.g., through error messages or timing side channels) when communicating with other Verifiers or Attesters, as this information could be exploited by an attacker to manipulate appraisal.\r\n```",
+              "createdAt": "2025-10-09T15:07:30Z",
+              "updatedAt": "2025-10-09T15:07:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7F2n-5",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Thank you Jun for making efforts to segregate the sections.\r\nPlease see some comments. I will request others to review as well.,\r\n\r\nIt is certainly a good start!",
+          "createdAt": "2025-10-09T15:08:46Z",
+          "updatedAt": "2025-10-09T15:08:46Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7F3D5x",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T15:39:02Z",
+          "updatedAt": "2025-10-09T15:39:02Z",
+          "comments": [
+            {
+              "originalPosition": 123,
+              "body": "ok for me.",
+              "createdAt": "2025-10-09T15:39:02Z",
+              "updatedAt": "2025-10-09T15:39:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7F3EZN",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T15:39:30Z",
+          "updatedAt": "2025-10-09T15:39:31Z",
+          "comments": [
+            {
+              "originalPosition": 127,
+              "body": "ok for me",
+              "createdAt": "2025-10-09T15:39:30Z",
+              "updatedAt": "2025-10-09T15:39:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7F3GFy",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T15:41:06Z",
+          "updatedAt": "2025-10-09T15:41:07Z",
+          "comments": [
+            {
+              "originalPosition": 69,
+              "body": "this is to guarantee the integrity. so it should be remained inside the security consideration.",
+              "createdAt": "2025-10-09T15:41:06Z",
+              "updatedAt": "2025-10-09T15:41:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7F3HQQ",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T15:42:09Z",
+          "updatedAt": "2025-10-09T15:42:09Z",
+          "comments": [
+            {
+              "originalPosition": 83,
+              "body": "ok for me.",
+              "createdAt": "2025-10-09T15:42:09Z",
+              "updatedAt": "2025-10-09T15:42:09Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7F3ICJ",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T15:42:46Z",
+          "updatedAt": "2025-10-09T15:42:46Z",
+          "comments": [
+            {
+              "originalPosition": 110,
+              "body": "ok for me.",
+              "createdAt": "2025-10-09T15:42:46Z",
+              "updatedAt": "2025-10-09T15:42:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7F3JYo",
+          "commit": {
+            "abbreviatedOid": "34cfb4c"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-09T15:43:36Z",
+          "updatedAt": "2025-10-09T15:43:37Z",
+          "comments": [
+            {
+              "originalPosition": 101,
+              "body": "I agree with that.",
+              "createdAt": "2025-10-09T15:43:36Z",
+              "updatedAt": "2025-10-09T15:43:37Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "id": "PR_kwDON24c9s6s76br",
+      "title": "Section heading fix",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/38",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This change fixes a rendering bug in the Heading of Cascaded Pattern",
+      "createdAt": "2025-10-09T16:47:07Z",
+      "updatedAt": "2025-10-10T08:29:53Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "576278727c18dd5175ea6fef478ad1f865cf10f7",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "remove-section-bug",
+      "headRefOid": "a13391d68f2ccdc8261c1f418f1d2a7027c2a6e2",
+      "closedAt": "2025-10-10T08:29:50Z",
+      "mergedAt": "2025-10-10T08:29:50Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "4e3d30fb0ff342e140e2a33b5c8a45a74f58b83d"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7F_Ded",
+          "commit": {
+            "abbreviatedOid": "a13391d"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-10T06:59:50Z",
+          "updatedAt": "2025-10-10T06:59:50Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "id": "PR_kwDON24c9s6s8BvQ",
+      "title": "Introduce Scope right at the start",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/39",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-09T16:58:28Z",
+      "updatedAt": "2025-10-10T09:08:23Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "576278727c18dd5175ea6fef478ad1f865cf10f7",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "scope-define",
+      "headRefOid": "f34159387af4547f188c91d01828c5019608b026",
+      "closedAt": "2025-10-10T09:08:18Z",
+      "mergedAt": "2025-10-10T09:08:18Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "fdab2c27a1ec753c5b22ab2d8156b204af37b3e4"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7F_EP0",
+          "commit": {
+            "abbreviatedOid": "f65e79e"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-10T07:01:06Z",
+          "updatedAt": "2025-10-10T07:01:06Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7F_Efs",
+          "commit": {
+            "abbreviatedOid": "f65e79e"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-10T07:01:32Z",
+          "updatedAt": "2025-10-10T07:01:32Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7GA2rj",
+          "commit": {
+            "abbreviatedOid": "f65e79e"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-10T09:06:16Z",
+          "updatedAt": "2025-10-10T09:06:16Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\nIETF RATS Architecture, defines the key role of a Verifier.  In a complex system, this role needs to be performed by multiple Verfiers coordinating together to assess the full trustworthiness of an Attester. This document focuses on various topological patterns for a multiple Verifier system. It only covers the architectural aspects introduced by the Multi Verifier concept, which is neutral with regard to specific wire formats, encoding, transport mechanisms, or processing details.\r\n```",
+              "createdAt": "2025-10-10T09:06:16Z",
+              "updatedAt": "2025-10-10T09:06:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7GA4Cx",
+          "commit": {
+            "abbreviatedOid": "f341593"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-10T09:07:56Z",
+          "updatedAt": "2025-10-10T09:07:56Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
