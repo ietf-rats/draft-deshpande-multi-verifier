@@ -91,9 +91,10 @@ Table of Contents
        7.1.2.  Cascaded Pattern
    8.  IANA Considerations
    9.  Acknowledgements
-   10. References
-     10.1.  Normative References
-     10.2.  Informative References
+   10. Refrences
+   11. References
+     11.1.  Normative References
+     11.2.  Informative References
    Contributors
    Authors' Addresses
 
@@ -272,24 +273,6 @@ Table of Contents
       (AAR) refers to a collection of Attestation Results produced upon
       completion of appraisal of a Composite Attester.
 
-   As defined in [RFC6024]:
-
-                 +=======================================+
-                 | A trust anchor represents an          |
-                 | authoritative entity via a public key |
-                 +=======================================+
-                 | and associated data.  The public key  |
-                 | is used to verify digital             |
-                 +---------------------------------------+
-                 | signatures, and the associated data   |
-                 | is used to constrain the types        |
-                 +---------------------------------------+
-                 | of information for which the trust    |
-                 | anchor is authoritative.              |
-                 +---------------------------------------+
-
-                                  Table 1
-
 5.  Multi Verifier topological patterns
 
    A Composite Attester has multiple Component Attesters.  Each Attester
@@ -392,7 +375,7 @@ Table of Contents
 
    Also, each of the Component Attester Verifier is fully trusted by the
    Lead Verifier.  Lead Verifier is provisioned with the Trust Anchors
-   for Verifier 1..N.
+   [RFC6024] for Verifier 1..N.
 
 5.2.  Cascaded Pattern {#sec-verifier-cascade }
 
@@ -572,9 +555,16 @@ Table of Contents
 
    // TODO
 
-10.  References
+10.  Refrences
 
-10.1.  Normative References
+   [RFC6024] Reddy, R. and C.  Wallace, "Trust Anchor Management
+   Requirements", RFC 6024, DOI 10.17487/RFC6024, October 2010,
+   https://www.rfc-editor.org/info/rfc6024 (https://www.rfc-
+   editor.org/info/rfc6024).
+
+11.  References
+
+11.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -585,7 +575,7 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-10.2.  Informative References
+11.2.  Informative References
 
    [I-D.draft-ietf-rats-corim]
               Birkholz, H., Fossati, T., Deshpande, Y., Smith, N., and
