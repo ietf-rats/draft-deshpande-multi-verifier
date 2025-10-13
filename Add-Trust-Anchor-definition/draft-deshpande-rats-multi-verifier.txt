@@ -91,10 +91,9 @@ Table of Contents
        7.1.2.  Cascaded Pattern
    8.  IANA Considerations
    9.  Acknowledgements
-   10. Refrences
-   11. References
-     11.1.  Normative References
-     11.2.  Informative References
+   10. References
+     10.1.  Normative References
+     10.2.  Informative References
    Contributors
    Authors' Addresses
 
@@ -375,7 +374,7 @@ Table of Contents
 
    Also, each of the Component Attester Verifier is fully trusted by the
    Lead Verifier.  Lead Verifier is provisioned with the Trust Anchors
-   [RFC6024] for Verifier 1..N.
+   (see [RFC6024]) for Verifier 1..N.
 
 5.2.  Cascaded Pattern {#sec-verifier-cascade }
 
@@ -555,16 +554,9 @@ Table of Contents
 
    // TODO
 
-10.  Refrences
+10.  References
 
-   [RFC6024] Reddy, R. and C.  Wallace, "Trust Anchor Management
-   Requirements", RFC 6024, DOI 10.17487/RFC6024, October 2010,
-   https://www.rfc-editor.org/info/rfc6024 (https://www.rfc-
-   editor.org/info/rfc6024).
-
-11.  References
-
-11.1.  Normative References
+10.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -575,7 +567,7 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-11.2.  Informative References
+10.2.  Informative References
 
    [I-D.draft-ietf-rats-corim]
               Birkholz, H., Fossati, T., Deshpande, Y., Smith, N., and
@@ -583,6 +575,10 @@ Table of Contents
               Progress, Internet-Draft, draft-ietf-rats-corim-08, 7 July
               2025, <https://datatracker.ietf.org/doc/html/draft-ietf-
               rats-corim-08>.
+
+   [RFC6024]  Reddy, R. and C. Wallace, "Trust Anchor Management
+              Requirements", RFC 6024, DOI 10.17487/RFC6024, October
+              2010, <https://www.rfc-editor.org/rfc/rfc6024>.
 
    [RFC9334]  Birkholz, H., Thaler, D., Richardson, M., Smith, N., and
               W. Pan, "Remote ATtestation procedureS (RATS)
@@ -602,6 +598,7 @@ Contributors
 
 
    Steven Bellock
+   NVIDIA
    Email: sbellock@nvidia.com
 
 
