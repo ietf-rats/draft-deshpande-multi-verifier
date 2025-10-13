@@ -5,11 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 13 April 2026                                         H. Labiod
+Expires: 16 April 2026                                         H. Labiod
                                      Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                         10 October 2025
+                                                         13 October 2025
 
 
                Remote Attestation with Multiple Verifiers
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 April 2026.
+   This Internet-Draft will expire on 16 April 2026.
 
 Copyright Notice
 
@@ -591,6 +591,15 @@ Contributors
    Thanassis Giannetsos
    UBITECH Ltd.
    Email: agiannetsos@ubitech.eu
+
+
+   Steven Bellock
+   Email: sbellock@nvidia.com
+
+
+   Ghada Arfaoui
+   ORANGE
+   Email: ghada.arfaoui@orange.com
 
 
 Authors' Addresses
