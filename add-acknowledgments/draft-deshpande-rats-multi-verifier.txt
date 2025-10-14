@@ -5,11 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 16 April 2026                                         H. Labiod
+Expires: 17 April 2026                                         H. Labiod
                                      Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                         13 October 2025
+                                                         14 October 2025
 
 
                Remote Attestation with Multiple Verifiers
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 April 2026.
+   This Internet-Draft will expire on 17 April 2026.
 
 Copyright Notice
 
@@ -374,7 +374,7 @@ Table of Contents
 
    Also, each of the Component Attester Verifier is fully trusted by the
    Lead Verifier.  Lead Verifier is provisioned with the Trust Anchors
-   for Verifier 1..N.
+   (see [RFC6024]) for Verifier 1..N.
 
 5.2.  Cascaded Pattern {#sec-verifier-cascade }
 
@@ -576,6 +576,10 @@ Informative References
               2025, <https://datatracker.ietf.org/doc/html/draft-ietf-
               rats-corim-08>.
 
+   [RFC6024]  Reddy, R. and C. Wallace, "Trust Anchor Management
+              Requirements", RFC 6024, DOI 10.17487/RFC6024, October
+              2010, <https://www.rfc-editor.org/rfc/rfc6024>.
+
    [RFC9334]  Birkholz, H., Thaler, D., Richardson, M., Smith, N., and
               W. Pan, "Remote ATtestation procedureS (RATS)
               Architecture", RFC 9334, DOI 10.17487/RFC9334, January
@@ -594,6 +598,7 @@ Contributors
 
 
    Steven Bellock
+   NVIDIA
    Email: sbellock@nvidia.com
 
 
