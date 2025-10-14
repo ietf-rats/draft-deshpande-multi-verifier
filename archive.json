@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-12T01:38:40.107345+00:00",
+  "timestamp": "2025-10-14T01:27:32.087021+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -3256,6 +3256,217 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 40,
+      "id": "PR_kwDON24c9s6tUw7E",
+      "title": "Add Steven and Ghada as Contributors",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/40",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-12T15:51:10Z",
+      "updatedAt": "2025-10-13T10:27:12Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "fdab2c27a1ec753c5b22ab2d8156b204af37b3e4",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "add-contributors",
+      "headRefOid": "608e560dbf32044c94333c748be7fc49a2c7d497",
+      "closedAt": "2025-10-13T10:27:08Z",
+      "mergedAt": "2025-10-13T10:27:08Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "1c3a95e42c2a0e2d94b5d6ae3e5e8ae6460c0034"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7Gf_sr",
+          "commit": {
+            "abbreviatedOid": "608e560"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-13T07:27:38Z",
+          "updatedAt": "2025-10-13T07:27:38Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 41,
+      "id": "PR_kwDON24c9s6tcUT8",
+      "title": "Add Acknowledgements",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/41",
+      "state": "OPEN",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Acknowledge people who have spent some time and reviewed the document and shared some useful insights!",
+      "createdAt": "2025-10-13T11:26:24Z",
+      "updatedAt": "2025-10-13T11:26:32Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "1c3a95e42c2a0e2d94b5d6ae3e5e8ae6460c0034",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "add-acknowledgments",
+      "headRefOid": "5435a8ded17da2d640d3a5ec863df08f21b46237",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 42,
+      "id": "PR_kwDON24c9s6tdJ9L",
+      "title": "Add Trust Anchor definition",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/42",
+      "state": "MERGED",
+      "author": "GhadaArf",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Issue #30",
+      "createdAt": "2025-10-13T12:38:10Z",
+      "updatedAt": "2025-10-13T13:26:09Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "1c3a95e42c2a0e2d94b5d6ae3e5e8ae6460c0034",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "Add-Trust-Anchor-definition",
+      "headRefOid": "93abbbcf937b788ca5250a819f67cf851de8e58e",
+      "closedAt": "2025-10-13T13:21:30Z",
+      "mergedAt": "2025-10-13T13:21:30Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "182f3223d47205e8f6a5c0f5355afebe13b17380"
+      },
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@GhadaArf This needs properly formatting, please see \r\nhttps://github.com/ietf-rats-wg/draft-ietf-rats-corim\r\n\r\nFor the references addition..\r\n\r\nHow we add normative references and referring them.",
+          "createdAt": "2025-10-13T13:10:32Z",
+          "updatedAt": "2025-10-13T13:10:32Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thank you @GhadaArf for making the changes!",
+          "createdAt": "2025-10-13T13:21:26Z",
+          "updatedAt": "2025-10-13T13:21:26Z"
+        },
+        {
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks @henkbirkholz for the help! ",
+          "createdAt": "2025-10-13T13:26:09Z",
+          "updatedAt": "2025-10-13T13:26:09Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7GkmqR",
+          "commit": {
+            "abbreviatedOid": "e74b2aa"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-13T12:44:15Z",
+          "updatedAt": "2025-10-13T12:44:16Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "I think, either you move this to a place where Trust Anchor is used, for the first time in this document\r\nOR\r\nYou can just add a reference to RFC 6024 in the list of References and refer to it from first use of Trust Anchor!",
+              "createdAt": "2025-10-13T12:44:15Z",
+              "updatedAt": "2025-10-13T12:44:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7Gkm3u",
+          "commit": {
+            "abbreviatedOid": "e74b2aa"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "please see some comment",
+          "createdAt": "2025-10-13T12:44:31Z",
+          "updatedAt": "2025-10-13T12:44:31Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7Gk1dP",
+          "commit": {
+            "abbreviatedOid": "e74b2aa"
+          },
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-13T12:59:06Z",
+          "updatedAt": "2025-10-13T12:59:07Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "I opted for the second option ",
+              "createdAt": "2025-10-13T12:59:06Z",
+              "updatedAt": "2025-10-13T12:59:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7GlHAb",
+          "commit": {
+            "abbreviatedOid": "93abbbc"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM!",
+          "createdAt": "2025-10-13T13:20:38Z",
+          "updatedAt": "2025-10-13T13:20:38Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 43,
+      "id": "PR_kwDON24c9s6tdzXd",
+      "title": "Bug Fix in Rendering",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/43",
+      "state": "OPEN",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-13T13:32:08Z",
+      "updatedAt": "2025-10-13T13:32:09Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "182f3223d47205e8f6a5c0f5355afebe13b17380",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "bug-fix",
+      "headRefOid": "fa323a214f23362ebdd4ef047dda635a53f628d1",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
