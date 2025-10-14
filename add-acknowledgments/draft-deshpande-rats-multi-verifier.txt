@@ -551,8 +551,8 @@ Table of Contents
 
 Acknowledgments
 
-   The authors would like to thank Simon Frost Usama Sardar for their
-   reviews and suggestions.
+   The authors would like to thank Simon Frost and Usama Sardar for
+   their reviews and suggestions.
 
 References
 
