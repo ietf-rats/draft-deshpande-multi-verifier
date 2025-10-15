@@ -5,11 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 16 April 2026                                         H. Labiod
+Expires: 18 April 2026                                         H. Labiod
                                      Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                         13 October 2025
+                                                         15 October 2025
 
 
                Remote Attestation with Multiple Verifiers
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 April 2026.
+   This Internet-Draft will expire on 18 April 2026.
 
 Copyright Notice
 
@@ -90,10 +90,10 @@ Table of Contents
        7.1.1.  Hierarchical Pattern
        7.1.2.  Cascaded Pattern
    8.  IANA Considerations
-   9.  Acknowledgements
-   10. References
-     10.1.  Normative References
-     10.2.  Informative References
+   Acknowledgments
+   References
+     Normative References
+     Informative References
    Contributors
    Authors' Addresses
 
@@ -549,14 +549,14 @@ Table of Contents
 
 8.  IANA Considerations
 
-9.  Acknowledgements
+Acknowledgments
 
+   The authors would like to thank Simon Frost and Usama Sardar for
+   their reviews and suggestions.
 
-   // TODO
+References
 
-10.  References
-
-10.1.  Normative References
+Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -567,7 +567,7 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-10.2.  Informative References
+Informative References
 
    [I-D.draft-ietf-rats-corim]
               Birkholz, H., Fossati, T., Deshpande, Y., Smith, N., and
