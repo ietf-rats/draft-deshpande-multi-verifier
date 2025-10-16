@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-14T01:27:32.087021+00:00",
+  "timestamp": "2025-10-16T01:37:43.799050+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -3304,26 +3304,62 @@
       "id": "PR_kwDON24c9s6tcUT8",
       "title": "Add Acknowledgements",
       "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/41",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Acknowledge people who have spent some time and reviewed the document and shared some useful insights!",
       "createdAt": "2025-10-13T11:26:24Z",
-      "updatedAt": "2025-10-13T11:26:32Z",
+      "updatedAt": "2025-10-15T12:22:41Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
-      "baseRefOid": "1c3a95e42c2a0e2d94b5d6ae3e5e8ae6460c0034",
+      "baseRefOid": "182f3223d47205e8f6a5c0f5355afebe13b17380",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "add-acknowledgments",
-      "headRefOid": "5435a8ded17da2d640d3a5ec863df08f21b46237",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "28bdf2c974f7d2f416df26df1c59f0589d7dba5a",
+      "closedAt": "2025-10-15T12:22:37Z",
+      "mergedAt": "2025-10-15T12:22:37Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "211fc760ec3f7b13d8915ed4157841eadae9a2c7"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7Gv51D",
+          "commit": {
+            "abbreviatedOid": "5435a8d"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-14T08:19:44Z",
+          "updatedAt": "2025-10-14T08:19:44Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7GxEVP",
+          "commit": {
+            "abbreviatedOid": "44ea4b0"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-14T09:42:04Z",
+          "updatedAt": "2025-10-14T09:42:04Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "```suggestion\r\nSimon Frost\r\nand\r\nUsama Sardar\r\n```",
+              "createdAt": "2025-10-14T09:42:04Z",
+              "updatedAt": "2025-10-14T09:42:04Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 42,
@@ -3454,7 +3490,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-10-13T13:32:08Z",
-      "updatedAt": "2025-10-13T13:32:09Z",
+      "updatedAt": "2025-10-14T08:27:27Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "182f3223d47205e8f6a5c0f5355afebe13b17380",
@@ -3466,7 +3502,21 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7GwBd2",
+          "commit": {
+            "abbreviatedOid": "fa323a2"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-14T08:27:27Z",
+          "updatedAt": "2025-10-14T08:27:27Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
