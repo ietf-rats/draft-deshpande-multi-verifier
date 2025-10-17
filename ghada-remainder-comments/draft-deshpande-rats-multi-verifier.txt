@@ -428,12 +428,13 @@ Table of Contents
    sent to the Attester (in Passport Model) or Relying Party (in
    background check model).
 
-   As shown in the picture, the Partial Attestation Results and Combined
-   Evidence is transmitted to a chain of Verifier, till the Appraisal is
-   complete.  Upon completion, the last Verifier in the chain combines
-   the incoming Partial Attestation Results, combines the results from
-   it own Evidence Appraisal and passes the Aggregated Attestation
-   Results to the Verifier from which it receives Combined Evidence.
+   As shown in the picture, the Partial Attestation Results and
+   Composite Evidence is transmitted to a chain of Verifier, till the
+   Appraisal is complete.  Upon completion, the last Verifier in the
+   chain combines the incoming Partial Attestation Results, combines the
+   results from it own Evidence Appraisal and passes the Aggregated
+   Attestation Results to the Verifier from which it receives Composite
+   Evidence.
 
    There are many protocols to determine how a Verifier can select the
    next Verifier to route the CE.  This document does not mandate any
