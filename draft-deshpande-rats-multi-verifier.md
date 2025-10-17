@@ -120,6 +120,10 @@ Attester: A Device having multiple components
 
 Relying Party: An entity which is making trust decisions for such an Attester
 
+Verifier 1: Verifier to verify the status of the CPU
+
+Verifier 2: Verifier to verify the status of the acceleration component
+
 ## Verification of Workloads operating in Confidential Computing environment
 
 As organisations move more workloads into untrusted or shared environments, Confidential Computing is becoming increasingly important.
@@ -136,6 +140,10 @@ Verification of Attestation for such a system requires independent, yet mutually
 Attester: A layered Attester containing a platform and a workload running in a CC environment
 
 Relying Party: An entity which is making trust decisions, such as a key release to a workload
+
+Verifier 1: Verifier to verify the status of the workload
+
+Verifier 2: Verifier to verify the status of the CC envrionment
 
 
 # Conventions and Definitions
