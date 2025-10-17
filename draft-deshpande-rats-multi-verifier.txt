@@ -532,6 +532,10 @@ Table of Contents
    Verifier, Verifier-RP) MUST be secured using mutually authenticated,
    confidential, and integrity-protected channels (e.g., TLS).
 
+   It is recommended that any two verifiers establishing a communication
+   channel perform mutual attestation before exchanging any attestation
+   messages.
+
 7.3.  Security for Topological Patterns
 
 7.3.1.  Hierarchical Pattern
