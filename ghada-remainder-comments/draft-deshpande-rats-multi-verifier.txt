@@ -343,8 +343,7 @@ Table of Contents
       after successful Appraisal of Evidence.  There are many protocols
       to determine how a Lead Verifier can select the Component
       Verifiers.  This document does not mandate any specific protocol
-      for determining the Component Verifiers Any specific protocol is
-      out of scope for this specification.
+      for determining the Component Verifiers
 
    *  Once the Lead Verifier receives Attestation Results from all the
       Verifiers, it combines the results from each Verifier to construct
