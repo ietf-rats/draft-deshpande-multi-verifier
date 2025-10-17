@@ -1186,7 +1186,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                     <p id="section-toc.1-1.5.2.1.2.1.1"><a href="#section-5.1.1" class="auto internal xref">5.1.1</a>.  <a href="#name-lead-verifier" class="internal xref">Lead Verifier</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1.2.2">
-                    <p id="section-toc.1-1.5.2.1.2.2.1"><a href="#section-5.1.2" class="auto internal xref">5.1.2</a>.  <a href="#name-verifier-for-component-atte" class="internal xref">Verifier for Component Attester</a></p>
+                    <p id="section-toc.1-1.5.2.1.2.2.1"><a href="#section-5.1.2" class="auto internal xref">5.1.2</a>.  <a href="#name-component-verifier" class="internal xref">Component Verifier</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1.2.3">
                     <p id="section-toc.1-1.5.2.1.2.3.1"><a href="#section-5.1.3" class="auto internal xref">5.1.3</a>.  <a href="#name-trust-relationships" class="internal xref">Trust Relationships</a></p>
@@ -1519,7 +1519,7 @@ There are many protocols to determine how a Lead Verifier can select the Compone
 This document does not mandate any specific protocol for determining the Component Verifiers<a href="#section-5.1.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-5.1.1-3.3">
-              <p id="section-5.1.1-3.3.1">Once the Lead Verifier receives Attestation Results from all the Verifiers, it combines the results from each Verifier to construct a Aggregated Attestation Results (AAR). The Lead verifier may apply its own policies and also add extra claims as part of its appraisal.<a href="#section-5.1.1-3.3.1" class="pilcrow">¶</a></p>
+              <p id="section-5.1.1-3.3.1">Once the Lead Verifier receives Partial Attestation Results from all the Verifiers, it combines the results from each Verifier to construct a Aggregated Attestation Results (AAR). The Lead verifier may apply its own policies and also add extra claims as part of its appraisal.<a href="#section-5.1.1-3.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-5.1.1-3.4">
               <p id="section-5.1.1-3.4.1">Lead Verifier conveys the AAR to the Attester (in Passport model) or to the Relying Party (in background check model).<a href="#section-5.1.1-3.4.1" class="pilcrow">¶</a></p>
@@ -1529,12 +1529,12 @@ This document does not mandate any specific protocol for determining the Compone
 <p id="section-5.1.1-5">In certain topologies, it is possible that only the Composite Evidence is signed to provide the overall integrity, while the individual Component Attester Evidence (example Evidence 1) is not protected. In such cases, the Lead Verifer upon processing of Composite Evidence may wrap the Component Attester Evidence (example Evidence 1) in a signed Conceptual Message Wrapper (CMW), and send it to each Verifier (example Verifier 1).<a href="#section-5.1.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="verifier-for-component-attester">
+<div id="component-verifier">
 <section id="section-5.1.2">
-          <h4 id="name-verifier-for-component-atte">
-<a href="#section-5.1.2" class="section-number selfRef">5.1.2. </a><a href="#name-verifier-for-component-atte" class="section-name selfRef">Verifier for Component Attester</a>
+          <h4 id="name-component-verifier">
+<a href="#section-5.1.2" class="section-number selfRef">5.1.2. </a><a href="#name-component-verifier" class="section-name selfRef">Component Verifier</a>
           </h4>
-<p id="section-5.1.2-1">The role of a Component Attester Verifier is to receive Component Attester Evidence from the lead Verifier and produce Attestation Results to the Lead Verifier.<a href="#section-5.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.1.2-1">The role of a Component Verifier is to receive Component Evidence from the Lead Verifier and produce Partial Attestation Results to the Lead Verifier.<a href="#section-5.1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="trust-relationships">
@@ -1624,10 +1624,12 @@ Lead Verifier is provisioned with the Trust Anchors (see <span>[<a href="#RFC602
 </div>
 <p id="section-5.2-3">In this topological pattern, the Attestation Verification happens in sequence. Verifiers are cascaded to perform the Attestation Appraisal.
 Each Verifier in the chain has the knowledge to derive or extract the Component Evidence, which it can appraise, from the Composite Evidence.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
-<p id="section-5.2-4">Attester may send the Composite Evidence(CE) to any of the Verifier (directly in the passport model, or indirectly via the Relying Party in the background-check model). The Verifier which processes the Composite Evidence, Verifies the signature on the Evidence, if present. It decodes the Composite Evidence performs Appraisal of the Component Attester whose Reference Values and Endorsements are in its database. Once the appraisal is complete, it forwards the Composite Evidence and partial Attestation Results to the subsequent Verifier.<a href="#section-5.2-4" class="pilcrow">¶</a></p>
-<p id="section-5.2-5">The process is repeated, until the entire appraisal is complete. The last Verifier, i.e. Verifier-N, completes its Appraisal of the Component Attester Evidence and returns the Aggregated Attestation Results(AAR) to the N-1 Verifier, which passed Evidence to it. The N-1 Verifier then simply passes the AAR from where it received its Combined Evidence. Alternatively, it may also modify the AAR based on the inspection of received AAR. For example, it may add its own Verifier Added Claims (policy claims) and produce a new AAR. The process is repeated, until the Verifier, which recieved the initial Evidence is reached. At this point in time the Aggregated Attestation Results are signed and the AAR are sent to the Attester (in Passport Model) or Relying Party (in background check model).<a href="#section-5.2-5" class="pilcrow">¶</a></p>
-<p id="section-5.2-6">As shown in the picture, the partial results and Combined Evidence is transmitted to a chain of Verifier, till the Appraisal is complete.
-Upon completion, the Verifier combines the incoming partial results, combines the results from it own Evidence Appraisal and passes the Aggregated Attestation Results to the Verifier from which it receives Combined Evidence.<a href="#section-5.2-6" class="pilcrow">¶</a></p>
+<p id="section-5.2-4">Attester may send the Composite Evidence(CE) to any of the Verifier (directly in the passport model, or indirectly via the Relying Party in the background-check model). The Verifier which processes the Composite Evidence, Verifies the signature on the Evidence, if present. It extracts the
+Component Evidence from the Composite Evidence, performs Appraisal of the Component Attester whose Reference Values and Endorsements are in its database. Once the appraisal is complete, it forwards the Composite Evidence and Partial Attestation Results to the subsequent Verifier.<a href="#section-5.2-4" class="pilcrow">¶</a></p>
+<p id="section-5.2-5">The process is repeated, until the entire appraisal is complete. The last Verifier, i.e. Verifier-N, completes its Appraisal of the Component Evidence, that it can appraise. It has now all the Partial Attestation Results and creates the Aggregated Attestation Results(AAR). It returns
+the AAR to the N-1 Verifier (from where it received the Composite Evidence and Partial AR). The process is repeated, i.e. AAR is returned in the chain until the Verifier, which recieved the initial Composite Evidence is reached. At this point in time the Aggregated Attestation Results are signed and the AAR is sent to the Attester (in Passport Model) or Relying Party (in background check model).<a href="#section-5.2-5" class="pilcrow">¶</a></p>
+<p id="section-5.2-6">As shown in the picture, the Partial Attestation Results and Combined Evidence is transmitted to a chain of Verifier, till the Appraisal is complete.
+Upon completion, the last Verifier in the chain combines the incoming Partial Attestation Results, combines the results from it own Evidence Appraisal and passes the Aggregated Attestation Results to the Verifier from which it receives Combined Evidence.<a href="#section-5.2-6" class="pilcrow">¶</a></p>
 <p id="section-5.2-7">There are many protocols to determine how a Verifier can select the next Verifier to route the CE.
 This document does not mandate any specific protocol for determining the Verifiers in cascade.<a href="#section-5.2-7" class="pilcrow">¶</a></p>
 <div id="trust-relationships-1">
