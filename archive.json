@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-16T01:37:43.799050+00:00",
+  "timestamp": "2025-10-19T01:46:53.369706+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -662,6 +662,74 @@
           "updatedAt": "2025-10-03T09:05:12Z"
         }
       ]
+    },
+    {
+      "number": 46,
+      "id": "I_kwDON24c9s7SLwK3",
+      "title": "Comments from Ghada on Security and Privacy Considerations",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/46",
+      "state": "OPEN",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Sound very Good! Thanks @junzhanghw Jun! Here are some comments:\n\n1-LV compromise / Threat: propose to add \u201cor selects inappropriate components verifiers\u201d.\n\n2-LV compromise / Mitigation: We can also mention that CV can require the attestation of the LV before accepting to join the verification process. We can even consider mutual attestation.\n\n3-Shouldn\u2019t we explicitly add \u201cCV compromise\u201d section ?\n\n4-Evidence Integrity and Origin Authentication (LV-CV): if the Component evidence is not signed by the component attester, we cannot resist to the first mentioned attack (LV could manipulate evidence).\n\n5-Result Integrity and Origin Authentication (CV-LV): the signature of the results enables to proof that this message/data comes from a given CV. It does not protect from \u201c a malicious CV forges a bad result\u201d.\n\n6-The idea is we cannot resist to a malicious verifier (CV or LV) but we can prevent this problem by detecting them through mutual attestation.\n\n7-Verifier Compromise: we can also consider mutual attestation?",
+      "createdAt": "2025-10-17T14:00:52Z",
+      "updatedAt": "2025-10-17T15:25:13Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "1-3\uff1a I think we should concentrate on the properties of LV that is different from normal verifiers. So (2 and 3) is the issued already covered in RFC9334. For 1, if it is the point to know whether some component verifiers are trustworthy, it is in the scope of RFC9334 also (key store, attestation, etc). If it is the point that the LV should do trustworthy operation, then harden operation and auditable operation should be sufficient. \n\n4:  it is similar to LV compromise case that, LV should be hardened and is auditable.\n\n5:  it is the same case that, verifier should be trustworthy, which is topic covered in RFC9334.\n\n6-7: This is the trustworthy part covered in RFC9334.\n\n@yogeshbdeshpande , do you think that it is better mentioned in trust relationship that, the same strategy of rfc9334 applies to establish the trust between verifiers (key store, or attestation)?",
+          "createdAt": "2025-10-17T14:15:03Z",
+          "updatedAt": "2025-10-17T14:15:03Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@junzhanghw : I agree with @GhadaArf , that mutual attestation aspect we can bring into the Security consideration as it uplifts the bar for security. I was thinking, if we can remember to bring this after the cut-off, or if you have time consider adding this to the merged section! ",
+          "createdAt": "2025-10-17T14:25:36Z",
+          "updatedAt": "2025-10-17T14:25:46Z"
+        },
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@yogeshbdeshpande , do i need to create one new pr, or editing it from my branch?",
+          "createdAt": "2025-10-17T15:03:08Z",
+          "updatedAt": "2025-10-17T15:03:08Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "New PR @junzhanghw \n\nThe old one is Merged!",
+          "createdAt": "2025-10-17T15:06:06Z",
+          "updatedAt": "2025-10-17T15:06:06Z"
+        },
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I have launched an PR for adding one line in the general requirement on mutual attestation.",
+          "createdAt": "2025-10-17T15:25:13Z",
+          "updatedAt": "2025-10-17T15:25:13Z"
+        }
+      ]
+    },
+    {
+      "number": 48,
+      "id": "I_kwDON24c9s7SM3Gv",
+      "title": "Verifiers in the use cases",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/48",
+      "state": "OPEN",
+      "author": "junzhanghw",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Comments from Houda. Do we need to add the Verifier in the two use cases?\n\n\n use case 1\n\nVerifier 1: Verifier for the CPU\nVerifier 2: Verifier for the GPU\n\nuse case 2\n\nVerifier 1: Verifier for the VM\n\nVerifier 2:  Verifier for the platform\n",
+      "createdAt": "2025-10-17T15:28:36Z",
+      "updatedAt": "2025-10-17T15:28:36Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -2672,21 +2740,21 @@
       "id": "PR_kwDON24c9s6rSepF",
       "title": "Abstract Update ",
       "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/36",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "GhadaArf",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "We need to specify the scope of the draft (architecture and conceptual messages) and what is out of the scope (e.g., used protocols between the verifiers).",
       "createdAt": "2025-09-30T09:47:09Z",
-      "updatedAt": "2025-09-30T10:02:52Z",
+      "updatedAt": "2025-10-17T18:10:41Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "576278727c18dd5175ea6fef478ad1f865cf10f7",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "Abstract",
       "headRefOid": "db7727b7119de2f052459ed6b4a681defcadeed1",
-      "closedAt": null,
+      "closedAt": "2025-10-17T18:10:41Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -2697,6 +2765,13 @@
           "body": "Thank you for proposing a change, please feel free to check\r\nissue https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/30\r\n\r\nand look for further changes, then we can discuss this in our meeting on Froday 03rd October!",
           "createdAt": "2025-09-30T10:02:52Z",
           "updatedAt": "2025-09-30T10:02:52Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This PR is already addressed!",
+          "createdAt": "2025-10-17T18:10:41Z",
+          "updatedAt": "2025-10-17T18:10:41Z"
         }
       ],
       "reviews": []
@@ -2706,25 +2781,56 @@
       "id": "PR_kwDON24c9s6sPJLU",
       "title": "update the security and privacy consideration",
       "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/37",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "junzhanghw",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-10-06T10:37:59Z",
-      "updatedAt": "2025-10-09T15:43:37Z",
+      "updatedAt": "2025-10-17T13:56:46Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "576278727c18dd5175ea6fef478ad1f865cf10f7",
       "headRepository": "junzhanghw/draft-deshpande-multi-verifier",
       "headRefName": "junzhanghw-patch-security-privacy-consideration",
-      "headRefOid": "34cfb4c99592651127e027f0644062bda951b43f",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "headRefOid": "da622460d2eb76f2520ff5a51e5ca35ff0fc1dc6",
+      "closedAt": "2025-10-17T13:42:33Z",
+      "mergedAt": "2025-10-17T13:42:32Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "265b0c771e399c60454cd90551304df971cf9856"
+      },
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@junzhanghw : please run \r\n\r\nmake fix-lint\r\n\r\ncommand on the command prompt to fix the CI Errors, then submit on the branch.\r\n\r\nThen I can ask @henkbirkholz and @GhadaArf so have a quick look, prior to Merge!",
+          "createdAt": "2025-10-17T10:04:32Z",
+          "updatedAt": "2025-10-17T10:05:06Z"
+        },
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> @junzhanghw : please run\r\n> \r\n> make fix-lint\r\n> \r\n> command on the command prompt to fix the CI Errors, then submit on the branch.\r\n> \r\n> Then I can ask @henkbirkholz and @GhadaArf so have a quick look, prior to Merge!\r\n\r\nI do not have the command line to do this operation. I can only do the operation on web interface. ",
+          "createdAt": "2025-10-17T10:06:38Z",
+          "updatedAt": "2025-10-17T10:06:38Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "you can just clone the repo with the branch and use command line to run the commands.\r\nAnyway, I cannot do this as it is your fork @junzhanghw \r\n\r\nNo issues, once every one is happy, we can then merge and fix CI on the main line...",
+          "createdAt": "2025-10-17T10:10:04Z",
+          "updatedAt": "2025-10-17T10:10:04Z"
+        },
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> you can just clone the repo with the branch and use command line to run the commands. Anyway, I cannot do this as it is your fork @junzhanghw\r\n> \r\n> No issues, once every one is happy, we can then merge and fix CI on the main line...\r\n\r\nI have manually cleaned the extra space at the end of line. Please check whether it is ok now.",
+          "createdAt": "2025-10-17T13:18:52Z",
+          "updatedAt": "2025-10-17T13:18:52Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDON24c9s7FyvV0",
@@ -3124,6 +3230,246 @@
               "updatedAt": "2025-10-09T15:43:37Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7HUiAF",
+          "commit": {
+            "abbreviatedOid": "6d0b7b8"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-16T10:08:55Z",
+          "updatedAt": "2025-10-16T10:08:55Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\nThe Verifier is effectively part of the Attesters' and Relying Parties' trusted computing base (TCB).  When multiple Verifiers coordinate to conduct appraisal, it leads to larger TCB and hence more attack surface. Any mistake in the appraisal procedure conducted by one or more Verifiers could lead to severe security implications, such as incorrect Attestation Result of a component or a composition to the Relying party. This section details the security threats and mitigation strategies specific to the multi-verifier topologies described in this document. In addition to the considerations herein, Verifiers MUST follow the guidance detailed in the Security and Privacy considerations of a RATS Verifier as detailed in {{Section 11 of -corim}} and the RATS Architecture {{Section 11 and Section 12 of -rats-arch}}.\r\n```",
+              "createdAt": "2025-10-16T10:08:55Z",
+              "updatedAt": "2025-10-16T10:09:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7HUsGV",
+          "commit": {
+            "abbreviatedOid": "6d0b7b8"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-16T10:21:02Z",
+          "updatedAt": "2025-10-16T10:21:03Z",
+          "comments": [
+            {
+              "originalPosition": 40,
+              "body": "```suggestion\r\n**Mitigation:** The LV MUST be hardened and operate and store its Keys in a secure environment. Its operation SHOULD be auditable.\r\nComponent Verifiers should be made available suitable trust anchors so that they can establish required trust in the authority of the LV.\r\n```",
+              "createdAt": "2025-10-16T10:21:03Z",
+              "updatedAt": "2025-10-16T10:21:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7HUvYS",
+          "commit": {
+            "abbreviatedOid": "6d0b7b8"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-16T10:25:20Z",
+          "updatedAt": "2025-10-16T10:25:20Z",
+          "comments": [
+            {
+              "originalPosition": 60,
+              "body": "```suggestion\r\n**Mitigation:** The conceptual message containing the Component Evidence MUST be integrity-protected and authenticated. If the Component Evidence is natively signed by the Component Attester at origin, the CV can verify it directly. If the Component Evidence lacks inherent signatures (e.g., in UCCS), the LV MUST sign the Component Evidence using a key that the CV trusts. This prevents any attacker in the transit to alter the Component Evidence.\r\n```",
+              "createdAt": "2025-10-16T10:25:20Z",
+              "updatedAt": "2025-10-16T10:25:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7HUyPU",
+          "commit": {
+            "abbreviatedOid": "6d0b7b8"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-16T10:29:09Z",
+          "updatedAt": "2025-10-16T10:29:10Z",
+          "comments": [
+            {
+              "originalPosition": 67,
+              "body": "```suggestion\r\n**Mitigation:** Each Partial Attestation Result MUST be digitally signed by the CV.\r\n LV should maintain a list of trust anchors for the CV's it communicates with. \r\nThe LV MUST validate the signature using the required trust anchor for the CV, before adding the Partial Attestation Results to the Aggregated Attestation Results. \r\n```",
+              "createdAt": "2025-10-16T10:29:09Z",
+              "updatedAt": "2025-10-16T10:29:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7Hn7cJ",
+          "commit": {
+            "abbreviatedOid": "303bd6c"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Great stuff.\r\n\r\nA few purely typographical suggestions inlined.",
+          "createdAt": "2025-10-17T09:39:06Z",
+          "updatedAt": "2025-10-17T09:45:46Z",
+          "comments": [
+            {
+              "originalPosition": 17,
+              "body": "added NLs to render the list correctly\r\n\r\n```suggestion\r\nThe security analysis in this section assumes that attackers may:\r\n\r\n1. Eavesdrop on any communication channel between Verifiers.\r\n2. Inject, modify, replay, or delay messages traversing the network.\r\n3. Compromise one or more Verifiers in the ecosystem, attempting to leak sensitive information (e.g., Evidence, Reference Values) or manipulate Attestation Results.\r\n4. Perform Man-in-the-Middle (MitM) attacks between any two communicating entities.\r\n\r\nThe system is designed to be resilient under the assumption that the cryptographic keys used for signing Evidence and Attestation Results (by authentic entities) are not compromised.\r\n```",
+              "createdAt": "2025-10-17T09:39:06Z",
+              "updatedAt": "2025-10-17T09:45:46Z"
+            },
+            {
+              "originalPosition": 75,
+              "body": "```suggestion\r\n**Threat:** An adversary Component Verifier replays old Evidence or Attestation Results.\r\n\r\n```",
+              "createdAt": "2025-10-17T09:41:51Z",
+              "updatedAt": "2025-10-17T09:45:46Z"
+            },
+            {
+              "originalPosition": 67,
+              "body": "```suggestion\r\n**Threat:** Partial Attestation Results could be manipulated in transit or forged by a malicious CV.\r\n\r\n```",
+              "createdAt": "2025-10-17T09:42:06Z",
+              "updatedAt": "2025-10-17T09:45:46Z"
+            },
+            {
+              "originalPosition": 89,
+              "body": "```suggestion\r\n**Threat:** Any compromised Verifier in the chain can block, delay, or manipulate the attestation process. It can inject false partial results, drop evidence, or leak sensitive information.\r\n\r\n```",
+              "createdAt": "2025-10-17T09:42:28Z",
+              "updatedAt": "2025-10-17T09:45:46Z"
+            },
+            {
+              "originalPosition": 94,
+              "body": "```suggestion\r\n**Threat:** Eavesdropping or manipulation of evidence and results between Verifiers.\r\n\r\n```",
+              "createdAt": "2025-10-17T09:42:37Z",
+              "updatedAt": "2025-10-17T09:45:46Z"
+            },
+            {
+              "originalPosition": 99,
+              "body": "```suggestion\r\n**Threat:** Lack of end-to-end security allows intermediate Verifiers to manipulate evidence or results that are not intended for them to appraise.\r\n\r\n```",
+              "createdAt": "2025-10-17T09:42:48Z",
+              "updatedAt": "2025-10-17T09:45:47Z"
+            },
+            {
+              "originalPosition": 104,
+              "body": "```suggestion\r\n**Threat:** An adversary replays old Evidence or Attestation Results.\r\n\r\n```",
+              "createdAt": "2025-10-17T09:42:57Z",
+              "updatedAt": "2025-10-17T09:45:47Z"
+            },
+            {
+              "originalPosition": 61,
+              "body": "```suggestion\r\n**Mitigation:** The conceptual message containing the Component Evidence MUST be integrity-protected and authenticated. If the Component Evidence is natively signed by the Component Attester at origin, the CV can verify it directly. If the Component Evidence lacks inherent signatures (e.g., in UCCS), the LV MUST sign the Component Evidence using a key that the CV trusts. This prevents any on-path attacker from altering the Component Evidence.\r\n```",
+              "createdAt": "2025-10-17T09:43:33Z",
+              "updatedAt": "2025-10-17T09:45:47Z"
+            },
+            {
+              "originalPosition": 126,
+              "body": "`make fix-lint`\r\n\r\n```suggestion\r\n- Confidentiality: Encryption should be used to prevent unauthorized parties (including other Verifiers in the hierarchy or cascade) from accessing sensitive Evidence. This is crucial in multi-tenant environments.\r\n```",
+              "createdAt": "2025-10-17T09:44:23Z",
+              "updatedAt": "2025-10-17T09:45:47Z"
+            },
+            {
+              "originalPosition": 100,
+              "body": "`make fix-lint`\r\n\r\n```suggestion\r\n**Mitigation:** End-to-end integrity protection is RECOMMENDED. The Composite Evidence should be signed by the Attester. Partial and Aggregated Attestation Results SHOULD be signed by the Verifier that generated them. This allows subsequent Verifiers and the Relying Party to verify that results have not been tampered with by intermediate nodes.\r\n```",
+              "createdAt": "2025-10-17T09:44:59Z",
+              "updatedAt": "2025-10-17T09:45:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7HoM5F",
+          "commit": {
+            "abbreviatedOid": "3dd222f"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-17T10:00:06Z",
+          "updatedAt": "2025-10-17T10:00:07Z",
+          "comments": [
+            {
+              "originalPosition": 62,
+              "body": "```suggestion\r\n**Threat:** The LV could forward manipulated evidence to a CV, or an attacker could inject fake evidence.\r\n\r\n```",
+              "createdAt": "2025-10-17T10:00:06Z",
+              "updatedAt": "2025-10-17T10:00:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7HoNPC",
+          "commit": {
+            "abbreviatedOid": "3dd222f"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-17T10:00:31Z",
+          "updatedAt": "2025-10-17T10:00:32Z",
+          "comments": [
+            {
+              "originalPosition": 62,
+              "body": "Somehow the Mitigation appears on the same line as Threat, so adding a new line!",
+              "createdAt": "2025-10-17T10:00:31Z",
+              "updatedAt": "2025-10-17T10:00:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7HoPWP",
+          "commit": {
+            "abbreviatedOid": "3dd222f"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-17T10:02:26Z",
+          "updatedAt": "2025-10-17T10:02:26Z",
+          "comments": [
+            {
+              "originalPosition": 62,
+              "body": "ok for me. ",
+              "createdAt": "2025-10-17T10:02:26Z",
+              "updatedAt": "2025-10-17T10:02:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7HoRH_",
+          "commit": {
+            "abbreviatedOid": "168d7d5"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM!\r\n\r\nThanks for the great work!",
+          "createdAt": "2025-10-17T10:03:51Z",
+          "updatedAt": "2025-10-17T10:03:51Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7HtFf2",
+          "commit": {
+            "abbreviatedOid": "da62246"
+          },
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Sound very Good! Thanks @junzhanghw Jun! Here are some comments:\r\n\r\n1-LV compromise / Threat: propose to add \u201cor selects inappropriate components verifiers\u201d.\r\n\r\n2-LV compromise / Mitigation: We can also mention that CV can require the attestation of the LV before accepting to join the verification process. We can even consider mutual attestation.\r\n\r\n3-Shouldn\u2019t we explicitly add \u201cCV compromise\u201d section ?\r\n\r\n4-Evidence Integrity and Origin Authentication  (LV-CV): if the Component evidence is not signed by the component attester, we cannot resist to the first mentioned attack (LV could manipulate evidence). \r\n\r\n5-Result Integrity and Origin Authentication (CV-LV): the signature of the results enables to proof that this message/data comes from a given CV. It does not protect from \u201c a malicious CV forges a bad result\u201d. \r\n\r\n6-The idea is we cannot resist to a malicious verifier (CV or LV) but we can prevent this problem by detecting them through mutual attestation.\r\n\r\n7-Verifier Compromise: we can also consider mutual attestation? \r\n",
+          "createdAt": "2025-10-17T13:56:22Z",
+          "updatedAt": "2025-10-17T13:56:46Z",
+          "comments": []
         }
       ]
     },
@@ -3483,24 +3829,26 @@
       "id": "PR_kwDON24c9s6tdzXd",
       "title": "Bug Fix in Rendering",
       "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/43",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-10-13T13:32:08Z",
-      "updatedAt": "2025-10-14T08:27:27Z",
+      "updatedAt": "2025-10-16T10:36:39Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "182f3223d47205e8f6a5c0f5355afebe13b17380",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "bug-fix",
       "headRefOid": "fa323a214f23362ebdd4ef047dda635a53f628d1",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-10-16T10:36:02Z",
+      "mergedAt": "2025-10-16T10:36:02Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "551e78359c5db53d3340c0fe7c80b37838d80d0e"
+      },
       "comments": [],
       "reviews": [
         {
@@ -3517,6 +3865,386 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 44,
+      "id": "PR_kwDON24c9s6uDquX",
+      "title": "Add more terminologies",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/44",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-16T10:50:03Z",
+      "updatedAt": "2025-10-17T13:45:53Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "551e78359c5db53d3340c0fe7c80b37838d80d0e",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "more-terminology",
+      "headRefOid": "8d339f37bef8047576b1b0ef9a09cb535b1dea2a",
+      "closedAt": "2025-10-17T13:45:50Z",
+      "mergedAt": "2025-10-17T13:45:50Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "28121b37ffd28dd87182152439cdf78ff1765e88"
+      },
+      "comments": [
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> The proposed changes are OK for me. I also propose the following modifications for polishing and one will answer few questions in issue #30\r\n> \r\n> Composite Attester: A Composite Attester is either an Attester of a Composite Device or a Layered Attester or any composition involving a combination of one or more Attesters of Composite Devices or Layered Attesters.\r\n> \r\n> Component Attester: A Component Attester is a single Attester of a Composite Attester. For this document, a Component Attester is an entity which produces a single Evidence which can be appraised by a Component Verifier.\r\n> \r\n> Lead Verifier: \"the same definition\" and initiates its verification through a collection of component verifiers. We can also add \"based on its owner policy\" --> this will answer / anticipate the question \"how the lead verifier knows / decides of the pattern / the collection of the components verifiers / the order of the verifiers\"....\r\n> \r\n> Component Verifier: a component verifier is verifier that appraises the validity of Evidence about a component Attester and produces Partial Attestation Results to be used by the Lead verifier.\r\n> \r\n> Partial Attestation Result: it is the output of a component verifier. Typically it is an attestation result specific to one component Attester evidence.\r\n> \r\n> Aggregated Attestation Results (AAR): It is the output of a Lead Verifier. Typically, it is a collection of Partial Attestation Results produced upon the appraisal of a Composite Evidence.\r\n\r\nI have some questions as follows\r\n1. Can we call the first node in cascade model as the lead Verifier? It can instruct the route of Verifiers (either by embedding routes in together with the composite evidence, or give hint to each Verifier in the route.  This will solve the problem of order of verifiers, and the discovery of the verifiers in the cascade model.\r\n\r\n2.  Is the attestation result sent by component Verifiers also Partial Attestation Result, in the hierarchical model? If it is the case, we can unify the terms for the hierarchical model and cascade model?\r\n\r\n3.  In hierarchical model, AAR is produced by the Lead verifier. While in cascade model, it is produced by any node in the chain. So can we say that,  AAR is the collection of Partial Attestation Results produced by at least two component Verifiers?\r\n",
+          "createdAt": "2025-10-16T15:20:14Z",
+          "updatedAt": "2025-10-16T15:20:14Z"
+        },
+        {
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> > The proposed changes are OK for me. I also propose the following modifications for polishing and one will answer few questions in issue #30\r\n> > Composite Attester: A Composite Attester is either an Attester of a Composite Device or a Layered Attester or any composition involving a combination of one or more Attesters of Composite Devices or Layered Attesters.\r\n> > Component Attester: A Component Attester is a single Attester of a Composite Attester. For this document, a Component Attester is an entity which produces a single Evidence which can be appraised by a Component Verifier.\r\n> > Lead Verifier: \"the same definition\" and initiates its verification through a collection of component verifiers. We can also add \"based on its owner policy\" --> this will answer / anticipate the question \"how the lead verifier knows / decides of the pattern / the collection of the components verifiers / the order of the verifiers\"....\r\n> > Component Verifier: a component verifier is verifier that appraises the validity of Evidence about a component Attester and produces Partial Attestation Results to be used by the Lead verifier.\r\n> > Partial Attestation Result: it is the output of a component verifier. Typically it is an attestation result specific to one component Attester evidence.\r\n> > Aggregated Attestation Results (AAR): It is the output of a Lead Verifier. Typically, it is a collection of Partial Attestation Results produced upon the appraisal of a Composite Evidence.\r\n> \r\n> I have some questions as follows\r\n> \r\n>     1. Can we call the first node in cascade model as the lead Verifier? It can instruct the route of Verifiers (either by embedding routes in together with the composite evidence, or give hint to each Verifier in the route.  This will solve the problem of order of verifiers, and the discovery of the verifiers in the cascade model.\r\n> \r\n>     2. Is the attestation result sent by component Verifiers also Partial Attestation Result, in the hierarchical model? If it is the case, we can unify the terms for the hierarchical model and cascade model?\r\n> \r\n>     3. In hierarchical model, AAR is produced by the Lead verifier. While in cascade model, it is produced by any node in the chain. So can we say that,  AAR is the collection of Partial Attestation Results produced by at least two component Verifiers?\r\n\r\n\r\n\r\n1- For me I think it is. It receives a composite evidence and outputs an AAR. \r\n2- IMHO, I think it is the case, cf, section \"Verifier for Component Attester\".\r\n3- Good point! Actually, I think if we consider your proposal, we may even answer the Q11 in issue #30  (of course this also requires small updates in the figure of cascade model)  ",
+          "createdAt": "2025-10-16T15:41:30Z",
+          "updatedAt": "2025-10-16T15:41:30Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> The proposed changes are OK for me. I also propose the following modifications for polishing and one will answer few questions in issue #30\r\n> \r\n> Composite Attester: A Composite Attester is either an Attester of a Composite Device or a Layered Attester or any composition involving a combination of one or more Attesters of Composite Devices or Layered Attesters.\r\nYD: This is correct and is aligned with the text...\r\n> \r\n> Component Attester: A Component Attester is a single Attester of a Composite Attester. For this document, a Component Attester is an entity which produces a single Evidence which can be appraised by a Component Verifier.\r\nYD: We can ONLY talk here about what a Component Attester is, NOT anything about Component Verifier in the Terminology.\r\nIt becomes out of scope for this section.\r\n\r\n> Lead Verifier: \"the same definition\" and initiates its verification through a collection of component verifiers. We can also add \"based on its owner policy\" --> this will answer / anticipate the question \"how the lead verifier knows / decides of the pattern / the collection of the components verifiers / the order of the verifiers\"....\r\nYD: We discussed and added suitable text via another PR, this issue is now addressed.\r\n> \r\n> Component Verifier: a component verifier is verifier that appraises the validity of Evidence about a component Attester and produces Partial Attestation Results to be used by the Lead verifier.\r\nYD: Again we can say what we mean by Component Verifier, so ONLY responsible for appraising Component Evidence.\r\nWe cannot talk about other terms, which it impacts, here may be in the topological text.\r\n\r\n> \r\n> Partial Attestation Result: it is the output of a component verifier. Typically it is an attestation result specific to one component Attester evidence.\r\nYD: I have added it already, in a cascade a Partial in a return path can have more than ONE, so modified now, please see the new changes.\r\n> \r\n> Aggregated Attestation Results (AAR): It is the output of a Lead Verifier. Typically, it is a collection of Partial Attestation Results produced upon the appraisal of a Composite Evidence.\r\nYD: I have made a generic statement to reflect it is a Result of a Complete Appraisal of Composite Evidence.\r\n\r\nRegardless of Topology (Cascade or Heirarchial) the definitions applies.\r\n\r\n\r\n@GhadaArf : Please see my comments in line to your comments, with my initials YD:\r\n\r\n",
+          "createdAt": "2025-10-17T09:50:03Z",
+          "updatedAt": "2025-10-17T09:50:03Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7HWvNf",
+          "commit": {
+            "abbreviatedOid": "03829fd"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-16T12:35:24Z",
+          "updatedAt": "2025-10-16T12:35:24Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7HWvc6",
+          "commit": {
+            "abbreviatedOid": "03829fd"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-16T12:35:41Z",
+          "updatedAt": "2025-10-16T12:35:41Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7HZiVG",
+          "commit": {
+            "abbreviatedOid": "03829fd"
+          },
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "The proposed changes are OK for me. I also propose the following modifications for polishing and one will answer few questions in issue #30 \r\n\r\nComposite Attester:  A Composite Attester is either an Attester of a Composite\r\n      Device or a Layered Attester or any composition involving a\r\n      combination of one or more Attesters of Composite Devices or Layered Attesters.\r\n\r\nComponent Attester:  A Component Attester is a single Attester of a\r\n      Composite Attester.  For this document, a Component Attester is an\r\n      entity which produces a single Evidence which can be appraised by\r\n      a Component Verifier.\r\n\r\nLead Verifier: \"the same definition\" and initiates its verification through a collection of component verifiers. \r\nWe can also add \"based on its owner policy\" --> this will answer / anticipate the question \"how the lead verifier knows / decides of the pattern / the collection of the components verifiers / the order of the verifiers\".... \r\n\r\nComponent Verifier: a component verifier is verifier that appraises the validity of Evidence about a component Attester and produces Partial Attestation Results to be used by the Lead verifier.\r\n\r\nPartial Attestation Result: it is the output of a component verifier. Typically it is an attestation result specific to one component Attester evidence. \r\n\r\nAggregated Attestation Results (AAR): It is the output of a Lead Verifier. Typically, it is a collection of Partial Attestation Results produced upon the appraisal of a Composite Evidence.\r\n\r\n\r\n",
+          "createdAt": "2025-10-16T14:50:53Z",
+          "updatedAt": "2025-10-16T14:50:53Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7HsYKd",
+          "commit": {
+            "abbreviatedOid": "8d339f3"
+          },
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-17T13:06:54Z",
+          "updatedAt": "2025-10-17T13:06:54Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 45,
+      "id": "PR_kwDON24c9s6uIJez",
+      "title": "Insert some more texts for Discovery and Extraction of Evidence",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/45",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-10-16T16:40:06Z",
+      "updatedAt": "2025-10-17T18:08:28Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "551e78359c5db53d3340c0fe7c80b37838d80d0e",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "ghada-remainder-comments",
+      "headRefOid": "520da6949e64ba76724d61036b411efba032d6b8",
+      "closedAt": "2025-10-17T18:08:20Z",
+      "mergedAt": "2025-10-17T18:08:20Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "cbd74985e3ffcecb59b8225297019cfd7620ca71"
+      },
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@GhadaArf , please see your comments..",
+          "createdAt": "2025-10-17T10:44:07Z",
+          "updatedAt": "2025-10-17T10:44:07Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> We talk about \"Composite Evidence\" and not \"Combined Evidence\"?!\r\n\r\nAgree I will change this!",
+          "createdAt": "2025-10-17T13:16:22Z",
+          "updatedAt": "2025-10-17T13:16:22Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@GhadaArf Changed Combined Evidence to Composite Evidence: Please re-review\u00ac",
+          "createdAt": "2025-10-17T13:58:24Z",
+          "updatedAt": "2025-10-17T13:58:24Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7HbgCE",
+          "commit": {
+            "abbreviatedOid": "af98f8b"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-16T16:41:34Z",
+          "updatedAt": "2025-10-16T16:41:34Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "```suggestion\r\n* Lead Verifier delegates each Component Attester Evidence to its own Component Verifier (CV) and receives Component Attester Attestation Results also known as Partial Attestation Results after successful Appraisal of Evidence.\r\n```",
+              "createdAt": "2025-10-16T16:41:34Z",
+              "updatedAt": "2025-10-16T16:41:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7HmDbv",
+          "commit": {
+            "abbreviatedOid": "f26aaae"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-17T07:22:37Z",
+          "updatedAt": "2025-10-17T07:22:37Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7Hm9sT",
+          "commit": {
+            "abbreviatedOid": "f26aaae"
+          },
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "First part of my comments (will continue aftre this afternoon): Comments about Hierarchical model:\r\n\r\n1- You are introducing unecessary new terminology! e.g., Composite Attestation Evidence (But it is just composite evidence), component attester attestation result (which is partial attestation result)\r\n\r\n2- This terminology \"Component Attester Evidence\" is missing in the glossory section. \r\n\r\n3- Integrity validation of the CE at Lead Verifier should appear as a security consideration (did not yet look at this section). BTW, integrity validation could also be done through encryption! You can only mention that the lead verifiy before procceding anything checks the authenticity and integrity of the received CE.  How this check is done  could be discussed in security consideration section. \r\n\r\n4- Saying \"the Lead Verifier has the required knowledge....\" does not really answer the question I asked. One may ask how does the verifier have this knowledge! That's why I proposed that you explicitly mention that this knowledge come from the Lead Verifier owner. \r\n \r\n5- Rewording proposal: The Lead Verifier assigns each Component Evidence to it corresponding Component Verifier and receives a Partial Attestation result after successful appraisal of the Evidence.\r\n\r\n6- \u201cA Verifier may have a hard coded configuration of Component Verifiers to route the CE\u201d --> In the hierarchical model, the Lead verifier does not send the CE to Component Verifiers.\r\n\r\n7- Trust Relationships: Even if we consider that entities A trust entity B, this should not exclude mutual authentication\u2026\r\n\r\n\r\n\r\n\r\n",
+          "createdAt": "2025-10-17T08:29:42Z",
+          "updatedAt": "2025-10-17T08:29:42Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7HnsjL",
+          "commit": {
+            "abbreviatedOid": "f26aaae"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-17T09:21:00Z",
+          "updatedAt": "2025-10-17T09:21:00Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "```suggestion\r\nThere are many protocols to determine how a Lead Verifier can select the Component Verifiers.\r\nThis document does not mandate any specific protocol for determining the Component Verifiers\r\n```",
+              "createdAt": "2025-10-17T09:21:00Z",
+              "updatedAt": "2025-10-17T09:21:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7HsfHX",
+          "commit": {
+            "abbreviatedOid": "66a1dcb"
+          },
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "We talk about \"Composite Evidence\" and not \"Combined Evidence\"?!",
+          "createdAt": "2025-10-17T13:14:20Z",
+          "updatedAt": "2025-10-17T13:14:20Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7HtJ4e",
+          "commit": {
+            "abbreviatedOid": "520da69"
+          },
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-17T14:00:14Z",
+          "updatedAt": "2025-10-17T14:00:14Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 47,
+      "id": "PR_kwDON24c9s6uVV2v",
+      "title": "Recommend mutual attestation for verifiers",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/47",
+      "state": "MERGED",
+      "author": "junzhanghw",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Added a recommendation for mutual attestation between verifiers before data exchange.",
+      "createdAt": "2025-10-17T15:24:15Z",
+      "updatedAt": "2025-10-17T18:10:18Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "28121b37ffd28dd87182152439cdf78ff1765e88",
+      "headRepository": "junzhanghw/draft-deshpande-multi-verifier",
+      "headRefName": "update-mutual-attestation",
+      "headRefOid": "957d2b36ec5fca6a3ef1107b182b7b75b3da183c",
+      "closedAt": "2025-10-17T18:10:18Z",
+      "mergedAt": "2025-10-17T18:10:18Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "bb0cb038023866c9d75b53ef64f3bcf66feffae4"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7Huly6",
+          "commit": {
+            "abbreviatedOid": "009fc29"
+          },
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-17T15:37:08Z",
+          "updatedAt": "2025-10-17T15:37:08Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7Hvqeh",
+          "commit": {
+            "abbreviatedOid": "009fc29"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-17T17:00:51Z",
+          "updatedAt": "2025-10-17T17:00:51Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "```suggestion\r\nIt is recommended that any two verifiers establishing a communication channel perform mutual attestation before exchanging  any attestation messages.\r\n```",
+              "createdAt": "2025-10-17T17:00:51Z",
+              "updatedAt": "2025-10-17T17:00:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7HvqtJ",
+          "commit": {
+            "abbreviatedOid": "009fc29"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-10-17T17:01:14Z",
+          "updatedAt": "2025-10-17T17:01:14Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "@junzhanghw See how this feels rather than a force a good advisory!",
+              "createdAt": "2025-10-17T17:01:14Z",
+              "updatedAt": "2025-10-17T17:01:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7Hvqyr",
+          "commit": {
+            "abbreviatedOid": "009fc29"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "See my comment",
+          "createdAt": "2025-10-17T17:01:22Z",
+          "updatedAt": "2025-10-17T17:01:22Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7HwgFe",
+          "commit": {
+            "abbreviatedOid": "957d2b3"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM!",
+          "createdAt": "2025-10-17T18:10:12Z",
+          "updatedAt": "2025-10-17T18:10:12Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 49,
+      "id": "PR_kwDON24c9s6uXXUU",
+      "title": "examples of  Verifiers in  use cases",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/49",
+      "state": "OPEN",
+      "author": "junzhanghw",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Added examples for Verifier 1 and Verifier 2 in the context of CPU and acceleration component verification.\r\n\r\nAdded examples for Verifier 1 and Verifier 2 in the context of workload and CC environment verification.",
+      "createdAt": "2025-10-17T18:46:28Z",
+      "updatedAt": "2025-10-17T18:46:29Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "bb0cb038023866c9d75b53ef64f3bcf66feffae4",
+      "headRepository": "junzhanghw/draft-deshpande-multi-verifier",
+      "headRefName": "Verifiers-in-use-cases",
+      "headRefOid": "b40c61daaea278a963964e4303e7ff9920b9c065",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
