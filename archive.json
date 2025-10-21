@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-19T01:46:53.369706+00:00",
+  "timestamp": "2025-10-21T01:39:23.859752+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -4232,7 +4232,7 @@
       "labels": [],
       "body": "Added examples for Verifier 1 and Verifier 2 in the context of CPU and acceleration component verification.\r\n\r\nAdded examples for Verifier 1 and Verifier 2 in the context of workload and CC environment verification.",
       "createdAt": "2025-10-17T18:46:28Z",
-      "updatedAt": "2025-10-17T18:46:29Z",
+      "updatedAt": "2025-10-20T13:26:16Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "bb0cb038023866c9d75b53ef64f3bcf66feffae4",
@@ -4243,8 +4243,44 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@junzhanghw : The list here, depicts who are the stake holders of the list of Verifiers itself so I believe the Role itself does not need to be expanded!",
+          "createdAt": "2025-10-20T08:53:31Z",
+          "updatedAt": "2025-10-20T08:53:31Z"
+        },
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> @junzhanghw : The list here, depicts who are the stake holders of the list of Verifiers itself so I believe the Role itself does not need to be expanded!\r\n\r\nso if henk also agrees (or if we do not get the response from him today). we can submit the current version.",
+          "createdAt": "2025-10-20T09:44:13Z",
+          "updatedAt": "2025-10-20T09:44:38Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@junzhanghw : I already sumitted to DatTracker the release for IETF 124, please check, your mail box, you should have got an email. Also if you are in RATS Mailing list, please check your response!\r\n\r\nI received the notification 1 second after i posted the last comments...",
+          "createdAt": "2025-10-20T09:46:29Z",
+          "updatedAt": "2025-10-20T09:48:48Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7ID6VQ",
+          "commit": {
+            "abbreviatedOid": "b40c61d"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-10-20T13:26:16Z",
+          "updatedAt": "2025-10-20T13:26:16Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
