@@ -65,7 +65,7 @@ informative:
 
 --- abstract
 
-IETF RATS Architecture, defines the key role of a Verifier.  In a complex system, this role needs to be performed by multiple Verfiers coordinating together to assess the full trustworthiness of an Attester. This document focuses on various topological patterns for a multiple Verifier system. It only covers the architectural aspects introduced by the Multi Verifier concept, which is neutral with regard to specific wire formats, encoding, transport mechanisms, or processing details.
+IETF RATS Architecture, defines the key role of a Verifier.  In a complex system, this role needs to be performed by multiple Verifiers coordinating together to assess the full trustworthiness of an Attester. This document focuses on various topological patterns for a multiple Verifier system. It only covers the architectural aspects introduced by the Multi Verifier concept, which is neutral with regard to specific wire formats, encoding, transport mechanisms, or processing details.
 
 --- middle
 
@@ -316,7 +316,14 @@ In the Cascaded Pattern, the freshness is always checked by the first Verifier i
 
 # Security Considerations
 
-The Verifier is effectively part of the Attesters' and Relying Parties' trusted computing base (TCB).  When multiple Verifiers coordinate to conduct appraisal, it leads to larger TCB and hence more attack surface. Any mistake in the appraisal procedure conducted by one or more Verifiers could lead to severe security implications, such as incorrect Attestation Result of a component or a composition to the Relying party. This section details the security threats and mitigation strategies specific to the multi-verifier topologies described in this document. In addition to the considerations herein, Verifiers MUST follow the guidance detailed in the Security and Privacy considerations of a RATS Verifier as detailed in {{Section 11 of -corim}} and the RATS Architecture {{Section 11 and Section 12 of -rats-arch}}.
+The Verifier is not part of the Attester’s Trusted Computing Base (TCB), but as a critical component in the Relying Party’s trust decision chain, its security directly affects the reliability of the entire remote attestation process.  When multiple Verifiers coordinate to conduct appraisal, it may lead to a larger TCB and hence more attack surface, depending on the system architecture and trust assumptions。
+Any mistake in the appraisal procedure conducted by one or more Verifiers could lead to severe security implications, such as incorrect Attestation Result of a component or a composition to the Relying party. This section details the security threats and mitigation strategies specific to the multi-verifier topologies described in this document. In addition to the considerations herein, Verifiers MUST follow the guidance detailed in the Security and Privacy considerations of a RATS Verifier as detailed in {{Section 11 of -corim}} and the RATS Architecture {{Section 11 and Section 12 of -rats-arch}}.
+
+### On the Use of Single-Verifier vs. Multi-Verifier Designs
+
+While this document specifies multi-verifier topologies, single-verifier remote attestation remains suitable for many use cases and is not inherently insecure. The main limitation of a single Verifier is that it represents a single point of trust; its compromise or misconfiguration can lead to incorrect attestation outcomes. However, in trusted environments with proper key management and secure channels, a single Verifier can provide adequate security with reduced operational complexity.
+
+Multi-verifier designs are intended for scenarios requiring distributed appraisal, such as heterogeneous environments, component-specific verification, or enhanced resilience against Verifier compromise. The choice between single- and multi-verifier architectures SHOULD be based on the specific security and operational requirements of the deployment.
 
 ## Adversarial Model
 The security analysis in this section assumes that attackers may:
@@ -418,11 +425,18 @@ As the hybrid pattern is the composition of  hierarchical pattern and cascade pa
 
 # Privacy Considerations
 
+
 The appraisal of a Composite Attester requires exchange of attestation related messages, for example, partial Evidence and partial Attestation Results, among multiple Verifiers. This can potentially leak sensitive information about the Attester's configuration , identities and the nature of composition.
+
+However, when carefully designed, a multi-verifier architecture can actually improve privacy compared to a single-verifier model. By distributing appraisal responsibilities and ensuring that no single Verifier has access to the full set of Evidence, the risk of comprehensive device profiling or tracking is reduced.
+
+Nonetheless, such benefits depend on strong implementation practices:
 
 - Minimization: Attesters should only generate Evidence that is strictly necessary for the appraisal policy. Verifiers should only request necessary claims.
 - Confidentiality: Encryption should be used to prevent unauthorized parties (including other Verifiers in the hierarchy or cascade) from accessing sensitive Evidence. This is crucial in multi-tenant environments.
 - Policy Handling: Verifiers should be careful not to leak their internal appraisal policies (e.g., through error messages or timing side channels) when communicating with other Verifiers or Attesters, as this information could be exploited by an attacker to manipulate appraisal.
+
+
 
 # IANA Considerations
 
