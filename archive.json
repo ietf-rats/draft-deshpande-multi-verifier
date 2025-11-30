@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-21T01:39:23.859752+00:00",
+  "timestamp": "2025-11-30T01:53:43.173835+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -4279,6 +4279,252 @@
           "createdAt": "2025-10-20T13:26:16Z",
           "updatedAt": "2025-10-20T13:26:16Z",
           "comments": []
+        }
+      ]
+    },
+    {
+      "number": 50,
+      "id": "PR_kwDON24c9s615Jxl",
+      "title": "Revise Verifier roles and security considerations",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/50",
+      "state": "OPEN",
+      "author": "junzhanghw",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Clarified the role of Verifiers in multi-verifier systems and their impact on security and privacy. Added considerations for single vs. multi-verifier designs and their implications for trust and operational complexity.",
+      "createdAt": "2025-11-27T15:44:05Z",
+      "updatedAt": "2025-11-28T10:22:00Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "bb0cb038023866c9d75b53ef64f3bcf66feffae4",
+      "headRepository": "junzhanghw/draft-deshpande-multi-verifier",
+      "headRefName": "security-update-11272025",
+      "headRefOid": "aed61ca3a834f5964257a91a0394cbdc13cbb7df",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7RlL1-",
+          "commit": {
+            "abbreviatedOid": "79cc814"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-27T15:52:22Z",
+          "updatedAt": "2025-11-27T15:52:23Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "Nice, thanks for capturing that!",
+              "createdAt": "2025-11-27T15:52:22Z",
+              "updatedAt": "2025-11-27T15:52:23Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7RlOHd",
+          "commit": {
+            "abbreviatedOid": "79cc814"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-27T15:54:15Z",
+          "updatedAt": "2025-11-27T15:54:15Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "Nice, thanks for capturing that too :-)",
+              "createdAt": "2025-11-27T15:54:15Z",
+              "updatedAt": "2025-11-27T15:54:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7RlPL8",
+          "commit": {
+            "abbreviatedOid": "79cc814"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "\ud83d\udea2 it!",
+          "createdAt": "2025-11-27T15:55:15Z",
+          "updatedAt": "2025-11-27T15:55:15Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7RlhTH",
+          "commit": {
+            "abbreviatedOid": "79cc814"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-27T16:13:39Z",
+          "updatedAt": "2025-11-27T16:13:39Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "I would avoid the last sentence : regarding the choice aspect, as it gives people like *U* to rat hole that this is a deployment choice hence avoiding the need for standardisation!\r\n\r\nI am comfortable to state that, \r\nMulti-Verifier designs are intended for scenarios requiring distributed appraisal requirements originating from heteregenous environments etc etc...",
+              "createdAt": "2025-11-27T16:13:39Z",
+              "updatedAt": "2025-11-27T16:13:39Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7Rlhqj",
+          "commit": {
+            "abbreviatedOid": "79cc814"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "please see my comments",
+          "createdAt": "2025-11-27T16:14:16Z",
+          "updatedAt": "2025-11-27T16:14:16Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7Rlj0t",
+          "commit": {
+            "abbreviatedOid": "79cc814"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-27T16:17:21Z",
+          "updatedAt": "2025-11-27T16:17:21Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "We shouldn\u2019t avoid stating facts only because they could trigger someone.",
+              "createdAt": "2025-11-27T16:17:21Z",
+              "updatedAt": "2025-11-27T16:17:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7Rlkjb",
+          "commit": {
+            "abbreviatedOid": "79cc814"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-27T16:18:15Z",
+          "updatedAt": "2025-11-27T16:18:15Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "The only slight modification I\u2019d make to that sentence is s/SHOULD/should/ because it\u2019s not an interop concern.",
+              "createdAt": "2025-11-27T16:18:15Z",
+              "updatedAt": "2025-11-27T16:18:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7RlsPB",
+          "commit": {
+            "abbreviatedOid": "79cc814"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-27T16:27:57Z",
+          "updatedAt": "2025-11-27T16:27:57Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "We should avoid, as there may be many factors, for one to choose, it may be policy, governance etc etc.\r\n\r\nWe should focus on Multi-Verifier Security aspect rather than taking it to a level where we end up comparing the Single Versus Multiple Verifier aspects here! This is un-necessary!",
+              "createdAt": "2025-11-27T16:27:57Z",
+              "updatedAt": "2025-11-27T16:27:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7Rlshg",
+          "commit": {
+            "abbreviatedOid": "79cc814"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "see",
+          "createdAt": "2025-11-27T16:28:13Z",
+          "updatedAt": "2025-11-27T16:28:13Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7Rlw2d",
+          "commit": {
+            "abbreviatedOid": "79cc814"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-27T16:32:48Z",
+          "updatedAt": "2025-11-27T16:32:48Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "we can discuss it tomorrow.",
+              "createdAt": "2025-11-27T16:32:48Z",
+              "updatedAt": "2025-11-27T16:32:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7RtMgf",
+          "commit": {
+            "abbreviatedOid": "79cc814"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-28T10:08:32Z",
+          "updatedAt": "2025-11-28T10:08:33Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "```suggestion\r\nThe Verifier is not part of the Attester\u2019s Trusted Computing Base (TCB), but acts as a critical component in the Relying Party\u2019s trust decision chain. Therefore, its security directly affects the reliability of the entire remote attestation process.  When multiple Verifiers coordinate to conduct an appraisal, this can increase the attack surface, depending on the system architecture and trust assumptions.\r\n```",
+              "createdAt": "2025-11-28T10:08:32Z",
+              "updatedAt": "2025-11-28T10:16:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7RtUti",
+          "commit": {
+            "abbreviatedOid": "79cc814"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-11-28T10:16:11Z",
+          "updatedAt": "2025-11-28T10:16:11Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "Maybe:\r\n> When multiple Verifiers coordinate to conduct an appraisal, this can increase the attack surface, depending on the system architecture and trust assumptions.",
+              "createdAt": "2025-11-28T10:16:11Z",
+              "updatedAt": "2025-11-28T10:16:11Z"
+            }
+          ]
         }
       ]
     }
