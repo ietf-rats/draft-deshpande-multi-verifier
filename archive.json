@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-11-30T01:53:43.173835+00:00",
+  "timestamp": "2025-12-07T01:54:15.696239+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -730,6 +730,51 @@
       "updatedAt": "2025-10-17T15:28:36Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 51,
+      "id": "I_kwDON24c9s7cKOlZ",
+      "title": "on the discussion of whether the appraisal policy, reference value set and endorsement should be made public",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/51",
+      "state": "CLOSED",
+      "author": "junzhanghw",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Although some people think that, to guarantee the transparent of the Verifier, the Verifier should make its decision logic public to everyone, that is, make the appraisal policy, reference value set and endorsement public. However, that will introduce the risk from another aspect, that is, the \"smart\" malicious attester can guess to make an untrusted evidence pass the test at the Verifier side, for example, if it knows that the Verifier does not check the software version. So, I think it is better that the Verifier does not show such raw information to the public, but it can use certain strategy to let others to believe that it does follow its promise, for example, zero knowledge proof, and (certain other techniques?).  And what do you think such kind of consideration will bring to the motivation and design of the multiple verifier architecture? Welcome for the discussion.",
+      "createdAt": "2025-12-04T09:25:32Z",
+      "updatedAt": "2025-12-05T10:11:27Z",
+      "closedAt": "2025-12-05T10:11:26Z",
+      "comments": [
+        {
+          "author": "steven-bellock",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": ">\"smart\" malicious attester\n\nConceptually, such an entity should not exist. ",
+          "createdAt": "2025-12-04T16:11:31Z",
+          "updatedAt": "2025-12-04T16:11:31Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> > \"smart\" malicious attester\n> \n> Conceptually, such an entity should not exist.\n\nI fully agree with Steven.\n\nAnd I don't think this is a convincing argument for using multi-verifiers.",
+          "createdAt": "2025-12-04T21:00:18Z",
+          "updatedAt": "2025-12-04T21:00:18Z"
+        },
+        {
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Actually this question is not directly related to the multi-verifier, but on the part whether the appraisal strategy at the verifier side should be totally transparent to everyone.  I think it depends on the use cases and the level of security required in the use case. We can discuss it in the next design team meeting. ",
+          "createdAt": "2025-12-05T09:01:18Z",
+          "updatedAt": "2025-12-05T09:01:18Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@junzhanghw : This discussion is out of scope of Multi Verifier and this is not the correct place (github location) to discuss this issue. Hence I am closing this issue.\n\n",
+          "createdAt": "2025-12-05T10:11:26Z",
+          "updatedAt": "2025-12-05T10:11:26Z"
+        }
+      ]
     }
   ],
   "pulls": [
