@@ -296,29 +296,28 @@ Table of Contents
 
    Figure below shows the block diagram of a Hierarchical Pattern.
 
-   Legend:
-   - CE: Composite Evidence
-   - AAR: Aggregated Attestation Results
-   - cE: component Evidence
-   - cAR: component Attestation Results
-
                                     cE_1               .---------------.
                                   .------------------->|               |
                                   |                    | cE Verifier 1 |
                                   |     .--------------+               |
                                   |     |        cAR_1 '---------------'
-                                  |     v
+                                  |     v                     ...
    .---------------. CE      .----+----------. cE_i    .---------------.
    |               +-------->|               +-------->|               |
    | Attester / RP |         | Lead Verifier |         | cE Verifier i |
    |               |<--------+               |<--------+               |
    '---------------'     AAR '----+----------'   cAR_i '---------------'
-                                  |      ^
+                                  |      ^                     ...
                                   |      |       cAR_n .---------------.
                                   |      '-------------+               |
                                   |                    | cE Verifier n |
                                   '------------------->|               |
                                     cE_n               '---------------'
+   Legend:
+   - CE: Composite Evidence
+   - AAR: Aggregated Attestation Results
+   - cE: component Evidence
+   - cAR: component Attestation Results
 
                        Figure 1: Hierarchical Pattern
 
@@ -392,12 +391,7 @@ Table of Contents
 
    Figure below shows the block diagram of a Cascaded Pattern.
 
-   Legend:
-   - CE: Composite Evidence
-   - AAR: Aggregated Attestation Results
-   - pAR: partial Attestation Results
-
-
+                              [1]              [2]                 [n]
                              .---.            .---.               .---.
                              | V |            | V |               | V |
    .---------------. CE      | e | CE         | e | CE            | e |
@@ -408,7 +402,11 @@ Table of Contents
                              | e |            | e |               | e |
                              | r |            | r |               | r |
                              '---'            '---'               '---'
-                              [1]              [2]                 [n]
+
+   Legend:
+   - CE: Composite Evidence
+   - AAR: Aggregated Attestation Results
+   - pAR: partial Attestation Results
 
                          Figure 2: Cascaded Pattern
 
