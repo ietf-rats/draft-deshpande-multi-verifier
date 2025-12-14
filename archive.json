@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-07T01:54:15.696239+00:00",
+  "timestamp": "2025-12-14T01:54:50.960545+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -4339,7 +4339,7 @@
       "labels": [],
       "body": "Clarified the role of Verifiers in multi-verifier systems and their impact on security and privacy. Added considerations for single vs. multi-verifier designs and their implications for trust and operational complexity.",
       "createdAt": "2025-11-27T15:44:05Z",
-      "updatedAt": "2025-11-28T10:22:00Z",
+      "updatedAt": "2025-12-12T13:19:45Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "bb0cb038023866c9d75b53ef64f3bcf66feffae4",
@@ -4570,8 +4570,47 @@
               "updatedAt": "2025-11-28T10:16:11Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7U5UOM",
+          "commit": {
+            "abbreviatedOid": "aed61ca"
+          },
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "[C1] I propose to delete this sentence: \u201cThe Verifier is not part of the Attester\u2019s Trusted Computing Base (TCB)\u201d. \r\n\r\nThe definition of TCB is \u201c the set of all hardware, firmware, and/or software components that are critical to its security, in the sense that bugs or vulnerabilities occurring inside the TCB might jeopardize the security properties of the entire system.\u201d (cf. Wikipedia)\r\n\r\nSo, TCB is usually implementation dependent. We can start directly \u201cThe Verifier is a critical\u2026.\u201d\r\n\r\n\r\n[C2] \u201cWhen multiple Verifiers coordinate to conduct an appraisal, this can increase the attack surface, depending on the system architecture and trust assumptions.\u201d\r\n\r\nwhy?  This sentence left me hanging! The increase of the attack surface comes from the fact that the decision is distributed among all the verifiers. I don\u2019t see the link with the trust assumptions and architecture!\r\n\r\n\r\n[C3] \u201cWhile this document specifies multi-verifier topologies, single-verifier remote attestation remains suitable for many use cases and is not inherently insecure. The main limitation of a single Verifier is that it represents a single point of trust; its compromise or misconfiguration can lead to incorrect attestation outcomes. However, in trusted environments with proper key management and secure channels, a single Verifier can provide adequate security with reduced operational complexity.\u201d\r\n\r\nMay be I am missing some context of the origin of / reason to have the following text. I don\u2019t understand if the point is to show the limitation of a single verifier option or something else. Because all the mentioned things are also true for the multi-verifier option.   \r\n\r\n\r\n[C4] \"Multi-verifier design are intended for \u2026.. enhanced resilience against Verifier compromise\u201d -> I don\u2019t see how it can help? \r\n\r\nI propose to have a more concise / compact text, something like: \r\n\r\nWhile this document specifies multi-verifier topologies, single-verifier remote attestation remains suitable for many use cases.  However, multi-verifier designs are specifically intended for scenarios requiring distributed appraisal, such as heterogeneous environments or component-specific verification. The choice between single- and multi-verifier architectures SHOULD be based on the specific security and operational requirements of the deployment.\r\n\r\n\r\n",
+          "createdAt": "2025-12-12T13:19:45Z",
+          "updatedAt": "2025-12-12T13:19:45Z",
+          "comments": []
         }
       ]
+    },
+    {
+      "number": 52,
+      "id": "PR_kwDON24c9s64k_VB",
+      "title": "compactify diagrams",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/52",
+      "state": "OPEN",
+      "author": "thomas-fossati",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Rendering:\r\n\r\n* https://ietf-rats.github.io/draft-deshpande-multi-verifier/pics/draft-deshpande-rats-multi-verifier.html#figure-1\r\n* https://ietf-rats.github.io/draft-deshpande-multi-verifier/pics/draft-deshpande-rats-multi-verifier.html#figure-2",
+      "createdAt": "2025-12-12T14:27:03Z",
+      "updatedAt": "2025-12-12T14:37:32Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "bb0cb038023866c9d75b53ef64f3bcf66feffae4",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "pics",
+      "headRefOid": "60d19e838879f8fb4b9cb8caf6f13ad3c74c53b6",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
