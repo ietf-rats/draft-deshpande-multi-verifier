@@ -189,13 +189,13 @@ A Composite Attester has multiple Component Attesters. Each Attester requires a 
 Figure below shows the block diagram of a Hierarchical Pattern.
 
 ~~~ aasvg
-                                 cE_1               .-------------.
+                                 PE_1               .-------------.
                                .------------------->|             |
                                |                    |  Verifier 1 |
                                |     .--------------+             |
                                |     |        PAR_1 '-------------'
                                |     v                    ...
-.---------------. CE      .----+----------. cE_i    .-------------.
+.---------------. CE      .----+----------. PE_i    .-------------.
 |               +-------->|               +-------->|             |
 | Attester / RP |         | Lead Verifier |         |  Verifier i |
 |               |<--------+               |<--------+             |
@@ -205,11 +205,11 @@ Figure below shows the block diagram of a Hierarchical Pattern.
                                |      '-------------+             |
                                |                    |  Verifier n |
                                '------------------->|             |
-                                 cE_n               '-------------'
+                                 PE_n               '-------------'
 Legend:
 - CE: Composite Evidence
 - AAR: Aggregated Attestation Results
-- cE: component Evidence
+- PE_i: Partial Evidence of i-th Component Attester
 - PAR: Partial Attestation Results
 ~~~
 {: #fig-h-pattern title="Hierarchical Pattern"}
