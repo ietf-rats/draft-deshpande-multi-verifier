@@ -189,28 +189,28 @@ A Composite Attester has multiple Component Attesters. Each Attester requires a 
 Figure below shows the block diagram of a Hierarchical Pattern.
 
 ~~~ aasvg
-                                 cE_1               .---------------.
-                               .------------------->|               |
-                               |                    | cE Verifier 1 |
-                               |     .--------------+               |
-                               |     |        cAR_1 '---------------'
-                               |     v                     ...
-.---------------. CE      .----+----------. cE_i    .---------------.
-|               +-------->|               +-------->|               |
-| Attester / RP |         | Lead Verifier |         | cE Verifier i |
-|               |<--------+               |<--------+               |
-'---------------'     AAR '----+----------'   cAR_i '---------------'
-                               |      ^                     ...
-                               |      |       cAR_n .---------------.
-                               |      '-------------+               |
-                               |                    | cE Verifier n |
-                               '------------------->|               |
-                                 cE_n               '---------------'
+                                 cE_1               .-------------.
+                               .------------------->|             |
+                               |                    |  Verifier 1 |
+                               |     .--------------+             |
+                               |     |        PAR_1 '-------------'
+                               |     v                    ...
+.---------------. CE      .----+----------. cE_i    .-------------.
+|               +-------->|               +-------->|             |
+| Attester / RP |         | Lead Verifier |         |  Verifier i |
+|               |<--------+               |<--------+             |
+'---------------'     AAR '----+----------'   PAR_i '-------------'
+                               |      ^                   ...
+                               |      |       PAR_n .-------------.
+                               |      '-------------+             |
+                               |                    |  Verifier n |
+                               '------------------->|             |
+                                 cE_n               '-------------'
 Legend:
 - CE: Composite Evidence
 - AAR: Aggregated Attestation Results
 - cE: component Evidence
-- cAR: component Attestation Results
+- PAR: Partial Attestation Results
 ~~~
 {: #fig-h-pattern title="Hierarchical Pattern"}
 
@@ -261,11 +261,11 @@ Figure below shows the block diagram of a Cascaded Pattern.
                         .-----.            .-----.               .-----.
                         |  V  |            |  V  |               |  V  |
                         |  e  |            |  e  |               |  e  |
-.---------------. CE    |  r  | CE, pAR_1  |  r  | CE, pAR_1..2  |  f  |
+.---------------. CE    |  r  | CE, PAR_1  |  r  | CE, PAR_1..2  |  f  |
 |               +------>|  i  +----------->|  i  +----- ... ---->|  i  |
 | Attester / RP |       |  f  |            |  f  |               |  f  |
 |               |<------+  i  |<-----------+  i  |<---- ... -----+  i  |
-'---------------'   AAR |  e  |        AAR |  e  |  AAR=pAR_1..n |  e  |
+'---------------'   AAR |  e  |        AAR |  e  |  AAR=PAR_1..n |  e  |
                         |  r  |            |  r  |               |  r  |
                         |     |            |     |               |     |
                         |  1  |            |  2  |               |  n  |
@@ -274,7 +274,7 @@ Figure below shows the block diagram of a Cascaded Pattern.
 Legend:
 - CE: Composite Evidence
 - AAR: Aggregated Attestation Results
-- pAR: partial Attestation Results
+- PAR: Partial Attestation Results
 ~~~
 {: #fig-c-pattern title="Cascaded Pattern"}
 
