@@ -258,16 +258,17 @@ Lead Verifier is provisioned with the Trust Anchors (see {{-trust-anchors}}) for
 Figure below shows the block diagram of a Cascaded Pattern.
 
 ~~~ aasvg
-                           [1]              [2]                 [n]
                           .---.            .---.               .---.
                           | V |            | V |               | V |
-.---------------. CE      | e | CE, pAR_1  | e | CE, pAR_1..2  | e |
-|               +-------->| r +----------->| r +----- ... ---->| r |
-| Attester / RP |         | i |            | i |               | i |
-|               |<--------+ f |<-----------+ f |<---- ... -----+ f |
-'---------------'     AAR | i |        AAR | i |  AAR=pAR_1..n | i |
                           | e |            | e |               | e |
+.---------------. CE      | r | CE, pAR_1  | r | CE, pAR_1..2  | f |
+|               +-------->| i +----------->| i +----- ... ---->| i |
+| Attester / RP |         | f |            | f |               | f |
+|               |<--------+ i |<-----------+ i |<---- ... -----+ i |
+'---------------'     AAR | e |        AAR | e |  AAR=pAR_1..n | e |
                           | r |            | r |               | r |
+                          |   |            |   |               |   |
+                          | 1 |            | 2 |               | n |
                           '---'            '---'               '---'
 
 Legend:
