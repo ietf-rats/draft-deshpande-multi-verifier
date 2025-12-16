@@ -5,11 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 15 June 2026                                          H. Labiod
+Expires: 19 June 2026                                          H. Labiod
                                      Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                        12 December 2025
+                                                        16 December 2025
 
 
                Remote Attestation with Multiple Verifiers
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 June 2026.
+   This Internet-Draft will expire on 19 June 2026.
 
 Copyright Notice
 
@@ -394,11 +394,11 @@ Table of Contents
                               [1]              [2]                 [n]
                              .---.            .---.               .---.
                              | V |            | V |               | V |
-   .---------------. CE      | e | CE         | e | CE            | e |
+   .---------------. CE      | e | CE, pAR_1  | e | CE, pAR_1..2  | e |
    |               +-------->| r +----------->| r +----- ... ---->| r |
    | Attester / RP |         | i |            | i |               | i |
    |               |<--------+ f |<-----------+ f |<---- ... -----+ f |
-   '---------------'     AAR | i |   pAR_2..n | i |         pAR_n | i |
+   '---------------'     AAR | i |        AAR | i |  AAR=pAR_1..n | i |
                              | e |            | e |               | e |
                              | r |            | r |               | r |
                              '---'            '---'               '---'
