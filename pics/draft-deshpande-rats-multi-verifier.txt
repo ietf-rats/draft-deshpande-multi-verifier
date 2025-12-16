@@ -296,13 +296,13 @@ Table of Contents
 
    Figure below shows the block diagram of a Hierarchical Pattern.
 
-                                    cE_1               .-------------.
+                                    PE_1               .-------------.
                                   .------------------->|             |
                                   |                    |  Verifier 1 |
                                   |     .--------------+             |
                                   |     |        PAR_1 '-------------'
                                   |     v                    ...
-   .---------------. CE      .----+----------. cE_i    .-------------.
+   .---------------. CE      .----+----------. PE_i    .-------------.
    |               +-------->|               +-------->|             |
    | Attester / RP |         | Lead Verifier |         |  Verifier i |
    |               |<--------+               |<--------+             |
@@ -312,11 +312,11 @@ Table of Contents
                                   |      '-------------+             |
                                   |                    |  Verifier n |
                                   '------------------->|             |
-                                    cE_n               '-------------'
+                                    PE_n               '-------------'
    Legend:
    - CE: Composite Evidence
    - AAR: Aggregated Attestation Results
-   - cE: component Evidence
+   - PE_i: Partial Evidence of i-th Component Attester
    - PAR: Partial Attestation Results
 
                        Figure 1: Hierarchical Pattern
