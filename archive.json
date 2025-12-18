@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-14T01:54:50.960545+00:00",
+  "timestamp": "2025-12-18T01:45:23.831639+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -4598,19 +4598,149 @@
       "labels": [],
       "body": "Rendering:\r\n\r\n* https://ietf-rats.github.io/draft-deshpande-multi-verifier/pics/draft-deshpande-rats-multi-verifier.html#figure-1\r\n* https://ietf-rats.github.io/draft-deshpande-multi-verifier/pics/draft-deshpande-rats-multi-verifier.html#figure-2",
       "createdAt": "2025-12-12T14:27:03Z",
-      "updatedAt": "2025-12-12T14:37:32Z",
+      "updatedAt": "2025-12-16T17:25:06Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "bb0cb038023866c9d75b53ef64f3bcf66feffae4",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "pics",
-      "headRefOid": "60d19e838879f8fb4b9cb8caf6f13ad3c74c53b6",
+      "headRefOid": "eb4c70c41cefe74cb8818b42e6299299db596b95",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@thomas-fossati Thank you for improving the diagrams, in general LGTM!\r\n\r\nOne question, see if we can improve. the first diagrams nicely depict Verifier 1, Verifier 2 etc in the box itself.\r\n\r\nIn the second figure, the numbers move on top which feels slightly disconnected.\r\n\r\nIf possible move them inside the Verifier Box or if not possible at all, bring it in the bottom...",
+          "createdAt": "2025-12-16T11:57:24Z",
+          "updatedAt": "2025-12-16T11:57:57Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks LGTM! @GhadaArf, @junzhanghw , @henkbirkholz \r\nLooking forward to see your review, we can merge this before new year!",
+          "createdAt": "2025-12-16T13:03:02Z",
+          "updatedAt": "2025-12-16T13:03:02Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Thank you Thomas \ud83d\ude0a Some comments just for the sake of consistency:\r\n> \r\n> In the text of hierarchical model, 1- we don\u2019t have \u201cComponent Evidence Verifier, cE Verifier\u201d, we have \u201cComponent Verifier\u201d. 2- We don\u2019t have \u201ccomponent Attestation Result, cAR\u201d, we have \u201cPartial Attestation result\u201d. 3- A reviewer may get confused between the abbreviations of Composite Evidence \u201cCE\u201d and \u201ccE\u201d component Evidence.\r\n> \r\n> In the text of cascaded model, 1- In the text, we said that the aggregation of pAR is done by the last verifier. This means that verifier 2 should send \u201cCE, pAR_1, pAR_2\u201d. 2- We can also add some function like: AAR = Aggreg (pAR_1, pAR_2,\u2026, pAR_n)\r\n\r\nTrue that we deliberately avoided cAR for Component Attestation Results as cAR was used by Intel to mean something completely different... Just to avoid name confusion...",
+          "createdAt": "2025-12-16T14:19:56Z",
+          "updatedAt": "2025-12-16T14:19:56Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Thank you Thomas \ud83d\ude0a Some comments just for the sake of consistency:\r\n\r\nThank you @GhadaArf !\r\n\r\n> In the text of hierarchical model,\r\n> 1- we don\u2019t have \u201cComponent Evidence Verifier, cE Verifier\u201d, we have \u201cComponent Verifier\u201d.\r\n\r\n\u2705 \r\n\r\n> 2- We don\u2019t have \u201ccomponent Attestation Result, cAR\u201d, we have \u201cPartial Attestation result\u201d.\r\n\r\n\u2705\r\n\r\n> 3- A reviewer may get confused between the abbreviations of Composite Evidence \u201cCE\u201d and \u201ccE\u201d component Evidence.\r\n\r\nAny suggestions?\r\n\r\n> In the text of cascaded model,\r\n> 1- In the text, we said that the aggregation of pAR is done by the last verifier. This means that verifier 2 should send \u201cCE, pAR_1, pAR_2\u201d.\r\n\r\nYes, I am using the convention `pAR_1..2` to mean `pAR_1, pAR_2`, which is more compact\r\n\r\n2- We can also add some function like: AAR = Aggreg (pAR_1, pAR_2,\u2026, pAR_n)\r\n\r\nI have `AAR=pAR_1..n` which means exactly that.\r\n",
+          "createdAt": "2025-12-16T14:20:39Z",
+          "updatedAt": "2025-12-16T14:20:39Z"
+        },
+        {
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> > Thank you Thomas \ud83d\ude0a Some comments just for the sake of consistency:\r\n> \r\n> Thank you @GhadaArf !\r\n> \r\n> > In the text of hierarchical model,\r\n> > 1- we don\u2019t have \u201cComponent Evidence Verifier, cE Verifier\u201d, we have \u201cComponent Verifier\u201d.\r\n> \r\n> \u2705\r\n> \r\n> > 2- We don\u2019t have \u201ccomponent Attestation Result, cAR\u201d, we have \u201cPartial Attestation result\u201d.\r\n> \r\n> \u2705\r\n> \r\n> > 3- A reviewer may get confused between the abbreviations of Composite Evidence \u201cCE\u201d and \u201ccE\u201d component Evidence.\r\n> \r\n> Any suggestions?\r\n\r\n\"pE\" for \"Partial Evidence\"\r\n\"E_1\" for \"evidence for Verifier_1\"\r\n\r\n\r\n> \r\n> > In the text of cascaded model,\r\n> > 1- In the text, we said that the aggregation of pAR is done by the last verifier. This means that verifier 2 should send \u201cCE, pAR_1, pAR_2\u201d.\r\n> \r\n> Yes, I am using the convention `pAR_1..2` to mean `pAR_1, pAR_2`, which is more compact\r\n> \r\n> 2- We can also add some function like: AAR = Aggreg (pAR_1, pAR_2,\u2026, pAR_n)\r\n> \r\n> I have `AAR=pAR_1..n` which means exactly that.\r\n\r\nSo, \"p_AR_1..n\" has two meaning? the set (pAR_1, pAR_2,\u2026, pAR_n)  and aggregation of (pAR_1, pAR_2,\u2026, pAR_n).  Need to distinguish the two.\r\n\r\n",
+          "createdAt": "2025-12-16T15:29:15Z",
+          "updatedAt": "2025-12-16T15:29:15Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> > Any suggestions?\r\n> \r\n> \"pE\" for \"Partial Evidence\" \"E_1\" for \"evidence for Verifier_1\u201d\r\n\r\n\u2705 \r\n\r\n> So, \"p_AR_1..n\" has two meaning? the set (pAR_1, pAR_2,\u2026, pAR_n) and aggregation of (pAR_1, pAR_2,\u2026, pAR_n). Need to distinguish the two.\r\n\r\nAt a high level (the level of these two pictograms), it\u2019s probably not necessary to distinguish the two meanings.\r\n\r\n",
+          "createdAt": "2025-12-16T17:17:22Z",
+          "updatedAt": "2025-12-16T17:17:22Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7VhtW6",
+          "commit": {
+            "abbreviatedOid": "83bb752"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-16T10:27:33Z",
+          "updatedAt": "2025-12-16T10:27:33Z",
+          "comments": [
+            {
+              "originalPosition": 92,
+              "body": "the change of the diagram may change the processing flow a little bit. In the original one, each Verifier processed the CE+Partial AR (from the previous Verifier) to generate its own Partial AR, and the AAR is generated by the last Verifier.\r\n\r\n While in the modified one, the CE is passed without processing until it reaches the last Verifier. Then a similar process is executed (but the CE is not included) until the first Verifier generates the AAR. The good thing is that, AAR is signed by the first Verifier that Attester/RP knows. But I think the CE should also be included in the path back from the last Verifier to the first Verifier. \r\n\r\n",
+              "createdAt": "2025-12-16T10:27:33Z",
+              "updatedAt": "2025-12-16T10:27:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7Vi4gm",
+          "commit": {
+            "abbreviatedOid": "83bb752"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-16T11:48:57Z",
+          "updatedAt": "2025-12-16T11:48:57Z",
+          "comments": [
+            {
+              "originalPosition": 92,
+              "body": "Good catch, thanks!  Let me update it, and you can re-check.",
+              "createdAt": "2025-12-16T11:48:57Z",
+              "updatedAt": "2025-12-16T11:48:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7VjBGo",
+          "commit": {
+            "abbreviatedOid": "ef506b7"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "With a minor comment, but this in general LGTM!",
+          "createdAt": "2025-12-16T11:59:09Z",
+          "updatedAt": "2025-12-16T11:59:09Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7Vkfr5",
+          "commit": {
+            "abbreviatedOid": "42fb7c6"
+          },
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Thank you Thomas \ud83d\ude0a Some comments just for the sake of consistency:\r\n\r\nIn the text of hierarchical model, \r\n1-\twe don\u2019t have \u201cComponent Evidence Verifier, cE Verifier\u201d, we have \u201cComponent Verifier\u201d. \r\n2-\tWe don\u2019t have \u201ccomponent Attestation Result, cAR\u201d, we have \u201cPartial Attestation result\u201d. \r\n3-\tA reviewer may get confused between the abbreviations of Composite Evidence \u201cCE\u201d and \u201ccE\u201d component Evidence.\r\n\r\nIn the text of cascaded model,\r\n1-\tIn the text, we said that the aggregation of pAR is done by the last verifier.  This means that verifier 2 should send \u201cCE, pAR_1, pAR_2\u201d. \r\n2-\tWe can also add some function like: AAR = Aggreg (pAR_1, pAR_2,\u2026, pAR_n)\r\n",
+          "createdAt": "2025-12-16T13:33:39Z",
+          "updatedAt": "2025-12-16T13:33:39Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7VlcMM",
+          "commit": {
+            "abbreviatedOid": "441bf1a"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-12-16T14:22:14Z",
+          "updatedAt": "2025-12-16T14:22:14Z",
+          "comments": [
+            {
+              "originalPosition": 27,
+              "body": "one question for discussion, the AAR from the last Verifier to the first Verifier should be changed (for example, signed by each Verifier 1,2,3,n-1,n) or each Verifier is only simply doing the job of forwarding? If it is the last Verifier generates the AAR and sign it, while it is transparent to the Attester/RP, how should the Attester/RP is convinced by this Attestation Result? Should we say that CE is simply passed from Verifier 1 to Verifier n, and the appraisal and aggregation on the reverse path to the first Verifier? Would like to see the feedback from everyone.",
+              "createdAt": "2025-12-16T14:22:14Z",
+              "updatedAt": "2025-12-16T14:22:14Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
