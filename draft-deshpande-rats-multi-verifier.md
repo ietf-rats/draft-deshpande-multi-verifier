@@ -167,7 +167,7 @@ Also referred to as CE in the document.
 
 Partial Evidence: 
 
-: Evidence produced by at least one or more Component Attesters.
+: It is an extract from a Composite Evidence. It consists of at least one or more Component Evidence.
 Also referred to as PE in the document. 
 
 Lead Verifier:
