@@ -165,6 +165,11 @@ Composite Evidence:
 : Evidence produced by a Composite Attester.
 Also referred to as CE in the document.
 
+Partial Evidence: 
+
+: Evidence produced by at least one or more Component Attesters.
+Also referred to as PE in the document. 
+
 Lead Verifier:
 
 : A Verifier which acts as a main Verifier to receive Composite Evidence from a Composite Attester in a Hierarchical pattern {{sec-lead-verifier}}.
