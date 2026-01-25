@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-18T01:45:23.831639+00:00",
+  "timestamp": "2026-01-25T02:03:51.418542+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -775,6 +775,22 @@
           "updatedAt": "2025-12-05T10:11:26Z"
         }
       ]
+    },
+    {
+      "number": 53,
+      "id": "I_kwDON24c9s7lSR-v",
+      "title": "Replace Component Evidence to  Partial Evidence",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/issues/53",
+      "state": "OPEN",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "1. Add Partial Evidence Definition to Glossary\n2. Replace Component Evidence throughout with Partial Evidence",
+      "createdAt": "2026-01-23T10:05:05Z",
+      "updatedAt": "2026-01-23T10:05:05Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -4598,13 +4614,13 @@
       "labels": [],
       "body": "Rendering:\r\n\r\n* https://ietf-rats.github.io/draft-deshpande-multi-verifier/pics/draft-deshpande-rats-multi-verifier.html#figure-1\r\n* https://ietf-rats.github.io/draft-deshpande-multi-verifier/pics/draft-deshpande-rats-multi-verifier.html#figure-2",
       "createdAt": "2025-12-12T14:27:03Z",
-      "updatedAt": "2025-12-16T17:25:06Z",
+      "updatedAt": "2026-01-23T15:40:29Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "bb0cb038023866c9d75b53ef64f3bcf66feffae4",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "pics",
-      "headRefOid": "eb4c70c41cefe74cb8818b42e6299299db596b95",
+      "headRefOid": "4c592bd9452d8cdfeab62d7a73ad2462582621e8",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -4739,6 +4755,45 @@
               "updatedAt": "2025-12-16T14:22:14Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7cXLvA",
+          "commit": {
+            "abbreviatedOid": "89dc79a"
+          },
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "@thomas-fossati @yogeshbdeshpande @junzhanghw @henkbirkholz : what do you think? ",
+          "createdAt": "2026-01-23T11:29:56Z",
+          "updatedAt": "2026-01-23T11:29:56Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7cXTYP",
+          "commit": {
+            "abbreviatedOid": "99fc29d"
+          },
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "@yogeshbdeshpande, @thomas-fossati @henkbirkholz: point 2 of  #53 ",
+          "createdAt": "2026-01-23T11:37:00Z",
+          "updatedAt": "2026-01-23T11:37:00Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7cXU_p",
+          "commit": {
+            "abbreviatedOid": "99fc29d"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Going in the right direction Ghada, there are 10 occurences of Component Evidence in the Draft. Kindly change all of them now that you have started...",
+          "createdAt": "2026-01-23T11:38:32Z",
+          "updatedAt": "2026-01-23T11:38:32Z",
+          "comments": []
         }
       ]
     }
