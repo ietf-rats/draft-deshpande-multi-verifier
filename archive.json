@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-01-25T02:03:51.418542+00:00",
+  "timestamp": "2026-01-27T01:59:45.021864+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -4614,7 +4614,7 @@
       "labels": [],
       "body": "Rendering:\r\n\r\n* https://ietf-rats.github.io/draft-deshpande-multi-verifier/pics/draft-deshpande-rats-multi-verifier.html#figure-1\r\n* https://ietf-rats.github.io/draft-deshpande-multi-verifier/pics/draft-deshpande-rats-multi-verifier.html#figure-2",
       "createdAt": "2025-12-12T14:27:03Z",
-      "updatedAt": "2026-01-23T15:40:29Z",
+      "updatedAt": "2026-01-26T08:20:30Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "bb0cb038023866c9d75b53ef64f3bcf66feffae4",
@@ -4793,6 +4793,19 @@
           "body": "Going in the right direction Ghada, there are 10 occurences of Component Evidence in the Draft. Kindly change all of them now that you have started...",
           "createdAt": "2026-01-23T11:38:32Z",
           "updatedAt": "2026-01-23T11:38:32Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7c1f2X",
+          "commit": {
+            "abbreviatedOid": "4c592bd"
+          },
+          "author": "junzhanghw",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-01-26T08:20:30Z",
+          "updatedAt": "2026-01-26T08:20:30Z",
           "comments": []
         }
       ]
