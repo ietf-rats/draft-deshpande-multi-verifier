@@ -316,7 +316,7 @@ In the Cascaded Pattern, the freshness is always checked by the first Verifier i
 
 # Security Considerations
 
-The Verifier is effectively part of the Attesters' and Relying Parties' trusted computing base (TCB).  When multiple Verifiers coordinate to conduct appraisal, it leads to larger TCB and hence more attack surface. Any mistake in the appraisal procedure conducted by one or more Verifiers could lead to severe security implications, such as incorrect Attestation Result of a component or a composition to the Relying party. This section details the security threats and mitigation strategies specific to the multi-verifier topologies described in this document. In addition to the considerations herein, Verifiers MUST follow the guidance detailed in the Security and Privacy considerations of a RATS Verifier as detailed in {{Section 11 of -corim}} and the RATS Architecture {{Section 11 and Section 12 of -rats-arch}}.
+The Verifier is effectively part of the Attesters' and Relying Parties' trusted computing base (TCB). Compared to a single Verifier, when multiple Verifiers coordinate to conduct appraisal, it leads to larger TCB and hence more attack surface. Any mistake in the appraisal procedure conducted by one or more Verifiers could lead to severe security implications, such as incorrect Attestation Result of a component or a composition to the Relying party. This section details the security threats and mitigation strategies specific to the multi-verifier topologies described in this document. In addition to the considerations herein, Verifiers MUST follow the guidance detailed in the Security and Privacy considerations of a RATS Verifier as detailed in {{Section 11 of -corim}} and the RATS Architecture {{Section 11 and Section 12 of -rats-arch}}.
 
 ## Adversarial Model
 The security analysis in this section assumes that attackers may:
@@ -415,10 +415,9 @@ The cascaded pattern distributes trust but requires each Verifier in the chain t
 As the hybrid pattern is the composition of  hierarchical pattern and cascade pattern, all the threats and mitigations that are applicable for these two patterns are also applicable for the general hybrid pattern.
 
 
-
 # Privacy Considerations
 
-The appraisal of a Composite Attester requires exchange of attestation related messages, for example, partial Evidence and partial Attestation Results, among multiple Verifiers. This can potentially leak sensitive information about the Attester's configuration , identities and the nature of composition.
+When multiple verifiers instead of a single verifier is involved in an appraisal of a Composite Attester, this may increase the privacy risks. This is due to exchange of attestation related messages, for example, partial Evidence and partial Attestation Results, among multiple Verifiers. This can potentially leak sensitive information about the Attester's configuration, identities and the nature of composition.
 
 - Minimization: Attesters should only generate Evidence that is strictly necessary for the appraisal policy. Verifiers should only request necessary claims.
 - Confidentiality: Encryption should be used to prevent unauthorized parties (including other Verifiers in the hierarchy or cascade) from accessing sensitive Evidence. This is crucial in multi-tenant environments.
