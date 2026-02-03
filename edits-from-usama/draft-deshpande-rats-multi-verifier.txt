@@ -664,7 +664,7 @@ Table of Contents
 
 8.  Privacy Considerations
 
-   When multiple verifiers instead of a single verifier in involved in
+   When multiple verifiers instead of a single verifier is involved in
    an appraisal of a Composite Attester, this may increase the privacy
    risks.  This is due to exchange of attestation related messages, for
    example, partial Evidence and partial Attestation Results, among
