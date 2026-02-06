@@ -165,6 +165,11 @@ Composite Evidence:
 : Evidence produced by a Composite Attester.
 Also referred to as CE in the document.
 
+Partial Evidence:
+
+: It is an extract from a Composite Evidence. It consists of at least one or more Component Evidence.
+Also referred to as PE in the document.
+
 Lead Verifier:
 
 : A Verifier which acts as a main Verifier to receive Composite Evidence from a Composite Attester in a Hierarchical pattern {{sec-lead-verifier}}.
@@ -189,37 +194,28 @@ A Composite Attester has multiple Component Attesters. Each Attester requires a 
 Figure below shows the block diagram of a Hierarchical Pattern.
 
 ~~~ aasvg
-                                  +----------+
-                                  |          |             +-----------+
-                                  |          |             |           |
-                                  |          | Evidence 1  |           |
-                                  |          +------------>+ Verifier 1|
-                                  |          |             |           |
-                                  |          +<------------+           |
-                                  |          |   AR 1      +-----------+
-                                  |          |
-+-----------+  Composite Evidence |          |
-|           +-------------------->|          | Evidence 2  +-----------+
-|  Attester |                     | Lead     +------------>+           |
-|   or      |  Aggregated         | Verifier |             |           |
-|  RP       |<--------------------+          |             | Verifier 2|
-+-----------+  Attestation Result |          +<------------+           |
-                 (AAR)            |          |  AR 2       |           |
-                                  |          |             +-----+-----+
-                                  |          |                   |
-                                  |          |                   |
-                                  |          |                   .
-                                  |          |                   |
-                                  |          |                   |
-                                  |          |                   |
-                                  |          | Evidence N  +-----+-----+
-                                  |          +------------>+           |
-                                  |          |             |           |
-                                  |          +<------------+ Verifier N|
-                                  |          | AR N        |           |
-                                  |          |             |           |
-                                  |          |             +-----------+
-                                  +----------+
+                                 PE_1               .------------.
+                               .------------------->|            |
+                               |                    | Verifier 1 |
+                               |      .-------------+            |
+                               |      |       PAR_1 '------------'
+                               |      v                  ...
+.---------------. CE      .----+----------. PE_i    .------------.
+|               +-------->|               +-------->|            |
+| Attester / RP |         | Lead Verifier |         | Verifier i |
+|               |<--------+               |<--------+            |
+'---------------'     AAR '----+----------'   PAR_i '------------'
+                               |      ^                  ...
+                               |      |       PAR_n .------------.
+                               |      '-------------+            |
+                               |                    | Verifier n |
+                               '------------------->|            |
+                                 PE_n               '------------'
+Legend:
+- CE: Composite Evidence
+- AAR: Aggregated Attestation Results
+- PE_i: Partial Evidence of i-th Component Attester
+- PAR: Partial Attestation Results
 ~~~
 {: #fig-h-pattern title="Hierarchical Pattern"}
 
@@ -235,24 +231,24 @@ If the Composite Attestation Evidence is signed, then it validates the integrity
 If signature verification fails, the Verification is terminated.
 Otherwise it performs the following steps.
 
-* Lead Verifier has the required knowledge to break down the Composite Evidence into individual Component Evidence. It decodes the Composite Evidence to extract the Component Attester Evidence. This may lead to "N" Evidence, one for each Component Attester.
+* Lead Verifier has the required knowledge to break down the Composite Evidence into Partial Evidence. It decodes the Composite Evidence to extract the Component Attesters Evidence. This may lead to "N" Partial Evidence, one for each Component Attester.
 
-* Lead Verifier delegates each Component Attester Evidence to its own Component Verifier (CV) and receives Component Attester Attestation Results also known as Partial Attestation Results after successful Appraisal of Evidence.
+* Lead Verifier delegates each Partial Evidence to its own Component Verifier (CV) and receives Component Attester Attestation Results also known as Partial Attestation Results after successful Appraisal of Evidence.
 There are many protocols to determine how a Lead Verifier can select the Component Verifiers.
 This document does not mandate any specific protocol for determining the Component Verifiers
 
-* Once the Lead Verifier receives Partial Attestation Results from all the Verifiers, it combines the results from each Verifier to construct a Aggregated Attestation Results (AAR). The Lead verifier may apply its own policies and also add extra claims as part of its appraisal.
+* Once the Lead Verifier receives Partial Attestation Results from all the Verifiers, it combines the results from each Verifier to construct an Aggregated Attestation Results (AAR). The Lead verifier may apply its own policies and also add extra claims as part of its appraisal.
 
 * Lead Verifier conveys the AAR to the Attester (in Passport model) or to the Relying Party (in background check model).
 
 The overall verdict may be dependent on the Appraisal Policy of the Lead Verifier.
 
-In certain topologies, it is possible that only the Composite Evidence is signed to provide the overall integrity, while the individual Component Attester Evidence (example Evidence 1) is not protected. In such cases, the Lead Verifer upon processing of Composite Evidence may wrap the Component Attester Evidence (example Evidence 1) in a signed Conceptual Message Wrapper (CMW), and send it to each Verifier (example Verifier 1).
+In certain topologies, it is possible that only the Composite Evidence is signed to provide the overall integrity, while the Partial Evidence (example PE_1) is not protected. In such cases, the Lead Verifer upon processing of Composite Evidence may wrap the Partial Evidence (example PE_1) in a signed Conceptual Message Wrapper (CMW), and send it to each Verifier (example Verifier 1).
 
 
 ### Component Verifier
 
-The role of a Component Verifier is to receive Component Evidence from the Lead Verifier and produce Partial Attestation Results to the Lead Verifier.
+The role of a Component Verifier is to receive Partial Evidence from the Lead Verifier and produce Partial Attestation Results to the Lead Verifier.
 
 ### Trust Relationships
 
@@ -267,39 +263,45 @@ Lead Verifier is provisioned with the Trust Anchors (see {{-trust-anchors}}) for
 Figure below shows the block diagram of a Cascaded Pattern.
 
 ~~~ aasvg
-                               +-----------+          +-----------+             +-----------+
-+--------+                     |           |          |           |             |           |
-|        |  Composite Evidence |           |  (CE)    |           |   (CE)      |           |
-|        +-------------------->+           +--------->+           +------------>+           |
-|        |     (CE)            |           |Partial AR|           | Partial AR  |           |
-|Attester|                     | Verifier 1|          | Verifier 2|             | Verifier N|
-|  or    |  Aggregated         |           |          |           |             |           |
-| RP     +<--------------------+           +<---------+           +<------------+           |
-+--------+ Attestation Results |           |  (AAR)   |           |  (AAR)      |           |
-              (AAR)            |           |          |           |             |           |
-                               +-----------+          +-----------+             +-----------+
+                        .-----.            .-----.               .-----.
+                        |  V  |            |  V  |               |  V  |
+                        |  e  |            |  e  |               |  e  |
+.---------------. CE    |  r  | CE, PAR_1  |  r  | CE, PAR_1..2  |  f  |
+|               +------>|  i  +----------->|  i  +----- ... ---->|  i  |
+| Attester / RP |       |  f  |            |  f  |               |  f  |
+|               |<------+  i  |<-----------+  i  |<---- ... -----+  i  |
+'---------------'   AAR |  e  |        AAR |  e  |  AAR=PAR_1..n |  e  |
+                        |  r  |            |  r  |               |  r  |
+                        |     |            |     |               |     |
+                        |  1  |            |  2  |               |  n  |
+                        '-----'            '-----'               '-----'
+
+Legend:
+- CE: Composite Evidence
+- AAR: Aggregated Attestation Results
+- PAR: Partial Attestation Results
 ~~~
 {: #fig-c-pattern title="Cascaded Pattern"}
 
 In this topological pattern, the Attestation Verification happens in sequence. Verifiers are cascaded to perform the Attestation Appraisal.
-Each Verifier in the chain has the knowledge to derive or extract the Component Evidence, which it can appraise, from the Composite Evidence.
+Each Verifier in the chain has the knowledge to derive or extract the Partial Evidence, which it can appraise, from the Composite Evidence.
 
 Attester may send the Composite Evidence(CE) to any of the Verifier (directly in the passport model, or indirectly via the Relying Party in the background-check model). The Verifier which processes the Composite Evidence, Verifies the signature on the Evidence, if present. It extracts the
-Component Evidence from the Composite Evidence, performs Appraisal of the Component Attester whose Reference Values and Endorsements are in its database. Once the appraisal is complete, it forwards the Composite Evidence and Partial Attestation Results to the subsequent Verifier.
+Partial Evidence from the Composite Evidence, performs Appraisal of the Component Attester whose Reference Values and Endorsements are in its database. Once the appraisal is complete, it forwards the Composite Evidence and Partial Attestation Results to the subsequent Verifier.
 
-The process is repeated, until the entire appraisal is complete. The last Verifier, i.e. Verifier-N, completes its Appraisal of the Component Evidence, that it can appraise. It has now all the Partial Attestation Results and creates the Aggregated Attestation Results(AAR). It returns
+The process is repeated, until the entire appraisal is complete. The last Verifier, i.e. Verifier-N, completes its Appraisal of the Partial Evidence, that it can appraise. It has now all the Partial Attestation Results and creates the Aggregated Attestation Results(AAR). It returns
 the AAR to the N-1 Verifier (from where it received the Composite Evidence and Partial AR). The process is repeated, i.e. AAR is returned in the chain until the Verifier, which recieved the initial Composite Evidence is reached. At this point in time the Aggregated Attestation Results are signed and the AAR is sent to the Attester (in Passport Model) or Relying Party (in background check model).
 
 As shown in the picture, the Partial Attestation Results and Composite Evidence is transmitted to a chain of Verifier, till the Appraisal is complete.
 Upon completion, the last Verifier in the chain combines the incoming Partial Attestation Results, combines the results from it own Evidence Appraisal and passes the Aggregated Attestation Results to the Verifier from which it receives Composite Evidence.
 
-There are many protocols to determine how a Verifier can select the next Verifier to route the CE.
+There are many protocols to determine how a Verifier can select the next Verifier to route the CE and PAR.
 This document does not mandate any specific protocol for determining the Verifiers in cascade.
 
 ### Trust Relationships
 
 ### Verifiers
-In the cascaded pattern, the communicating Verifiers fully trust each other. Each Verifier has the trust anchor for the Verifier it is communicating to (i.e. either sending information or receiving information). This prevents man in the middle attack for the partial Attestation Results received by a Verifier or a Aggregated Attestation Results (AAR) which it receives in the return path.
+In the cascaded pattern, the communicating Verifiers fully trust each other. Each Verifier has the trust anchor for the Verifier it is communicating to (i.e. either sending information or receiving information). This prevents man in the middle attack for the Partial Attestation Results received by a Verifier or a Aggregated Attestation Results (AAR) which it receives in the return path.
 
 ### Relying Party and Verifiers
 In the cascaded pattern, the RP may communicate with any Verifier and thus receive its Attestation Results. Hence RP fully trusts all the Verifiers.
@@ -362,7 +364,7 @@ Component Verifiers should be made available suitable trust anchors so that they
 
 **Threat:** The LV could forward manipulated evidence to a CV, or an attacker could inject fake evidence.
 
-**Mitigation:** The conceptual message containing the Component Evidence MUST be integrity-protected and authenticated. If the Component Evidence is natively signed by the Component Attester at origin, the CV can verify it directly. If the Component Evidence lacks inherent signatures (e.g., in UCCS), the LV MUST sign the Component Evidence using a key that the CV trusts. This prevents any on-path attacker from altering the Component Evidence.
+**Mitigation:** The conceptual message containing the Partial Evidence MUST be integrity-protected and authenticated. If the Partial Evidence is natively signed by the Component Attester at origin, the CV can verify it directly. If the Partial Evidence lacks inherent signatures (e.g., in UCCS), the LV MUST sign the Partial Evidence using a key that the CV trusts. This prevents any on-path attacker from altering the Partial Evidence.
 
 ##### Results Integrity and Origin Authentication (CV -> LV)
 
