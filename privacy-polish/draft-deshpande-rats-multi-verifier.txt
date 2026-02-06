@@ -499,7 +499,7 @@ Legend:
    (TCB), but acts as a critical component in the Relying Party’s trust
    decision chain.  Therefore, its security directly affects the
    reliability of the entire remote attestation process.  When multiple
-   Verifiers coordinate to conduct an appraisal, this can increase the
+   Verifiers coordinate to conduct an appraisal, this may increase the
    attack surface, depending on the system architecture and trust
    assumptions.
 
