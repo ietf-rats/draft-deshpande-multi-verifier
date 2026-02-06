@@ -1765,7 +1765,8 @@ In the case of Hierarchical Pattern, the Verification of Freshness should be che
       <h2 id="name-security-considerations">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-7-1">The Verifier is effectively part of the Attesters' and Relying Parties' trusted computing base (TCB).  When multiple Verifiers coordinate to conduct appraisal, it leads to larger TCB and hence more attack surface. Any mistake in the appraisal procedure conducted by one or more Verifiers could lead to severe security implications, such as incorrect Attestation Result of a component or a composition to the Relying party. This section details the security threats and mitigation strategies specific to the multi-verifier topologies described in this document. In addition to the considerations herein, Verifiers MUST follow the guidance detailed in the Security and Privacy considerations of a RATS Verifier as detailed in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-corim-09#section-11" class="relref">Section 11</a> of [<a href="#I-D.draft-ietf-rats-corim" class="cite xref">I-D.draft-ietf-rats-corim</a>]</span> and the RATS Architecture Section <a href="https://rfc-editor.org/rfc/rfc9334#section-11" class="relref">11</a> and Section <a href="https://rfc-editor.org/rfc/rfc9334#section-12" class="relref">12</a> of <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">The Verifier is not part of the Attester’s Trusted Computing Base (TCB), but acts as a critical component in the Relying Party’s trust decision chain. Therefore, its security directly affects the reliability of the entire remote attestation process.  When multiple Verifiers coordinate to conduct an appraisal, this may increase the attack surface, depending on the system architecture and trust assumptions.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-2">Any mistake in the appraisal procedure conducted by one or more Verifiers could lead to severe security implications, such as incorrect Attestation Result of a component or a composition to the Relying party. This section details the security threats and mitigation strategies specific to the multi-verifier topologies described in this document. In addition to the considerations herein, Verifiers MUST follow the guidance detailed in the Security and Privacy considerations of a RATS Verifier as detailed in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-corim-09#section-11" class="relref">Section 11</a> of [<a href="#I-D.draft-ietf-rats-corim" class="cite xref">I-D.draft-ietf-rats-corim</a>]</span> and the RATS Architecture Section <a href="https://rfc-editor.org/rfc/rfc9334#section-11" class="relref">11</a> and Section <a href="https://rfc-editor.org/rfc/rfc9334#section-12" class="relref">12</a> of <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>.<a href="#section-7-2" class="pilcrow">¶</a></p>
 <div id="adversarial-model">
 <section id="section-7.1">
         <h3 id="name-adversarial-model">
@@ -1934,16 +1935,18 @@ The LV MUST validate the signature using the required trust anchor for the CV, b
       <h2 id="name-privacy-considerations">
 <a href="#section-8" class="section-number selfRef">8. </a><a href="#name-privacy-considerations" class="section-name selfRef">Privacy Considerations</a>
       </h2>
-<p id="section-8-1">The appraisal of a Composite Attester requires exchange of attestation related messages, for example, partial Evidence and partial Attestation Results, among multiple Verifiers. This can potentially leak sensitive information about the Attester's configuration , identities and the nature of composition.<a href="#section-8-1" class="pilcrow">¶</a></p>
+<p id="section-8-1">The appraisal of a Composite Attester requires exchange of attestation related messages, for example, Partial Evidence and Partial Attestation Results, among multiple Verifiers. This can potentially leak sensitive information about the Attester's configuration, identities and the nature of composition.<a href="#section-8-1" class="pilcrow">¶</a></p>
+<p id="section-8-2">However, when carefully designed, a multi-verifier architecture can actually mitigate these privacy concerns. By distributing appraisal responsibilities and ensuring that no single Verifier has access to the full set of Evidence, the risk of comprehensive device profiling or tracking is reduced.<a href="#section-8-2" class="pilcrow">¶</a></p>
+<p id="section-8-3">Nonetheless, such benefits depend on strong implementation practices.<a href="#section-8-3" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-8-2.1">
-          <p id="section-8-2.1.1">Minimization: Attesters should only generate Evidence that is strictly necessary for the appraisal policy. Verifiers should only request necessary claims.<a href="#section-8-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-8-4.1">
+          <p id="section-8-4.1.1">Minimization: Attesters should only generate Evidence that is strictly necessary for the appraisal policy. Verifiers should only request necessary claims.<a href="#section-8-4.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-8-2.2">
-          <p id="section-8-2.2.1">Confidentiality: Encryption should be used to prevent unauthorized parties (including other Verifiers in the hierarchy or cascade) from accessing sensitive Evidence. This is crucial in multi-tenant environments.<a href="#section-8-2.2.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-8-4.2">
+          <p id="section-8-4.2.1">Confidentiality: Encryption should be used to prevent unauthorized parties (including other Verifiers in the hierarchy or cascade) from accessing sensitive Evidence. This is crucial in multi-tenant environments.<a href="#section-8-4.2.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-8-2.3">
-          <p id="section-8-2.3.1">Policy Handling: Verifiers should be careful not to leak their internal appraisal policies (e.g., through error messages or timing side channels) when communicating with other Verifiers or Attesters, as this information could be exploited by an attacker to manipulate appraisal.<a href="#section-8-2.3.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-8-4.3">
+          <p id="section-8-4.3.1">Policy Handling: Verifiers should be careful not to leak their internal appraisal policies (e.g., through error messages or timing side channels) when communicating with other Verifiers or Attesters, as this information could be exploited by an attacker to manipulate appraisal.<a href="#section-8-4.3.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 </section>
