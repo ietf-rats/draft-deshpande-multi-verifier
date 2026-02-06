@@ -318,7 +318,9 @@ In the Cascaded Pattern, the freshness is always checked by the first Verifier i
 
 # Security Considerations
 
-The Verifier is effectively part of the Attesters' and Relying Parties' trusted computing base (TCB).  When multiple Verifiers coordinate to conduct appraisal, it leads to larger TCB and hence more attack surface. Any mistake in the appraisal procedure conducted by one or more Verifiers could lead to severe security implications, such as incorrect Attestation Result of a component or a composition to the Relying party. This section details the security threats and mitigation strategies specific to the multi-verifier topologies described in this document. In addition to the considerations herein, Verifiers MUST follow the guidance detailed in the Security and Privacy considerations of a RATS Verifier as detailed in {{Section 11 of -corim}} and the RATS Architecture {{Section 11 and Section 12 of -rats-arch}}.
+The Verifier is not part of the Attester’s Trusted Computing Base (TCB), but acts as a critical component in the Relying Party’s trust decision chain. Therefore, its security directly affects the reliability of the entire remote attestation process.  When multiple Verifiers coordinate to conduct an appraisal, this can increase the attack surface, depending on the system architecture and trust assumptions.
+
+Any mistake in the appraisal procedure conducted by one or more Verifiers could lead to severe security implications, such as incorrect Attestation Result of a component or a composition to the Relying party. This section details the security threats and mitigation strategies specific to the multi-verifier topologies described in this document. In addition to the considerations herein, Verifiers MUST follow the guidance detailed in the Security and Privacy considerations of a RATS Verifier as detailed in {{Section 11 of -corim}} and the RATS Architecture {{Section 11 and Section 12 of -rats-arch}}.
 
 ## Adversarial Model
 The security analysis in this section assumes that attackers may:
