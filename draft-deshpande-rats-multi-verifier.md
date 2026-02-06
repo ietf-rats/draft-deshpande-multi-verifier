@@ -420,7 +420,11 @@ As the hybrid pattern is the composition of  hierarchical pattern and cascade pa
 
 # Privacy Considerations
 
-The appraisal of a Composite Attester requires exchange of attestation related messages, for example, partial Evidence and partial Attestation Results, among multiple Verifiers. This can potentially leak sensitive information about the Attester's configuration , identities and the nature of composition.
+The appraisal of a Composite Attester requires exchange of attestation related messages, for example, Partial Evidence and Partial Attestation Results, among multiple Verifiers. This can potentially leak sensitive information about the Attester's configuration, identities and the nature of composition.
+
+However, when carefully designed, a multi-verifier architecture can actually improve privacy compared to a single-verifier model. By distributing appraisal responsibilities and ensuring that no single Verifier has access to the full set of Evidence, the risk of comprehensive device profiling or tracking is reduced.
+
+Nonetheless, such benefits depend on strong implementation practices.
 
 - Minimization: Attesters should only generate Evidence that is strictly necessary for the appraisal policy. Verifiers should only request necessary claims.
 - Confidentiality: Encryption should be used to prevent unauthorized parties (including other Verifiers in the hierarchy or cascade) from accessing sensitive Evidence. This is crucial in multi-tenant environments.
