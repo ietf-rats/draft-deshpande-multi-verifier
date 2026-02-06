@@ -165,10 +165,10 @@ Composite Evidence:
 : Evidence produced by a Composite Attester.
 Also referred to as CE in the document.
 
-Partial Evidence: 
+Partial Evidence:
 
 : It is an extract from a Composite Evidence. It consists of at least one or more Component Evidence.
-Also referred to as PE in the document. 
+Also referred to as PE in the document.
 
 Lead Verifier:
 
@@ -194,23 +194,23 @@ A Composite Attester has multiple Component Attesters. Each Attester requires a 
 Figure below shows the block diagram of a Hierarchical Pattern.
 
 ~~~ aasvg
-                                 PE_1               .-------------.
-                               .------------------->|             |
-                               |                    |  Verifier 1 |
-                               |     .--------------+             |
-                               |     |        PAR_1 '-------------'
-                               |     v                    ...
-.---------------. CE      .----+----------. PE_i    .-------------.
-|               +-------->|               +-------->|             |
-| Attester / RP |         | Lead Verifier |         |  Verifier i |
-|               |<--------+               |<--------+             |
-'---------------'     AAR '----+----------'   PAR_i '-------------'
-                               |      ^                   ...
-                               |      |       PAR_n .-------------.
-                               |      '-------------+             |
-                               |                    |  Verifier n |
-                               '------------------->|             |
-                                 PE_n               '-------------'
+                                 PE_1               .------------.
+                               .------------------->|            |
+                               |                    | Verifier 1 |
+                               |      .-------------+            |
+                               |      |       PAR_1 '------------'
+                               |      v                  ...
+.---------------. CE      .----+----------. PE_i    .------------.
+|               +-------->|               +-------->|            |
+| Attester / RP |         | Lead Verifier |         | Verifier i |
+|               |<--------+               |<--------+            |
+'---------------'     AAR '----+----------'   PAR_i '------------'
+                               |      ^                  ...
+                               |      |       PAR_n .------------.
+                               |      '-------------+            |
+                               |                    | Verifier n |
+                               '------------------->|            |
+                                 PE_n               '------------'
 Legend:
 - CE: Composite Evidence
 - AAR: Aggregated Attestation Results
