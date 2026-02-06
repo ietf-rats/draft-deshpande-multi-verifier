@@ -688,11 +688,11 @@ Legend:
       strictly necessary for the appraisal policy.  Verifiers should
       only request necessary claims.
 
-   *  Confidentiality: Encryption should be used so that sensitive
-      Evidence can be accessed only by the Verifier that is legitimately
-      intended to receive it, and by no unauthorized parties (including
-      other Verifiers in the hierarchy or cascade).  This is crucial in
-      multi-tenant environments.
+   *  Confidentiality: Evidence containing sensitive information should
+      be encrypted so that it can only be accessed by the intended
+      Verifier and not by any unauthorised parties (including other
+      Verifiers in the hierarchy or cascade).  This is crucial in multi-
+      tenant environments.
 
    *  Policy Handling: Verifiers should be careful not to leak their
       internal appraisal policies (e.g., through error messages or
