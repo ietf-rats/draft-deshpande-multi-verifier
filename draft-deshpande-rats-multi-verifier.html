@@ -12,22 +12,21 @@
 <meta content="
        IETF RATS Architecture, defines the key role of a Verifier.  In a complex system, this role needs to be performed by multiple Verfiers coordinating together to assess the full trustworthiness of an Attester. This document focuses on various topological patterns for a multiple Verifier system. It only covers the architectural aspects introduced by the Multi Verifier concept, which is neutral with regard to specific wire formats, encoding, transport mechanisms, or processing details. 
     " name="description">
-<meta content="xml2rfc 3.30.2" name="generator">
+<meta content="xml2rfc 3.31.0" name="generator">
 <meta content="draft-deshpande-rats-multi-verifier-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.30.2
-    Python 3.12.11
+  xml2rfc 3.31.0
+    Python 3.12.12
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
-    intervaltree 3.1.0
+    intervaltree 3.2.1
     Jinja2 3.1.6
-    lxml 5.3.1
-    platformdirs 4.4.0
+    lxml 6.0.2
+    platformdirs 4.5.1
     pycountry 24.6.1
-    PyYAML 6.0.2
+    PyYAML 6.0.3
     requests 2.32.5
-    setuptools 80.9.0
-    wcwidth 0.2.14
+    wcwidth 0.3.0
 -->
 <link href="draft-deshpande-rats-multi-verifier.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -568,6 +567,7 @@ aside, blockquote {
 }
 blockquote {
   margin: 1em 0;
+  border-left: 2px var(--pilcrow-strong) solid;
 }
 cite {
   display: block;
@@ -638,7 +638,7 @@ a.pilcrow {
   }
 }
 @media not print {
-  :hover > a.pilcrow {
+  :hover > a.pilcrow, a.pilcrow:focus {
     opacity: 1;
   }
   a.pilcrow[href]:hover {
@@ -1046,11 +1046,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">RATS Many-Verifiers</td>
-<td class="right">October 2025</td>
+<td class="right">February 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Deshpande, et al.</td>
-<td class="center">Expires 20 April 2026</td>
+<td class="center">Expires 10 August 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1063,12 +1063,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-deshpande-rats-multi-verifier-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-10-17" class="published">17 October 2025</time>
+<time datetime="2026-02-06" class="published">6 February 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-04-20">20 April 2026</time></dd>
+<dd class="expires"><time datetime="2026-08-10">10 August 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1122,7 +1122,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 20 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 10 August 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1131,7 +1131,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2025 IETF Trust and the persons identified as the
+            Copyright (c) 2026 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1404,26 +1404,32 @@ For this document, a Component Attester is an entity which produces a single Evi
 Also referred to as CE in the document.<a href="#section-4.1-2.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-4.1-2.7">Lead Verifier:</dt>
+<dt id="section-4.1-2.7">Partial Evidence:</dt>
           <dd style="margin-left: 1.5em" id="section-4.1-2.8">
-            <p id="section-4.1-2.8.1">A Verifier which acts as a main Verifier to receive Composite Evidence from a Composite Attester in a Hierarchical pattern <a href="#sec-lead-verifier" class="auto internal xref">Section 5.1</a>.
-Also referred to as LV in the document.<a href="#section-4.1-2.8.1" class="pilcrow">¶</a></p>
+            <p id="section-4.1-2.8.1">It is an extract from a Composite Evidence. It consists of at least one or more Component Evidence.
+Also referred to as PE in the document.<a href="#section-4.1-2.8.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-4.1-2.9">Component Verifier:</dt>
+<dt id="section-4.1-2.9">Lead Verifier:</dt>
           <dd style="margin-left: 1.5em" id="section-4.1-2.10">
-            <p id="section-4.1-2.10.1">A Verifier which is responsible for the Verification of one single component or a layer.
-Also referred to as CV in the document.<a href="#section-4.1-2.10.1" class="pilcrow">¶</a></p>
+            <p id="section-4.1-2.10.1">A Verifier which acts as a main Verifier to receive Composite Evidence from a Composite Attester in a Hierarchical pattern <a href="#sec-lead-verifier" class="auto internal xref">Section 5.1</a>.
+Also referred to as LV in the document.<a href="#section-4.1-2.10.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-4.1-2.11">Partial Attestation Results:</dt>
+<dt id="section-4.1-2.11">Component Verifier:</dt>
           <dd style="margin-left: 1.5em" id="section-4.1-2.12">
-            <p id="section-4.1-2.12.1">Attestation Results produced by a Component Verifier, which contains partial results from atleast one or more Component Attesters.<a href="#section-4.1-2.12.1" class="pilcrow">¶</a></p>
+            <p id="section-4.1-2.12.1">A Verifier which is responsible for the Verification of one single component or a layer.
+Also referred to as CV in the document.<a href="#section-4.1-2.12.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-4.1-2.13">Aggregated Attestation Results:</dt>
+<dt id="section-4.1-2.13">Partial Attestation Results:</dt>
           <dd style="margin-left: 1.5em" id="section-4.1-2.14">
-            <p id="section-4.1-2.14.1">An Aggregated Attestation Results (AAR) refers to a collection of Attestation Results produced upon completion of appraisal of a Composite Attester.<a href="#section-4.1-2.14.1" class="pilcrow">¶</a></p>
+            <p id="section-4.1-2.14.1">Attestation Results produced by a Component Verifier, which contains partial results from atleast one or more Component Attesters.<a href="#section-4.1-2.14.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-4.1-2.15">Aggregated Attestation Results:</dt>
+          <dd style="margin-left: 1.5em" id="section-4.1-2.16">
+            <p id="section-4.1-2.16.1">An Aggregated Attestation Results (AAR) refers to a collection of Attestation Results produced upon completion of appraisal of a Composite Attester.<a href="#section-4.1-2.16.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
@@ -1447,74 +1453,92 @@ Also referred to as CV in the document.<a href="#section-4.1-2.10.1" class="pilc
 <figure id="figure-1">
           <div id="section-5.1-2.1">
             <div class="alignLeft art-svg artwork" id="section-5.1-2.1.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="528" width="584" viewBox="0 0 584 528" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-                <path d="M 8,176 L 8,256" fill="none" stroke="black"></path>
-                <path d="M 104,176 L 104,256" fill="none" stroke="black"></path>
-                <path d="M 280,32 L 280,512" fill="none" stroke="black"></path>
-                <path d="M 368,32 L 368,512" fill="none" stroke="black"></path>
-                <path d="M 480,48 L 480,144" fill="none" stroke="black"></path>
-                <path d="M 480,192 L 480,288" fill="none" stroke="black"></path>
-                <path d="M 480,400 L 480,496" fill="none" stroke="black"></path>
-                <path d="M 528,288 L 528,400" fill="none" stroke="black"></path>
-                <path d="M 576,48 L 576,144" fill="none" stroke="black"></path>
-                <path d="M 576,192 L 576,288" fill="none" stroke="black"></path>
-                <path d="M 576,400 L 576,496" fill="none" stroke="black"></path>
-                <path d="M 280,32 L 368,32" fill="none" stroke="black"></path>
-                <path d="M 480,48 L 576,48" fill="none" stroke="black"></path>
-                <path d="M 368,96 L 472,96" fill="none" stroke="black"></path>
-                <path d="M 376,128 L 480,128" fill="none" stroke="black"></path>
-                <path d="M 480,144 L 576,144" fill="none" stroke="black"></path>
-                <path d="M 8,176 L 104,176" fill="none" stroke="black"></path>
-                <path d="M 104,192 L 272,192" fill="none" stroke="black"></path>
-                <path d="M 480,192 L 576,192" fill="none" stroke="black"></path>
-                <path d="M 368,208 L 472,208" fill="none" stroke="black"></path>
-                <path d="M 112,240 L 280,240" fill="none" stroke="black"></path>
-                <path d="M 8,256 L 104,256" fill="none" stroke="black"></path>
-                <path d="M 376,256 L 480,256" fill="none" stroke="black"></path>
-                <path d="M 480,288 L 576,288" fill="none" stroke="black"></path>
-                <path d="M 480,400 L 576,400" fill="none" stroke="black"></path>
-                <path d="M 368,416 L 472,416" fill="none" stroke="black"></path>
-                <path d="M 376,448 L 480,448" fill="none" stroke="black"></path>
-                <path d="M 480,496 L 576,496" fill="none" stroke="black"></path>
-                <path d="M 280,512 L 368,512" fill="none" stroke="black"></path>
-                <polygon class="arrowhead" points="480,416 468,410.4 468,421.6" fill="black" transform="rotate(0,472,416)"></polygon>
-                <polygon class="arrowhead" points="480,208 468,202.4 468,213.6" fill="black" transform="rotate(0,472,208)"></polygon>
-                <polygon class="arrowhead" points="480,96 468,90.4 468,101.6" fill="black" transform="rotate(0,472,96)"></polygon>
-                <polygon class="arrowhead" points="384,448 372,442.4 372,453.6" fill="black" transform="rotate(180,376,448)"></polygon>
-                <polygon class="arrowhead" points="384,256 372,250.4 372,261.6" fill="black" transform="rotate(180,376,256)"></polygon>
-                <polygon class="arrowhead" points="384,128 372,122.4 372,133.6" fill="black" transform="rotate(180,376,128)"></polygon>
-                <polygon class="arrowhead" points="280,192 268,186.4 268,197.6" fill="black" transform="rotate(0,272,192)"></polygon>
-                <polygon class="arrowhead" points="120,240 108,234.4 108,245.6" fill="black" transform="rotate(180,112,240)"></polygon>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="384" width="536" viewBox="0 0 536 384" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 8,128 L 8,192" fill="none" stroke="black"></path>
+                <path d="M 136,128 L 136,192" fill="none" stroke="black"></path>
+                <path d="M 216,128 L 216,192" fill="none" stroke="black"></path>
+                <path d="M 256,48 L 256,128" fill="none" stroke="black"></path>
+                <path d="M 256,192 L 256,272" fill="none" stroke="black"></path>
+                <path d="M 312,80 L 312,120" fill="none" stroke="black"></path>
+                <path d="M 312,200 L 312,240" fill="none" stroke="black"></path>
+                <path d="M 344,128 L 344,192" fill="none" stroke="black"></path>
+                <path d="M 424,32 L 424,96" fill="none" stroke="black"></path>
+                <path d="M 424,128 L 424,192" fill="none" stroke="black"></path>
+                <path d="M 424,224 L 424,288" fill="none" stroke="black"></path>
+                <path d="M 528,32 L 528,96" fill="none" stroke="black"></path>
+                <path d="M 528,128 L 528,192" fill="none" stroke="black"></path>
+                <path d="M 528,224 L 528,288" fill="none" stroke="black"></path>
+                <path d="M 424,32 L 528,32" fill="none" stroke="black"></path>
+                <path d="M 256,48 L 416,48" fill="none" stroke="black"></path>
+                <path d="M 312,80 L 424,80" fill="none" stroke="black"></path>
+                <path d="M 424,96 L 528,96" fill="none" stroke="black"></path>
+                <path d="M 8,128 L 136,128" fill="none" stroke="black"></path>
+                <path d="M 216,128 L 344,128" fill="none" stroke="black"></path>
+                <path d="M 424,128 L 528,128" fill="none" stroke="black"></path>
+                <path d="M 136,144 L 208,144" fill="none" stroke="black"></path>
+                <path d="M 344,144 L 416,144" fill="none" stroke="black"></path>
+                <path d="M 144,176 L 216,176" fill="none" stroke="black"></path>
+                <path d="M 352,176 L 424,176" fill="none" stroke="black"></path>
+                <path d="M 8,192 L 136,192" fill="none" stroke="black"></path>
+                <path d="M 216,192 L 344,192" fill="none" stroke="black"></path>
+                <path d="M 424,192 L 528,192" fill="none" stroke="black"></path>
+                <path d="M 424,224 L 528,224" fill="none" stroke="black"></path>
+                <path d="M 312,240 L 424,240" fill="none" stroke="black"></path>
+                <path d="M 256,272 L 416,272" fill="none" stroke="black"></path>
+                <path d="M 424,288 L 528,288" fill="none" stroke="black"></path>
+                <polygon class="arrowhead" points="424,272 412,266.4 412,277.6" fill="black" transform="rotate(0,416,272)"></polygon>
+                <polygon class="arrowhead" points="424,144 412,138.4 412,149.6" fill="black" transform="rotate(0,416,144)"></polygon>
+                <polygon class="arrowhead" points="424,48 412,42.4 412,53.6" fill="black" transform="rotate(0,416,48)"></polygon>
+                <polygon class="arrowhead" points="360,176 348,170.4 348,181.6" fill="black" transform="rotate(180,352,176)"></polygon>
+                <polygon class="arrowhead" points="320,200 308,194.4 308,205.6" fill="black" transform="rotate(270,312,200)"></polygon>
+                <polygon class="arrowhead" points="320,120 308,114.4 308,125.6" fill="black" transform="rotate(90,312,120)"></polygon>
+                <polygon class="arrowhead" points="216,144 204,138.4 204,149.6" fill="black" transform="rotate(0,208,144)"></polygon>
+                <polygon class="arrowhead" points="152,176 140,170.4 140,181.6" fill="black" transform="rotate(180,144,176)"></polygon>
                 <g class="text">
-                  <text x="412" y="84">Evidence</text>
-                  <text x="456" y="84">1</text>
-                  <text x="524" y="100">Verifier</text>
-                  <text x="568" y="100">1</text>
-                  <text x="404" y="148">AR</text>
-                  <text x="424" y="148">1</text>
-                  <text x="160" y="180">Composite</text>
-                  <text x="236" y="180">Evidence</text>
-                  <text x="412" y="196">Evidence</text>
-                  <text x="456" y="196">2</text>
-                  <text x="60" y="212">Attester</text>
-                  <text x="308" y="212">Lead</text>
-                  <text x="44" y="228">or</text>
-                  <text x="164" y="228">Aggregated</text>
-                  <text x="324" y="228">Verifier</text>
-                  <text x="36" y="244">RP</text>
-                  <text x="524" y="244">Verifier</text>
-                  <text x="568" y="244">2</text>
-                  <text x="168" y="260">Attestation</text>
-                  <text x="244" y="260">Result</text>
-                  <text x="160" y="276">(AAR)</text>
-                  <text x="396" y="276">AR</text>
-                  <text x="416" y="276">2</text>
-                  <text x="412" y="404">Evidence</text>
-                  <text x="456" y="404">N</text>
-                  <text x="524" y="452">Verifier</text>
-                  <text x="568" y="452">N</text>
-                  <text x="388" y="468">AR</text>
-                  <text x="408" y="468">N</text>
+                  <text x="284" y="36">PE_1</text>
+                  <text x="468" y="68">Verifier</text>
+                  <text x="512" y="68">1</text>
+                  <text x="392" y="100">PAR_1</text>
+                  <text x="472" y="116">...</text>
+                  <text x="156" y="132">CE</text>
+                  <text x="372" y="132">PE_i</text>
+                  <text x="52" y="164">Attester</text>
+                  <text x="96" y="164">/</text>
+                  <text x="116" y="164">RP</text>
+                  <text x="244" y="164">Lead</text>
+                  <text x="300" y="164">Verifier</text>
+                  <text x="468" y="164">Verifier</text>
+                  <text x="512" y="164">i</text>
+                  <text x="192" y="196">AAR</text>
+                  <text x="392" y="196">PAR_i</text>
+                  <text x="472" y="212">...</text>
+                  <text x="392" y="228">PAR_n</text>
+                  <text x="468" y="260">Verifier</text>
+                  <text x="512" y="260">n</text>
+                  <text x="284" y="292">PE_n</text>
+                  <text x="32" y="308">Legend:</text>
+                  <text x="8" y="324">-</text>
+                  <text x="32" y="324">CE:</text>
+                  <text x="88" y="324">Composite</text>
+                  <text x="164" y="324">Evidence</text>
+                  <text x="8" y="340">-</text>
+                  <text x="36" y="340">AAR:</text>
+                  <text x="100" y="340">Aggregated</text>
+                  <text x="192" y="340">Attestation</text>
+                  <text x="272" y="340">Results</text>
+                  <text x="8" y="356">-</text>
+                  <text x="40" y="356">PE_i:</text>
+                  <text x="96" y="356">Partial</text>
+                  <text x="164" y="356">Evidence</text>
+                  <text x="212" y="356">of</text>
+                  <text x="244" y="356">i-th</text>
+                  <text x="304" y="356">Component</text>
+                  <text x="380" y="356">Attester</text>
+                  <text x="8" y="372">-</text>
+                  <text x="36" y="372">PAR:</text>
+                  <text x="88" y="372">Partial</text>
+                  <text x="168" y="372">Attestation</text>
+                  <text x="248" y="372">Results</text>
                 </g>
               </svg><a href="#section-5.1-2.1.1" class="pilcrow">¶</a>
 </div>
@@ -1537,22 +1561,22 @@ If signature verification fails, the Verification is terminated.
 Otherwise it performs the following steps.<a href="#section-5.1.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5.1.1-3.1">
-              <p id="section-5.1.1-3.1.1">Lead Verifier has the required knowledge to break down the Composite Evidence into individual Component Evidence. It decodes the Composite Evidence to extract the Component Attester Evidence. This may lead to "N" Evidence, one for each Component Attester.<a href="#section-5.1.1-3.1.1" class="pilcrow">¶</a></p>
+              <p id="section-5.1.1-3.1.1">Lead Verifier has the required knowledge to break down the Composite Evidence into Partial Evidence. It decodes the Composite Evidence to extract the Component Attesters Evidence. This may lead to "N" Partial Evidence, one for each Component Attester.<a href="#section-5.1.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-5.1.1-3.2">
-              <p id="section-5.1.1-3.2.1">Lead Verifier delegates each Component Attester Evidence to its own Component Verifier (CV) and receives Component Attester Attestation Results also known as Partial Attestation Results after successful Appraisal of Evidence.
+              <p id="section-5.1.1-3.2.1">Lead Verifier delegates each Partial Evidence to its own Component Verifier (CV) and receives Component Attester Attestation Results also known as Partial Attestation Results after successful Appraisal of Evidence.
 There are many protocols to determine how a Lead Verifier can select the Component Verifiers.
 This document does not mandate any specific protocol for determining the Component Verifiers<a href="#section-5.1.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-5.1.1-3.3">
-              <p id="section-5.1.1-3.3.1">Once the Lead Verifier receives Partial Attestation Results from all the Verifiers, it combines the results from each Verifier to construct a Aggregated Attestation Results (AAR). The Lead verifier may apply its own policies and also add extra claims as part of its appraisal.<a href="#section-5.1.1-3.3.1" class="pilcrow">¶</a></p>
+              <p id="section-5.1.1-3.3.1">Once the Lead Verifier receives Partial Attestation Results from all the Verifiers, it combines the results from each Verifier to construct an Aggregated Attestation Results (AAR). The Lead verifier may apply its own policies and also add extra claims as part of its appraisal.<a href="#section-5.1.1-3.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-5.1.1-3.4">
               <p id="section-5.1.1-3.4.1">Lead Verifier conveys the AAR to the Attester (in Passport model) or to the Relying Party (in background check model).<a href="#section-5.1.1-3.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-5.1.1-4">The overall verdict may be dependent on the Appraisal Policy of the Lead Verifier.<a href="#section-5.1.1-4" class="pilcrow">¶</a></p>
-<p id="section-5.1.1-5">In certain topologies, it is possible that only the Composite Evidence is signed to provide the overall integrity, while the individual Component Attester Evidence (example Evidence 1) is not protected. In such cases, the Lead Verifer upon processing of Composite Evidence may wrap the Component Attester Evidence (example Evidence 1) in a signed Conceptual Message Wrapper (CMW), and send it to each Verifier (example Verifier 1).<a href="#section-5.1.1-5" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-5">In certain topologies, it is possible that only the Composite Evidence is signed to provide the overall integrity, while the Partial Evidence (example PE_1) is not protected. In such cases, the Lead Verifer upon processing of Composite Evidence may wrap the Partial Evidence (example PE_1) in a signed Conceptual Message Wrapper (CMW), and send it to each Verifier (example Verifier 1).<a href="#section-5.1.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="component-verifier">
@@ -1560,7 +1584,7 @@ This document does not mandate any specific protocol for determining the Compone
           <h4 id="name-component-verifier">
 <a href="#section-5.1.2" class="section-number selfRef">5.1.2. </a><a href="#name-component-verifier" class="section-name selfRef">Component Verifier</a>
           </h4>
-<p id="section-5.1.2-1">The role of a Component Verifier is to receive Component Evidence from the Lead Verifier and produce Partial Attestation Results to the Lead Verifier.<a href="#section-5.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.1.2-1">The role of a Component Verifier is to receive Partial Evidence from the Lead Verifier and produce Partial Attestation Results to the Lead Verifier.<a href="#section-5.1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="trust-relationships">
@@ -1586,60 +1610,93 @@ Lead Verifier is provisioned with the Trust Anchors (see <span>[<a href="#RFC602
 <figure id="figure-2">
           <div id="section-5.2-2.1">
             <div class="alignLeft art-svg artwork" id="section-5.2-2.1.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="208" width="752" viewBox="0 0 752 208" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-                <path d="M 8,48 L 8,160" fill="none" stroke="black"></path>
-                <path d="M 80,48 L 80,160" fill="none" stroke="black"></path>
-                <path d="M 256,32 L 256,192" fill="none" stroke="black"></path>
-                <path d="M 352,32 L 352,192" fill="none" stroke="black"></path>
-                <path d="M 440,32 L 440,192" fill="none" stroke="black"></path>
-                <path d="M 536,32 L 536,192" fill="none" stroke="black"></path>
-                <path d="M 648,32 L 648,192" fill="none" stroke="black"></path>
-                <path d="M 744,32 L 744,192" fill="none" stroke="black"></path>
-                <path d="M 256,32 L 352,32" fill="none" stroke="black"></path>
-                <path d="M 440,32 L 536,32" fill="none" stroke="black"></path>
-                <path d="M 648,32 L 744,32" fill="none" stroke="black"></path>
-                <path d="M 8,48 L 80,48" fill="none" stroke="black"></path>
-                <path d="M 80,80 L 248,80" fill="none" stroke="black"></path>
-                <path d="M 352,80 L 432,80" fill="none" stroke="black"></path>
-                <path d="M 536,80 L 640,80" fill="none" stroke="black"></path>
-                <path d="M 88,144 L 256,144" fill="none" stroke="black"></path>
-                <path d="M 360,144 L 440,144" fill="none" stroke="black"></path>
-                <path d="M 544,144 L 648,144" fill="none" stroke="black"></path>
-                <path d="M 8,160 L 80,160" fill="none" stroke="black"></path>
-                <path d="M 256,192 L 352,192" fill="none" stroke="black"></path>
-                <path d="M 440,192 L 536,192" fill="none" stroke="black"></path>
-                <path d="M 648,192 L 744,192" fill="none" stroke="black"></path>
-                <polygon class="arrowhead" points="648,80 636,74.4 636,85.6" fill="black" transform="rotate(0,640,80)"></polygon>
-                <polygon class="arrowhead" points="552,144 540,138.4 540,149.6" fill="black" transform="rotate(180,544,144)"></polygon>
-                <polygon class="arrowhead" points="440,80 428,74.4 428,85.6" fill="black" transform="rotate(0,432,80)"></polygon>
-                <polygon class="arrowhead" points="368,144 356,138.4 356,149.6" fill="black" transform="rotate(180,360,144)"></polygon>
-                <polygon class="arrowhead" points="256,80 244,74.4 244,85.6" fill="black" transform="rotate(0,248,80)"></polygon>
-                <polygon class="arrowhead" points="96,144 84,138.4 84,149.6" fill="black" transform="rotate(180,88,144)"></polygon>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="304" width="584" viewBox="0 0 584 304" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 8,80 L 8,144" fill="none" stroke="black"></path>
+                <path d="M 136,80 L 136,144" fill="none" stroke="black"></path>
+                <path d="M 200,32 L 200,208" fill="none" stroke="black"></path>
+                <path d="M 248,32 L 248,208" fill="none" stroke="black"></path>
+                <path d="M 352,32 L 352,208" fill="none" stroke="black"></path>
+                <path d="M 400,32 L 400,208" fill="none" stroke="black"></path>
+                <path d="M 528,32 L 528,208" fill="none" stroke="black"></path>
+                <path d="M 576,32 L 576,208" fill="none" stroke="black"></path>
+                <path d="M 200,32 L 248,32" fill="none" stroke="black"></path>
+                <path d="M 352,32 L 400,32" fill="none" stroke="black"></path>
+                <path d="M 528,32 L 576,32" fill="none" stroke="black"></path>
+                <path d="M 8,80 L 136,80" fill="none" stroke="black"></path>
+                <path d="M 136,96 L 192,96" fill="none" stroke="black"></path>
+                <path d="M 248,96 L 344,96" fill="none" stroke="black"></path>
+                <path d="M 400,96 L 440,96" fill="none" stroke="black"></path>
+                <path d="M 488,96 L 520,96" fill="none" stroke="black"></path>
+                <path d="M 144,128 L 200,128" fill="none" stroke="black"></path>
+                <path d="M 256,128 L 352,128" fill="none" stroke="black"></path>
+                <path d="M 408,128 L 440,128" fill="none" stroke="black"></path>
+                <path d="M 488,128 L 528,128" fill="none" stroke="black"></path>
+                <path d="M 8,144 L 136,144" fill="none" stroke="black"></path>
+                <path d="M 200,208 L 248,208" fill="none" stroke="black"></path>
+                <path d="M 352,208 L 400,208" fill="none" stroke="black"></path>
+                <path d="M 528,208 L 576,208" fill="none" stroke="black"></path>
+                <polygon class="arrowhead" points="528,96 516,90.4 516,101.6" fill="black" transform="rotate(0,520,96)"></polygon>
+                <polygon class="arrowhead" points="416,128 404,122.4 404,133.6" fill="black" transform="rotate(180,408,128)"></polygon>
+                <polygon class="arrowhead" points="352,96 340,90.4 340,101.6" fill="black" transform="rotate(0,344,96)"></polygon>
+                <polygon class="arrowhead" points="264,128 252,122.4 252,133.6" fill="black" transform="rotate(180,256,128)"></polygon>
+                <polygon class="arrowhead" points="200,96 188,90.4 188,101.6" fill="black" transform="rotate(0,192,96)"></polygon>
+                <polygon class="arrowhead" points="152,128 140,122.4 140,133.6" fill="black" transform="rotate(180,144,128)"></polygon>
                 <g class="text">
-                  <text x="136" y="68">Composite</text>
-                  <text x="212" y="68">Evidence</text>
-                  <text x="388" y="68">(CE)</text>
-                  <text x="580" y="68">(CE)</text>
-                  <text x="140" y="100">(CE)</text>
-                  <text x="384" y="100">Partial</text>
-                  <text x="428" y="100">AR</text>
-                  <text x="576" y="100">Partial</text>
-                  <text x="620" y="100">AR</text>
-                  <text x="44" y="116">Attester</text>
-                  <text x="300" y="116">Verifier</text>
-                  <text x="344" y="116">1</text>
-                  <text x="484" y="116">Verifier</text>
-                  <text x="528" y="116">2</text>
-                  <text x="692" y="116">Verifier</text>
-                  <text x="736" y="116">N</text>
-                  <text x="36" y="132">or</text>
-                  <text x="140" y="132">Aggregated</text>
-                  <text x="28" y="148">RP</text>
-                  <text x="136" y="164">Attestation</text>
-                  <text x="216" y="164">Results</text>
-                  <text x="392" y="164">(AAR)</text>
-                  <text x="576" y="164">(AAR)</text>
-                  <text x="136" y="180">(AAR)</text>
+                  <text x="224" y="52">V</text>
+                  <text x="376" y="52">V</text>
+                  <text x="552" y="52">V</text>
+                  <text x="224" y="68">e</text>
+                  <text x="376" y="68">e</text>
+                  <text x="552" y="68">e</text>
+                  <text x="156" y="84">CE</text>
+                  <text x="224" y="84">r</text>
+                  <text x="272" y="84">CE,</text>
+                  <text x="312" y="84">PAR_1</text>
+                  <text x="376" y="84">r</text>
+                  <text x="424" y="84">CE,</text>
+                  <text x="476" y="84">PAR_1..2</text>
+                  <text x="552" y="84">f</text>
+                  <text x="224" y="100">i</text>
+                  <text x="376" y="100">i</text>
+                  <text x="464" y="100">...</text>
+                  <text x="552" y="100">i</text>
+                  <text x="52" y="116">Attester</text>
+                  <text x="96" y="116">/</text>
+                  <text x="116" y="116">RP</text>
+                  <text x="224" y="116">f</text>
+                  <text x="376" y="116">f</text>
+                  <text x="552" y="116">f</text>
+                  <text x="224" y="132">i</text>
+                  <text x="376" y="132">i</text>
+                  <text x="464" y="132">...</text>
+                  <text x="552" y="132">i</text>
+                  <text x="176" y="148">AAR</text>
+                  <text x="224" y="148">e</text>
+                  <text x="328" y="148">AAR</text>
+                  <text x="376" y="148">e</text>
+                  <text x="468" y="148">AAR=PAR_1..n</text>
+                  <text x="552" y="148">e</text>
+                  <text x="224" y="164">r</text>
+                  <text x="376" y="164">r</text>
+                  <text x="552" y="164">r</text>
+                  <text x="224" y="196">1</text>
+                  <text x="376" y="196">2</text>
+                  <text x="552" y="196">n</text>
+                  <text x="32" y="244">Legend:</text>
+                  <text x="8" y="260">-</text>
+                  <text x="32" y="260">CE:</text>
+                  <text x="88" y="260">Composite</text>
+                  <text x="164" y="260">Evidence</text>
+                  <text x="8" y="276">-</text>
+                  <text x="36" y="276">AAR:</text>
+                  <text x="100" y="276">Aggregated</text>
+                  <text x="192" y="276">Attestation</text>
+                  <text x="272" y="276">Results</text>
+                  <text x="8" y="292">-</text>
+                  <text x="36" y="292">PAR:</text>
+                  <text x="88" y="292">Partial</text>
+                  <text x="168" y="292">Attestation</text>
+                  <text x="248" y="292">Results</text>
                 </g>
               </svg><a href="#section-5.2-2.1.1" class="pilcrow">¶</a>
 </div>
@@ -1649,14 +1706,14 @@ Lead Verifier is provisioned with the Trust Anchors (see <span>[<a href="#RFC602
           </figcaption></figure>
 </div>
 <p id="section-5.2-3">In this topological pattern, the Attestation Verification happens in sequence. Verifiers are cascaded to perform the Attestation Appraisal.
-Each Verifier in the chain has the knowledge to derive or extract the Component Evidence, which it can appraise, from the Composite Evidence.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
+Each Verifier in the chain has the knowledge to derive or extract the Partial Evidence, which it can appraise, from the Composite Evidence.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
 <p id="section-5.2-4">Attester may send the Composite Evidence(CE) to any of the Verifier (directly in the passport model, or indirectly via the Relying Party in the background-check model). The Verifier which processes the Composite Evidence, Verifies the signature on the Evidence, if present. It extracts the
-Component Evidence from the Composite Evidence, performs Appraisal of the Component Attester whose Reference Values and Endorsements are in its database. Once the appraisal is complete, it forwards the Composite Evidence and Partial Attestation Results to the subsequent Verifier.<a href="#section-5.2-4" class="pilcrow">¶</a></p>
-<p id="section-5.2-5">The process is repeated, until the entire appraisal is complete. The last Verifier, i.e. Verifier-N, completes its Appraisal of the Component Evidence, that it can appraise. It has now all the Partial Attestation Results and creates the Aggregated Attestation Results(AAR). It returns
+Partial Evidence from the Composite Evidence, performs Appraisal of the Component Attester whose Reference Values and Endorsements are in its database. Once the appraisal is complete, it forwards the Composite Evidence and Partial Attestation Results to the subsequent Verifier.<a href="#section-5.2-4" class="pilcrow">¶</a></p>
+<p id="section-5.2-5">The process is repeated, until the entire appraisal is complete. The last Verifier, i.e. Verifier-N, completes its Appraisal of the Partial Evidence, that it can appraise. It has now all the Partial Attestation Results and creates the Aggregated Attestation Results(AAR). It returns
 the AAR to the N-1 Verifier (from where it received the Composite Evidence and Partial AR). The process is repeated, i.e. AAR is returned in the chain until the Verifier, which recieved the initial Composite Evidence is reached. At this point in time the Aggregated Attestation Results are signed and the AAR is sent to the Attester (in Passport Model) or Relying Party (in background check model).<a href="#section-5.2-5" class="pilcrow">¶</a></p>
 <p id="section-5.2-6">As shown in the picture, the Partial Attestation Results and Composite Evidence is transmitted to a chain of Verifier, till the Appraisal is complete.
 Upon completion, the last Verifier in the chain combines the incoming Partial Attestation Results, combines the results from it own Evidence Appraisal and passes the Aggregated Attestation Results to the Verifier from which it receives Composite Evidence.<a href="#section-5.2-6" class="pilcrow">¶</a></p>
-<p id="section-5.2-7">There are many protocols to determine how a Verifier can select the next Verifier to route the CE.
+<p id="section-5.2-7">There are many protocols to determine how a Verifier can select the next Verifier to route the CE and PAR.
 This document does not mandate any specific protocol for determining the Verifiers in cascade.<a href="#section-5.2-7" class="pilcrow">¶</a></p>
 <div id="trust-relationships-1">
 <section id="section-5.2.1">
@@ -1670,7 +1727,7 @@ This document does not mandate any specific protocol for determining the Verifie
           <h4 id="name-verifiers">
 <a href="#section-5.2.2" class="section-number selfRef">5.2.2. </a><a href="#name-verifiers" class="section-name selfRef">Verifiers</a>
           </h4>
-<p id="section-5.2.2-1">In the cascaded pattern, the communicating Verifiers fully trust each other. Each Verifier has the trust anchor for the Verifier it is communicating to (i.e. either sending information or receiving information). This prevents man in the middle attack for the partial Attestation Results received by a Verifier or a Aggregated Attestation Results (AAR) which it receives in the return path.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2-1">In the cascaded pattern, the communicating Verifiers fully trust each other. Each Verifier has the trust anchor for the Verifier it is communicating to (i.e. either sending information or receiving information). This prevents man in the middle attack for the Partial Attestation Results received by a Verifier or a Aggregated Attestation Results (AAR) which it receives in the return path.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="relying-party-and-verifiers">
@@ -1708,7 +1765,7 @@ In the case of Hierarchical Pattern, the Verification of Freshness should be che
       <h2 id="name-security-considerations">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-7-1">The Verifier is effectively part of the Attesters' and Relying Parties' trusted computing base (TCB).  When multiple Verifiers coordinate to conduct appraisal, it leads to larger TCB and hence more attack surface. Any mistake in the appraisal procedure conducted by one or more Verifiers could lead to severe security implications, such as incorrect Attestation Result of a component or a composition to the Relying party. This section details the security threats and mitigation strategies specific to the multi-verifier topologies described in this document. In addition to the considerations herein, Verifiers MUST follow the guidance detailed in the Security and Privacy considerations of a RATS Verifier as detailed in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-corim-08#section-11" class="relref">Section 11</a> of [<a href="#I-D.draft-ietf-rats-corim" class="cite xref">I-D.draft-ietf-rats-corim</a>]</span> and the RATS Architecture Section <a href="https://rfc-editor.org/rfc/rfc9334#section-11" class="relref">11</a> and Section <a href="https://rfc-editor.org/rfc/rfc9334#section-12" class="relref">12</a> of <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">The Verifier is effectively part of the Attesters' and Relying Parties' trusted computing base (TCB).  When multiple Verifiers coordinate to conduct appraisal, it leads to larger TCB and hence more attack surface. Any mistake in the appraisal procedure conducted by one or more Verifiers could lead to severe security implications, such as incorrect Attestation Result of a component or a composition to the Relying party. This section details the security threats and mitigation strategies specific to the multi-verifier topologies described in this document. In addition to the considerations herein, Verifiers MUST follow the guidance detailed in the Security and Privacy considerations of a RATS Verifier as detailed in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-corim-09#section-11" class="relref">Section 11</a> of [<a href="#I-D.draft-ietf-rats-corim" class="cite xref">I-D.draft-ietf-rats-corim</a>]</span> and the RATS Architecture Section <a href="https://rfc-editor.org/rfc/rfc9334#section-11" class="relref">11</a> and Section <a href="https://rfc-editor.org/rfc/rfc9334#section-12" class="relref">12</a> of <span>[<a href="#RFC9334" class="cite xref">RFC9334</a>]</span>.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <div id="adversarial-model">
 <section id="section-7.1">
         <h3 id="name-adversarial-model">
@@ -1782,7 +1839,7 @@ Component Verifiers should be made available suitable trust anchors so that they
 <a href="#section-7.3.1.1.3" class="section-number selfRef">7.3.1.1.3. </a><a href="#name-evidence-integrity-and-orig" class="section-name selfRef">Evidence Integrity and Origin Authentication (LV -&gt; CV)</a>
               </h6>
 <p id="section-7.3.1.1.3-1"><strong>Threat:</strong> The LV could forward manipulated evidence to a CV, or an attacker could inject fake evidence.<a href="#section-7.3.1.1.3-1" class="pilcrow">¶</a></p>
-<p id="section-7.3.1.1.3-2"><strong>Mitigation:</strong> The conceptual message containing the Component Evidence MUST be integrity-protected and authenticated. If the Component Evidence is natively signed by the Component Attester at origin, the CV can verify it directly. If the Component Evidence lacks inherent signatures (e.g., in UCCS), the LV MUST sign the Component Evidence using a key that the CV trusts. This prevents any on-path attacker from altering the Component Evidence.<a href="#section-7.3.1.1.3-2" class="pilcrow">¶</a></p>
+<p id="section-7.3.1.1.3-2"><strong>Mitigation:</strong> The conceptual message containing the Partial Evidence MUST be integrity-protected and authenticated. If the Partial Evidence is natively signed by the Component Attester at origin, the CV can verify it directly. If the Partial Evidence lacks inherent signatures (e.g., in UCCS), the LV MUST sign the Partial Evidence using a key that the CV trusts. This prevents any on-path attacker from altering the Partial Evidence.<a href="#section-7.3.1.1.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="results-integrity-and-origin-authentication-cv-lv">
@@ -1940,7 +1997,7 @@ for their reviews and suggestions.<a href="#section-10-1" class="pilcrow">¶</a>
 <dl class="references">
 <dt id="I-D.draft-ietf-rats-corim">[I-D.draft-ietf-rats-corim]</dt>
         <dd>
-<span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Fossati, T.</span>, <span class="refAuthor">Deshpande, Y.</span>, <span class="refAuthor">Smith, N.</span>, and <span class="refAuthor">W. Pan</span>, <span class="refTitle">"Concise Reference Integrity Manifest"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-rats-corim-08</span>, <time datetime="2025-07-07" class="refDate">7 July 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-corim-08">https://datatracker.ietf.org/doc/html/draft-ietf-rats-corim-08</a>&gt;</span>. </dd>
+<span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Fossati, T.</span>, <span class="refAuthor">Deshpande, Y.</span>, <span class="refAuthor">Smith, N.</span>, and <span class="refAuthor">W. Pan</span>, <span class="refTitle">"Concise Reference Integrity Manifest"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-rats-corim-09</span>, <time datetime="2025-10-20" class="refDate">20 October 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-rats-corim-09">https://datatracker.ietf.org/doc/html/draft-ietf-rats-corim-09</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC6024">[RFC6024]</dt>
         <dd>
