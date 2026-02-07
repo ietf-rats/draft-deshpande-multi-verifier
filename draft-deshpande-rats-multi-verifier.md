@@ -429,7 +429,7 @@ However, when carefully designed, a multi-verifier architecture can actually mit
 Nonetheless, such benefits depend on strong implementation practices.
 
 - Minimization: Attesters should only generate Evidence that is strictly necessary for the appraisal policy. Verifiers should only request necessary claims.
-- Confidentiality: Encryption should be used to prevent unauthorized parties (including other Verifiers in the hierarchy or cascade) from accessing sensitive Evidence. This is crucial in multi-tenant environments.
+- Confidentiality: Evidence containing sensitive information should be encrypted so that it can only be accessed by the intended Verifier and not by any unauthorised parties (including other Verifiers in the hierarchy, cascade or hybrid pattern). This is crucial in multi-tenant environments.
 - Policy Handling: Verifiers should be careful not to leak their internal appraisal policies (e.g., through error messages or timing side channels) when communicating with other Verifiers or Attesters, as this information could be exploited by an attacker to manipulate appraisal.
 
 # IANA Considerations
