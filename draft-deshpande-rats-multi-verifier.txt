@@ -5,11 +5,11 @@
 RATS                                                        Y. Deshpande
 Internet-Draft                                                   Arm Ltd
 Intended status: Informational                                  J. Zhang
-Expires: 10 August 2026                                        H. Labiod
+Expires: 11 August 2026                                        H. Labiod
                                      Huawei Technologies France S.A.S.U.
                                                             H. Birkholtz
                                                           Fraunhofer SIT
-                                                         6 February 2026
+                                                         7 February 2026
 
 
                Remote Attestation with Multiple Verifiers
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 August 2026.
+   This Internet-Draft will expire on 11 August 2026.
 
 Copyright Notice
 
@@ -688,10 +688,11 @@ Legend:
       strictly necessary for the appraisal policy.  Verifiers should
       only request necessary claims.
 
-   *  Confidentiality: Encryption should be used to prevent unauthorized
-      parties (including other Verifiers in the hierarchy or cascade)
-      from accessing sensitive Evidence.  This is crucial in multi-
-      tenant environments.
+   *  Confidentiality: Evidence containing sensitive information should
+      be encrypted so that it can only be accessed by the intended
+      Verifier and not by any unauthorised parties (including other
+      Verifiers in the hierarchy, cascade or hybrid pattern).  This is
+      crucial in multi-tenant environments.
 
    *  Policy Handling: Verifiers should be careful not to leak their
       internal appraisal policies (e.g., through error messages or
