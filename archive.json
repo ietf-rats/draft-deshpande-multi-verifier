@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-02-05T02:12:27.083533+00:00",
+  "timestamp": "2026-02-08T02:41:44.911324+00:00",
   "repo": "ietf-rats/draft-deshpande-multi-verifier",
   "labels": [
     {
@@ -4607,24 +4607,26 @@
       "id": "PR_kwDON24c9s64k_VB",
       "title": "compactify diagrams",
       "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/52",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "thomas-fossati",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Rendering:\r\n\r\n* https://ietf-rats.github.io/draft-deshpande-multi-verifier/pics/draft-deshpande-rats-multi-verifier.html#figure-1\r\n* https://ietf-rats.github.io/draft-deshpande-multi-verifier/pics/draft-deshpande-rats-multi-verifier.html#figure-2",
       "createdAt": "2025-12-12T14:27:03Z",
-      "updatedAt": "2026-01-26T08:20:30Z",
+      "updatedAt": "2026-02-06T09:57:36Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "bb0cb038023866c9d75b53ef64f3bcf66feffae4",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "pics",
-      "headRefOid": "4c592bd9452d8cdfeab62d7a73ad2462582621e8",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "22d2d6a1bc9c087ec720926c735e3838a739da98",
+      "closedAt": "2026-02-06T09:57:32Z",
+      "mergedAt": "2026-02-06T09:57:32Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "51081b0eb46cf0c4850db46a7285d1dcc5a51ca9"
+      },
       "comments": [
         {
           "author": "yogeshbdeshpande",
@@ -4815,26 +4817,199 @@
       "id": "PR_kwDON24c9s7BRLAn",
       "title": "Potential Wordsmith on the Security and Privacy Considerations",
       "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/54",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2026-02-03T18:58:43Z",
-      "updatedAt": "2026-02-03T18:58:43Z",
+      "updatedAt": "2026-02-06T10:39:44Z",
       "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "baseRefName": "main",
       "baseRefOid": "bb0cb038023866c9d75b53ef64f3bcf66feffae4",
       "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
       "headRefName": "edits-from-usama",
       "headRefOid": "64488e12f55f6e50f24aece44b839436b74a7476",
-      "closedAt": null,
+      "closedAt": "2026-02-06T10:39:37Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 55,
+      "id": "PR_kwDON24c9s7B9xvM",
+      "title": "Privacy consideration polish",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/55",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-02-06T10:50:05Z",
+      "updatedAt": "2026-02-06T16:36:42Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "51081b0eb46cf0c4850db46a7285d1dcc5a51ca9",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "privacy-polish",
+      "headRefOid": "8b76873f00dc1cac01fda4ce3291d4288412673e",
+      "closedAt": "2026-02-06T16:36:39Z",
+      "mergedAt": "2026-02-06T16:36:39Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "f1e473c1351830c2e0fbc6d0d3f4da3bbcdbaf38"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7gQr2U",
+          "commit": {
+            "abbreviatedOid": "4ac6aab"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "thanks!",
+          "createdAt": "2026-02-06T11:12:04Z",
+          "updatedAt": "2026-02-06T11:12:35Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\nThe Verifier is not part of the Attester\u2019s Trusted Computing Base (TCB), but acts as a critical component in the Relying Party\u2019s trust decision chain. Therefore, its security directly affects the reliability of the entire remote attestation process.  When multiple Verifiers coordinate to conduct an appraisal, this may increase the attack surface, depending on the system architecture and trust assumptions.\n```",
+              "createdAt": "2026-02-06T11:12:04Z",
+              "updatedAt": "2026-02-06T11:12:35Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 56,
+      "id": "PR_kwDON24c9s7CDGLD",
+      "title": "General tidy up!",
+      "url": "https://github.com/ietf-rats/draft-deshpande-multi-verifier/pull/56",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-02-06T17:30:59Z",
+      "updatedAt": "2026-02-07T10:22:39Z",
+      "baseRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "baseRefName": "main",
+      "baseRefOid": "f1e473c1351830c2e0fbc6d0d3f4da3bbcdbaf38",
+      "headRepository": "ietf-rats/draft-deshpande-multi-verifier",
+      "headRefName": "try-privacy-polish",
+      "headRefOid": "3778e388c459ba4bda36c084e91fc3e0f60f2ee5",
+      "closedAt": "2026-02-07T10:22:32Z",
+      "mergedAt": "2026-02-07T10:22:32Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "e470f0cf7ff2f33a9227894274ecdf736e874b78"
+      },
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@junzhanghw and @thomas-fossati : A general tidy up, to Confidentiality aspect more tightened",
+          "createdAt": "2026-02-06T17:33:54Z",
+          "updatedAt": "2026-02-06T17:33:54Z"
+        },
+        {
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Ok with the proposal of Thomas ;-) ",
+          "createdAt": "2026-02-06T18:06:45Z",
+          "updatedAt": "2026-02-06T18:06:45Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks Ghada, Basically Privacy comes into play, when the Evidence is sensitive and one needs care in protecting it.\r\n\r\nFor Non Sensitive Evidence is generally only integrity protected so that no one can modify it, in transit, but ok for others to decode and look at it!",
+          "createdAt": "2026-02-06T18:07:30Z",
+          "updatedAt": "2026-02-06T18:07:30Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Merging as incorporated comments from @thomas-fossati, @junzhanghw and @GhadaArf ",
+          "createdAt": "2026-02-07T10:22:39Z",
+          "updatedAt": "2026-02-07T10:22:39Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON24c9s7gYSjF",
+          "commit": {
+            "abbreviatedOid": "ac8baf5"
+          },
+          "author": "thomas-fossati",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Using the passive voice is a bit awkward.  I\u2019ve made a suggestion inline to reflow as active voice.",
+          "createdAt": "2026-02-06T17:59:39Z",
+          "updatedAt": "2026-02-06T18:01:19Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\n- Confidentiality: Evidence containing sensitive information should be encrypted so that it can only be accessed by the intended Verifier and not by any unauthorised parties (including other Verifiers in the hierarchy or cascade). This is crucial in multi-tenant environments.\n```",
+              "createdAt": "2026-02-06T17:59:39Z",
+              "updatedAt": "2026-02-06T18:01:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7gYWGz",
+          "commit": {
+            "abbreviatedOid": "ac8baf5"
+          },
+          "author": "GhadaArf",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "If we use \"sensitive evidence\", this means that we can have \"non sensitive Evidence\". At least this is my understanding (I am not a native english speaker :p). So, rather than using sensitive, you can say \"a given evidence\"  or \" a designated\" or \"one Evidence\" or something neutral. \n\nApart from that, I am ok with the text.",
+          "createdAt": "2026-02-06T18:03:46Z",
+          "updatedAt": "2026-02-06T18:03:46Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON24c9s7ghbsF",
+          "commit": {
+            "abbreviatedOid": "4348b81"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-02-07T10:21:10Z",
+          "updatedAt": "2026-02-07T10:21:11Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\n- Confidentiality: Evidence containing sensitive information should be encrypted so that it can only be accessed by the intended Verifier and not by any unauthorised parties (including other Verifiers in the hierarchy, cascade or hybrid pattern). This is crucial in multi-tenant environments.\n```",
+              "createdAt": "2026-02-07T10:21:10Z",
+              "updatedAt": "2026-02-07T10:21:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDON24c9s7ghbvj",
+          "commit": {
+            "abbreviatedOid": "3778e38"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Incorporating Jun's comment.",
+          "createdAt": "2026-02-07T10:21:35Z",
+          "updatedAt": "2026-02-07T10:21:35Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
